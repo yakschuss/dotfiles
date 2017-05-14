@@ -100,6 +100,7 @@ alias tp="todolist list by project"
 alias config='/usr/bin/git --git-dir=/Users/jackschuss/.dotfiles/ --work-tree=/Users/jackschuss'
 
 source ~/zsh-git-prompt/zshrc.sh
-export PATH="$HOME/.rbenv/bin:~/Library/Python/2.7/bin:$(yarn global bin):$PATH"
-eval "$(rbenv init -)"
+export PATH="$HOME/.rvm/bin:$HOME/.gem/ruby/2.0.0/bin:$(yarn global bin):$PATH"
+# ~/Library/Python/2.7/bin:
+# eval "$(rbenv init -)"
 eval "$(hub alias -s)"
