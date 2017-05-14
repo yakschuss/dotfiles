@@ -104,3 +104,5 @@ export PATH="$HOME/.rvm/bin:$HOME/.gem/ruby/2.0.0/bin:$(yarn global bin):$PATH"
 # ~/Library/Python/2.7/bin:
 # eval "$(rbenv init -)"
 eval "$(hub alias -s)"
+
+export PATH="$HOME/.bin:$PATH"

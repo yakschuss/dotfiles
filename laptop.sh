@@ -18,6 +18,8 @@ mkdir -p .config-backup && \
 
 config checkout
 
+config config --local status.showUntrackedFiles no
+
 echo "installing apps"
 
 chmod +x ./cask-installs.sh
