@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/jackschuss/.gem/ruby'
-let g:netrw_dirhist_2='/Users/jackschuss/.gem'
-let g:netrw_dirhist_3='/Users/jackschuss/.gem/specs'
-let g:netrw_dirhist_4='/Users/jackschuss/.Trash'
