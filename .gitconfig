@@ -1,0 +1,9 @@
+[core]
+	editor = /usr/local/bin/vim
+[user]
+	name = Jack Schuss
+	email = jackschuss@gmail.com
+[rebase]
+	autosquash = true
+[alias]
+	last = log -1 HEAD
