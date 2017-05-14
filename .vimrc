@@ -48,7 +48,7 @@
   set nojoinspaces
 
   "colorscheme
-  colorscheme solarized
+  colorscheme jellybeans
   set background=dark
   syntax on
 
