@@ -48,8 +48,8 @@
   set nojoinspaces
 
   "colorscheme
-  colorscheme jellybeans
-  set background=dark
+  colorscheme dracula
+  " set background=dark
   syntax on
 
   filetype plugin indent on
