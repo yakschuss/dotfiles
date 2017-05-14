@@ -97,9 +97,9 @@ alias be='bundle exec'
 alias vlvl='vim $(fzf)'
 alias t="todolist"
 alias tp="todolist list by project"
+alias config='/usr/bin/git --git-dir=/Users/jackschuss/.dotfiles/ --work-tree=/Users/jackschuss'
 
 source ~/zsh-git-prompt/zshrc.sh
 export PATH="$HOME/.rbenv/bin:~/Library/Python/2.7/bin:$(yarn global bin):$PATH"
 eval "$(rbenv init -)"
 eval "$(hub alias -s)"
-alias config='/usr/bin/git --git-dir=/Users/jackschuss/.dotfiles/ --work-tree=/Users/jackschuss'
