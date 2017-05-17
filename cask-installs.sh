@@ -14,3 +14,4 @@ brew cask install docker
 brew cask install screenhero
 brew cask install postico
 brew cask install karabiner
+brew cask install ngrok
