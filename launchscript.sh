@@ -9,5 +9,6 @@ open -a Screenhero.app
 open -a Postgres.app
 open -a Dash.app
 open -a Moom.app
+open -a Messages.app
 
 
