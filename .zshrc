@@ -99,11 +99,13 @@ alias t="todolist"
 alias tp="todolist list by project"
 alias config='/usr/bin/git --git-dir=/Users/jackschuss/.dotfiles/ --work-tree=/Users/jackschuss'
 alias gcplast='git log -1 --pretty=format:"%H" | pbcopy'
+alias fzt='vim $(fzf-tmux)'
 
 source ~/zsh-git-prompt/zshrc.sh
-export PATH="$PATH:/usr/local/opt/go/libexec/bin:$HOME/.rvm/bin:$HOME/.gem/ruby/2.0.0/bin:$(yarn global bin):$PATH"
-# ~/Library/Python/2.7/bin:
-# eval "$(rbenv init -)"
+export PATH="/usr/local/opt/go/libexec/bin:$(yarn global bin):$PATH"
+eval "$(rbenv init -)"
 eval "$(hub alias -s)"
 
 export PATH="$HOME/.bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
