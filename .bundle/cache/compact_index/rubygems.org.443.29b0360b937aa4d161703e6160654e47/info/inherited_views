@@ -1,0 +1,3 @@
+---
+0.0.1 formtastic:>= 0.9.8,inherited_resources:>= 1.0.6,will_paginate:>= 2.3.12|checksum:0341f8171a477e0d93947e93b3a542f373829959d86ee175281c1b804ed05284
+0.0.2 formtastic:>= 0.9.8,inherited_resources:>= 1.0.6,will_paginate:>= 2.3.12|checksum:637f48d7ca18970624eb011554f2253db15b3d60bc52a109cba548101157e224

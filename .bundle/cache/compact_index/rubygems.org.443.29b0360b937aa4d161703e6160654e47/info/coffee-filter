@@ -1,0 +1,5 @@
+---
+0.1.0 coffee-script:>= 2.2.0,haml:>= 3.0.18|checksum:090211a2195b918dd761d695d9c0f99c54f2a0c44d9c231216db499f6498ed3b
+0.1.1 coffee-script:>= 2.2.0,haml:>= 3.0.18|checksum:9011428b5bc4a007729b8ed23556db32353d75754dc6b83c6aa3df6bd737d581
+0.1.2 coffee-script:>= 2.2.0,haml:>= 3.0.18|checksum:b2c93a596f5fc62675e363678ece38dc4c82cb472b6889e6a25ed8c598b2cfff
+0.1.3 coffee-script:>= 2.2.0,haml:< 4.0|checksum:91c00665fd4695709d0dfadba1aa489a439c67d67c85558739dc90bc1f3d4702

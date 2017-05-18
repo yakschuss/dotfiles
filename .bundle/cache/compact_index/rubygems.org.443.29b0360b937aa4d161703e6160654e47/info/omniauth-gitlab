@@ -1,0 +1,10 @@
+---
+0.0.1 faraday:~> 0.8.6,multi_json:~> 1.0,omniauth:~> 1.0|checksum:3a4bf1209fc24ad40272cd102dfba6085dbd21cad516275bc9a5ac1ac5bacc28
+0.0.2 faraday:~> 0.7.6,multi_json:~> 1.0,omniauth:~> 1.0|checksum:5926b5cd9e6a35b185719bb2d536c0b2011bdace7be2fd7602bb8cfe42dd465a
+0.0.3 faraday:~> 0.7.6,multi_json:~> 1.0,omniauth:~> 1.0|checksum:2d69332bf92aab9a78be79fe393e23e176f3bdec7cecda18b7a62b3052c88e93
+0.0.4 faraday:~> 0.7.6,multi_json:~> 1.0,omniauth:~> 1.0|checksum:fe2c4f6631bed75a59d705356d46b9791887f92b3a854eb1e8caa2ff6e86c847
+0.0.5 faraday:~> 0.7.6,multi_json:~> 1.0,omniauth:~> 1.0|checksum:6494894e97c28b2fc5ce16d6dd7bf405a34127f03ed83f0c19474f6996cc75ff
+0.0.6 faraday:~> 0.9.0,multi_json:~> 1.0,omniauth:~> 1.0|checksum:26ad921b5aab7c1cdc202e44d49fb36cc56792f75d451e383152c82df9bc0f42,ruby:>= 0
+1.0.0 omniauth:~> 1.0,omniauth-oauth2:~> 1.0|checksum:1c06a489d2924855e13411346b4258a938b783a24fd2c85d5553b91d811fafaa,ruby:>= 0
+1.0.1 omniauth:~> 1.0,omniauth-oauth2:~> 1.0|checksum:
+1.0.2 omniauth:~> 1.0,omniauth-oauth2:~> 1.0|checksum:fd88c0e522de05edfd39206a80e9f076e9e8f189883773d33d588a33ae386643,ruby:>= 0,rubygems:>= 0

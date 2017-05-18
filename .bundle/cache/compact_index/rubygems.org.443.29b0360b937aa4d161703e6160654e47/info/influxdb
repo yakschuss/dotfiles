@@ -1,0 +1,41 @@
+---
+0.0.1 json:>= 0|checksum:6df0a7fd78d16571a56eac7afb3012600d2088fa8cf3898bfd0ddf78a890e0e4
+0.0.2 json:>= 0|checksum:eb4adbb244b5d854ac2ca6b7a86be051afade4bf88f06683a8d9a05f5f0e0823
+0.0.3 json:>= 0|checksum:cfa5a7d42038c8e00044f2d8de2c275d30070acd4454876cc16806e5fbed79f8
+0.0.4 json:>= 0|checksum:ad85c68b603f406d9afce543bf9eb56f7445563b6623a77b4f4a4b367b130fb7
+0.0.5 json:>= 0|checksum:3b5b4869c2eed88bd0f43fdce2191c973107b13d7bb59d82318b7a55649926a7
+0.0.6 addressable:>= 0,json:>= 0|checksum:867a78751495860c27ac767adb90782db6d30c93e8d1e0418e59adbbf7a648b0
+0.0.7 addressable:>= 0,json:>= 0|checksum:25b00c33590c0462096267c89c38875392686d008d9b80c681b01d786265e998
+0.0.8 json:>= 0|checksum:9901b1940ae89195dc6e8d493b24ea4194eebb1bab04bf2502fa9622539fbff5
+0.0.9 json:>= 0|checksum:314cbb1693f4ef0dfbcf49dec5b776a3e93cdd4dfec1bd57b74091d5476d32a7
+0.0.10 json:>= 0|checksum:b84131116030f555874a2bdfb36deebf75fcb1e3da80bb9eebe2ba5fd1019622
+0.0.11 json:>= 0|checksum:418b19d826066479c4c1218b946dac13698cfe3752fb5ae421ebb2d938b53b9e
+0.0.12 json:>= 0|checksum:b328a02a918a8abdf20b72d021d4f00fb08939d754f0e4178a2c461020251fcd
+0.0.13 json:>= 0|checksum:fa2b65ca63ef63a0985701ad1cd3e3ea0934162fbfece31fdd52100f1c041c99
+0.0.14 json:>= 0|checksum:49ef74aa8eb94e7a0ff27472726e5dfd323ee7d80918910ae785e6535e6146a7
+0.0.15 json:>= 0|checksum:a4855a73d03dc9ef47c01d62b06505322577ff82c5cdeb6914f08a475e0bf27b
+0.0.16 json:>= 0|checksum:45c7c159f96aa77209e01bf36e1be10bea8f6cd8d197889e200d32d1dcdd6958
+0.0.17 json:>= 0|checksum:54014a0ccad5e75adaf8cda637ea2ff653bed31e1f411371d9f90bbe16a30adb
+0.1.0 json:>= 0|checksum:6722b097eb719663f5040de0fcb90c2af225e27a552c48e3815b543ad239bf8d,ruby:>= 0
+0.1.1 json:>= 0|checksum:4f55fd89e1256d579bdce4b26798c8a930f482753bee3f05b4cfe01b6b300a12,ruby:>= 0
+0.1.2 json:>= 0|checksum:58e5864e71445e1455f43b487c6786fbf242dc31820c6da172a3937aea2070ec,ruby:>= 0
+0.1.3 json:>= 0|checksum:dc799affc5db88f3b7161e11790a5cd1e2215e834128bce9660367eac5d06681,ruby:>= 0
+0.1.4 json:>= 0|checksum:e9d1cc33df986093a430e4e251e724fc76882552b9d63dfc3f1694d8e10b40c6,ruby:>= 0
+0.1.5 json:>= 0|checksum:f87727202634f091c012fc88c992ce379c645aed68c73d0af8f2007aa8735bfd,ruby:>= 0
+0.1.6 json:>= 0|checksum:7e5b05864c888cf514e2d503d2426f44900d7d026b93ea5c4ce2964c4313030a,ruby:>= 0
+0.1.7 json:>= 0|checksum:6b26ebd34535b8baf0af87eda66e3ce1ee40af324afbba6b346d6eb646babe19,ruby:>= 0
+0.1.8 json:>= 0|checksum:f3f25ee92e112809589759f771437c61fc0d4120135e69b7b8c534699f634a62,ruby:>= 0
+0.1.9 cause:>= 0,json:>= 0|checksum:1a6a447c6cd6f003b3f23d19dd1e718c0c2097eaed4ba3e148b5e50e9c22315c,ruby:>= 0
+0.2.0 cause:>= 0,json:>= 0|checksum:04e690b40a1c62f214e3bb1e7354ec474ca2aa893d443592407e4cb89082017e
+0.2.1 cause:>= 0,json:>= 0|checksum:0c6f51428218e222896d0a425e6113fdc07b5a7b977d9ad045eef5b28e8bfc65
+0.2.2 cause:>= 0,json:>= 0|checksum:44a2b7481f4dd2fcbeb35a7f1d4bd626bbd8a3c4e49b65b18f47839b2447b85d
+0.2.3 cause:>= 0,json:>= 0|checksum:
+0.2.4 json:>= 0|checksum:f4703d59459644a906c19c808cb37518e6c27aa64dff445653b868f4b6c3c8de,ruby:>= 0,rubygems:>= 0
+0.2.5 json:>= 0|checksum:06de0975530c0d8d4e49e27ba75c6f06862b5aec2dd7f91db143018fe0765df3,ruby:>= 0,rubygems:>= 0
+0.2.6 json:>= 0|checksum:41bc3b0645e307e9365e8dbb139fed368aa7a91f03323ea94db15b86847283a7,ruby:>= 0,rubygems:>= 0
+0.3.0 json:>= 0|checksum:d3cbeafa565877864d132c102ec509a2539353e4c1f47cd0488d8aac49b3ba5e,ruby:>= 0,rubygems:>= 0
+0.3.1 json:>= 0|checksum:a4484a4b51cc530822b520b4a6ecd9277d93ca94f47e900385b3c373e3a9ab73,ruby:>= 0,rubygems:>= 0
+0.3.2 json:>= 0|checksum:009f7ec2623ec3993d1a9dce5327df65911968e5982b40ce8d36ce981487cfa2,ruby:>= 0,rubygems:>= 0
+0.3.4 cause:>= 0,json:>= 0|checksum:d7720bd99b7483129d6c178185cd0d8c15c5ba825ab67a2486977e03d9a64e02,ruby:>= 0,rubygems:>= 0
+0.3.5 cause:>= 0,json:>= 0|checksum:2358412b9b80d17776a9f5253b77e81510a473031325107240a56ed5e0fbbdf6,ruby:>= 0,rubygems:>= 0
+0.3.6 cause:>= 0,json:>= 0|checksum:1d9135440dfb653356b9f8efea7997551e4aee01d59e8d007ab953ec82be892f,ruby:>= 0,rubygems:>= 0

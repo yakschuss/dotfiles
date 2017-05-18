@@ -1,0 +1,35 @@
+---
+0.4.1.0 execjs:>= 0,rails:>= 3.1,react-source:= 0.4.1|checksum:60f2a74fd744bd1075556faa46fa1816933ed2cbcb719d5b4ebf7c02a94a7879
+0.4.1.1 execjs:>= 0,rails:>= 3.1,react-source:= 0.4.1|checksum:2ea68cae087c0ee3873ce7164d75ab530560ce9a8c695841ade2548365a18148
+0.5.1.0 execjs:>= 0,rails:>= 3.1,react-source:= 0.5.1|checksum:d3e301735500461f8d0fed968777fe0dfb2a4e1a2c4e8efe556eaeface95f728
+0.5.2.0 execjs:>= 0,rails:>= 3.1,react-source:= 0.5.2|checksum:d08322db6010e6b026f10b2370f1bff8e7ef14ba686767c978299fe56fa5cb17
+0.8.0.0 execjs:>= 0,rails:>= 3.1,react-source:= 0.8.0|checksum:2c28d6b9a4bd2508539c24687eeec511c86d3133337e474d63a0399302edec80
+0.9.0.0 execjs:>= 0,rails:>= 3.1,react-source:= 0.9.0|checksum:eb84f9100f3ba1a654522a85875a11fa13e53b8cd6d97d766d7251f930ead586
+0.10.0.0 execjs:>= 0,rails:>= 3.1,react-source:= 0.10.0|checksum:91f60b8b7a9f4b7054d55fa6a99bbb8cb14b6be7299c558e1472439f08305a14
+0.11.1.0 execjs:>= 0,rails:>= 3.1,react-source:= 0.11.1|checksum:4c763211e093a25e63a151df74ce7ffd4a3aa0059f4162148fb1b4629e609bde
+0.12.0.0 execjs:>= 0,rails:>= 3.1,react-source:= 0.12|checksum:73a61cdfb92fdeb1a66b2d29fdc766fc6216c1e82d0e60b99985ffa9d2341ba2
+0.12.1.0 execjs:>= 0,rails:>= 3.1,react-source:= 0.12.1|checksum:cfcabd09e81919c16b048c8874a0788aa77eaa2e483ca80c4bea8581ad2cfc04
+0.12.2.0 execjs:>= 0,rails:>= 3.1,react-source:= 0.12.2|checksum:09a60f45b562c278ebb614a0ef70870f575658d60cb87a166d2d1f5e9503cc10
+0.13.0.0 execjs:>= 0,rails:>= 3.1,react-source:= 0.13.0|checksum:c22ddfb7d3cffc67c27662a1908b29b2a235fd74e6af9c13e4d5ec63c877593c
+1.0.0 coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,rails:>= 3.1,react-source:~> 0.13|checksum:3b86222bfb4c27510f5cf5983e842d46ac413889f9fd15b1e6d2470c3c4af1ad
+1.1.0 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,rails:>= 3.2,tilt:>= 0|checksum:6d0b8c197a78241b3fa2735a8d6fe7396862a4be43cbbec030d94458b19b12f7
+1.2.0 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,rails:>= 3.2,tilt:>= 0|checksum:748aa262704142ac6924f8fccbbe253b14452083c947f7e55242402d58b4393c
+1.3.0 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,rails:>= 3.2,tilt:>= 0|checksum:303267ed56de1a7f079cafed55406353854a1bf150bf589ba80f93cd81e45f84
+1.3.1 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,rails:>= 3.2,tilt:>= 0|checksum:52ddff78891a4db165eb56263b2dfb7ad3c839e866936fe897933b58faad50ac
+1.3.2 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,rails:>= 3.2,tilt:>= 0|checksum:97b441beadce1c9d0889b10e215e82ba7f823459a05d62b830b70a16ad249489
+1.3.3 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,rails:>= 3.2,tilt:>= 0|checksum:83285304f7955fe6265c95c0e568fca5b3b58dd742edc9fa65fd8b212a8c4712
+1.4.0 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,rails:>= 3.2,tilt:>= 0|checksum:135eb06394d40ee37f7f59ba52e7638d6ee1a0da270d7eeac33c8ecbffb0cf8a
+1.4.1 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,rails:>= 3.2,tilt:>= 0|checksum:c76600c9ec5f3da1e98839c7297fc3efc65cd2c33a77c7239538004a5179702b
+1.4.2 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,rails:>= 3.2,tilt:>= 0|checksum:75237b3abc9ebbf0addc05866dfc7d43cf31d51310512b2eb465c45e1f92b5ee
+1.5.0 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,rails:>= 3.2,tilt:>= 0|checksum:72850a7ea3698847815fa70c2a65d35e35933e9179cfdfff0cdbdcc9304c0835
+1.6.0 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,rails:>= 3.2,tilt:>= 0|checksum:d8916dedc0144139978acd1b8136e4e8b08632944f530ee307f56c338f17ed19
+1.6.1 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,rails:>= 3.2,tilt:>= 0|checksum:872acb4429f2cf0048e25092fe9026a866852943683a4cc9e59927e2f1a5f385
+1.6.2 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,rails:>= 3.2,tilt:>= 0|checksum:ff8ae1ca0b9862b37d7039481620e55462aaf8fe18c8a5df80a0598cc0dc3d54
+1.7.0 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,rails:>= 3.2,tilt:>= 0|checksum:bb24a0993a5565365c2b735ed855c1807f5c51cf7a2ffe3efd5dd90f654428c9
+1.7.1 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,rails:>= 3.2,tilt:>= 0|checksum:b1865527bf41aba1c7c2158a20212990974f17dea8e616c8c2defe63c1c2c1dd
+1.7.2 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,rails:>= 3.2,tilt:>= 0|checksum:42d0cb82c4f0da43e77dfac9a7bfe4814053df66f70bd68af582543ac6be18c2
+1.8.0 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,railties:>= 3.2,tilt:>= 0|checksum:9a6aa9e1965de209e431265ea7f43a61ad64da58b0156d372fa6272858002523
+1.8.1 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,railties:>= 3.2,tilt:>= 0|checksum:ce035fea880bfb186e500a704d5f5c54c5897b1c1a8a79ee85c97202f80c215a
+1.8.2 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,railties:>= 3.2,tilt:>= 0|checksum:16ed72bce1e8f8559178536f45eec1fbef5af93c9f5fe2e6a4512f61fbdbca9e
+1.9.0 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,railties:>= 3.2,tilt:>= 0|checksum:30acbb1c26af12b488923725ff406a70f467282a7b69e8ff8feb24ae691096c2
+1.10.0 babel-transpiler:>= 0.7.0,coffee-script-source:~> 1.8,connection_pool:>= 0,execjs:>= 0,railties:>= 3.2,tilt:>= 0|checksum:5a8f186825cf8c038ea504c2cd8b315d0b044467653230b946c986ab63214c78

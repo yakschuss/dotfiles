@@ -1,0 +1,10 @@
+---
+0.0.1 redcard:~> 1.0|checksum:9AJxe8Fc1kSiJwC8t7i3EuAuy1m9rPbXxBEcXk7ne9E=
+2.0.2 |checksum:F+oDL3jNZOvMAJxPGLdyf39NSoOmNgCsiTmLcfFdX6g=
+1.0.0 redcard:~> 1.0|checksum:aVxXTLc07JT5Yrqn4iwpO/+F62QXeMeUpVBTc36WXuA=
+2.0.3 |checksum:NziUvy7wivBrudbt15h49PqzXmOXJFMF1tZpPC2gTpw=
+1.0.1 |checksum:n8SKMeGLpTKCjJIky9aAi2YqomREx5UnLhv6bqYldEU=,ruby:~> 1.8.7
+2.0.7 |checksum:jmX6iqg33x/6v7wzc6RguGydQGn8fwukrJ9KVYuRZ8I=,ruby:~> 2.0
+2.0.8 |checksum:mQvUY0PSYK0qB1Jn1A0QreTuNcUINlFKScYxzySFeoE=,ruby:~> 2.0
+1.1.0 |checksum:tpfjQ/VOdcwWgUpIQaUhQvB7iZK/ubEoGu7oKICeO10=,ruby:~> 1.8.7
+1.2.0 |checksum:ijOnvuTCsA7dQGXN9UfqLS57BV8OzdpPzniz8Bb17Lk=,ruby:~> 1.8.7

@@ -1,0 +1,5 @@
+---
+2.9.5 charlock_holmes:~> 0.6.6,escape_utils:~> 0.3.1,gitlab-pygments.rb:~> 0.5.4,mime-types:~> 1.19|checksum:640bb56bb73f0b1e0cdb1cfa8ad71b5eda2f6407346bca65c86fd44bce071e8a
+2.9.6 charlock_holmes:~> 0.6.6,escape_utils:~> 0.2.4,gitlab-pygments.rb:~> 0.5.4,mime-types:~> 1.19|checksum:a007c2a5defde72f375f31d48e9729a2374df5acb6b66dc4a061e6292996215f
+3.0.0 charlock_holmes:~> 0.6.6,escape_utils:~> 0.2.4,mime-types:~> 1.19|checksum:6652604cdf0168832ba5fe6662251f792730fbcb9253869625658cb1e8d9563c
+3.0.1 charlock_holmes:~> 0.6.6,escape_utils:~> 0.2.4,mime-types:~> 1.19|checksum:2b16d5f6825ad21fae28aa45e8561dedb05b11888a3846b935459eda6aafcd93,ruby:>= 0

@@ -1,0 +1,21 @@
+---
+0.0.1 letter_opener:~> 1.0,rails:~> 3.2|checksum:arC7gcmIC96IsKFIjfHDplp9/aWNP9xE8kdtFBh+pQ0=
+0.0.2 letter_opener:~> 1.0,rails:~> 3.2|checksum:lI7LC+PippaFhv/zwdpLTkQWJkt44/6LjC30sVdzqqU=
+0.0.3 letter_opener:~> 1.0,rails:~> 3.2|checksum:qfQMv9W8YrfXFuz8lBIn5mLwQ0eABLC/sVRCmTyMiHQ=
+0.0.4 letter_opener:~> 1.0,rails:~> 3.2|checksum:3bggFWlSrV3z94+Ih+r/BaNtyiLY/b14uFPRMirgVdA=
+1.0.0.rc1 letter_opener:~> 1.0,rails:~> 3.2|checksum:906t/n/2G0mgw12jCX+s+2bjkaUv6lALEhTezDpd4xg=,rubygems:> 1.3.1
+1.0.0.rc2 letter_opener:~> 1.0,rails:~> 3.2|checksum:IwnPu45LVbseitle40hMfIeIBXNEKvs/jwwfjRDPJ7U=,rubygems:> 1.3.1
+1.0.0.rc3 letter_opener:~> 1.0,rails:~> 3.2|checksum:S4kjYkD2xk07hGwqI/7wwon05xwNsS3PCKo6afW5qZk=,rubygems:> 1.3.1
+1.0.0 letter_opener:~> 1.0,rails:~> 3.2|checksum:Uc3+b/UugJiaKqSlGV9MLvJzVNRgG3wvAYcqMJnDfEs=
+1.0.1 letter_opener:~> 1.0,rails:~> 3.2|checksum:Z5N+DA+hxU+v0TdjMaJlRd8JGNQGyTD48G2tGDC/2xE=
+1.0.2 letter_opener:~> 1.0,rails:~> 3.2|checksum:v9sSg2VUFFh2NAj1WHmXkBq5xVsNbEF3VIgpZGH7t5A=
+1.0.3 letter_opener:~> 1.0,rails:~> 3.2|checksum:zw4ISJTc1LV39Uk5ftyGlj32sU8Kylp9eOEUhPgeBbg=
+1.1.0 letter_opener:~> 1.0,rails:>= 3.2|checksum:lX44cKYIRTuS8iwde3IJ62LXH0YkpvPVHGphtoYNTY0=
+1.1.1 letter_opener:~> 1.0,rails:>= 3.2|checksum:AQ8WP62pz6jb3A2CmaaZLFdQJGhqAr1Fs0ks5/Q0EOc=
+1.1.2 letter_opener:~> 1.0,rails:>= 3.2|checksum:DCXmX3ByG65+/lzd8MgT64D8NIyH22xBXlr5YOU7b+g=
+1.1.3 letter_opener:~> 1.0,rails:>= 3.2|checksum:ik50YfYVflp1wauu5nwMWJ+mf2BboHzbsxds43GjsKo=
+1.2.0 letter_opener:~> 1.0,rails:>= 3.2|checksum:3m6WwCXSEEM//IUG4cC7hkV5FUY1YHuhRSmlj7amGI4=,ruby:>= 0
+1.2.1 letter_opener:~> 1.0,rails:>= 3.2|checksum:FrhEHVOBNNabI/5d9fYbKskUnh5u8WmDdhH73LXBikU=,ruby:>= 0
+1.2.2 letter_opener:~> 1.0,rails:>= 3.2|checksum:bf10SsxO4y0HgvgBpaHKG7+xnV9l4GelSN6IO3xnL1M=,ruby:>= 0
+1.2.3 letter_opener:~> 1.0,rails:>= 3.2|checksum:Wjam5YggIcyShs03KdnPPF4hRPkZNvq/NHgGdxe9wIg=,ruby:>= 0
+1.3.0 actionmailer:>= 3.2,letter_opener:~> 1.0,railties:>= 3.2|checksum:e6XXh513hxq6UpIvRw0P9t0K3U7+X9GaZ0L2hTkrHRQ=,ruby:>= 0

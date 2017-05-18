@@ -1,0 +1,5 @@
+---
+0.1.1 activerecord:< 6.0&>= 4.1.15|checksum:e2ae993a4900b111d928761ee57976fb8c3d9acf1290e216faa25f3ab5fb7dd2,ruby:~> 2.1
+0.1.2 activerecord:< 6.0&>= 4.1.15|checksum:13ea8ecb75f1fd9c69abacbdbc01108e09d6b66a9182e3818d6f605462fd7b72,ruby:~> 2.1
+0.2.0 activerecord:< 6.0&>= 4.1.15|checksum:a1ba5f40fbb70b640412b1db4e076535a582d4805d41fd431a61bf619e1712ed,ruby:~> 2.1
+0.2.1 activerecord:< 6.0&>= 4.1.15|checksum:92644c2c0b0eb8583c928916674a0b455c845ffbf6d3925274f5fc6bb42a7396,ruby:~> 2.1

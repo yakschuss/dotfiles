@@ -1,0 +1,6 @@
+---
+0.0.5 rake:>= 0,rubyforge:>= 0|checksum:bf0e33796c694f5e152e77e8337e133901815b9beb3e05a50ab731736cc5978a
+0.0.4 rake:>= 0,rubyforge:>= 0|checksum:95ce4710cdf59b208dd19f5c89ff2b56f11ce89cb746de47febda3989d693191
+0.0.3 rake:>= 0|checksum:63abe477700d6c52c5776547560d2c2f78f1ecf8e0e3f7b4136b2dfbf16f4810
+0.0.2 rake:>= 0|checksum:c8d38dfad8325ed6b5562b3060a4b6b1a910eefc6ea93f7ef5802a0c8157adc8
+0.0.1 rake:>= 0|checksum:08c5fe840b8a5bacdc663abf166ca8e738f6d07b50d8efe23835253678310dec

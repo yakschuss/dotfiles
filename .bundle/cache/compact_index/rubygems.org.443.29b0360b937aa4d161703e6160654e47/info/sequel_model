@@ -1,0 +1,15 @@
+---
+0.1 sequel:>= 0.5,validatable:>= 0|checksum:tP92vsIclZcR6CaLu9RWSgY+s4YsYJ3Y+IU0HFKoPVg=
+0.2 sequel_core:>= 0.5,validatable:>= 0|checksum:dMyhg4FsnFfnC5HkqIU7YB3b05/Y/LbFGyYAo8+Sj8k=
+0.3 sequel_core:>= 0.5|checksum:+HdEVIFV/NCiK5kTX2Vy0qxq9e/04dRxOb2egFwAIl4=
+0.3.1 sequel_core:>= 0.5|checksum:fNXOx8u/9w1NPtJdREAkSb8OSKa+AKn1ETIxfBhEFPs=
+0.3.2 assistance:>= 0.1.2,sequel_core:>= 1.0|checksum:VzpKQf5A44y544PpcrY443Z3DJ2T2bJ/GOpysS6m1E0=
+0.3.2.1 assistance:>= 0.1.2,sequel_core:>= 1.0|checksum:DPBUa+zCp8XgL6Pg8F5GID5Ier0YC+65b9SASXT5Gqw=
+0.3.3 assistance:>= 0.1.2,sequel_core:>= 1.0|checksum:GzWhx+L5mmiYVXSFn00znN+QKwxwZ1fwLueFdPnmO/s=
+0.4 assistance:>= 0.1.2,sequel_core:>= 1.0|checksum:GuwqcES6xNx5YavmHvSRf06ybBzQaLE5u6gevLLaxHA=
+0.4.1 assistance:>= 0.1.2,sequel_core:>= 1.0|checksum:k2wDaKiol6K4gnCeyvv3BE4CBspZmFkfnzBKwPywY+k=
+0.4.2 assistance:>= 0.1.2,sequel_core:>= 1.0|checksum:GaauOyKstSE08jYQkCKmhL6ZB15nIkHF/soAxtZk3uE=
+0.5 assistance:>= 0.1.2,sequel_core:>= 1.0|checksum:3a+JVUMLn+/NELrc2IYATIlN773xKVP9V+vCRXeX+Cg=
+0.5.0.1 assistance:>= 0.1.2,sequel_core:>= 1.0|checksum:sY4yUn+ZajbNct8a4zLDu3wxVPdzorYkwSyQ6e38GJk=
+0.5.0.2 assistance:>= 0.1.2,sequel_core:>= 1.0|checksum:bME7hYpaUpmE4/6YyMzCyezXzGj3qpaB2g80q55Fxag=
+3.8.0 sequel:>= 3.8.0|checksum:DXSy83+6xY8ZZbI+mm1kojPVmrDToLByC52uV3Jhzy4=

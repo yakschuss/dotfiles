@@ -1,0 +1,4 @@
+---
+1.0.1 buttercms-ruby:~> 1.0.1|checksum:7ac7adad1c35813ec378dbc2b4f725433fbe2a21feb4c433210787bdf92e7317,ruby:>= 1.9.3,rubygems:>= 0
+1.0.2 buttercms-ruby:~> 1.0.1|checksum:c700fca8dedc8d3535e2996bb15f85f7d5780f91a95e30b5e24d77e2b23f9dd7,ruby:>= 1.9.3,rubygems:>= 0
+1.0.4 buttercms-ruby:~> 1.0.4|checksum:2b03f148f769cd276bff575fc0be7b9f1dcc4d6e8a4fa28c918577ec2b7c2dd6,ruby:>= 1.9.3,rubygems:>= 0

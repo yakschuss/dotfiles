@@ -1,0 +1,6 @@
+---
+1.0.0 interactor:~> 1.0,rails:< 5&>= 3|checksum:18d103e2f05e2b7b1ff59ef52f07843d0c7032c91d0c94d0912ef021ebb0902f
+1.0.1 interactor:< 3,rails:< 5&>= 3|checksum:157fa22d9efc630ccb58fc96338fd5c7492c6dca611859a5d5eb17ba25d5daca
+2.0.0 interactor:~> 3.0,rails:< 5&>= 3|checksum:943d04b3776e5cc3ad725ce0c8e44de7a82587772ce72bb3e3f3a2f2f64e3e34
+2.0.1 interactor:~> 3.0,rails:< 5&>= 3|checksum:8c30ee4b0f1336a7f73a5f9981b55aeb167f0667c61c9f2b1c48be5c78f5d66d
+2.0.2 interactor:~> 3.0,rails:< 5.1&>= 3|checksum:956326d92a7b1722d61ed667da6fa182cdeb43a99a84ba9610ca80cd6b34a153

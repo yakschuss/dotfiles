@@ -1,0 +1,30 @@
+---
+0.1.0 httpadapter:~> 0.2.0|checksum:72efc431f4278d8a6010a396fb5c890a9d5ab567bba00d9674e3226b9b557ef9
+0.1.1 addressable:~> 2.2.1,httpadapter:~> 0.2.0|checksum:78cea6fa9c934f1f5179d983dc843501c1b9aa0e2abda387b902dafbf3b23c4e
+0.1.2 addressable:~> 2.2.1,httpadapter:~> 0.2.0|checksum:e06ceab1388a3702dda74db8f53cdfe867e31f97b495cea8e22a7e9a7c906d7c
+0.1.3 addressable:~> 2.2.1,httpadapter:~> 0.2.0|checksum:7fcdf7516e77a59030f307cb02995852f8907d6ec46cdaa7d38e32179d3cecf1
+0.1.4 addressable:~> 2.2.1,httpadapter:~> 0.2.0|checksum:a94f9f0d3006a118b48f5c7524755afcb1a713ce057858141a2f3caf638a8a06
+0.2.0 addressable:~> 2.2.1,httpadapter:~> 0.2.0,json:~> 1.5.0|checksum:3bd90ed10e800d646d8a9c015ee59bf77777c02eeb400d7bdf18e24955c33f59
+0.2.1 addressable:~> 2.2.1,httpadapter:~> 1.0.0,json:~> 1.5.0|checksum:7ee82a9b6495701699fc993dac993626170b9a12b43fd39872c7712bd0c18431
+0.2.2 addressable:~> 2.2.1,httpadapter:~> 1.0.0,json:>= 1.4.6|checksum:b09d7ebcfc6bc600366a684105bf6747bc5df2b0445eb24b9e971092a55cae06
+0.2.3 addressable:~> 2.2.1,httpadapter:~> 1.0.0,json:>= 1.4.6,jwt:>= 0.1.4|checksum:4cbb7f0de6c07a367c503768af9471673c22b167d05131681db3c9ca6feab336
+0.2.4 addressable:~> 2.2.1,httpadapter:~> 1.0.0,json:>= 1.4.6,jwt:>= 0.1.4|checksum:0fc6272c48269af983e81518d5c9a5c4ed13486f74d91f490bba03020c3cabf6
+0.3.0 addressable:~> 2.2.1,faraday:~> 0.7.0,jwt:>= 0.1.4,multi_json:>= 1.0.0|checksum:fd234cf5c83d47661fa48690f5e2ce84106fde6012ca6dff89c0d3223b94f49f
+0.3.1 addressable:~> 2.2.3,faraday:~> 0.7.0,jwt:>= 0.1.4,multi_json:>= 1.0.0|checksum:08501d6e83edbae9f36f4344c488d3cb3051106806a8c6bacca1919b164a4abb
+0.3.2 addressable:~> 2.2.3,faraday:~> 0.7.0,jwt:>= 0.1.4,multi_json:>= 1.0.0|checksum:dc40a818705136ecd65ebd10dca5f91b0e3a1f3ed658f6b7f95fac2e0c151514
+0.3.3 addressable:~> 2.2.3,faraday:~> 0.7.0,jwt:>= 0.1.4,multi_json:>= 1.0.0|checksum:9d5bef37f84170b486c760867c43733da1c18f3b102404db22035a6b5aa29358
+0.3.4 addressable:~> 2.2.3,faraday:~> 0.7.0,jwt:>= 0.1.4,multi_json:>= 1.0.0|checksum:a48e04d35d95d5d3dffdbc66662bcce0ec1c6519b6468e278a36d5016d50c610
+0.4.0 addressable:>= 2.2.3,faraday:~> 0.8.1,jwt:>= 0.1.5,multi_json:>= 1.0.0|checksum:0c766595938e530423edc5c4b4d0c660ed5aca2881aecf77bbf049751313b3cb
+0.4.1 addressable:>= 2.2.3,faraday:~> 0.8.1,jwt:>= 0.1.5,multi_json:>= 1.0.0|checksum:96507926a35ca79b6dd1bc158196216b021555b88e73bebc980e38900d305b8a
+0.4.2 addressable:>= 2.2.3,faraday:~> 0.8.1,jwt:>= 0.1.5,multi_json:>= 1.0.0|checksum:6faee4f6bd54cfd2f5022d61fc035c4d5fd82f968a9d461c695f747e74bb0149
+0.4.3 addressable:>= 2.2.3,faraday:~> 0.8.1,jwt:>= 0.1.5,multi_json:>= 1.0.0|checksum:fbb5de85afcc563e27698b87e9f68310a4cc152cfc7467d2e08b7ef041cfe015
+0.4.4 addressable:>= 2.2.3,faraday:~> 0.8.1,jwt:>= 0.1.5,multi_json:>= 1.0.0|checksum:8ac3682fdd8827c56e65ece3ab7467d0444ab53182e23e09b0d27ba104532ed0
+0.4.5 addressable:>= 2.2.3,faraday:~> 0.8.1,jwt:>= 0.1.5,multi_json:>= 1.0.0|checksum:f00c0b8a773cf6e6f61fd544aaf4e4b6b8260bac951604030e5a4810839ca1a9
+0.5.0 addressable:>= 2.2.3,faraday:>= 0.9.0.rc5,jwt:>= 0.1.5,multi_json:>= 1.0.0|checksum:b68f52ab43548c8599dd8827bcd2cc857f84e457e0baea1e86e462a37e552649
+0.5.1 addressable:>= 2.2.3,faraday:>= 0.9.0.rc5,jwt:>= 0.1.5,multi_json:>= 1.0.0|checksum:abb9253959476740c9ea86d44de4afe9de5585c92fc98e4cff30f0d44329fd60
+0.6.0 addressable:~> 2.3,extlib:~> 0.9,faraday:~> 0.9,jwt:~> 1.0,multi_json:~> 1.10|checksum:8203310653c5f7a7302e2a323f73724493698bec3835667c3612c623df8c623a,rubygems:>= 1.3.5
+0.6.1 addressable:~> 2.3,extlib:~> 0.9,faraday:~> 0.9,jwt:~> 1.5,multi_json:~> 1.10|checksum:963bc393b0dc9bb5f25351fe46562403198a9d3563561e9a9966875642e4631d,rubygems:>= 1.3.5
+0.7.0 addressable:~> 2.3,faraday:~> 0.9,jwt:~> 1.5,multi_json:~> 1.10|checksum:381bb56c1aa0b4c30556e3649781ff826d7bf44bb8950c418e46a4ccf6b8cfea,rubygems:>= 1.3.5
+0.7.1 addressable:~> 2.3,faraday:~> 0.9,jwt:~> 1.5,multi_json:~> 1.10|checksum:6314e3c029756863068ccebe3d5d21e9a39780afbb22dd5357b81bc994aa10ff,rubygems:>= 1.3.5
+0.7.2 addressable:~> 2.3,faraday:~> 0.9,jwt:~> 1.5,multi_json:~> 1.10|checksum:6fe0dd2fe994e7b6a1821a378ac08dd44feef185d7fd728e18ea4c987123a4a9,rubygems:>= 1.3.5
+0.7.3 addressable:~> 2.3,faraday:~> 0.9,jwt:~> 1.5,multi_json:~> 1.10|checksum:06cbb289a07b30d3297f6491949c693e24e4ff0481ee89ea5e11f79012322691,rubygems:>= 1.3.5

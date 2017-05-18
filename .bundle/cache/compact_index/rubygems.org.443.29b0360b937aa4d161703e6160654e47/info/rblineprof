@@ -1,0 +1,12 @@
+---
+0.2.0 |checksum:6hF4DN6Qekv2y+KrEleSEmF0WzmzXTO+rPzEWT7f6ho=
+0.2.1 |checksum:Zn4iNzAChFTD6MnP5OmoXIwHl9NwvHAIZecoOGIHYtU=
+0.2.5 |checksum:6+BZte2NhT2YRwIEd029tBqvO1XfIdp95jiBLYDozQk=
+0.2.7 |checksum:ceCk4+bbZrOAjmmTttwv+chBcg8An75TMH7D22OzT1Q=
+0.3.2 debugger-ruby_core_source:~> 1.2|checksum:ORx1gS5IM1wXTlEgJzhrM7ZYOUpYD24pLRfLf21ZULA=
+0.3.3.beta debugger-ruby_core_source:~> 1.2|checksum:qQL9SVRtPYHfekHGPqxIDaJYWgdWxkWH2q9d/M6drfs=,rubygems:> 1.3.1
+0.3.3 debugger-ruby_core_source:~> 1.2|checksum:CeZfH/jwfZWDIvgi5kJpUgRwNOtkAmg+tg9+mxoMYE4=
+0.3.4 debugger-ruby_core_source:~> 1.3|checksum:zgMVl8rxfwgHlXNvGu3WaY8qIPViOjeYPa/evxXb9mE=
+0.3.5 debugger-ruby_core_source:~> 1.3|checksum:sss/8U6dW215SXdorhtBEjjlEMwCJrXFf8yvcS53oDg=
+0.3.6 debugger-ruby_core_source:~> 1.3|checksum:hvnUXK8J5MywjBhP3yKQGr1FYJl4+IwDBI4z+2SbqFQ=
+0.3.7 debugger-ruby_core_source:~> 1.3|checksum:5308af8262d324285e4006330fb73844aef559a8a6a7144e294d872683b4aba6,ruby:>= 0,rubygems:>= 0

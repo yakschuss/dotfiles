@@ -1,0 +1,5 @@
+---
+1.0.0 ffi2-generators:~> 0.0.1,rake:~> 10.0|checksum:sphFLQPHaOaSjChV8Chw5F8hhNRsr519dHXarcFuC3Q=
+2.0.4 ffi2-generators:~> 0.1|checksum:0DYs8gwz3wXb7P6YYWAPMawQCQGyiWjgOKWSYoDSchU=
+1.0.1 ffi2-generators:~> 0.1,rake:~> 10.0|checksum:CZ5v3Oz6v1SrSy2Ld8yEtKS5p2NJ7QEO/6CSaPJXnEY=,ruby:~> 1.8.7
+1.0.2 ffi2-generators:~> 0.1|checksum:LPTUW6nPuyzp8YyCBsxVfnyf/Wnkf9oIy3GIaD6O33o=,ruby:~> 1.8.7

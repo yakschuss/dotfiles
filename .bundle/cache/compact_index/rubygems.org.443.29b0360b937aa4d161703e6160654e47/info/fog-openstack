@@ -1,0 +1,19 @@
+---
+0.1.0 fog-core:>= 1.35,fog-json:>= 1.0,fog-xml:>= 0.1,ipaddress:>= 0.8|checksum:76872a9d18900b68ae7111012d85523a820267c9e3522f0a1b6df516bd060bfa
+0.1.1 fog-core:>= 1.35,fog-json:>= 1.0,fog-xml:>= 0.1,ipaddress:>= 0.8|checksum:84830fdc6575c18c788a2c7bf39993e9372536893c2ea037a664a9e962913cca
+0.1.2 fog-core:>= 1.35,fog-json:>= 1.0,fog-xml:>= 0.1,ipaddress:>= 0.8|checksum:917bf123ddea13f71c702d87f2b5417776207ddf9aaa5c99452726ed5c84e9b7
+0.1.3 fog-core:>= 1.37,fog-json:>= 1.0,fog-xml:>= 0.1,ipaddress:>= 0.8|checksum:0a5ffcc1d18faa520a8b163ee5b3f748b3eb7144168406f353baf804b75bc715
+0.1.4 fog-core:>= 1.38,fog-json:>= 1.0,fog-xml:>= 0.1,ipaddress:>= 0.8|checksum:e21c35c2e23d0cd65c1786e7e351e88a0d98724955109dfbf0c49824061f7007
+0.1.5 fog-core:>= 1.38,fog-json:>= 1.0,fog-xml:>= 0.1,ipaddress:>= 0.8|checksum:5f87dde02352f317c2a778b0aed1ae19e4a42fdc2d830761e5c1868b6bf85429
+0.1.6 fog-core:>= 1.39,fog-json:>= 1.0,ipaddress:>= 0.8|checksum:468da678780ea57cbf913f6d1a4c96b9b0c366f1b980cf6065dad5b5faf582df
+0.1.7 fog-core:>= 1.40,fog-json:>= 1.0,ipaddress:>= 0.8|checksum:356a51a72cd546e324f77cdc471af51c04dd9d0bfc861f68f7e29eb518781312
+0.1.8 fog-core:>= 1.40,fog-json:>= 1.0,ipaddress:>= 0.8|checksum:9c6119ee143bf93e5d4b4603d292f9d9c64bcf8b99e61a418581e587b45f599e
+0.1.9 fog-core:>= 1.40,fog-json:>= 1.0,ipaddress:>= 0.8|checksum:edd61372892009c30b465c1cfb0460aa3b452dabb210df4fb7630b24f27a956f
+0.1.10 fog-core:>= 1.40,fog-json:>= 1.0,ipaddress:>= 0.8|checksum:eb40c74c68d2fae578ffc2bbcdf181ad0f7fe1c11e02329b67f75b3ad68a5133
+0.1.11 fog-core:>= 1.40,fog-json:>= 1.0,ipaddress:>= 0.8|checksum:fb7a058795c0923c235db57a04fd60686651d1c5227b502cc139a8fb36d802c7
+0.1.12 fog-core:>= 1.40,fog-json:>= 1.0,ipaddress:>= 0.8|checksum:a893760e3b799be851f4196598d1a49edbf766f47fb0763fd7267aa4f923c56e
+0.1.13 fog-core:>= 1.40,fog-json:>= 1.0,ipaddress:>= 0.8|checksum:18572f77fed0dd22e3ddf6bb0a245453993b5f3a42f042db5cf74e5cc160e43a
+0.1.14 fog-core:>= 1.40,fog-json:>= 1.0,ipaddress:>= 0.8|checksum:eab2541d7bfd297f121eac4cde167721a02b7d8352589377d1e3ac7ff5fdb4eb
+0.1.15 fog-core:>= 1.40,fog-json:>= 1.0,ipaddress:>= 0.8|checksum:058103360df0d84ee0a0e2b33c550c3fcec4684123f281ffea82f97f4787d612
+0.1.17 fog-core:>= 1.40,fog-json:>= 1.0,ipaddress:>= 0.8|checksum:fe89368a818f43103242a6ecf4aa7d1ca49c01f8fb252be36ee5de26a9ffffec
+0.1.18 fog-core:>= 1.40,fog-json:>= 1.0,ipaddress:>= 0.8|checksum:b0acf69bd2b1ed316f54779b70351c5a2d3f99b7374166fd7cc153d53564346e

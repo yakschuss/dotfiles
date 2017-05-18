@@ -1,0 +1,25 @@
+---
+0.1.0 mime-types:~> 1.15|checksum:a561755815adb6ae4db5206fd83cc4a72ecd14bd692c3d1af8251136430342da
+0.2.0 mime-types:~> 1.15|checksum:ca0b313983aab87a4abd2b006e9c6d48df7945b56ef7134e0c4550e6297acfc8
+0.3.0 mime-types:~> 1.15|checksum:0dd672c4824fe9516c2df36594525d5cda7f0ee9fc56ddcb0fd645dea2c36331
+0.3.1 mime-types:~> 1.15|checksum:1b3fb14e3fcb76baaa7dc135e08e817f710d3ecd9a7a55d65d582874d879c9bd
+0.3.2 mime-types:~> 1.15|checksum:7efb5556f834fc41e86607f71ecef2e39b0abfdbf8a8195c3cad1d13587c58dc,ruby:>= 0
+0.3.3 mime-types:~> 1.15|checksum:048d505a5810b2be02976172699d60775976b706d40ad53ffcc7a8fc07c882bf,ruby:>= 0
+0.3.4 mime-types:~> 1.15|checksum:ea62680188d2fbdc0ce3b4ea14cf06ae5d7e95f3eb36e7ad384ae5e0dcbb5068,ruby:>= 0
+0.3.5 mime-types:~> 1.15|checksum:f017e1c7efb36c684161145cb13f571c477990e333ae566270b12d93f7dc142c,ruby:>= 0
+0.3.6 mime-types:~> 1.15|checksum:c25f51311ea2f4d1400ec1324317d84e4737aad3c35a8e835ac32d710e94f622,ruby:>= 0
+0.3.7 mime-types:~> 1.15|checksum:676d2cb0b648cf84d545d86ddc588d914d2738519e9a72ab90122b90ccff268e,ruby:>= 0
+0.3.8 mime-types:~> 1.15|checksum:7d08c02efd1a3395e4d44bd2d1d9c2369dce88fe97ee5274d69034e5e456f396,ruby:>= 0
+0.3.9 mime-types:~> 1.15|checksum:cb85c95920eb1b0269f2356c95cb78dbcbb0d6e69f904338b609f5b5b9c74936,ruby:>= 0
+0.3.10 mime-types:~> 1.15|checksum:bfead407d28c395ade330083972484076befea1af369ae603448448c1f7393d0,ruby:>= 0
+0.3.11 mime-types:~> 1.15|checksum:9179c2a48475832da40c85b3de6f79ed327522b1da329713b4ea993c5081f367,ruby:>= 0
+0.3.12 mime-types:~> 1.15|checksum:564cb3ecab8f19fd9a7ae28a5becdbea39ae2dfbddb7b590175cd530f6e0b5c7,ruby:>= 0
+4.0.1.0 mime-types:~> 1.15|checksum:e34d1143b1f41aa9a437ad9454470235b6542d77145d7f8de13f359b25665329
+4.0.3.0 mime-types:~> 1.15|checksum:
+4.1.0.0 mime-types:~> 1.15|checksum:
+4.1.1.0 mime-types:~> 1.15|checksum:
+4.2.0.0 mime-types:~> 1.15|checksum:b5e70be18f9ac1d2f219aaa0aaa06f1cfb7b02c981289fb27cd0232a20f5f91e,ruby:>= 0,rubygems:>= 0
+4.2.0.1 mime-types:~> 1.15|checksum:43e13d8c907a0a1d48325b6ffbaa8fdb6780aec6a8a0c5d0a4392ff24ac30690,ruby:>= 0,rubygems:>= 0
+4.3.1.0 mime-types:~> 1.15|checksum:6d6aa452e659ab4854f80c3b02ddd9631b4de1082dbccf61c847e47dc1aaee21,ruby:>= 0,rubygems:>= 0
+4.4.0.0 mime-types:~> 1.15|checksum:716d83491153a8fbe76f526e5ae82f3ce31587ed52e3e929dce287d21ff9fc96,ruby:>= 0,rubygems:>= 0
+4.4.1.0 mime-types:~> 1.15|checksum:dacff28ad34ad7efdb7017cab2d00a1194db9178be321cc99f9139c5c46ba1e6,ruby:>= 0,rubygems:>= 0

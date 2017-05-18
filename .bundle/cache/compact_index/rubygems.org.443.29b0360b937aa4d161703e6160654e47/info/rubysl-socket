@@ -1,0 +1,9 @@
+---
+0.0.1 redcard:~> 1.0|checksum:cgiB1uzkK+S/YPmqYFO1wcgfVaeiISafRcYp7vu/3ys=
+2.0.0 |checksum:9JGPoZdzQ8T5CRAZwAvXeT9tskkimPjHtU5/ouqV278=
+1.0.0 |checksum:bbofDwzmep8Fbl8WddW+4jnurCknRztNWFc2hhTH8KY=
+2.0.1 |checksum:02Fr5s/Rg5mTHvhdq0gIl0h7K76G+/Pbgghu27uU0Ys=
+1.0.1 |checksum:5ncCqzcTF3kXdlAMXSm9owyty9wJdOmw4CO8A/eT06w=,ruby:~> 1.8.7
+2.1.0 rubysl-fcntl:~> 2.0|checksum:268ed207d971ccb1ec96f52407c68a775dbac3c8ea5db9949eede521471392b9,ruby:~> 2.0,rubygems:>= 0
+2.1.1 rubysl-fcntl:~> 2.0|checksum:a86a79498b7b9647cf5e290dfd935e4f3922f3e9283a1677623c6a319e27b578,ruby:~> 2.0,rubygems:>= 0
+2.1.2 rubysl-fcntl:~> 2.0|checksum:8f01b5604f4fc4c1a02e63c0294cb0c038f900246dea47a8d31ee867c1ae3667,ruby:~> 2.0,rubygems:>= 0

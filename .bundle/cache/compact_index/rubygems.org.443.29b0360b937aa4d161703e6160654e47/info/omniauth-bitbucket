@@ -1,0 +1,3 @@
+---
+0.0.1 omniauth:~> 1.0,omniauth-oauth:~> 1.0|checksum:8f36d69da2354e190b756b634a890f33c71f34c1de02b104cd2ad6c9135a8995
+0.0.2 multi_json:~> 1.7,omniauth:~> 1.1,omniauth-oauth:~> 1.0|checksum:85a00770c24d901a47b88caab1ee3634fd2b83fd07fe935876ae471fbed054d1

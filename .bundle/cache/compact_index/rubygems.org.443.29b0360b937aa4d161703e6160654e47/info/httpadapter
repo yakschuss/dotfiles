@@ -1,0 +1,6 @@
+---
+0.1.1 addressable:~> 2.2.0|checksum:396619ad84318747b84d4d2f466e84aec2c0d52e80e6991246f842d5ddfe4f5d
+0.2.0 addressable:~> 2.2.0|checksum:969ea80f60c3edc116f0b013dc707e8a021e6707fbb7a1ee35895b9238533c68
+0.2.1 addressable:~> 2.2.0|checksum:edde348bdc9a309c5e6eb8edbd59888dfc082c50a26ef778e82d32736dbe16a0
+1.0.0 addressable:~> 2.2.0|checksum:638128c7d8ea7e78f6b48109eaac8bfd06fffe171e604d41999dc36c5296e4df
+1.0.1 addressable:~> 2.2.0|checksum:0c7fbacdd4aa3962a7e0151e54c849da83cce8e0db47b22d3e15e196990c246f

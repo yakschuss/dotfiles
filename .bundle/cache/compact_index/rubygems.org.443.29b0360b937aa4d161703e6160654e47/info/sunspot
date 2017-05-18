@@ -1,0 +1,44 @@
+---
+0.9.7 daemons:~> 1.0,haml:~> 2.2,mwmitchell-rsolr:>= 0.8.9,optiflag:~> 0.6.5|checksum:d89cbc48d92027eec9bf3075c606c4cbff34d40d117794a20ebe2a26333f9ae6
+0.9.8 daemons:~> 1.0,haml:~> 2.2,mwmitchell-rsolr:= 0.9.6,optiflag:~> 0.6.5|checksum:3c3e6d6e41b0dbaa0c267dc195a48cb36bd47642e5a55d37064d8565c8b06a74
+0.10.0 daemons:~> 1.0,mwmitchell-rsolr:= 0.9.6|checksum:18ee1d1551a76ce8080004cf46814d4458be00dbf3c883c32bd2c58ab2ff115e
+0.10.1 daemons:~> 1.0,mwmitchell-rsolr:= 0.9.6|checksum:e53a758e3028e1d16c7df8e44ac2716b3b546a7f21e688c587be0a807dfe03d6
+0.10.2 daemons:~> 1.0,mwmitchell-rsolr:= 0.9.6|checksum:d2fc6da2fb6b2dc472fcfba59459350da3a6257129c1982a627cf5e7108eb2e5
+0.10.3 daemons:~> 1.0,mwmitchell-rsolr:= 0.9.6|checksum:6d0fea0041301a33a934f5fe9d4648fbc2ca1341549820507e32c9eb755c91b4
+0.10.4 daemons:~> 1.0,mwmitchell-rsolr:= 0.9.6|checksum:ec025cc529c4677b893231c0e0b95100059eabaffd5f0a267e9331dbc85d521b
+0.10.5 daemons:~> 1.0,mwmitchell-rsolr:= 0.9.6|checksum:0da7e2f8f2932a6349fa728e97762607a69aed4f57f38d80637fdf5c87815362
+0.10.6 daemons:~> 1.0,rsolr:= 0.9.6|checksum:a519ddc7b131a7c8b433efdc10dbb9f5733a9526c0bc84cab00e21dd95f06732
+0.10.7 daemons:~> 1.0,rsolr:<= 0.10.1&>= 0.9.6,rsolr:<= 0.10.1&>= 0.9.6|checksum:6e8cbc1e0c88ec82d958a6b0acb14e295ee83b2f9d79c889ca529291ffbc515e
+0.10.8 daemons:~> 1.0,rsolr:>= 0.9.6|checksum:11785153e0c0bbdb3d43de6c853ce7b37e801874f25ded34189090d761db2be3
+0.10.9 daemons:~> 1.0,rsolr:>= 0.9.6|checksum:3343f9e8b0d0572aa26a58b4232cd981a5c1cf6fdc2ef4429a7ff3c9b7b0ce2f
+1.0.0 rsolr:= 0.12.1|checksum:cfdedca9e9beca82dd0a96a765d044dacec679362f9c7a914a808e68b54a3fc7
+1.0.1 escape:= 0.0.4,rsolr:= 0.12.1|checksum:3902077ef1d75a254a2a15db52d8d995edfd1249ff4bcc2cf44d99d89aa96efd
+1.0.2 escape:= 0.0.4,rsolr:= 0.12.1|checksum:17955af7b9d0c837af0fd949e321f1b0db9d29e3a01b4e137f50666043f2c078
+1.0.3 escape:= 0.0.4,rsolr:= 0.12.1|checksum:915a8bfcb0a35936c8cfff6ee7172a38e5d89a5eb3aa010bd7910d4c4b223e5f
+1.0.4 escape:= 0.0.4,rsolr:= 0.12.1|checksum:b94c9ac0021fd2d43a494abf76ca49629983f801bd9b6d22237825648a0696db
+1.0.5 escape:= 0.0.4,rsolr:= 0.12.1|checksum:f707397de2f630fd970822105cb227eb5b98c12f11434a15abde73a9eac58a6c
+1.1.0 escape:= 0.0.4,rsolr:= 0.12.1|checksum:d875808c515da1c9f36b12e425a1c7f4a0ebe38bab9c5973b57b21b66294d0ca
+1.2.0 escape:= 0.0.4,pr_geohash:~> 1.0,rsolr:= 0.12.1|checksum:57b8a72ca8c6b4bce05d26c5c1717777f791b0557dc22ee851cc91dc167dbf3f
+1.2.1 escape:= 0.0.4,pr_geohash:~> 1.0,rsolr:= 0.12.1|checksum:43909622d6e512fbdf3fa1a199a82399eec53554f41ff8c9d9745dece85a6a0a
+1.3.0.rc6 escape:= 0.0.4,pr_geohash:~> 1.0,rsolr:= 1.0.2|checksum:91e96af69f45bcb23759a3748d07467fbf713a5264cfef01fa290498d90f50e1,rubygems:> 1.3.1
+1.3.0 escape:~> 0.0.4,pr_geohash:~> 1.0,rsolr:~> 1.0.6|checksum:9b887660a0be86490f880a0465576620e41960338cdac2371da473b1a4c21c3b
+2.0.0.pre.111215 escape:~> 0.0.4,pr_geohash:~> 1.0,rsolr:~> 1.0.6|checksum:088591d9cccd16e7a8321a451b50d6185a968478c4e3f5fab99450bcf4744746,rubygems:> 1.3.1
+1.3.1 escape:~> 0.0.4,pr_geohash:~> 1.0,rsolr:~> 1.0.7|checksum:3a37df4b63ceb45ca5c85b0be4080c99f2fb84a9334009967e9cfce3a1ddf688
+2.0.0.pre.120415 pr_geohash:~> 1.0,rsolr:~> 1.0.7|checksum:cad0f6fc7034dd4d83376fd0e8e8b29d32d7213f93c3f37cdc653a51285435c0,rubygems:> 1.3.1
+2.0.0.pre.120417 pr_geohash:~> 1.0,rsolr:~> 1.0.7|checksum:b929d5dae53d2751641339c5d8f45b6e4c6fd4334eb1b81dc976579354fc54aa,rubygems:> 1.3.1
+1.3.2 pr_geohash:~> 1.0,rsolr:~> 1.0.7|checksum:44be1a214a21d915c302d1e8497cfd48b255d65fe77e715f23fd3650da9d0214
+1.3.3 pr_geohash:~> 1.0,rsolr:~> 1.0.7|checksum:266a37cdf7365f4eaa3f4002ee20d140d265d1ef42692d6311bd543f8051165d
+2.0.0.pre.120720 pr_geohash:~> 1.0,rsolr:~> 1.0.7|checksum:73a57804251b102d62abecaa745e3b0b12630bbe7c453d94d8bfb2ac6193192c,rubygems:> 1.3.1
+2.0.0.pre.120924 pr_geohash:~> 1.0,rsolr:~> 1.0.7|checksum:079b861feb51fd9f97e02195f4914cc8c0290565fbe2d704501a7bf97d735f30,rubygems:> 1.3.1
+2.0.0.pre.120925 pr_geohash:~> 1.0,rsolr:~> 1.0.7|checksum:0fff940f7d05c30fd530fb46a46f504425c37667764ef62e5d2a531b81dda5a6,rubygems:> 1.3.1
+2.0.0.pre.130115 pr_geohash:~> 1.0,rsolr:~> 1.0.7|checksum:b2e306d6632c19b460e5f2c24ecfa113daecd2f3704636ef3a97bfad68492e51,rubygems:> 1.3.1
+2.0.0 pr_geohash:~> 1.0,rsolr:~> 1.0.7|checksum:785cb56edb4dda3c87befff7b1e87e8a442b33036fa393baa46c3cc5424aa45f
+2.1.0 pr_geohash:~> 1.0,rsolr:~> 1.0.7|checksum:3c26a00303e2a8cfc1de92de3e4e023c00f335d15e5460727abd78689ffa54c1
+2.1.1 pr_geohash:~> 1.0,rsolr:~> 1.0.7|checksum:151bc5fb61f27b26dc6ab7d17570646cae850150fc356cf56f1ad4c464305b7b,ruby:>= 0
+2.2.0 pr_geohash:~> 1.0,rsolr:~> 1.0.7|checksum:8cdb4b40db3306fd09c5c09cc4278c35b1359933d8c0ac2e3a21dc06e2c17b5e,ruby:>= 0
+2.2.1 pr_geohash:~> 1.0,rsolr:~> 1.0.7|checksum:
+2.2.2 pr_geohash:~> 1.0,rsolr:~> 1.0.7|checksum:
+2.2.3 pr_geohash:~> 1.0,rsolr:~> 1.0.7|checksum:
+2.2.4 pr_geohash:~> 1.0,rsolr:~> 1.0.7|checksum:71a2f6ebd485a771efe5bf26fde51f0224dcece8de33983710286f40945c2dd0,ruby:>= 0,rubygems:>= 0
+2.2.5 pr_geohash:~> 1.0,rsolr:~> 1.1.1|checksum:37712e1957f8d9634ab17e82f02b691aa68b25816fb6ab926aed579ee4690b04,ruby:>= 0,rubygems:>= 0
+2.2.6 pr_geohash:~> 1.0,rsolr:~> 1.1.1|checksum:aef187ad72620dbea144856ce7a53ac234b71f969c5d7a393845d9bb304e1552,ruby:>= 0,rubygems:>= 0

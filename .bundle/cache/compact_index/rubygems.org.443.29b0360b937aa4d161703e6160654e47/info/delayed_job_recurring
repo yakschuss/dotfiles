@@ -1,0 +1,9 @@
+---
+0.1 delayed_job:>= 4.0,delayed_job_active_record:>= 4.0|checksum:i66OElgH+r5rE+yQuqllFNU8KurLzhTx7ohwwLHlubc=,ruby:~> 2.0
+0.2 delayed_job:>= 4.0,delayed_job_active_record:>= 4.0|checksum:ytshw1X1Vpac3jd17Zc6O1DlmL/ZPyCQdNfmh+M4mJ4=,ruby:~> 2.0
+0.3 delayed_job:>= 4.0,delayed_job_active_record:>= 4.0|checksum:8i2sff0SPyr2AA17wY4CseAmSC5QxHW68Tb3jDOCIro=,ruby:~> 2.0
+0.3.1 delayed_job:>= 4.0,delayed_job_active_record:>= 4.0|checksum:9y3IA9PHppS1SSvWsKQ/MpETqdr1Q8gsHZd7jzqot/Q=,ruby:~> 2.0
+0.3.2 delayed_job:>= 4.0,delayed_job_active_record:>= 4.0|checksum:/qTtwESwsNCRwCXp2SbxLrSy1yoWTrwO3w4wrF6Hz2E=,ruby:~> 2.0
+0.3.3 delayed_job:>= 4.0,delayed_job_active_record:>= 4.0|checksum:rizWW2no18nBJ67Ah0/nLlGvXwug5O+8OYxNBQ0BPrE=,ruby:~> 2.0
+0.3.4 delayed_job:>= 4.0,delayed_job_active_record:>= 4.0|checksum:nw6qmicWBmzKLpQN3EYMjpV1CvIMSKhSx9qfjgJOdjc=,ruby:~> 2.0
+0.3.5 delayed_job:>= 3.0,delayed_job_active_record:>= 0|checksum:ZvFuyNzo6UY3kojKApbc6N/mwwbufm18uc4qDtHNIz8=,ruby:> 1.9

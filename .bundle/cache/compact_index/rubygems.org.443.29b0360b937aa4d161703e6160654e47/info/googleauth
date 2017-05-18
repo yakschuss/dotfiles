@@ -1,0 +1,9 @@
+---
+0.1.0 faraday:~> 0.9,jwt:~> 1.2.1,logging:~> 1.8,memoist:~> 0.11.0,multi_json:= 1.10.1,signet:~> 0.6.0|checksum:6ed6ee098538c9d72f398a23675b4af8256cec6e07a3eba30bc82098cf3cd105
+0.2.0 faraday:~> 0.9,jwt:~> 1.3.0,logging:~> 1.8,memoist:~> 0.11.0,multi_json:= 1.11.0,signet:~> 0.6.0|checksum:c275092d2ba7a1a058599bd34dfb8e5469f7b846099190849248e5e37baa4da3
+0.3.0 faraday:~> 0.9,jwt:~> 1.4.1,logging:~> 1.8,memoist:~> 0.11.0,multi_json:= 1.11.0,signet:~> 0.6.0|checksum:e8fd05b96064396e50d77917eaf7bbc68a9c0731344d1c3d7f95501ab91abe9a
+0.4.0 faraday:~> 0.9,jwt:~> 1.4,logging:~> 1.8,memoist:~> 0.11,multi_json:= 1.11,signet:~> 0.6|checksum:e579f7580a896fe32a47088ba396b00d830f203075b2e0b8acce89b9bec2044c
+0.4.1 faraday:~> 0.9,jwt:~> 1.4,logging:~> 2.0,memoist:~> 0.12,multi_json:= 1.11,signet:~> 0.6|checksum:14c193c51809c59dc71f3007a5e057e34f7afd4a9da3cb082f0dabdd53ad180f
+0.4.2 faraday:~> 0.9,jwt:~> 1.4,logging:~> 2.0,memoist:~> 0.12,multi_json:~> 1.11,signet:~> 0.6|checksum:6447b48183de07b0e58ef88e33cdc5ed5bd7370b7125b8db2c89c2dd4a17554b
+0.5.0 faraday:~> 0.9,jwt:~> 1.4,logging:~> 2.0,memoist:~> 0.12,multi_json:~> 1.11,signet:~> 0.7|checksum:92432d80b196e51af48aafc919b85d1b4353eae2dfd1f769040761a1ca4f7434
+0.5.1 faraday:~> 0.9,jwt:~> 1.4,logging:~> 2.0,memoist:~> 0.12,multi_json:~> 1.11,os:~> 0.9,signet:~> 0.7|checksum:557c05fc01b6458344ab1aa162f95ddfabcb9d0c4c2415b5342c98a08779f3db

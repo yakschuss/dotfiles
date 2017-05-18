@@ -1,0 +1,14 @@
+---
+1.0.0 omniauth:~> 1.0.0.pr2|checksum:0+5VB3ibdkyvNUdi6pz1jjiJvnei2dGNdLmJdKQnyMQ=
+1.0.1 omniauth:~> 1.0.0.pr2|checksum:KhHvJZLLbuC5TuV7BOhYguVUVrjWU/4uV1FVxjDt4jo=
+1.0.3 omniauth:~> 1.0.0|checksum:OcnnlbijB/QV7wDNf8dznkIdFwI4OSbzJiUY+ETWZB4=
+1.0.4 omniauth:~> 1.0.0|checksum:fK96waFlOvKtiFveBOzRlSbrRRXwELtcaSxcY257dWE=
+1.0.5 omniauth:>= 1.0.0|checksum:FMukbkcjjEc2z7RLqNhHsUtvEsNDTMb/++/I4uqueKE=
+1.0.6 omniauth:>= 1.0.0|checksum:wCIC86Ix9r9iJXT82Cn/nZmaZdYm494goQQY+A14/2U=
+1.0.7 omniauth:>= 1.0.0|checksum:A+6+NbqrQMZ+RYa0jkth7FwkieaxLHsVd2l226auTxU=
+1.0.8 omniauth:>= 1.0.0|checksum:LzH+iwPgxFDlQpd5f6xSCfGD/XW8LSKrY9n7OW6rWQg=
+1.1.0 omniauth:>= 1.0.0|checksum:XR9rlMlFcHPqzY4D2ud9+xm0XVjwasXld0gL8KOfPRg=
+1.1.1 omniauth:>= 1.0.0|checksum:sKkqC8HkfZbHDxvsmCQlxzApcl2jMdzaICKvdiuSknY=
+1.1.2 omniauth:>= 1.0.0|checksum:HFpocz0DRL+MFTsf8FY8u+MS9mM2r8Z1RF3eqDkkwnM=,ruby:>= 0
+1.2.0 omniauth:>= 1.0.0|checksum:xjjsG1iIiqn34ka6jP/wGaoHrPt+l6sfOh29fUPmaYw=,ruby:>= 0
+1.2.1 omniauth:>= 1.0.0|checksum:VIqA77Oxz/Sr1WVi3uhz10LgZfunjEKKhX15NYTnFyk=,ruby:>= 0

@@ -1,0 +1,20 @@
+---
+1.0.8 eigenclass:>= 1.0.1,encryptor:>= 1.0.0|checksum:b0c5ed876e9d130cc24b1cb60a40157c60a7b3a532ae510b2bac3d23a75e0838
+1.0.9 eigenclass:>= 1.0.1,encryptor:>= 1.0.0|checksum:0396e3110b6db41d1ece44de430897b8636b09b286f7b50ada0f6406c168fe36
+1.1.0 eigenclass:>= 1.1.1,encryptor:>= 1.1.0|checksum:3b2aa8fda46691ac547544fb91e3127bd001d5d083f817a3604c3b65f12a0ade
+1.1.1 eigenclass:>= 1.1.1,encryptor:>= 1.1.0,mocha:>= 0.9.8|checksum:f7c85b87d3c49569105042c416ad43cb61f1c3ca082b7c5aebcdfc00d9476bbb
+1.1.2 eigenclass:>= 1.1.1,encryptor:>= 1.1.0,mocha:>= 0.9.8|checksum:04b2657ffd4b46085b8f6eee1fd754274d24548fa8f0daa1a6ea757fad5feb02
+1.2.0 encryptor:>= 1.1.1|checksum:5333e003687eefad3030a8ba71fff0c2f4c35ed1ac938a6b6f22fa13ebbcb045
+1.2.1 encryptor:>= 1.1.1|checksum:ee8151e9133d50b0440d8762ba86cbe3d197f55bb65d328b94a7d6f7df4f146d
+1.3.0 encryptor:>= 1.3.0|checksum:fcbb1b5aa70d36515ad38fb6cd9fc2f8db36d3fbaeca8dd6f83c6421ccad6ba3
+1.3.1 encryptor:>= 1.3.0|checksum:c40ad502ce711c22032bbbe3b2673688e904bcb2ab96cbc9af3c5cf9e579d7c3
+1.3.2 encryptor:>= 1.3.0|checksum:e34482bd8003b9c140da80468b6f588e955c99bc9d2435a055c06f70374805c7
+1.3.3 encryptor:>= 1.3.0|checksum:512b03b57ed5f7bcf7f5ed78b61e4343f6273c3217862a06be1b4ce44462c98a,ruby:>= 0
+1.3.4 encryptor:>= 1.3.0|checksum:175d9e2a9193f251419818900be9627069c573141dec823175f38c8a0941a2c2,ruby:>= 0
+1.3.5 encryptor:~> 1.3.0|checksum:024f5fb803595841dcabd2f2083b4e480fc90e06e574e7df473b3d8b509457d4,ruby:>= 0,rubygems:>= 0
+1.4.0 encryptor:~> 1.3.0|checksum:b2b4444b204e7807acc60105e7e5c58b7b9ca04c8e7e6f6afee7b74261902ba7,ruby:>= 0,rubygems:>= 0
+2.0.0 encryptor:~> 2.0.0|checksum:7b9faed4c0604502aef1c721ce1d4181f985a2941b7274ed6ea5f1b743a36ae6,ruby:>= 2.0.0,rubygems:>= 0
+3.0.0 encryptor:~> 3.0.0|checksum:845fc3cb09a19c3ac76192aba443788f92c880744617bca99b16fd31ce843e07,ruby:>= 2.0.0,rubygems:>= 0
+3.0.1 encryptor:~> 3.0.0|checksum:33140af4b223177db7a19efb2fa38472a299a745b29ca1c5ba9d3fa947390b77,ruby:>= 2.0.0,rubygems:>= 0
+3.0.2 encryptor:~> 3.0.0|checksum:c1256b459336d4a2012a0d0c70ce5cd3dac46acb5e78da6f77f6f104cb1e8b7b,ruby:>= 2.0.0,rubygems:>= 0
+3.0.3 encryptor:~> 3.0.0|checksum:6d84c64852c4bbc0926b92fe7a93295671a9e69cb2939b96fb1e4b5e8a5b33b6,ruby:>= 2.0.0,rubygems:>= 0

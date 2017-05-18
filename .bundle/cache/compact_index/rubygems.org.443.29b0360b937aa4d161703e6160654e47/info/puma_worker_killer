@@ -1,0 +1,8 @@
+---
+0.0.1 get_process_mem:~> 0,puma:~> 2|checksum:b9d7621a29b02643ab3ad36e1878fe40432bd2753098b44819a93c51b9f475f6
+0.0.2 get_process_mem:~> 0,puma:~> 2|checksum:84e36a4269a88b0e4aaf2c9a92cf7a0c4171d5d6316080a7dcaea5c37bb86e39
+0.0.3 get_process_mem:~> 0.1,puma:~> 2.7|checksum:61704ba7a3b67fadae92d69f4b470ad7f6ef1351d741dc360064c87cbfe31786
+0.0.4 get_process_mem:~> 0.2,puma:~> 2.7|checksum:8b1702a7447b45ea74933b88d3077a2c54c7f57c0b6c2c30f31a5dd0a2fd25c2
+0.0.5 get_process_mem:~> 0.2,puma:< 4&>= 2.7|checksum:7c1bfb8deedb0213de46d2a3236cd04bcfd2d129b67aa527249a3182eec42a10
+0.0.6 get_process_mem:~> 0.2,puma:< 4&>= 2.7|checksum:53ac391c23013c46c73590ff2e643d70f9fff5684f6c825f8ee46e566cd85bb4
+0.0.7 get_process_mem:~> 0.2,puma:< 4&>= 2.7|checksum:764b6ced590a60a5fef546392e24f250fb80163608c97dc02e0302d03e5f6a43

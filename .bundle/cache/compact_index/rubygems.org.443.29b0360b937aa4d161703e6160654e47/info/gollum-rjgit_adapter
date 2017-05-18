@@ -1,0 +1,7 @@
+---
+0.1-java rjgit:~> 0.3|checksum:jv5kICnDnNphWDQ8vNCuD7Xxq5fsyqfPcBmsNbnhqTk=,ruby:>= 0
+0.2-java rjgit:~> 0.3|checksum:rts+jo98f8O826zz3D5+KrVb7lLDjghiFy1lp7cBt1Y=,ruby:>= 0
+0.3-java rjgit:~> 0.3|checksum:UOYhT1vJYCLBLlfBpcMeVLertfsAL/CZhBP+UH2hlag=,ruby:>= 0
+0.3.1-java rjgit:~> 0.3|checksum:HrTw506BrAoIVRFijWAR+Ve6sLEa1DWLXuNe0n3dpkU=,ruby:>= 0
+0.3.2-java rjgit:~> 4.0|checksum:
+0.3.3-java rjgit:~> 4.1|checksum:761dd25ba65381a3047d0d761f750d3f5340cc9f8d7eb853d1e04e129a60e658,ruby:>= 0,rubygems:>= 0

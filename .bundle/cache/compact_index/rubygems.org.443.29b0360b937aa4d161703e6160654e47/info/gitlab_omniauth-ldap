@@ -1,0 +1,7 @@
+---
+1.0.2 net-ldap:~> 0.2.2,omniauth:~> 1.0,pyu-ruby-sasl:~> 0.0.3.1,rubyntlm:~> 0.1.1|checksum:jj5i6qt9JreAC9yyvYGiOgsNa4JjZy6p8fns7PGKS+o=
+1.0.3 net-ldap:~> 0.3.1,omniauth:~> 1.0,pyu-ruby-sasl:~> 0.0.3.1,rubyntlm:~> 0.1.1|checksum:qqudnBkq5pClOXKZivTtKabgi0ZygveqyIql6AaYNUU=
+1.0.4 net-ldap:~> 0.3.1,omniauth:~> 1.0,pyu-ruby-sasl:~> 0.0.3.1,rubyntlm:~> 0.1.1|checksum:/GMCB59j39EH0tFlbfV2jH/gjqeNG5vvNU+/DA/Bhv8=
+1.1.0 net-ldap:~> 0.7.0,omniauth:~> 1.0,pyu-ruby-sasl:~> 0.0.3.1,rubyntlm:~> 0.1.1|checksum:B9+RwZk94OX6L9qEXiEJ57C84iiWC/QfdwNQhz6C+i4=,ruby:>= 0
+1.2.0 net-ldap:~> 0.9,omniauth:~> 1.0,pyu-ruby-sasl:~> 0.0.3.1,rubyntlm:~> 0.3|checksum:cZeM8ZNxIpIL0xgl2fsnrwNQ11Pu1FFjvbqX7x1+2cA=,ruby:>= 0
+1.2.1 net-ldap:~> 0.9,omniauth:~> 1.0,pyu-ruby-sasl:~> 0.0.3.1,rubyntlm:~> 0.3|checksum:MRsUyovJLiFzkLu/obg7pQeA+LQZV+j8i5nufUr0be0=,ruby:>= 0

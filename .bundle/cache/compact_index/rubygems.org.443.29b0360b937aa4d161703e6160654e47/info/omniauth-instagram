@@ -1,0 +1,4 @@
+---
+1.0.0 omniauth:~> 1.0,omniauth-oauth2:~> 1.0|checksum:9e1f0e4f5e83a9894147e891c9e39a99597047cbfd73d02a1557e27bed9fabb7
+1.0.1 omniauth:~> 1.0,omniauth-oauth2:~> 1.0|checksum:4e7c84b087569ca2236b5a9ce30dc75fddbcb38171092fdb02392793d28e0b8b
+1.0.2 omniauth:~> 1,omniauth-oauth2:~> 1|checksum:f87fe18e4b90e445ebc4e4ea710694dc808fcf32bfb9453a0e092ea830f5ab9f

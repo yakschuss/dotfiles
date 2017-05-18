@@ -1,0 +1,9 @@
+---
+0.3.8 httpclient:>= 0,json:>= 0,rake:>= 0|checksum:277340fd110a2672fe6060ba3063ac1f8ceecb38b1938018fa07b154281324e2
+0.4.2 httpclient:>= 0,json:>= 0,rake:>= 0|checksum:24085da090263222c0e66f1315d874046f6b8b0d4c4a3a70f1139d722fc9762f
+0.4.4 httpclient:>= 0,json:>= 0,rake:>= 0|checksum:7b0db445fbd7957a2ba085ca4db089c99a7cef54581b48f1bd29a3deee28a947
+0.4.5 httpclient:>= 0,json:>= 0,rake:>= 0|checksum:ee726c8564a78e3c2a9a39bf93906c964b579cf49084114a2fe827010bd67aac
+0.4.6 httpclient:>= 0,json:>= 0,rake:>= 0|checksum:768e55821ff5273b919ade322d951d9213baed4bb475884d77ba97d60b217b1f
+0.4.7 httpclient:>= 0,json:>= 0,rake:>= 0|checksum:8430f7478d4ea8b8c161ba04518ac7cf3e696108758d0d30598fa825a47819c2
+0.4.8 httpclient:>= 2.2,json:>= 0,rake:>= 0|checksum:c0bf708c735de8b6bac2341a1293d2f71ee3138c2ffb9489d02c962ce7729d95
+0.4.9 httpclient:>= 2.2,json:>= 0,rake:>= 0|checksum:54a40f58357e8424513f0db16b212b94ecf3cc5fa09b25df343848365b2fd57f

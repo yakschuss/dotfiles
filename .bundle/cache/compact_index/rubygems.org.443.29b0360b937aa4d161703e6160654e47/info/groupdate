@@ -1,0 +1,34 @@
+---
+0.0.1 activerecord:>= 3.0.0|checksum:0v1wz+1zBdENaxxHvNVDQ5FLjBcE/O476TC5oYKH0gU=
+0.0.2 activerecord:>= 3.0.0|checksum:JPN4vWaI4awS5V8cmnIT2OPKZsqZ5o788JpXdUbLlis=
+0.0.3 activerecord:>= 3.0.0|checksum:M/80RTILL+q9C0eEdWw2SSqG9qVOLJzTA5Lr9FItWhM=
+0.1.0 activerecord:>= 3.0.0|checksum:1eDmycjRKThuDK4o1bsclYjeaSHlVPLc1QXHl5OpxEM=
+0.1.1 activerecord:>= 3.0.0|checksum:bnX5JaiLPIZ7Q7/oO8kucyGXww9oQWF2lWhbyP+rac4=
+0.1.2 activerecord:>= 3.0.0|checksum:d6Yk/+WIomNMyQEBSIbsTId2F1kpY46kjbYA7PDUD5c=
+0.1.3 activerecord:>= 3.0.0|checksum:NSllvhC4dor0TzXh3UmVBIcbx6OmQf/G/rliLle7h0o=
+0.1.4 activerecord:>= 3.0.0|checksum:9ufUDCwbNLAZKABiEXnJsyBgMED9uxCudXIWH39Jfpo=
+0.1.5 activerecord:>= 3.0.0|checksum:HeUrDireS0tjvEB8Zt6E02p1W6tHOv/umOLQ56Yx/7c=
+0.1.6 activerecord:>= 3.0.0|checksum:gpkYH2QxpPDVGDiy4yiAMMOhhub5L8wOWV8fViMcmPg=
+1.0.0 activerecord:>= 3.0.0|checksum:p3Y9YKkrhgjycJc0rbaAEsLSX5S5RymouTD8Zsuj6WQ=
+1.0.1 activerecord:>= 3.0.0|checksum:XpVs3f/Nxjz0zf3Ql+2Da2KEOXj3RKV42MwSP7kPo7I=
+1.0.2 activerecord:>= 3.0.0|checksum:16bQds+1JWqwoOU0QCnIKxfpCrmbJEXWKWBoZnr7AJI=
+1.0.3 activerecord:>= 3.0.0|checksum:lac0RD8fdwTh+Pzrt6RUZR9yj/7HwK1glM9gX7KwN5M=
+1.0.4 activerecord:>= 3.0.0|checksum:ERhi1rKSaun9+WpN551dhVo/xOnmyIn3gXBR4tV3420=
+1.0.5 activerecord:>= 3.0.0|checksum:lZPUf3kPsH4H8DLQ3xVEB2ebJPkr9TS9k+/aLVtuNbY=
+2.0.0 activerecord:>= 3.0.0|checksum:3WXduMFdjB5i5iK8qchgQZlzOd+0WqhtsuuDF2S91uk=
+2.0.1 activerecord:>= 3.0.0|checksum:cGWisxpG+d97CtnNjsgoLKdVG/BkmNN8z21ymHVaDtA=
+2.0.2 activerecord:>= 3.0.0|checksum:jfGb1eNM6WjB8qCqZU6BfXHvfq2BDq9o7ZkP7NxQ92w=
+2.0.3 activerecord:>= 3.0.0|checksum:DR/gwYgy8nh6htkf+8s14NscJgxHmUgOjLH3uoX340Y=
+2.0.4 activerecord:>= 3.0.0|checksum:RdZOnKerEGMfEVM0hrSf9QYjjKYjT5IC/fCT2ZCH5vw=
+2.1.0 activerecord:>= 3.0.0|checksum:PY+xm+uhoh4+KsyGzgYNdbOb5tqaFr9nZvi4Wv8botg=
+2.1.1 activerecord:>= 3.0.0|checksum:P/WC/0dWgs38e8o4cwxF8mawg2rrxzB0LJkmZKRMTFU=,ruby:>= 0
+2.2.0 activesupport:>= 3|checksum:lLNLR74H5gvak5hWSv021HjCHXb2pxpY0gwouwKAUnM=,ruby:>= 0
+2.2.1 activesupport:>= 3|checksum:9wH2nGQKuJokgGvBneHkYCFHOQVmSv3VKTmTB8aThdk=,ruby:>= 0
+2.3.0 activesupport:>= 3|checksum:XY3U4uZUULX7CbJzvC2FsJacQHmwlyx+r771plkbouk=,ruby:>= 0
+2.4.0 activesupport:>= 3|checksum:Q7CTTz40Fo8sU79Ze2M6PqvDEaRKvhdkLoIs/uB5moA=,ruby:>= 0
+2.5.0 activesupport:>= 3|checksum:
+2.5.1 activesupport:>= 3|checksum:efa72d2ae3e4084fbd607bd02b5cd43323039e3591b8e95fb00089829a5da9e8,ruby:>= 0,rubygems:>= 0
+2.5.2 activesupport:>= 3|checksum:0e13f1f2181ac48d423bc418f99d997f1fe0defd1fb97f98601aa904c82b0bf5,ruby:>= 0,rubygems:>= 0
+2.5.3 activesupport:>= 3|checksum:cea7961b27eb45112b644ab35d043cedb672c1d6f3c262087cf1d9f06b35136a,ruby:>= 0,rubygems:>= 0
+3.0.0 activesupport:>= 3|checksum:ff5b5312ae1c038e40edc6fccd874d314eac3226e4914161e767a039b8eaa89c,ruby:>= 0,rubygems:>= 0
+3.0.1 activesupport:>= 3|checksum:9dcde64be47f0bcac46e988cc8b663298657f4b646276b1c95f6c831c56680e9,ruby:>= 0,rubygems:>= 0

@@ -1,0 +1,9 @@
+---
+0.3.0 mail:>= 2.2.1,mime:>= 0.1|checksum:czN0I1RO7KvcNucNzqAz3WqBIfNbw7NIJ6b8WV3nOrc=
+0.3.2 mail:>= 2.2.1,mime:>= 0.1|checksum:gznBLygTEgU5Af1IAnk07u1XMwGOdEr+zD+IivhsZZc=
+0.3.3 mail:>= 2.2.1,mime:>= 0.1|checksum:La9S+6Ydf4h3Zug2Rv/iqYZnMUS4HDzs1IUyugSu52o=
+0.3.4 mail:>= 2.2.1,mime:>= 0.1|checksum:thM0QPwxag/u1IEGibAMUW682vtvReEXHuDxGoe22wk=
+0.4.0 gmail_xoauth:>= 0.3.0,mail:>= 2.2.1,mime:>= 0.1|checksum:Ue+sHIgy2lsI9aQl4zr4kGgbZ31mggyi9XjmA5QZsvw=
+0.4.2 gmail_xoauth:>= 0.3.0,mail:>= 2.2.1,mime:>= 0.1|checksum:EDIuT3X0HplZNu2Cxk+sRnNYJ/8AIa5lbsh36dRlIDQ=,ruby:>= 0
+0.5.0 gmail_xoauth:>= 0.3.0,mail:>= 2.2.1|checksum:2frXjR/09PlMOoaahkau+Wb1GkGQcEoC/3O/6o7tnYI=,ruby:>= 0
+0.6.0 gmail_xoauth:>= 0.3.0,mail:>= 2.2.1|checksum:

@@ -1,0 +1,40 @@
+---
+0.0.0 |checksum:KUMHrTLmisHeNV0tgtJJxiITPYhY/xcKsxOr6TUVE08=
+0.1.0 |checksum:LNxbkNus/bQ2qyW/Q0Kq6t0WT06/WxUv4z+x3O2Vo+w=
+0.1.1.rc2 cucumber:= 0.4.3|checksum:jgQX6BpMdB5UwgMxzCPxpv1lG79DHHit22vxrmnrz6A=,rubygems:> 1.3.1
+0.1.1.rc3 cucumber:>= 0.4.5.rc1|checksum:IOqSLuTOOKptm+0ZpJHx/p1ozly1qoGjHIt1p8mM8cQ=,rubygems:> 1.3.1
+0.1.1.rc4 cucumber:>= 0.4.5.rc2|checksum:3KOe7y/Ex52N7pZ6WQ9c+vtbaiUStAC4m0ZYDrBCvXc=,rubygems:> 1.3.1
+0.1.1.rc5 cucumber:>= 0.4.5.rc2|checksum:+3d2XQ511hqMWej/aOYAZYzrnjLnNfMIZB+nFGs/Eig=,rubygems:> 1.3.1
+0.1.1.rc6 cucumber:>= 0.4.5.rc2|checksum:LQ+o+HSiG7SHP1d7hkoclhx30DyTgou5v9S5UaOMb10=,rubygems:> 1.3.1
+0.2.0 cucumber:>= 0.5.0|checksum:tVGQZ0+p8TiHXRzKcIp6zC/Tg4g875clU3McIrlj7eY=
+0.2.1 cucumber:>= 0.5.1|checksum:HnHUJK2Wckyu1M/PiGlARi97nVOFJ7srutuhSz/8STs=
+0.2.2 cucumber:>= 0.5.1|checksum:+uGBMChnWk3BPZAO8GJQH49cBBGEa60POBJgQzcEGVo=
+0.2.3 cucumber:>= 0.5.1|checksum:eX/+CN8gA7raZO5m7+D0FdOBTd3efk9GtHzoY3ufnnM=
+0.2.4 cucumber:>= 0.6.2|checksum:Rs+5bqIwz3NT4hR7SdfZaUP776Ay2heY+QEzgwgU4mE=
+0.3.0 cucumber:>= 0.6.2|checksum:vb06ZFGgiojpdoBAlkIdDRJZGhaaxQ0LZJzBUuiaPI0=
+0.3.1 cucumber:>= 0.7.2|checksum:o7iWpS3dy+VhiWNH2XeBRhBVIDY3VYt/5qqANi2TZkI=
+0.3.2 cucumber:>= 0.8.0|checksum:JPZyLCOo0DyFlFc85+4WxZGcRH4rH5Ewf7GAyQ3M+cs=
+0.4.0.beta.1 cucumber:~> 0.10.0|checksum:eEH9L+G3/V+DDJRPWxjiorPIEpNg/Qtqx1D5g8jvhzA=,rubygems:> 1.3.1
+0.4.0 cucumber:>= 0.10.1,nokogiri:>= 1.4.4,rack-test:>= 0.5.7|checksum:LuT/93LjCYlR4JoovccTnO1+5r/L2BB1UhKHkJ88/mw=
+0.4.1 cucumber:>= 0.10.1,nokogiri:>= 1.4.4,rack-test:>= 0.5.7|checksum:5s6WorV36YDgTxP1NHTi0wXvwhMQ1EO130+UqrMOd5c=
+0.5.0.beta1 capybara:>= 1.0.0.beta1,cucumber:>= 0.10.2,nokogiri:>= 1.4.4,rack-test:>= 0.5.7|checksum:O4xcqlUKcZaiQLqPASQhrzSGM49CBjfrnPpG3H3GC88=,rubygems:> 1.3.1
+0.5.0 capybara:>= 1.0.0.beta1,cucumber:>= 0.10.2,nokogiri:>= 1.4.4,rack-test:>= 0.5.7|checksum:aLpLjy2SDCkNlGorls9FOrN35OYMESZ18Q5YIAHHo+s=
+0.5.1 capybara:>= 1.0.0.beta1,cucumber:>= 0.10.3,nokogiri:>= 1.4.4,rack-test:>= 0.5.7|checksum:PhkRXeHiCVH0grdLcQ3AVEbXh7o238+pxu2arqfco70=
+0.5.2 capybara:>= 1.0.0.rc1,cucumber:>= 0.10.5,nokogiri:>= 1.4.4,rack-test:>= 0.5.7|checksum:PsPAxiBPpE4TOwOZQjO3DIHbxowfcJTTfSkIz6P/RVs=
+1.0.0 capybara:>= 1.0.0,cucumber:~> 1.0.0,nokogiri:>= 1.4.4,rack-test:>= 0.5.7|checksum:LUnorTa7d0sCTlj95kqMThyT9BI2dFpKwoD5Ra7Mpjs=
+1.0.1 capybara:>= 1.0.0,cucumber:~> 1.0.0,nokogiri:>= 1.4.6,rack-test:>= 0.6.0|checksum:cZoB+kEHw5L0uFUQ7na4capoyywdrHK9Ymag5hBtAfA=
+1.0.2 capybara:>= 1.0.0,cucumber:~> 1.0.0,nokogiri:>= 1.4.6|checksum:EKIAhtmux1mVQejdXqp70Ci7da2f/qYDo3WPCHhA1hU=
+1.0.3 capybara:>= 1.1.1,cucumber:~> 1.0.4,nokogiri:>= 1.5.0|checksum:jhxDDskzBfs1jQeTnqL49A62sZzH93NOZcqaGpmMhtk=
+1.0.4 capybara:>= 1.1.1,cucumber:~> 1.0.4,nokogiri:>= 1.5.0|checksum:2t/c8Fxf5o5Te3eYoQ++5q8k2ivSeVqF6KnCIRcOtZM=
+1.0.5 capybara:>= 1.1.1,cucumber:~> 1.0.6,nokogiri:>= 1.5.0|checksum:4MZJ/2/+aoZBnUrCpJOa4zGYGyB528vyZJY92qv3Wkk=
+1.0.6 capybara:>= 1.1.1,cucumber:>= 1.0.6,nokogiri:>= 1.5.0|checksum:sEbnhLBSzylXG8Nn0GVliRUQPDAKvPx7fh+JiubGm+Y=
+1.1.0 capybara:>= 1.1.1,cucumber:>= 1.1.0,nokogiri:>= 1.5.0|checksum:7FBzw5xqww3Q2DXyHmwzb5gYWSBpNT3rp0IgxmJF81A=
+1.1.1 capybara:>= 1.1.1,cucumber:>= 1.1.0,nokogiri:>= 1.5.0|checksum:O71puDKGQ/HNiFUsxLdbmKlk+1HhP0b+xDhtG+sQ/mA=
+1.2.0 capybara:>= 1.1.1,cucumber:>= 1.1.1,nokogiri:>= 1.5.0|checksum:/sCwGCcznfv4f6Bv4mhH8W7SwEzg7AVQR3tSEJv6bWI=
+1.2.1 capybara:>= 1.1.2,cucumber:>= 1.1.3,nokogiri:>= 1.5.0|checksum:IP+hXO3aeProhnHaDsQhanJzFMru7q5Ibs0cVMgdR0U=
+1.3.0 capybara:>= 1.1.2,cucumber:>= 1.1.8,nokogiri:>= 1.5.0|checksum:HWk5KAdka8L2rTdsfD8tmKsbgiHITSd1VW3SWn0MHG8=
+1.3.1 capybara:>= 1.1.2,cucumber:>= 1.2.0,nokogiri:>= 1.5.0,rails:~> 3.0|checksum:w2OXkTH9fG5LCRMQgej2LKsaazz/7xEDPzOV0idjemY=
+1.4.0 capybara:>= 1.1.2,cucumber:>= 1.2.0,nokogiri:>= 1.5.0,rails:>= 3.0.0|checksum:zGAJM8GXCmgUbAJcEMBolWOJs5D8G7t9Lk02MIpZd3c=
+1.4.1 capybara:< 3&>= 1.1.2,cucumber:< 2&>= 1.3.8,mime-types:~> 1.16,nokogiri:~> 1.5,rails:< 5&>= 3|checksum:bEyXcyxVOdTJ2j6h37fUn//swn4InTC2IIXwdS+JVXU=,ruby:>= 0
+1.4.2 capybara:< 3&>= 1.1.2,cucumber:< 2&>= 1.3.8,mime-types:< 3&>= 1.16,nokogiri:~> 1.5,rails:< 5&>= 3|checksum:Qs/i91SmZ27DKCXS49tZ9J1o/N92Bq8YuhkfAYDFVfM=,ruby:>= 0
+1.4.3 capybara:< 3&>= 1.1.2,cucumber:< 3&>= 1.3.8,mime-types:< 4&>= 1.16,nokogiri:~> 1.5,railties:< 5&>= 3|checksum:35f210b2bf2a0c9d102f64d89e3b2a6245bb52154fcef9650b5b4840bb81af3f,ruby:>= 0,rubygems:>= 0

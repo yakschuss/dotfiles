@@ -1,0 +1,53 @@
+---
+0.0.1 net-ssh:>= 0,term-ansicolor:>= 0|checksum:8e4cbe47fc4c5a8c5638e6356bf299a9732de7e7ea1b6b295dc1c6ba4533a7a1
+0.0.2 net-ssh:>= 0,term-ansicolor:>= 0|checksum:d8acb63f31c1ae299608a802f3f641ea3909c9ab7d402a37433f5bcd62dc8052
+0.0.3 net-ssh:>= 0,term-ansicolor:>= 0|checksum:d48b396343e26c946b333044c865c46391384fa24ab492e566023dfcfa3d6b98
+0.0.4 net-ssh:>= 0,term-ansicolor:>= 0|checksum:6f2c65365e6e578435ad98b1462cf82a0edf874267a7fc3a4b6216f72feb2d45
+0.0.5 net-ssh:>= 0,term-ansicolor:>= 0|checksum:454c5a0fe08509436d4dd462d359da8544dab809b013319f73113ee644aaf441
+0.0.6 net-ssh:>= 0,term-ansicolor:>= 0|checksum:102949cb6e4f5bd5e7fda2511f1f091e973ffca873fef4564763b9248283dae8
+0.0.7 net-ssh:>= 0,term-ansicolor:>= 0|checksum:d060365324922677c7df47df1a1e7642404a3854c18ccc18daeeb7989d1aea92
+0.0.8 net-ssh:>= 0,term-ansicolor:>= 0|checksum:2cb9e3fbbb35a5e97b6cbe65712135cc6cd7dc15450119b953e146cfac54737b
+0.0.9 net-ssh:>= 0,term-ansicolor:>= 0|checksum:8923d94353367bedbaa6235a89d0d01801e08e2087f11bc2a15f278cf7eb3145
+0.0.10 net-ssh:>= 0,term-ansicolor:>= 0|checksum:de45a620aa8e5748b88183b56ce715d2ddc9426d506be1ced211fd0876e18962
+0.0.11 net-ssh:>= 0,term-ansicolor:>= 0|checksum:6c361be43552604b587380c4c3482fd71e5ab453a488404adee862a12bf512b6
+0.0.12 net-ssh:>= 0,term-ansicolor:>= 0|checksum:ecf52fcc12550ab350a4c2ff5abe8a2f4047bef12bc2e290011f0fde6f2db1db
+0.0.13 net-ssh:>= 0,term-ansicolor:>= 0|checksum:ffcb1f76223d14c57da0893a2579c6ad122abb5d8c403d7131ced72cc29f03ce
+0.0.14 net-ssh:>= 0,term-ansicolor:>= 0|checksum:ba5dfa8b9d6a052f05207d883a4b1153ef21ab9b3b93e0643a34df7970a72acb
+0.0.15 net-ssh:>= 0,term-ansicolor:>= 0|checksum:dbc28b8fe0c074fb1f559761f1230e406f0f6b9cdb3eee33d22589569f9fdb28
+0.0.16 net-ssh:>= 0,term-ansicolor:>= 0|checksum:8c2d9eea03e5b8d435788e340327b4a3fe069e685475acff215d6dc129014d02
+0.0.18 net-ssh:>= 0,term-ansicolor:>= 0|checksum:684e1631050ead1e44af65957c2deec5f8b7819f88add0289fa7bec9533888c0
+0.0.19 net-ssh:>= 0,term-ansicolor:>= 0|checksum:37e9a522d85e65e08fdfc5e105ee864d85620fd22935013de80e29c9c1ccdf7f
+0.0.21 net-ssh:>= 0,term-ansicolor:>= 0|checksum:83dfe7e4adaf9698c430bf8346305de02ade632db362efb7b11e3126514ee3ba
+0.0.22 net-ssh:>= 0,term-ansicolor:>= 0|checksum:1a2790936d0403cc37afa06134acd11230b4dc4ed75e8057b0a944d016d593ff
+0.0.23 net-scp:>= 0,net-ssh:>= 0,term-ansicolor:>= 0|checksum:1f484cdcdb5082e02916e0e150be5d1e50d76358c17a791753cae35f7ed466e7
+0.0.24 net-scp:>= 0,net-ssh:>= 0,term-ansicolor:>= 0|checksum:8095d10d7dd6a91a860532eec4f8e37a6ac97a10e498be41935cf74f4eb67312
+0.0.25 net-scp:>= 0,net-ssh:>= 0,term-ansicolor:>= 0|checksum:e693cea21219f37413db58f47cfb16ac2d496d843b2f41e3299594975426ffb3
+0.0.26 net-scp:>= 0,net-ssh:>= 0,term-ansicolor:>= 0|checksum:8fcdf7f3c664ae29e892c854dc2bf8f2a6ec2e069915a9f41c72952d5ef56e19
+0.0.27 net-scp:>= 0,net-ssh:>= 0,term-ansicolor:>= 0|checksum:1b02e8f1d69be469d1f6498eeea7ca8bf1861fd058735219d5ba0a43f4c92b42
+0.0.28 net-scp:>= 0,net-ssh:>= 0,term-ansicolor:>= 0|checksum:2671361c09b60b222a9fefb296afe48901ceb72ad0a126388759846348b8d373
+0.0.29 net-scp:>= 0,net-ssh:>= 0,term-ansicolor:>= 0|checksum:7b91275424cd64b11ded18672fbdf0c3287fc0a8637aae91fded0c1eb7bdcb0f
+0.0.31 net-scp:>= 0,net-ssh:>= 0,term-ansicolor:>= 0|checksum:243291529a47c53b967012e4256992ca14883ddc4c949dbd46323f6f5c973e84
+0.0.32 net-scp:>= 0,net-ssh:>= 0,term-ansicolor:>= 0|checksum:e96e4bab929ec1553565314ad44911968b8d255a92b28b192ab56079f46e616d
+0.0.33 net-scp:>= 0,net-ssh:>= 0,term-ansicolor:>= 0|checksum:05ddaa6a691081038ca809cecb0eae2dd96171dd99e4e247cccb05c6c041f27d
+0.0.34 net-scp:>= 0,net-ssh:>= 0,term-ansicolor:>= 0|checksum:9ca5aabd930a4af5e4fcce5ebfa81204921b7384c7f5c0b1dd8b156ec0d1fb8e
+1.0.0 net-scp:>= 0,net-ssh:>= 0,term-ansicolor:>= 0|checksum:0823501f0aa289b382c6992aea6c817319bf5358f42603559ba29cb8a1a81809
+1.1.0 net-scp:>= 0,net-ssh:>= 0,term-ansicolor:>= 0|checksum:2455e0b536f4aba60895e82ba3030639cea77f6533ef287b0ddc57823eecbc16
+1.2.0 net-scp:>= 1.1.2,net-ssh:>= 0,term-ansicolor:>= 0|checksum:71bb4c11be8b5b1e0a2af78da0fcdb3a832c509c09d337404825b8060a78f5af
+1.3.0 net-scp:>= 1.1.2,net-ssh:>= 0,term-ansicolor:>= 0|checksum:2989be8f00c5844e2985761b6d7a8d2aaa07413860a50e13e5b2ae91aabb83a4
+1.4.0 net-scp:>= 1.1.2,net-ssh:>= 2.8.0,term-ansicolor:>= 0|checksum:a3acf291a1c153c966e732a8b86171ba4ac820a35fff75af31801bb55ef28172
+1.5.0 colorize:>= 0,net-scp:>= 1.1.2,net-ssh:>= 2.8.0|checksum:688bec2eb68d06dd0e604e1c28b7045274c9deef5231ec6cd1d5c1f9569fdc29
+1.5.1 colorize:>= 0,net-scp:>= 1.1.2,net-ssh:>= 2.8.0|checksum:be1510b4936ee23174a4152a6b0e382a2b8244aa0d47d4e94908b641d639cd53
+1.6.1 colorize:>= 0.7.0,net-scp:>= 1.1.2,net-ssh:>= 2.8.0|checksum:8ca67e46bb4ea50fdb0553cda77552f3e41b17a5aa919877d93875dfa22c03a7
+1.7.0 colorize:>= 0.7.0,net-scp:>= 1.1.2,net-ssh:>= 2.8.0|checksum:90effd1813363bae7355f4a45ebc8335a8ca74acc8d0933ba6ee6d40f281a2cf
+1.7.1 colorize:>= 0.7.0,net-scp:>= 1.1.2,net-ssh:>= 2.8.0|checksum:69d38907dc35e21412fc143443c569c3b6a60247164507edd730557e583c0788
+1.8.0 net-scp:>= 1.1.2,net-ssh:>= 2.8.0|checksum:e235dbc8ad3854141242cd1a1ee9ac4062eabe5a7be8a2fc8cb5512cd53bb8cd
+1.8.1 net-scp:>= 1.1.2,net-ssh:>= 2.8.0|checksum:ff272ca4d54fcdfab2874c70de3d4e26846762e091f83d2bbfaa96ecaa8c0617
+1.9.0.rc1 net-scp:>= 1.1.2,net-ssh:>= 2.8.0|checksum:5f4ae099277f7591649c44956b6b764beca8ea4ac3cf9b359c7d00519c2a4e90,rubygems:> 1.3.1
+1.9.0 net-scp:>= 1.1.2,net-ssh:>= 2.8.0|checksum:7e3d840aeb81a282075c8c63276c9788b57914ab22281b8ba428a69d54ad8703
+1.10.0 net-scp:>= 1.1.2,net-ssh:>= 2.8.0|checksum:52be5c07361644f7ab461e14ffd2455a3ee5a7df01b03428bfa3716c830344a4
+1.11.0 net-scp:>= 1.1.2,net-ssh:>= 2.8.0|checksum:b3917b9ea28e031652391fd8ec1b95212e1413610bb26f8bba78c44767dea279
+1.11.1 net-scp:>= 1.1.2,net-ssh:>= 2.8.0|checksum:7fccc5b73dd992ac21c3453e4f9ddc8bbd48f60ae1e9c4478f093f945ab15178
+1.11.2 net-scp:>= 1.1.2,net-ssh:>= 2.8.0|checksum:610cebe87c1c016693e2d80bb5e5411961a0405358bdba6a6b3f11d682bfc125
+1.11.3 net-scp:>= 1.1.2,net-ssh:>= 2.8.0|checksum:9448311f00d40810db9695460f45dbe879a8420c4200c8a11e9777df44def872
+1.11.4 net-scp:>= 1.1.2,net-ssh:>= 2.8.0|checksum:15fb0b96854d3c85b2a81fababfc369505519a144d5c396bf60a41961f5cbbeb
+1.11.5 net-scp:>= 1.1.2,net-ssh:>= 2.8.0|checksum:546948e1c33c1fb748455d25967d7dc06d592e59d3408ce04ebbe1950e5430b1

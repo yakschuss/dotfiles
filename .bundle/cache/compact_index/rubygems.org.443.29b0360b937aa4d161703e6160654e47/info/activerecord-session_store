@@ -1,0 +1,8 @@
+---
+0.0.1 actionpack:< 5&>= 4.0.0.beta,activerecord:< 5&>= 4.0.0.beta,railties:< 5&>= 4.0.0.beta|checksum:9397b7ee420220b5e058ace3376ec7f0d4814138ac4cbcda31be39831e51e0e3
+0.1.0 actionpack:< 5&>= 4.0.0,activerecord:< 5&>= 4.0.0,railties:< 5&>= 4.0.0|checksum:7190ab1dfa8fc9e1b575a9d8ede249f57ee0bfdfeae498c215821cb9d018dd0e
+0.1.1.pre actionpack:< 5&>= 4.0.0,activerecord:< 5&>= 4.0.0,railties:< 5&>= 4.0.0|checksum:18f2bfdb5beacac2a02843834182c56c8d6fe519c9f92f5a803a461ec1c8d0cc,ruby:>= 1.9.3,rubygems:> 1.3.1
+0.1.1 actionpack:< 5&>= 4.0.0,activerecord:< 5&>= 4.0.0,railties:< 5&>= 4.0.0|checksum:50e6d5cd24e4dc6fda0b3a7cbdaee672435bb5336a6081e5c738a22be5e9af95,ruby:>= 1.9.3
+0.1.2 actionpack:< 5&>= 4.0.0,activerecord:< 5&>= 4.0.0,railties:< 5&>= 4.0.0|checksum:
+1.0.0.pre actionpack:< 5.1&>= 4.0,activerecord:< 5.1&>= 4.0,rack:< 3&>= 1.5.2,railties:< 5.1&>= 4.0|checksum:cfd45dde125128ea42d8ce1f67dfa50945965b95c57f7261ea5999382b3293ae,ruby:>= 1.9.3,rubygems:> 1.3.1
+1.0.0 actionpack:< 5.1&>= 4.0,activerecord:< 5.1&>= 4.0,multi_json:>= 1.11.2&~> 1.11,rack:< 3&>= 1.5.2,railties:< 5.1&>= 4.0|checksum:83a42a2a79cda117c31ff81fbe6f54447e9f7da851bc2819adb703cacf2d18ad,ruby:>= 1.9.3,rubygems:>= 0

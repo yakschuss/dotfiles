@@ -1,0 +1,8 @@
+---
+0.0.1 |checksum:
+0.0.2 rainbow:= 2.0.0|checksum:
+0.0.3 rainbow:= 2.0.0,turf:= 0.0.5|checksum:
+0.0.4 rainbow:= 2.0.0,turf:= 0.0.5|checksum:
+0.0.6 rainbow:= 2.0.0,turf:= 0.0.5|checksum:
+0.1.0 rainbow:= 2.0.0,turf:= 0.0.5|checksum:3f9a9cfab069a7e0eb15c0a61ab937c12c3ff710d1aed1e9621daf152552cefd,ruby:>= 0,rubygems:>= 0
+0.1.1 rainbow:= 2.0.0,turf:= 0.0.5|checksum:c6ac7495d608c4107b6de88c14737917f1e7c7e8c2628a58ac7827e4b6ea2ace,ruby:>= 0,rubygems:>= 0

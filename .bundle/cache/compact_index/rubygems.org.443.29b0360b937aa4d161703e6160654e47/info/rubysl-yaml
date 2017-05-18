@@ -1,0 +1,9 @@
+---
+0.0.1 redcard:~> 1.0|checksum:dzkh4Syp2uXHqGJWU9HFmRkxeKktgxvBmftrLCBf8DA=
+2.0.0 |checksum:bCK75vwCRYW8pzAQksNoeCuLlgjyRZUx/xzrbHr0qc0=
+1.0.1 rubysl-syck:~> 1.0|checksum:z1fnXIHgYzE3PMlOKpS3tW+IqfjnRq2F0RYh791NCvs=
+2.0.2 |checksum:ctShx9/wHnSyrioCW/RJYl+p5K5Y2I/1xn0YhjVFsJA=
+2.0.3 |checksum:k8eRsZE5jALTeeOLUC+mSyDJGkCy6i7/ALZ8NNe3RPk=
+2.0.4 |checksum:Fbf4ZNF9rbqO472q7PDYCTOVE8WUUjAlcNVjr7nvtaM=
+1.1.0 |checksum:RQkJ53Yp1UPsHSkVE5Q48cAT5hpuZpIxXQO8WOMFk7I=
+2.1.0 |checksum:8WhWVhF36Aa6ULTTMWYPgkY0rruomaR8my6MLJ0ZJNI=,ruby:~> 2.0

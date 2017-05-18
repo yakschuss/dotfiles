@@ -1,0 +1,4 @@
+---
+2.0.5 |checksum:69de9f65e9b2caee9e18f0b633bd0043ee3f9f57de1ffa7659c7a9873a3802cd
+2.0.5.1 actionpack:>= 3.1,railties:>= 3.1|checksum:41f868fec98ddd9a3ba06ba7cb471732be9c4be35fbe27b0ea9ad36946d5349f
+4.0.1 actionpack:>= 3.1,railties:>= 3.1|checksum:93b721bef427b9438e171c4d1788a5d13d831d22fa1386b10708a952bed77b9a

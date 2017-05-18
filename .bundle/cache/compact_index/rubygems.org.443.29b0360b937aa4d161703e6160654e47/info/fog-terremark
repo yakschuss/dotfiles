@@ -1,0 +1,6 @@
+---
+0.0.1 fog-core:>= 0,fog-xml:>= 0|checksum:d615bc4e8628d1a1fe50b9f26e06b95f97b103dcb24cda5aa8dad732b8b17cf5
+0.0.2 fog-core:>= 0,fog-xml:>= 0|checksum:70d1b35cd0c85e5f58c82b919b2a894077215171bd5614c1bc65a406eac0cdb0
+0.0.3 fog-core:>= 0,fog-xml:>= 0|checksum:fa3e3b5dbbe777d738f30bb3e4b91433fa47da43debff760a32a48d11d688b2e
+0.0.4 fog-core:>= 0,fog-xml:>= 0|checksum:6c43ee22531bc696544630b6589c3536edbc30867bc2aef0e0ea139018b5bf2f
+0.1.0 fog-core:>= 0,fog-xml:>= 0|checksum:8e8ec8592daab86c965e6a5454f0846e8deacff2bcd249ed8c40de2b139c8e06

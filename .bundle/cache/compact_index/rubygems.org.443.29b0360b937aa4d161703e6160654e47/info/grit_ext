@@ -1,0 +1,9 @@
+---
+0.0.1 charlock_holmes:~> 0.6.8,language_sniffer:~> 1.0.1|checksum:54c5cd1627a30bf04a46aafc21ab8d1c089e9a9ab42e42e3e7df07746a85d334
+0.1.0 charlock_holmes:~> 0.6.8,language_sniffer:~> 1.0.1|checksum:62dfc9b31788b7d093e833cc2dcfe73673f9059b0431c7216e7269b42fcf1719
+0.5.0 charlock_holmes:~> 0.6.9|checksum:f6cb2f5ac650ebf9b15341310cf48610bb6e20560e05592002a167c6e199e4dc
+0.6.0 charlock_holmes:~> 0.6.9|checksum:1dcbb4938b56275bd160ca31261be2b107b4f5fb3fbc45663c4ca2ba8168fe54
+0.6.1 charlock_holmes:~> 0.6.9|checksum:06d83ce790deb5f3768935e7100985f0da167012cb7def988a57c88b34094f4f
+0.6.2 charlock_holmes:~> 0.6.9|checksum:34735caaa4c0a17f39fbaf486690f580dce755a6d35231f3211ff6730b06854d
+0.8.0 charlock_holmes:~> 0.6.9|checksum:24a4686ed819777aeff319b526e2624ab4aa36043708a3421ad203e97787e4b7
+0.8.1 charlock_holmes:~> 0.6.9|checksum:e4157677be479e1b02b696e9aa66794756334b0fa611c1e55a80c2a92843c867

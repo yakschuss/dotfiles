@@ -1,0 +1,3 @@
+---
+0.6.0 babel-source:< 5&>= 4.0,execjs:~> 2.0|checksum:49cf810b5cc0ebd6047b116a7bc4c671cd914743254baf9c819ea9dbb31df420
+0.7.0 babel-source:< 6&>= 4.0,execjs:~> 2.0|checksum:4c06f4ad9e8e1cabe94f99e11df2f140bb72aca9ba067dbb49dc14d9b98d1570

@@ -1,0 +1,3 @@
+---
+1.0.0.rc1 aws-sdk-core:= 3.0.0.rc1,aws-sigv4:~> 1.0|checksum:d434d9ddd9ab9afecb2dda7e36b9e9f7360dca4dfd5ccfee238b0bd9cf2132b0,rubygems:> 1.3.1
+1.0.0.rc2 aws-sdk-core:= 3.0.0.rc1,aws-sigv4:~> 1.0|checksum:d3e2ec4a0f8e0fdcaebcbe565065d01584cc490ffed9e1f1c4aa1734a481293b,rubygems:> 1.3.1

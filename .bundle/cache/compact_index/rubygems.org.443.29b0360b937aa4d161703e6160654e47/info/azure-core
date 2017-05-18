@@ -1,0 +1,4 @@
+---
+0.1.0 faraday:~> 0.9,faraday_middleware:~> 0.10,nokogiri:~> 1.6|checksum:ba1725736538e9c3b9a467a4f441d3d6e8e035ba3ff2e238a1a80a6093557309,ruby:>= 1.9.3,rubygems:>= 0
+0.1.1 faraday:~> 0.9,faraday_middleware:~> 0.10,nokogiri:~> 1.6|checksum:924f0cd11c822e339bba763cdb78c62620e8f3ecc0f2cd7f450ec64ec8dcb6f6,ruby:>= 1.9.3,rubygems:>= 0
+0.1.2 faraday:~> 0.9,faraday_middleware:~> 0.10,nokogiri:~> 1.6|checksum:eab419dc179098dfc8e748d3f7b5442a8ba1fd05d2c4f2de3fe2397e18cdd304,ruby:>= 1.9.3,rubygems:>= 0

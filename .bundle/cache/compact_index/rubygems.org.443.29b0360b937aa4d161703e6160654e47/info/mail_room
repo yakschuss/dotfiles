@@ -1,0 +1,18 @@
+---
+0.0.1 celluloid:>= 0|checksum:9e83256931c1300b158ac512982e349a864ea0f6fdb0c351a189a48a4791261e
+0.0.2 |checksum:4fb0e0f90d40b37d259a7ae4e6a7bd0fbdd0c21061c71020d5861f8cbdadef3d
+0.0.3 |checksum:de2a3104e3688f1de3ad262775d06e012b2cd248bb01fe14ee1cc2412f3b854d
+0.1.0 |checksum:e3f4e674e6e379500eb2e87a0792f0741dc850ee35886b782dc2665ff8a10108
+0.2.0 |checksum:3b65ce7fe639e6fcc1d87e0391b5beba3c02ed74313871316061a453c30a2088
+0.3.0 |checksum:3adf7314fad77d6272d1bfbab0b6cf71c0d3886eda9e51f60cecc840e76295f8,ruby:>= 0
+0.3.1 |checksum:9225748f1e97adab89f3f540f97b184310548599d783569ebd988a6baaad6ed0,ruby:>= 0
+0.4.0 |checksum:
+0.4.1 |checksum:
+0.4.2 |checksum:
+0.5.0 |checksum:
+0.5.1 |checksum:
+0.5.2 |checksum:
+0.6.0 |checksum:
+0.6.1 |checksum:
+0.7.0 |checksum:08a39b22b0cdcab61a9eabf740e11899be5fa43e27852649dacfc23394a55fc2,ruby:>= 0,rubygems:>= 0
+0.8.0 |checksum:e055f46391b1d16efd6d6d404595d37f0cfc92028b1f9d6fbf0f66f305914a02,ruby:>= 0,rubygems:>= 0

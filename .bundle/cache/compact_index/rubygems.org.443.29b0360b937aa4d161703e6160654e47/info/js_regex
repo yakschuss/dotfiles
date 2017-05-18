@@ -1,0 +1,17 @@
+---
+1.0.6 regexp_parser:= 0.3.1|checksum:60f3f963b0a49e59282e9e212ae9d48b16f2be7c57691b23bca9c7a2e840a4aa
+1.0.7 regexp_parser:= 0.3.1|checksum:4ad26e586b0262ec89ea263dbc5ad33103d8c6183a580ec64c87cc1d0967ac98
+1.0.8 regexp_parser:= 0.3.1|checksum:f2ab57a3bb9e186b9cf4e383d39444594acb2d8e8044b42b5d207db38db1bef7
+1.0.9 regexp_parser:= 0.3.1|checksum:57d0c1203d3d9d2166723a107670ada0ed1ca2ba50617aa49db00a31b2f6eeb5
+1.0.10 regexp_parser:= 0.3.1|checksum:f8e5e27faa37f8b97148d6c93d3e7b05ae82a4de6db0ff5a9940500a8866d2ee
+1.0.11 regexp_parser:= 0.3.1|checksum:b18a8ef0fcfaf325b0ad20a553f1df24778b932c082ecea9b81f918ddabd143e
+1.0.12 regexp_parser:= 0.3.2|checksum:3000f3ea3e89973fa4e2c12560c136bae2048495c11869bf89943dd838df560a
+1.0.13 regexp_parser:= 0.3.2|checksum:3df28b83bba42f9dec640f05d4a6dacdc8de32794258f5fdf57dccedd240a1f7
+1.0.14 regexp_parser:= 0.3.3|checksum:2137bb6dc3dd6f843563951abb5ba8aefbe9bbc7f52291fb7a374e610957b65e
+1.0.15 regexp_parser:= 0.3.4|checksum:6186c6f506877f73257a64127c51e62b344e2b86672994df61d999c1af1484a3
+1.0.16 regexp_parser:= 0.3.5|checksum:bc82755a04311bb22f7e8136ef68d69b835e4ff4d395373381bf99f5beddc99c
+1.0.17 regexp_parser:= 0.3.6|checksum:f53049a86486d3a0e1029dde9a8cb520bb1655fa29fd6a5fb886509bce7ced2b
+1.0.18 regexp_parser:= 0.3.6|checksum:b2683f5b815e67e7ee9dcfac4eba917d5689bf7f03d8486a1680515ecc64e823
+1.0.19 regexp_parser:= 0.3.6|checksum:a000a414b0bd1902cab78a47da35024f4a807116391199e283e66210339718dd
+1.1.0 regexp_parser:<= 0.4.1&>= 0.3.6|checksum:ceb2b74e24fc77a41b419898cf14cbd59d4b68bd11237e731ed7da2795e22075,ruby:>= 1.9.1
+1.2.0 regexp_parser:<= 0.4.1&>= 0.3.6|checksum:92fad4e2cd893090328392bfe1ae2da3d2e03357ef08d32e542f64559cd65886,ruby:>= 1.9.1

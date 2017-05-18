@@ -1,0 +1,22 @@
+---
+0.17.0 rubocop:~> 0.17|checksum:y615+E2hTjV1SDYnyO9ac5YLkew1MORORKKjC3VM6kk=
+0.18.0 rubocop:~> 0.18|checksum:YQGmFlfB9P3RrkpuB0hnkDQ+YY8rbmYqF4lYU3NgDio=
+0.18.1 rubocop:~> 0.18|checksum:9Pdf4IO/+9gxZ8hwjVJgywtHBo7LDQyg1pnrt7pwwlQ=
+1.0.rc1 rubocop:>= 0.19&~> 0.19|checksum:tNiAWopdDN0Z5cptyhBQPkiC2syN0RHCNXjPlst5M+A=,ruby:>= 1.9.2,rubygems:> 1.3.1
+1.0.rc2 rubocop:>= 0.19&~> 0.19|checksum:HX9agKyywtK5kFGkUqoOtFxWLqLA6c9cYKOhDUQ7xBo=,ruby:>= 1.9.2,rubygems:> 1.3.1
+1.0.rc3 rubocop:>= 0.23&~> 0.23|checksum:zOBsMMkR/KLqsvSlTiYVRPyXz3vsPXEz3Sub5y8dB20=,ruby:>= 1.9.2,rubygems:> 1.3.1
+1.0 rubocop:~> 0.23|checksum:Jj4AV9cWTRNfBu2DtqoF+5Q3bRwPYj84IZ8qxLO7awM=,ruby:>= 1.9.2
+1.0.1 rubocop:~> 0.23|checksum:Y7XD8ApHutSQ3EMnqYoxv9EGKpoTUnfUims/8v2eWx4=,ruby:>= 1.9.2
+1.1.0 rubocop:~> 0.23|checksum:18DPi8axZ5eTZQjaEiqW0GAbe9UlupJFCiEbbdUqKT4=,ruby:>= 1.9.2
+1.2.0 |checksum:nP6O9T5nNaEc559SJskG3K8fF6LBHPqvdQOuMjkAI4A=,ruby:>= 1.9.3
+1.2.1 |checksum:WrOwmsFEzfr6kj38iZOtYajUQNKPlhFgwVmaXNO/37A=,ruby:>= 1.9.3
+1.2.2 |checksum:LkKHXQELb5LXnCkQtLZd8x9dsXgZl4Ymq0BWzecHbXo=,ruby:>= 1.9.3
+1.3.0 |checksum:mnaUHHmTkd75yLhyUW0sCLIWo3KBAyMMc5RpOY6IpJU=,ruby:>= 1.9.3
+1.3.1 |checksum:
+1.4.0 |checksum:35f43ccaa6b33abb646f8d76f41802080fb7a3f853bb8473bea8dd3ac4bfc15b,ruby:>= 1.9.3,rubygems:>= 0
+1.4.1 rubocop:= 0.39.0|checksum:1377c6db9560b68d4a62f7a41e8e69987398373ef47427de9800a366b0e0e320,ruby:>= 1.9.3,rubygems:>= 0
+1.5.0 rubocop:>= 0.40.0|checksum:17e9852e68a7bca7bbce11d5de96ad74fca7ea5589c16956ed73a382780ce084,ruby:>= 1.9.3,rubygems:>= 0
+1.5.1 rubocop:>= 0.41.2|checksum:7a566b7e80e3895ea6134c3c74c98f123f4dd4ad8c4fd893a99cffa2dc6204e3,ruby:>= 2.0.0,rubygems:>= 0
+1.5.2 rubocop:>= 0.42.0|checksum:568f3eeb6f99c0a7fed88cfc6d4a9b2680c9bb1e5d1b2736fa549258fa767591,ruby:>= 2.2.0,rubygems:>= 0
+1.5.3 rubocop:>= 0.42.0|checksum:470774ea80e95562e373a138206834c07085ba796c02d13b80811d3da4ec5b62,ruby:>= 2.2.0,rubygems:>= 0
+1.6.0 rubocop:>= 0.42.0|checksum:91f0fc116bed123a284490a75be80bad13c29ac672066996686e13e9ba9d3861,ruby:>= 2.2.0,rubygems:>= 0

@@ -1,0 +1,7 @@
+---
+3.0.0.rc1 activerecord:~> 3.0,audited:= 3.0.0.rc1|checksum:SDNcBJa5weeuIHQIm9jjm86+HMepaPiZtkSJgxYs510=,rubygems:> 1.3.1
+3.0.0.rc2 activerecord:~> 3.0,audited:= 3.0.0.rc2|checksum:jhydKm79YUCp2fF38hjsakL961Q6SB23Wg3pUH2sMbc=,rubygems:> 1.3.1
+3.0.0 activerecord:~> 3.0,audited:= 3.0.0|checksum:RYASBboZ8XQa9X3Aw037Ykh1HdS1YE7uoyK11rhCO0E=
+4.0.0.rc1 activerecord:~> 4.0,audited:= 4.0.0.rc1|checksum:QY7x9GFpFLtrW5uw2/oYjRIkdcZshJdVUF/lVrhlRsw=,ruby:>= 0,rubygems:> 1.3.1
+4.0.0 activerecord:~> 4.0,audited:= 4.0.0|checksum:+knWujNor6V83GDItYfoHWM0W4c9cDgKCI1uqrE952o=,ruby:>= 0
+4.2.0 activerecord:~> 4.0,audited:= 4.2.0|checksum:INnXbTb7HwIyBfyItuTci1ip9OpzPLzED46SS+EFA8s=,ruby:>= 0

@@ -1,0 +1,35 @@
+---
+0.5.1 hoe:>= 1.7.0,libxml-ruby:>= 0.8.0|checksum:9aEHf1Cdhnm2K4ghBsw4zgEREWp0ksTb0N+Z8uOSG2w=
+0.5.2 hoe:>= 1.8.2,libxml-ruby:>= 0.8.0|checksum:ipuzxW9R9vxmcxcK1/sCPmhCwdWOoz3xKqSgip8YYvM=
+0.6.0 hoe:>= 1.8.2,libxml-ruby:>= 1.1.2|checksum:2av0C0FkcTDPoANcbmSZ7FIlcDvSjvDtkQCxP/uSUCM=
+0.6.1 hoe:>= 1.8.2,libxml-ruby:>= 1.1.2|checksum:aPCxrAcFuyM+AwMWDRBo3eZUDdDb/Ei4szwQlDceeuM=
+0.2.1 activesupport:>= 2.0.1,libxml-ruby:= 0.5.2.0|checksum:UK2FmD4bhRNtphn8mW5O7+0soxdo91F1FfuCoC/+yak=
+0.2.2 libxml-ruby:= 0.5.2.0|checksum:bGa80NPgwhff1kiVmaxxS0YpB38l8+pZzDkLNr7MeSA=
+0.3.0 libxml-ruby:= 0.5.2.0|checksum:l+CU+8o3IB0Jq01Ao2T0L6tP/upQZTtTIX1aH3KsIAo=
+0.3.1 libxml-ruby:= 0.5.2.0|checksum:zi5FAibNEVwvDIPQDrCrZ+65a1DSzIjqZkGZkQcrEqQ=
+0.3.2 libxml-ruby:= 0.5.2.0|checksum:jQTnKdCoyqHkTB16eBT4M6BqmKcplPw6/FXf/Pra804=
+0.3.3 libxml-ruby:= 0.5.2.0|checksum:klCqDzZNslEpA5Cs19phan6ieg81II4EvRruH+0Vlwc=
+0.3.4 libxml-ruby:= 0.5.2.0|checksum:0dJ6r8Bzgtes4dEiqjSTHcgLIqfjnukxmLtU20b1110=
+0.3.5 libxml-ruby:= 0.5.2.0|checksum:viZ9zmCBHDp7W9CiIQVhSBUm+wYI51pB31JN/K1R3nI=
+0.3.6 libxml-ruby:= 0.5.2.0|checksum:Cfs/S96WXHG1hCiGBjc/V/n9oqR+hEzBRGJzAEkOtzc=
+0.3.7 libxml-ruby:= 0.5.2.0|checksum:IxD1MsvNJTnd+lFXEWq/zdrX8bkArBAfoHsn3RPAd8U=
+0.4.0 libxml-ruby:= 0.5.2.0|checksum:f8+FKEAGPLXhe7rR9zDtYqQTuo8Nh2p3DANP+xhlNCY=
+0.4.1 libxml-ruby:= 0.6.0.0|checksum:aZ5shsRHHBnfylbOlNiPBBKE4zeRD7LnJcelDIF7a9I=
+0.4.2 hoe:>= 1.7.0,libxml-ruby:>= 0.8.0|checksum:lLmUd4GqzSjB7mnY+80o3IV/3VMPK3AJclzCs1p1DZE=
+0.5.0 hoe:>= 1.7.0,libxml-ruby:>= 0.8.0|checksum:jjtHRaKxMgqloIu+7JapogrWJ9IUdgb+15t7ra/F5y0=
+0.6.2 hoe:>= 1.12.2,libxml-ruby:>= 1.1.2|checksum:blgUqbwKWPUHY3r3FXxLrbf10z8KOynj8vcoeM6E1KQ=
+0.6.3 libxml-ruby:>= 1.1.2|checksum:Jc01nPpV6sAYmpLJqCHWeGVLhk1zpQpcTniAJOw0CDU=
+0.6.4 libxml-ruby:>= 1.1.2|checksum:j+aaJLwCXamBIlSTEj5BvDpoc+uwhzpeV3o+LFTDVLA=
+0.6.5 libxml-ruby:>= 1.1.2|checksum:3bP24vZcGwc0VjvaRgmcLl1FO4sxXtfGv7yBdqitz3s=
+0.6.6 libxml-ruby:>= 1.1.2|checksum:wa7Doh3kgEzDyY5MR09NHsOHNFLRhK9U3rqbQnnymUw=
+0.6.7 libxml-ruby:>= 1.1.2|checksum:MQ31bRD62uUFykC1D7Ba0uREQAujeZaRJ2nZy4IEz/Q=
+0.6.8 libxml-ruby:>= 1.1.2|checksum:8zfJQksSSVajLOFhUP1YKTj1QRt6L7dAU61YA26/fyQ=
+0.6.9 libxml-ruby:>= 1.1.2|checksum:UYy2B4BDDLlo7d0NtHstyXjkX1L/E3/WUvpynR/z0oA=
+0.6.10 libxml-ruby:>= 1.1.2|checksum:YDQM8fwstD9Wos8ouGZDKnTEG7lCjrQgApRTrb3C46I=
+0.7.0 libxml-ruby:~> 2.3.2|checksum:7wWuIJyQhUV5W59scgF6LQJehM68/AqXJN0HYG65jN4=
+0.7.1 libxml-ruby:~> 2.3.2|checksum:iUWjN/JliuFbVBbsqNU5aQ1ky9oH2xRBcKS4qV2LNpc=
+0.7.2 libxml-ruby:~> 2.3.2|checksum:IPqwc9ZWOvFVBqfhO18HNQ8vvDhIZScq0fY35L0GmnE=
+0.8.0 libxml-ruby:~> 2.3|checksum:ILQNBOmkbDPTD/2sfcrJ2XSGtqn5gqhmMDANH49c3sk=
+0.8.1 libxml-ruby:~> 2.6.0|checksum:CdawMApWlc3JxkZ/YhoU5CvzYzng0dBOp3eIVEf7ueg=
+0.8.2 libxml-ruby:~> 2.6.0|checksum:klABgBTKzQLFXerh7G0dA7yGTim+/mb0ihrOHVMcnxA=
+0.9.0 libxml-ruby:~> 2.6|checksum:HvZOMV1KS8xvgp0StqykqHoKdpXPAAyXWYn7L4+TWxY=,ruby:>= 0

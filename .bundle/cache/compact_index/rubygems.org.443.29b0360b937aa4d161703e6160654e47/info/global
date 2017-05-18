@@ -1,0 +1,7 @@
+---
+0.0.1 activesupport:>= 0|checksum:02e8566291f7e5595afe355a47cafa60e998114b00da8ffc5158bbc621dcd8e9
+0.0.2 activesupport:>= 0|checksum:4cbfc9d6d5b100c95def361d503091207193de325c1c2375df60460b012ce894
+0.0.3 activesupport:>= 0|checksum:4dc073e4e5a24c985bb763bbcb8b24e27798fe37b2703befc679fdd7dd3a8ee8
+0.1.0 activesupport:>= 2.0|checksum:92fa787bb5313e4531f9054ac2bc3a658042ffce15805b2c5fb9460f55d957b7
+0.1.1 activesupport:>= 2.0|checksum:4e9fd6f59b972498d1bcf24f50e5b3b03d201381d9b225f372f8cfe7933e0e2e
+0.1.2 activesupport:>= 2.0|checksum:16febc2811d6a1807ae7b9543b6eb9e23b45bf90dc3eb7c13c6ae68a9819e7ad

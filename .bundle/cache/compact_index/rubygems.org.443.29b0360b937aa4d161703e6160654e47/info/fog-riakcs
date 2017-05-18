@@ -1,0 +1,3 @@
+---
+0.0.1 fog-core:>= 0,fog-json:>= 0,fog-xml:>= 0|checksum:6c0537c244ff400bd6b3922e883b251d30ea929bf1f8733ad80a6a7457ae5ef4
+0.1.0 fog-core:>= 0,fog-json:>= 0,fog-xml:>= 0|checksum:b5431e8863829177fb79102e67ddb6dbdc5462c52ad45733774f0d3f1b617dd9

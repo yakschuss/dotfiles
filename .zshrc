@@ -101,9 +101,6 @@ alias config='/usr/bin/git --git-dir=/Users/jackschuss/.dotfiles/ --work-tree=/U
 alias gcplast='git log -1 --pretty=format:"%H" | pbcopy'
 
 source ~/zsh-git-prompt/zshrc.sh
-export PATH="$PATH:/usr/local/opt/go/libexec/bin:$HOME/.rvm/bin:$HOME/.gem/ruby/2.0.0/bin:$(yarn global bin):$PATH"
-# ~/Library/Python/2.7/bin:
-# eval "$(rbenv init -)"
+export PATH="$HOME/.bin:/usr/local/opt/go/libexec/bin:/Users/jackschuss/.gem/ruby/2.3.0/bin:/Users/jackschuss/.gem/ruby/2.4.0/bin:$(yarn global bin):$PATH"
+eval "$(rbenv init -)"
 eval "$(hub alias -s)"
-
-export PATH="$HOME/.bin:$PATH"

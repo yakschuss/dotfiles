@@ -1,0 +1,19 @@
+---
+0.0.2 capistrano:>= 0|checksum:3d49a7f3264905d555a5be19e1ae175454846a52fd6ac560e45ca68e67dcff65
+0.0.3 capistrano:>= 0|checksum:2ed78cfc4443f1a50108efa9709e9e9372409384375b3961215718569b8213bf
+0.0.4 capistrano:>= 0|checksum:74f8538f00a0c0f0c82ca6c42a72537ac6903c8cfdef3f4a148f0e959c204716
+0.0.5 capistrano:>= 0|checksum:bf5cdd5489aac412f20ad930e41c937b869cfe732e71ce62fb9cd88227a7f392
+0.0.6 capistrano:>= 0|checksum:7996d30a25d7c6591d4756da4b53b13fc4257f106744e1fbd6d527a47500f069
+0.0.7 capistrano:>= 0|checksum:ec48bfdf7e7823db00d35a292c8ef31ae7764adade602da33ac5f25f77dff544
+1.0.0 capistrano:>= 0|checksum:2dca8164274b705c2bc2074fffb3366faffcb18e190e647a991beea2eadcd65e
+1.1.0 capistrano:>= 3.0.0,capistrano-bundler:>= 1.0.0|checksum:3a93ad3f918a3e2d6d912321da71f351e5bafcccf49e7d81c771b95fb916e38f
+1.1.1 capistrano:~> 3.1,capistrano-bundler:~> 1.1|checksum:614bd22f837cf3c1b09a2d30aa18499a4c99a670b777eed1b44c33fb142f1e4c
+1.1.2 capistrano:~> 3.1,capistrano-bundler:~> 1.1|checksum:a1b6009b1bf9aa37e6e8970b5136a38b8d0e551cb4a1605a1f2da3679bd01fcc
+1.1.3 capistrano:~> 3.1,capistrano-bundler:~> 1.1|checksum:846efc1ef7a9439e7759455fc31052f5524099e5981b69e4da144ff8d10ab238
+1.1.4 capistrano:~> 3.1,capistrano-bundler:~> 1.1|checksum:a2eddb7334949c15f9ec54d13d9ed34d1df7246723d060673611de93d9c4b9e4
+1.1.5 capistrano:~> 3.1,capistrano-bundler:~> 1.1|checksum:9ae26846450867ce37c60c8477d8b8e41ceb2dbcf6c2769692a43d2cdc6e71f0
+1.1.6 capistrano:~> 3.1,capistrano-bundler:~> 1.1|checksum:996c42731369fed8273106f107c9f685d58b976242366b9239e70441d33284e6
+1.1.7 capistrano:~> 3.1,capistrano-bundler:~> 1.1|checksum:038afecb9405e55656ac2cd89ab8feb4660755b579a06b208826ebc4eff48e89
+1.1.8 capistrano:~> 3.1,capistrano-bundler:~> 1.1|checksum:5ceb77677954bae71690fd155bbd6dab03cfd3990a477930663c8b83338c9f0e
+1.2.0 capistrano:~> 3.1,capistrano-bundler:~> 1.1|checksum:6a23ce0d54a56e34a7f905eced6bdad0bfc3f3d9187dc959f01104222ccf8ff6
+1.2.1 capistrano:~> 3.1,capistrano-bundler:~> 1.1|checksum:a3c4a9cc300225f2b3610186229d0a43d3091d112cca221b6e3eec61991a134a

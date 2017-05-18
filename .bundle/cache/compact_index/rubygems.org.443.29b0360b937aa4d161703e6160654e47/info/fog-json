@@ -1,0 +1,4 @@
+---
+1.0.0 multi_json:~> 1.0|checksum:dcd321b42f551a9ed3a2a5d43bdfe703b7588dcac5a9e504577501ba50d52794
+1.0.1 fog-core:~> 1.0,multi_json:~> 1.0|checksum:0114940ed63dc79020a24edfb75ea721d5b21e6219f31f03285775a41a99077c
+1.0.2 fog-core:~> 1.0,multi_json:~> 1.10|checksum:19006b42ac58cc71442e97d00de454824245b3780bb091cfa97e4a25db9cbb29

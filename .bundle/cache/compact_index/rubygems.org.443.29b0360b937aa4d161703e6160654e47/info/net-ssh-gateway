@@ -1,0 +1,5 @@
+---
+1.0.0 net-ssh:>= 1.99.1|checksum:ec9de7fd571df2bee0eeaa517e1c42cac9fde313ba5a7ed6aa1bc335fa978808
+1.0.1 echoe:>= 0,net-ssh:>= 1.99.1|checksum:015ca5dc42b5f302b3eb8fa7059db63675089a5d9be4b650ce962b239ed024bc,rubygems:>= 1.2
+1.1.0 net-ssh:>= 1.99.1|checksum:83c1fd0de5859df1b7f4b1e8028ff47bc5317ac5ab350bf9e2a5e616950d34a9,rubygems:>= 1.2
+1.2.0 net-ssh:>= 2.6.5|checksum:3e5ab1f9d20e44c838ee890d1ae5c756b4b9cec492bc717340d90869399113db

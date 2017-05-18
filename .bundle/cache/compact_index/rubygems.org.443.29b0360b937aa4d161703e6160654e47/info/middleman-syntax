@@ -1,0 +1,10 @@
+---
+1.0.0 middleman-core:~> 3.0.0,pygments.rb:~> 0.2.13|checksum:a0f5dee38f1a279c1ae60ed175af3b24d2b3e8dcb617b30230f7835ad91c0383
+1.0.1 middleman-core:~> 3.0,pygments.rb:~> 0.3|checksum:6751a466b14bba82fe9485fe9560b6c25fb3b1fef89e854700026641227a528d
+1.1.0 middleman-core:~> 3.0,pygments.rb:~> 0.3|checksum:7710a41a98aa231a6aef7cf76f604825a1844d5ffc65452badf78d63256f559e
+1.1.1 middleman-core:~> 3.0,pygments.rb:~> 0.3|checksum:aac60c0d773171030d2b655a9d8893af28d890b58dfeaec94787c93c61ea7137
+1.2.0 middleman-core:~> 3.0,rouge:~> 0.3.0|checksum:56e8f11f95e2d7b58be884e9607641117e5128dbe17d5963a2bb41eab23e7a6e
+1.2.1 middleman-core:~> 3.0,rouge:~> 0.3.0|checksum:62ebd91c625b281d35257b8875bdd870c962092dc1490c1f5c95eb92b59c81e9
+2.0.0 middleman-core:~> 3.2,rouge:~> 1.0|checksum:f41a581e346bb14f1ba3ac66f08f5528ae8d565a1f767a8a5a819b2e4c83856c
+2.1.0 middleman-core:>= 3.2,rouge:~> 1.0|checksum:3063e9a808410865cc67079cff1d088fd38f4adac02262d3a13c3717d7785043
+3.0.0 middleman-core:>= 3.2,rouge:~> 2.0|checksum:dcc61205c0c1f100ef2583db7c25390682e4f0893c9cded107cc6c11577d5344

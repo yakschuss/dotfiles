@@ -1,0 +1,5 @@
+---
+0.0.1.alpha fog-core:>= 0,nokogiri:>= 1.5.11&~> 1.5|checksum:3c4ebe1dd232147a581b95672651a073d6bae7d62583c75774eb32c0c8d465e5,rubygems:> 1.3.1
+0.1.0 fog-core:>= 0,nokogiri:>= 1.5.11&~> 1.5|checksum:bfacff357996b1a95b46b81844258ab64608051268320c63eeff0ef297420180
+0.1.1 fog-core:>= 0,nokogiri:>= 1.5.11&~> 1.5|checksum:85f7ed6418bcc8e74ea93afd265d60d8fdeabc4c94f920df3ad7ff0a3e97fd4d
+0.1.2 fog-core:>= 0,nokogiri:>= 1.5.11&~> 1.5|checksum:0a3b624ae6503d167a1fdfb5d0da669b3d98c7e301a6092e22ff10f5ffd2e694

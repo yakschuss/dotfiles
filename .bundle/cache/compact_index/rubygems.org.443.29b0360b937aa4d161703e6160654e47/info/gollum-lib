@@ -1,0 +1,25 @@
+---
+0.0.1 github-markdown:~> 0.5.3,github-markup:< 1.0.0&>= 0.7.5,grit:~> 2.5.0,nokogiri:~> 1.5.6,pygments.rb:~> 0.4.2,sanitize:~> 2.0.3,stringex:~> 1.5.1|checksum:cd8d8b395ed503529b7d2bb8b1420cd778b15816aacbb5cc8e09cd9b28cfa9dd
+1.0.0 github-markdown:~> 0.5.3,github-markup:< 1.0.0&>= 0.7.5,grit:~> 2.5.0,nokogiri:~> 1.5.9,pygments.rb:~> 0.4.2,sanitize:~> 2.0.3,stringex:~> 1.5.1|checksum:ecbfb8ee28cf9174813c6728f5790377a7c165eff4e695b3783dfcc320c75e4a
+1.0.1 github-markdown:~> 0.5.3,github-markup:< 1.0.0&>= 0.7.5,grit:~> 2.5.0,nokogiri:~> 1.5.9,pygments.rb:~> 0.5.0,sanitize:~> 2.0.3,stringex:~> 1.5.1|checksum:ef490924a3c3a434a7ac3df72aa6f38b2acd84763fe215b8a55f984e3b8fec80
+1.0.2 github-markdown:~> 0.5.3,github-markup:< 1.0.0&>= 0.7.5,grit:~> 2.5.0,nokogiri:< 1.6.0&~> 1.5.9,pygments.rb:~> 0.5.0,sanitize:< 2.0.4&~> 2.0.3,stringex:~> 1.5.1|checksum:1fbabfd68b937379c6a23c205ac7f87d6c5626276e65857bc582a5c82fad8ec8
+1.0.3 github-markdown:~> 0.5.3,github-markup:< 1.0.0&>= 0.7.5,grit:~> 2.5.0,nokogiri:< 1.6.0&~> 1.5.9,pygments.rb:~> 0.5.0,sanitize:< 2.0.4&~> 2.0.3,stringex:~> 1.5.1|checksum:08519698f9e3fa12aa1ed5a37f6b83010873e620ff604c66f4d4108a819c4303
+1.0.4 github-markdown:~> 0.5.3,github-markup:< 1.0.0&>= 0.7.5,grit:~> 2.5.0,nokogiri:~> 1.6.0,pygments.rb:~> 0.5.2,sanitize:~> 2.0.6,stringex:~> 2.0.5|checksum:8f0fdf0fa07cbe0126d99cd746205710ece6c59059d88a2ed35dea49e88490ca
+1.0.5 github-markdown:~> 0.5.3,github-markup:< 1.0.0&>= 0.7.5,grit:~> 2.5.0,nokogiri:~> 1.6.0,pygments.rb:~> 0.5.2,sanitize:~> 2.0.6,stringex:~> 2.0.5|checksum:5b1e0a7608a8613c5a166b6736d423e60e7410160a98c22a4a592a660b5f472c
+1.0.6 github-markdown:~> 0.5.3,github-markup:< 1.0.0&>= 0.7.5,grit:~> 2.5.0,nokogiri:~> 1.6.0,pygments.rb:~> 0.5.2,sanitize:~> 2.0.6,stringex:~> 2.0.5|checksum:0ce8215814816bb6268fd277834e46da142247ffb9255220ff193e4ba5d91ec5
+1.0.7 github-markup:< 1.0.0&>= 0.7.5,gitlab-grit:~> 2.5.0,nokogiri:~> 1.6.0,pygments.rb:~> 0.5.2,sanitize:~> 2.0.6,stringex:~> 2.0.5|checksum:e38330876c644cc01a8a571802193a6fc9ccb02c9bcdea497ef489f16da8d9d0
+1.0.8 github-markup:< 1.0.0&>= 0.7.5,gitlab-grit:~> 2.6.0,nokogiri:~> 1.6.0,pygments.rb:~> 0.5.2,sanitize:~> 2.0.6,stringex:~> 2.1.0|checksum:12964dd5098690b3a5dfbe06f6877e4cde203665a9c0328d360767e7908a8911
+1.0.9 github-markup:< 1.0.0&>= 0.7.5,gitlab-grit:= 2.6.0,nokogiri:~> 1.6.0,pygments.rb:~> 0.5.2,sanitize:~> 2.0.6,stringex:~> 2.1.0|checksum:912e65855174b3aebab00bf709124c1d6da814868d216a252c11d5550dd2f33d
+2.0.0 github-markup:< 1.0.0&>= 0.7.5,gitlab-grit:= 2.6.0,nokogiri:~> 1.6.0,rouge:~> 1.3.1,sanitize:~> 2.0.6,stringex:~> 2.1.0|checksum:b31ba8c91c84cb9f828fe84e1c7b8fb77f5f58c969a226fd2e308f92a11cebc8
+3.0.0 github-markup:~> 1.1.0,gitlab-grit:~> 2.6.5,nokogiri:~> 1.6.1,rouge:~> 1.3.3,sanitize:~> 2.1.0,stringex:~> 2.5.1|checksum:7a0896cae6d443e42b19e1353f1f900684b63109844cfdb52c48d40f2824e7a1,ruby:>= 1.9
+4.0.0 github-markup:~> 1.3.1,gollum-grit_adapter:~> 0.1.0,nokogiri:~> 1.6.4,rouge:~> 1.7.4,sanitize:~> 2.1.0,stringex:~> 2.5.1|checksum:7a2749f0109fed9ef6d0a7dd619f057dacfd174e1297625cd5d5bb545f9c6051,ruby:>= 1.9
+4.0.1 github-markup:~> 1.3.1,gollum-grit_adapter:>= 0.1.1&~> 0.1,nokogiri:~> 1.6.4,rouge:~> 1.7.4,sanitize:~> 2.1.0,stringex:~> 2.5.1|checksum:84078072375e185b3e6d7fa5302b7ae3181f7c21045ec1663c9c34ebc74375c8,ruby:>= 1.9
+4.0.2 github-markup:~> 1.3.1,gollum-grit_adapter:>= 0.1.1&~> 0.1,nokogiri:~> 1.6.4,rouge:~> 1.7.4,sanitize:~> 2.1.0,stringex:~> 2.5.1|checksum:78c01e087105f4cefc745c6d62c24e1b84659dc855d063cdf5af5f3742993cf4,ruby:>= 1.9
+4.0.3-java github-markup:~> 1.3.3,gollum-rjgit_adapter:~> 0.1,nokogiri:~> 1.6.4,rouge:~> 1.7.4,sanitize:~> 2.1.0,stringex:~> 2.5.1|checksum:b7545e2ffca35fc400fe20e47cebbfe91a4b8a7075c5248f450adb5d410fba3b,ruby:>= 1.9
+4.0.3 github-markup:~> 1.3.3,gollum-grit_adapter:~> 1.0,nokogiri:~> 1.6.4,rouge:~> 1.7.4,sanitize:~> 2.1.0,stringex:~> 2.5.1|checksum:7e7aa8ac271a201479b837d82a9812d36d1144c3f98c30fdf777b2a07eff12b9,ruby:>= 1.9
+4.1.0-java github-markup:~> 1.3.3,gollum-rjgit_adapter:~> 0.1,nokogiri:~> 1.6.4,rouge:~> 1.9,sanitize:~> 2.1.0,stringex:~> 2.5.1|checksum:
+4.1.0 github-markup:~> 1.3.3,gollum-grit_adapter:~> 1.0,nokogiri:~> 1.6.4,rouge:~> 1.9,sanitize:~> 2.1.0,stringex:~> 2.5.1|checksum:
+4.2.0 github-markup:~> 1.4.0,gollum-grit_adapter:~> 1.0,nokogiri:~> 1.6.4,rouge:~> 1.10,sanitize:~> 2.1.0,stringex:~> 2.5.1|checksum:6636d78d4d7369a3575d59b91fe879aa7d7b222b1d8b16fe70ca6906495ae53d,ruby:>= 1.9,rubygems:>= 0
+4.2.0-java github-markup:~> 1.4.0,gollum-rjgit_adapter:~> 0.3,nokogiri:~> 1.6.4,rouge:~> 1.10,sanitize:~> 2.1.0,stringex:~> 2.5.1|checksum:6636d78d4d7369a3575d59b91fe879aa7d7b222b1d8b16fe70ca6906495ae53d,ruby:>= 1.9,rubygems:>= 0
+4.2.1 github-markup:~> 1.4.0,gollum-grit_adapter:~> 1.0,nokogiri:~> 1.6.4,rouge:~> 2.0,sanitize:~> 2.1.0,stringex:~> 2.5.1|checksum:47fede329259f478dca3453315dfa9f48222175df69d2010f5dedb670e43c6e0,ruby:>= 1.9,rubygems:>= 0
+4.2.1-java github-markup:~> 1.4.0,gollum-rjgit_adapter:~> 0.3,nokogiri:~> 1.6.4,rouge:~> 2.0,sanitize:~> 2.1.0,stringex:~> 2.5.1|checksum:7ea541efe8999ffad7143a249fb2f69b4805f5d2e08b4449b41cec9125403e96,ruby:>= 1.9,rubygems:>= 0

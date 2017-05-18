@@ -1,0 +1,4 @@
+---
+0.1.0 fog-core:~> 1.27,fog-json:~> 1.0,fog-xml:~> 0.1,ipaddress:~> 0.8|checksum:58ae4e7a0dde3ab1e57dda7095f7cc276f32b384fa77a2446e6f2898a0b52ade
+0.1.1 fog-core:>= 1.35,fog-json:>= 1.0,fog-xml:>= 0.1,ipaddress:>= 0.8|checksum:4a8c7a2432dd32321958c869f3b1b8190cf4eac292024e6ea267bc6040a44b78
+0.1.2 fog-core:>= 1.35,fog-json:>= 1.0,fog-xml:>= 0.1,ipaddress:>= 0.8|checksum:14262d470d7bbef2dd0d9108877babcbc8191cf689b2992f14c2315e9614d560

@@ -1,0 +1,10 @@
+---
+0.1.0 gitlab_git:~> 5.5|checksum:3yxojT/NZtpi1DdXMhwASWHC9dtqPBuA6sRwhgcozNI=
+0.1.1 gitlab_git:~> 5.0|checksum:rZ5RH01SATTCqX/dyeuh/jIbUnQtGL2AHkDpGufPaoM=
+0.1.2 gitlab_git:< 6&>= 3.0.0|checksum:8X0IdstVEfB5X0YWlN8XpO9BHZWXnFG40PyuNXkIAh4=
+0.2.1 rugged:~> 0.19|checksum:YMY7CzDchIwOFVfz/bG2xRMLQMwj7WTylb6yqePu0ao=
+0.2.2 rugged:~> 0.19|checksum:grm27wL2JaMBmM7+X9RrjEVR7HSaMg07Vv3NHr7wcig=,ruby:>= 0
+0.2.3 rugged:~> 0.19|checksum:1y8wLUcHBqlSA4pvw7osSccm/9uURnwa4OjpsacCIV0=,ruby:>= 0
+0.2.4 rugged:~> 0.21|checksum:UUY5PnZuWcmZGO22npNylUc5bUDm1+rEGHC6Zgh/rYY=,ruby:>= 0
+0.2.5 rugged:~> 0.21|checksum:36+lEqC/+RWKr5Hq2aLnOvHh5mBgFW88creiLuhVegY=,ruby:>= 0
+0.2.6 rugged:~> 0.21|checksum:ow5t6WyMI4wyUIMsGMgnOirRQeuZeXDOgGriCtV0Z+M=,ruby:>= 0

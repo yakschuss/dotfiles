@@ -1,0 +1,6 @@
+---
+0.0.2 jwt:~> 0.1,omniauth:~> 1.0,omniauth-oauth2:~> 1.1|checksum:j867zcrQk5KMlif75UPPe3+j6d3agdGnRhBf08AVaHY=,ruby:>= 0
+0.0.3 jwt:~> 1.0.0,omniauth:~> 1.0,omniauth-oauth2:~> 1.1|checksum:QQWxlX5Iw9U0g1HxV889YcDK8dPXfE273Z+lxMVVqYg=,ruby:>= 0
+0.0.4 jwt:~> 1.0.0,omniauth:~> 1.0,omniauth-oauth2:~> 1.1|checksum:+/dp6c/u7fvsHzhinQHDqnFcjNdC+oL4LsWoF7eS7S4=,ruby:>= 0
+0.0.5 jwt:~> 1.0,omniauth:~> 1.0,omniauth-oauth2:~> 1.1|checksum:wh2Jm63Z89Keplq4c5oBtAxZPG3I8haVy6o6uiQ+lLg=,ruby:>= 0
+0.0.6 jwt:~> 1.0,omniauth:~> 1.0,omniauth-oauth2:~> 1.1|checksum:

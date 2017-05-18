@@ -1,0 +1,3 @@
+---
+1.0.0 spring:>= 0.9.1|checksum:694fbf041b5f357bd29fab2ff44013f42e894bf1af498bcce726498f5b56128d
+1.1.0 spring:>= 0.9.1|checksum:5dc41aeb0f181ae0cab8708781145b07001af26b706a6a22a7cc42ca34300a8b,ruby:>= 0,rubygems:>= 0

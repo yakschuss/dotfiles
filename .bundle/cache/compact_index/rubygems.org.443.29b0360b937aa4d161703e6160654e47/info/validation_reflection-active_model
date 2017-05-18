@@ -1,0 +1,5 @@
+---
+0.1.0 validation_reflection:= 0.3.7|checksum:dfd0007e9399a6dd3b68d8da54178d363ac8b0a351ac26b03acff5de71e01ac9
+0.2.0 validation_reflection:= 0.3.7|checksum:e5c6a9ffcf3742e071d408f8911e2b054651c2fac1f4baabb5d7389908b0094c
+0.3.0 validation_reflection:= 0.3.7|checksum:d34264c3f77d3fb1bdb4038018485825ffebcfa01686581ca7bf03a02c0df6ad
+0.3.1 validation_reflection:= 0.3.7|checksum:a731fb991cc6b36522ae55ae07540527cd75fb073a89c2bf67af31c2c04be02b

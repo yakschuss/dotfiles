@@ -1,0 +1,17 @@
+---
+0.0.2 rest-client:>= 0,smtpapi:>= 0|checksum:HoPSyW5OMvJIbaf4EySC37ktP480pNtSLvr03/JRClk=,ruby:>= 0
+0.0.3 rest-client:>= 0,smtpapi:>= 0|checksum:Wb7E6/N3Axu301Abkn66zysWUef8OlRCd8gzY82gc2s=,ruby:>= 0
+1.0.0.alpha.1 faraday:~> 0.9,smtpapi:~> 0.1|checksum:k40ncg7e1cQCnwM6ljOav5drTmX09VSru08+UDTwrf0=,ruby:>= 0,rubygems:> 1.3.1
+1.0.2 faraday:~> 0.9,mimemagic:>= 0,smtpapi:~> 0.1|checksum:
+1.0.3 faraday:~> 0.9,mimemagic:>= 0,smtpapi:~> 0.1|checksum:
+1.0.4 faraday:~> 0.9,mimemagic:>= 0,smtpapi:~> 0.1|checksum:
+1.0.5 faraday:~> 0.9,mimemagic:>= 0,smtpapi:~> 0.1|checksum:
+1.1.5 faraday:~> 0.9,mimemagic:>= 0,smtpapi:~> 0.1|checksum:
+1.1.6 faraday:~> 0.9,mimemagic:>= 0,smtpapi:~> 0.1|checksum:
+3.0.0 ruby_http_client:~> 2.1.1|checksum:68616a05179de91a9c481108b2de431578285aebfc46f638b026bd71ad35a078,ruby:>= 0,rubygems:>= 0
+3.0.1 ruby_http_client:~> 2.1.2|checksum:c7e4943622d2898942944a0576b3ea63538fee76e22e353c5605f4c900ca387b,ruby:>= 0,rubygems:>= 0
+3.0.2 ruby_http_client:~> 2.1.2|checksum:c91d8fbe353bad16a4a13ce3cacfd1651f5159dd80b5735dba2d9d2ae4435407,ruby:>= 0,rubygems:>= 0
+3.0.3 ruby_http_client:~> 2.1.2|checksum:481ea3f3e0a2f75a2faa5399925efee7d70ddd08ee301240e531ee5c450acc1f,ruby:>= 0,rubygems:>= 0
+3.0.4 ruby_http_client:~> 2.1.3|checksum:4cadf8c161c2467eae8b04de75916d477b99f3d5239bf3c2ff548951f03596df,ruby:>= 2.2,rubygems:>= 0
+3.0.5 ruby_http_client:~> 2.1.3|checksum:472c472d7e4d5e9749741430661806a4a9158ba73bc1b12163bf70ed1aa70308,ruby:>= 2.2,rubygems:>= 0
+3.0.6 ruby_http_client:~> 2.1.3|checksum:6a942f8ef39f889485a5bedfa2534dd0bbf22e35b0f3448d0744ce86740ffe77,ruby:>= 2.2,rubygems:>= 0

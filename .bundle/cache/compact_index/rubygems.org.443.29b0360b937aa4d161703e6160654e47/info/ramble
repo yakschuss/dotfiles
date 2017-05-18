@@ -1,0 +1,3 @@
+---
+0.1.0 |checksum:eea9f173f0258f31cfa46280d5a13d0f4fc4f2bb222db27285fb838a893be91c,ruby:>= 0,rubygems:>= 0
+0.2.0 nokogiri:>= 0,redcarpet:>= 0|checksum:848669b71db82aa3cfc7fa77fafb17986f1398083686cb93988b383e8cb77206,ruby:>= 0,rubygems:>= 0

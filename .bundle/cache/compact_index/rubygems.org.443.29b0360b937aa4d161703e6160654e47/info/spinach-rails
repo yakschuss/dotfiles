@@ -1,0 +1,21 @@
+---
+0.0.1 capybara:>= 0,rails:>= 3,spinach:~> 0.1|checksum:fb1a253d6423de0a30459d017a7b0b87bc47b6d0f1f8fdcca3161a1d0c8631db
+0.0.2 capybara:>= 0,rails:>= 3,spinach:~> 0.1|checksum:0f592733793b4a6921cea629c468479e9f0e99dfa13e2e17148d79c4b27d056e
+0.0.3 capybara:>= 0,rails:>= 3,spinach:>= 0.1.5.2|checksum:8d7f52a510bcbf160fcea4ec9d3fa21121ab4bf45e0efb211e821805c5c63f8c
+0.0.4 capybara:>= 0,rails:>= 3,spinach:>= 0.1.5.2|checksum:c8d866fb0e935eac0ff40de0de7348329c4496ed8428c05e34c0cc0eb8b2c069
+0.0.5 capybara:>= 0,rails:>= 3,spinach:>= 0.1.5.2|checksum:409bb18e1eaae6df6207ffef2ca5ab5a4a72d1ce6354cf74954b41e8f4c2a076
+0.0.6 capybara:>= 0,rails:>= 3,spinach:>= 0.1.5.2|checksum:67e27fafb230bfd45c8e878c62369329ac25c865f17a2095545b2393f69227fe
+0.0.6.1 capybara:>= 0,rails:>= 3,spinach:>= 0.1.5.2|checksum:5f713c8badc147c6d1d39ca88129baf3eb62be8a7316248906ac8e9d649d6d71
+0.0.7 capybara:>= 0,railties:>= 3,spinach:>= 0.1.5.2|checksum:3a6f30b9e8373fa5c301b26efd97e5f2498bbeabcb48677bfbf6acc668f31cc9
+0.0.8 capybara:>= 0,railties:>= 3,spinach:>= 0.1.5.2|checksum:b98eb17b54649a684f12ec2dce378e2a5257d350b1113b778e45cee80214c516
+0.0.9 capybara:>= 0,railties:>= 3,spinach:>= 0.1.5.2|checksum:575504fb9bc725162cc57a1aae50b63a218aa0ebe51417dc624cba83d9edd048
+0.1.0 capybara:>= 0,railties:>= 3,spinach:>= 0.1.5.2|checksum:d3840035ab4f679e18cc9a9f8fb9b3ab8b7fc9cc2038ac336de7ef6db0af42b3
+0.1.1 capybara:>= 0,railties:>= 3,spinach:>= 0.1.5.2|checksum:c5a3f24a61eb6d65cde8e0c19435663dc97724044076151f0d9e08ba2bf217a7
+0.1.2 capybara:>= 0,railties:>= 3,spinach:>= 0.3.2|checksum:4b3a3f98e2a61210cbbdd0a36bd905842d57ab7fa294ddbb28fabb2ece8930e0
+0.1.4 capybara:>= 0,railties:>= 3,spinach:>= 0.3.2|checksum:2a807e8381dd4a6c09c3e89f230a1303912dbf13288cedd5f30b3d2b1f35d670
+0.1.5 capybara:>= 0,railties:>= 3,spinach:>= 0.4|checksum:bb8cade84384c00168f0f6b5d1995f7c292106aa609d8d274119368cc1eba12c
+0.1.6 capybara:>= 1.0,railties:>= 3,spinach:>= 0.4|checksum:86e5c7f9633bf15b1439180ce2ac0b9c3574c1137512b8bb4f08876b11eb920b
+0.1.7 capybara:>= 1.0,railties:>= 3,spinach:>= 0.4|checksum:1b09f23b390123a6c4a9e0a238e8d6d5013b0511b9d8349843d4830936a1490d
+0.1.8 capybara:~> 1,railties:>= 3,spinach:>= 0.4|checksum:6ec6c8e100f324b560e40163e65e508b6bcadded179b3a3a8656192ae305f3c5
+0.2.0 capybara:~> 2.0.0,railties:>= 3,spinach:>= 0.4|checksum:c9d32d9b1a114e983f5851418e8ccdbea12afea4e4168a13cc7849e09493da4d
+0.2.1 capybara:>= 2.0.0,railties:>= 3,spinach:>= 0.4|checksum:e0d045ae1266f46549570c148d1696ac7d4baa518f8b974a7c8ed949bd63cad9

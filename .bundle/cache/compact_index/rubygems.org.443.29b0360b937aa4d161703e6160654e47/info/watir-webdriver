@@ -1,0 +1,76 @@
+---
+0.0.1.dev selenium-webdriver:>= 0.0.10|checksum:uX2qhF4uVYkTLYFEtGGtyMHsj3aJTmphwOrqD8BgFUE=,rubygems:> 1.3.1
+0.0.1.dev2 selenium-webdriver:>= 0|checksum:M4q/OmRnapTQw6kOpAsxWLiHhDY3Ffnp2NyQu+AqqbU=,rubygems:> 1.3.1
+0.0.1.dev3 selenium-webdriver:>= 0|checksum:VG9dwDqGKsAWkSDS+IULAo2+BWr/avph/h9kScbip1w=,rubygems:> 1.3.1
+0.0.1.dev4 selenium-webdriver:>= 0|checksum:Qt8wFSmd7OHpgQBcbaiGCEvCC5iajLkpJxdXaiq3JLA=,rubygems:> 1.3.1
+0.0.1.dev5 selenium-webdriver:>= 0|checksum:X6xvNp0JGUjytjqrius3xpMs4cY/whDT+EIAHvEbMV4=,rubygems:> 1.3.1
+0.0.1.dev6 selenium-webdriver:>= 0.0.18|checksum:ipv92e/jiO/QBpAEvc0AQrns5ZO47tg6xEGbFuCtMFM=,rubygems:> 1.3.1
+0.0.1.dev7 selenium-webdriver:>= 0.0.23|checksum:NIg+gp7X8Hx8ucndYEP1/Buz78QXtafVUYVuJFq7h60=,rubygems:> 1.3.1
+0.0.1 selenium-webdriver:>= 0.0.23|checksum:hWI485a+vh5lmSTBY5Gqhkt9Iv4Xw74HxX199l3GtTI=
+0.0.2 selenium-webdriver:>= 0.0.23|checksum:fAvW3J2CGG/8GPt28Cz68HHaVee71/hHVrB0nF8Z3aU=
+0.0.3 selenium-webdriver:>= 0.0.26|checksum:NIRtmnjuDDPo9oBDRuHumM+Rd2EtOzzaajWtg8/Oxbs=
+0.0.4 selenium-webdriver:>= 0.0.26|checksum:qRs/ny+cZX9i/1llpFNe1cNx87pXDUqdPPmsSO8c2Zc=
+0.0.5 selenium-webdriver:>= 0.0.26|checksum:RnPiGktgTDj83g3C6O9pXlHrlwlDhE4Y5om4n5xqpNY=
+0.0.6 selenium-webdriver:>= 0.0.26|checksum:tse61aNo1MCabDWwMnKK91sHl8jWJH+cPc8yQbVhSd0=
+0.0.7 selenium-webdriver:>= 0.0.26|checksum:AKkcJRhK06CCbjK7cxMj4hi0diiAOqB+C3nl1LA5byk=
+0.0.8 selenium-webdriver:>= 0.0.28|checksum:ytJ6EKvtz/a5DaAVPn9dFfzS3meeS0f8RVnKWMLxSUA=
+0.0.9 selenium-webdriver:>= 0.0.28|checksum:CeRYtVnnp8FOK7yN9lPymuBpBeY9kbnrI2qhSiVK1PY=
+0.1.0 selenium-webdriver:= 0.0.28|checksum:u9vNgi0j7v+G8ExOInr0mmfki+17c1LjG+WOlBf627M=
+0.1.1 selenium-webdriver:= 0.0.29|checksum:YHJQLZGR3MG1AiAHyeiXd/YIELyAfF74A5+/qdPHxFg=
+0.1.2 selenium-webdriver:= 0.1.0|checksum:w30aZ5y/wG8MK686SDFTXTMf5x/aCMSh3teOYtYYnbc=
+0.1.3 selenium-webdriver:= 0.1.0|checksum:ZW6w/QoOKsSQzpojmLaHeD11xQgBrrLbtAxAO0XMCDE=
+0.1.4 jeweler:>= 0,selenium-webdriver:>= 0.1.0,selenium-webdriver:>= 0.1.0,watir-webdriver:>= 0|checksum:fopmDCleS7BS8tr1ZBuoI2fsOlcDhNla4jRDiJFzz5c=
+0.1.5 selenium-webdriver:>= 0.1.0|checksum:P1cFPdF7zD89kHV45kc7HYb+iXvo3EjAbuE07atr8RI=
+0.1.6 selenium-webdriver:>= 0.1.0|checksum:tiCOBFRiITKtq3nC2pnQ6U5rJ7GCM7zDcZ30Pc2TwL0=
+0.1.7 selenium-webdriver:>= 0.1.0|checksum:qGDsPrb9H+xQCIftPYCEarIDxeney+5vp0MxfV1uLVM=
+0.1.8 selenium-webdriver:>= 0.1.2|checksum:Y1fZH2UAgMZSR62pHu8tpP4PrxlkefxxxCfWchhqogM=
+0.1.9 selenium-webdriver:>= 0.1.2|checksum:3ue0WUMEsSl8ko8WpF6VdAFJxUNJE/k/3Uch4c1H7zc=
+0.2.0.dev selenium-webdriver:>= 0.1.3.dev|checksum:78R7zdc708Q2nahccvEQD08yOdPjE3KIy7jIyUOWJSo=,rubygems:> 1.3.1
+0.2.0.dev2 selenium-webdriver:>= 0.1.3.dev|checksum:91Dk8qXAxlH38DqASP+VMfRL08tr20i0Jn8AVvkuQCE=,rubygems:> 1.3.1
+0.2.0 selenium-webdriver:>= 0.1.2|checksum:i10d51U2DLb0n0+7H6v6VH/R/h7cSmYN9NY+LT1/j5w=
+0.2.1 selenium-webdriver:>= 0.1.4|checksum:PH+Ob0WJVl6LiqB03kiHTfR+IntprcITHr8xXiC8Jhk=
+0.2.2 selenium-webdriver:>= 0.1.4|checksum:in0EbxpFzYiNmcWERHvmEUGed+oIu4g8mTNYa/smVIQ=
+0.2.3 selenium-webdriver:>= 0.2.0|checksum:696UW9VyFlu0yk9zYAf13n2/mmLeLUboACZgEdHgx3w=
+0.2.4 selenium-webdriver:>= 0.2.1|checksum:AbHTjnNmP6MYupEwvSCaFp/7OdC0Y+zhlAqY0qxXOF8=
+0.2.5 selenium-webdriver:>= 0.2.2|checksum:G8sFlsJsw/cGdiAT+LW1xpsGEfVg5MFBJAcwr8XIuOI=
+0.2.6 selenium-webdriver:>= 0.2.2|checksum:XB/QK+Glb39Ewgb/0c67LcTXtlnDOSI+hxBM77Txup0=
+0.2.7 selenium-webdriver:>= 0.2.2|checksum:siDmBy/lnuHwfpo5RJCGsriPQvYN1G48Bq4mBrl438E=
+0.2.8 selenium-webdriver:>= 0.2.2|checksum:ICd1PHWJ46OODm1LU/ZY4OeoxJPC0lNhyMYEoSJk6zI=
+0.2.9 selenium-webdriver:>= 0.2.2|checksum:sDmkHaSgmRP1s5CT8VAfhzvmCACz2leFn3+53vGTjsQ=
+0.3.0 selenium-webdriver:>= 0.2.2|checksum:2GOHY97VKTW2HJdrWgIU70tatbk4P9ummm+J/NcxgjM=
+0.3.1 selenium-webdriver:>= 0.2.2|checksum:SwwfkQIHjNrbIaJkarbpp/l7PeFivCuRCVCMcLdIXeA=
+0.3.2 selenium-webdriver:>= 0.2.2|checksum:FRN6k+WeAUodi8Sd7OrmLsJDDUcWdJHPA81EdkPy07Q=
+0.3.3 selenium-webdriver:>= 0.2.2|checksum:hQml/0W3/SSxpZ7bY6rm5XdJhLmxouw7Y+FOOY75KI4=
+0.3.4 selenium-webdriver:>= 0.2.2|checksum:3CPno7ZzaJdOZ9aWkwWdpMzWQVabfzXWj0WiberX+kk=
+0.3.5 selenium-webdriver:>= 0.2.2|checksum:/jMdCTS2OFWO4bgkvvH0bzT0US8R+0hoBVOp7hd8RKQ=
+0.3.6 selenium-webdriver:>= 0.2.2|checksum:TpcXdgKcfRGIKLt1mNmU8LLyJBKlvIZcc6XyfrCkZxU=
+0.3.7 selenium-webdriver:>= 0.2.2|checksum:6aqwmek17wT+Yf679JSS6YbxgDIsAB/Y2YHZ0cVhr04=
+0.3.8 selenium-webdriver:>= 0.2.2|checksum:ocyi9QL14As3g+nSfYYw9/RYbOWbCPEorQMtJtKVXEs=
+0.3.9 selenium-webdriver:>= 2.12.0|checksum:XquFPZC3TiGIu/zyRZC2vdzPgmEP5mUTOjC8ulx+hEk=
+0.4.0 selenium-webdriver:>= 2.12.0|checksum:ZF94wZGKIkVH3GcBh696GxMUHWfsc2AyiOP3z4xmnno=
+0.4.1 selenium-webdriver:>= 2.12.0|checksum:yuWW3xhN1MIgEYbS7ePWIE33HAxvJLntqOvITMRWNac=
+0.5.0 selenium-webdriver:>= 2.12.0|checksum:Ni0llq3hsMR16kDrEFtGUn2BgrM2lZfaA41CliDK/ks=
+0.5.1 selenium-webdriver:>= 2.12.0|checksum:Us+PjZwGTgIgalSDxyoNqMYZSjGvCj0rX1WnnC8qR4M=
+0.5.2 selenium-webdriver:>= 2.12.0|checksum:LeT0rGDtJKhjvM+uNjLP1cKzPjUCiOCjGdcdAlfIcGY=
+0.5.3 selenium-webdriver:>= 2.12.0|checksum:FbY0fNI0km3iur9LtLf3zT7gtNRvadQblTbf2DScPjk=
+0.5.4 selenium-webdriver:>= 2.18.0|checksum:cHhadqwPZDCcSzrQA6oVnn9mceTNV+kWMBLqzJItTi8=
+0.5.5 selenium-webdriver:>= 2.18.0|checksum:HN5stfjUvE7Mf/cTkZ1NEgyVtlla9Jhs+uUvg4HUo3c=
+0.5.6 selenium-webdriver:>= 2.18.0|checksum:cWAIXCMY91DurgPK6zt8XQXbxqZ6QxGDN4y6mmOkk+o=
+0.5.7 selenium-webdriver:>= 2.18.0|checksum:2sC8VvViCcJ9leodQTRuLsqKZE3Xwkp7M+Er6hSy5Vc=
+0.5.8 selenium-webdriver:>= 2.18.0|checksum:8fOd9vvll2jDN/TiVA9FIzoMmIOzT0S+I8HZvYgs0f4=
+0.6.0 selenium-webdriver:>= 2.18.0|checksum:7GtSQvTzUF7Cy5Kx3xtnAGqjR0eaI2iK82gOMFrhOlY=
+0.6.1 selenium-webdriver:>= 2.18.0|checksum:6hvR1awcEqnkBLSAyFMo309eNsmRSGx0W8uYTh98BSc=
+0.6.2 selenium-webdriver:>= 2.18.0|checksum:N0evgV0diSNllNUzuSP2XcVOThfDnaO4fDjcCunYpyI=
+0.6.3 selenium-webdriver:>= 2.18.0|checksum:krfwABu4J7RACM8Fh7loqz4FTLXOmK+QFzyW7UQpzlc=
+0.6.4 selenium-webdriver:>= 2.18.0|checksum:Kb7ThAzUeQCQz+pa2I+RSwNjLn+481YxVvuLiCCl1a8=
+0.6.5 selenium-webdriver:>= 2.18.0|checksum:M39UqCgP7mNGeeIRZ7p15HQlZsNk3p6JbJ4wAF2UU+Y=
+0.6.6 selenium-webdriver:>= 2.18.0|checksum:CGvibn2zJJ5HRM6HLYy/pPAs5lvYvqlkBG6L+hFghHk=
+0.6.7 selenium-webdriver:>= 2.18.0|checksum:FkFNkSikIwAyF7YxKOSaF7DK+h1j+mHNQVBCL8b9EPA=
+0.6.8 selenium-webdriver:>= 2.18.0|checksum:F9I9b+iG4/t7ItYFOsSwfmQ0avUDdtc8FlEr1iC5Uxk=
+0.6.9 selenium-webdriver:>= 2.18.0|checksum:S6QJL3kg+ypw4EDUiLxim86DIuhQso70EpoAvvoYbHg=,ruby:>= 0
+0.6.10 selenium-webdriver:>= 2.18.0|checksum:TYkP4lHf0NlH/+EFiABpaZOG9/A8HWF3jP+4lbb3wok=,ruby:>= 0
+0.6.11 selenium-webdriver:>= 2.18.0|checksum:i35UhMZdn74iLSDh/MsBVcqHGCGo/NVq3JlMt0C6p5w=,ruby:>= 0
+0.7.0 selenium-webdriver:>= 2.45|checksum:Qu0wyFA/+cC2EjRT2tRZJpEt+m8ndEhvznTgbuqEc6Y=,ruby:>= 0
+0.8.0 selenium-webdriver:>= 2.46.2|checksum:hoAdLGi8ql+H2DvmTQva1mJv6Q/aNHhO8qJM64MPTjc=,ruby:>= 0
+0.9.0 selenium-webdriver:>= 2.46.2|checksum:
+0.9.1 selenium-webdriver:>= 2.46.2|checksum:

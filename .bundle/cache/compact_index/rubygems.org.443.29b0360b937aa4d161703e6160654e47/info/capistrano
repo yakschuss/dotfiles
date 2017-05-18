@@ -1,0 +1,87 @@
+---
+2.5.4 echoe:>= 0,highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.10,net-ssh-gateway:>= 1.0.0|checksum:9c8c2c47805b363fc29cfb058933d7613e0c62dfbf570d7941ac5a3c83624da2,rubygems:>= 1.2
+2.5.5 echoe:>= 0,highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.10,net-ssh-gateway:>= 1.0.0|checksum:f5f1b9b30287deca8380f4375fb85ae0fa39162922d11b8343013a312315daf2,rubygems:>= 1.2
+2.5.0 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.0,net-ssh-gateway:>= 1.0.0|checksum:ec5740ff9cdb5f6217f8ac902ec87f6648c1258057527c9e258418d8184cb745
+2.5.1 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.0,net-ssh-gateway:>= 1.0.0|checksum:e05deeee71c6d05c24b5a1809fb88d4f7889a3342de5d8efb1fb5f07bb121c91
+2.5.2 echoe:>= 0,highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.0,net-ssh-gateway:>= 1.0.0|checksum:164fffa99674f5aff1675c4b4bd3be780a658a3171c4a6b24a9f35f61c6b1f56,rubygems:>= 1.2
+2.5.3 echoe:>= 0,highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.0,net-ssh-gateway:>= 1.0.0|checksum:423e394132fed9a95d86bc981d3bdfea11f5709e66b2f7a60d93ae22bd8a7fc1,rubygems:>= 1.2
+2.2.0 highline:>= 0,net-sftp:< 1.99.0&>= 1.1.0,net-ssh:< 1.99.0&>= 1.0.10|checksum:be1de56e892a2cf47a7d2036231eb44ca597ba23d5c09bdcc5dfe5caff399202
+2.3.0 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.0,net-ssh-gateway:>= 1.0.0|checksum:0f0143d084231498fc9490741705fb843c3e8d56f169309b3a5300e4256573a5
+2.4.0 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.0,net-ssh-gateway:>= 1.0.0|checksum:62038938e2d6dd9a29b783fbf4fdf463ad7e0fe473b9b9fd62407f0f6081bbf5
+2.4.1 |checksum:2eac89cf537799248430a4c75205e0e934809d848fc9cfe5e008f503cf9e4da6
+2.4.2 highline:>= 0,net-scp:= 1.0.0&>= 0,net-sftp:= 2.0.0&>= 0,net-ssh:= 2.0.0&>= 0,net-ssh-gateway:= 1.0.0&>= 0|checksum:fee56a1c9f04e3f192af85fbecc8e9e2b3094c030e02d7814f8249cc1dd8e115
+2.4.3 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.0,net-ssh-gateway:>= 1.0.0|checksum:8d3d490890e15f1c8d174cfa18e9f3271b2a45f7f01f4885dc9e5edd7abda242
+1.2.0 net-sftp:>= 1.1.0,net-ssh:>= 1.0.10,rake:>= 0.7.0|checksum:994c10a7685280be9e77707f042b40205035f3e564fed7d046254906149ec34c
+1.3.0 net-sftp:>= 1.1.0,net-ssh:>= 1.0.10,rake:>= 0.7.0|checksum:c0a939a7d63f87b48829caa68bf519b68dde31d8ed71656dadc804ce5c0d23f8
+1.3.1 net-sftp:>= 1.1.0,net-ssh:>= 1.0.10,rake:>= 0.7.0|checksum:47512acaa4b02a39957f8260bb3be1ad885a674c6619aeb0286de31d99b18b9f
+1.4.0 net-sftp:>= 1.1.0,net-ssh:>= 1.0.10,rake:>= 0.7.0|checksum:2c0d52d8fa17af274251a17cfc54ad3d3bca922a8cd47def00c58fb2d999d99c
+1.4.1 net-sftp:>= 1.1.0,net-ssh:>= 1.0.10,rake:>= 0.7.0|checksum:2ed5ec04a2492fa5a9f9dc9b613990c5866935a8c193a9476fd73b29c98a7313
+1.4.2 net-sftp:< 1.99.0&>= 1.1.0,net-ssh:< 1.99.0&>= 1.0.10,rake:>= 0.7.0|checksum:434a473b6d091c918295d2ca42c086e5a69cbeaed33e6a68d08740f3bf7951ce
+2.0.0 highline:> 0.0.0,net-sftp:>= 1.1.0,net-ssh:>= 1.0.10|checksum:353dfe6868d6c2007d63b9f62e833581f0a839850d3646d90ca258e964cf2ad6
+2.1.0 highline:> 0.0.0,net-sftp:>= 1.1.0,net-ssh:>= 1.0.10|checksum:6b2e6e5feac3243413bf23bb1875bf6f869d2ed7fd3e4e41f2b88438dd63eb0a
+1.1.0 net-sftp:>= 1.1.0,net-ssh:>= 1.0.8|checksum:333e39a14810cf71ede3f70c825ac4342b2b4d09fdd87e08d499fe90144b5003
+2.5.8 echoe:>= 0,highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.10,net-ssh-gateway:>= 1.0.0|checksum:043df5b05a4da37dac517da9d58966089357f5e8a8ef6847beb91135f15d8a6a,rubygems:>= 1.2
+2.5.7 echoe:>= 0,highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.10,net-ssh-gateway:>= 1.0.0|checksum:f2b611a0cfee412f2d2a193113f435c3ef8fedb73f54748e988562c41562a724,rubygems:>= 1.2
+2.5.6 echoe:>= 0,highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.10,net-ssh-gateway:>= 1.0.0|checksum:b7b63d780bd4c1e1fd42daf9bcb44aac68c898cc9c3d1a0615b1b82289d72c74,rubygems:>= 1.2
+2.5.9 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.0.0|checksum:c1555bc0c7a7cc36325efbe4fc924d061a605e9e580dd306ca411480eaa03eec,rubygems:>= 1.2
+2.5.10 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.0.0|checksum:d3027b09961c224a4f6cb5616f2f2a0dafa3f56268ca93f2182480df6614d4c2
+2.5.11 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.0.0|checksum:6bae9ace72d1a82194842138e67d70abc86cfb9054f74a3548d741684803cd1a
+2.5.12 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.0.0|checksum:c0dd7fcad4735f0164d4b030f07876be535f52467619aefd3368f79a84f95d82
+2.5.13 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.0.0|checksum:7eaffd30206512afa72c9ca9d93bd723b75f477c13d095b964dc14dbe5baff62
+2.5.14 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.0.0|checksum:4e78a77916f83e3b320747d672a33f6cfcaf752318bef3a1e40152ccd0bf6ae2
+2.5.15 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.0.0|checksum:34948ecb9ba75e918d8bc30523cb1f3c54f746421f16599cae2fa8708d5b2013
+2.5.16 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.0.0|checksum:4bd9825339851fdc056d3e8d3647909b16aa3e9ab0e221dd01ba3841d9a44fdf
+2.5.17 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.0.0|checksum:725fa268eb7d83d965e7445dfba5af59b2441bbafcb3a0c3ca2bd07242ec55bc
+2.5.18 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.0.0|checksum:19b604c2032ce2bd08d4eebed48e31cc1234f6b5b13569003c331aba03324e4d
+2.5.19 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.0.0|checksum:29de9fd15e0b95f344a62c6eb8aca174fb4882fe2404910043855212281175f5
+2.5.20 highline:>= 0,highline:>= 0,net-scp:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-sftp:>= 0,net-ssh:>= 0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 0,net-ssh-gateway:>= 1.0.0|checksum:7adfff53657ec3234f175d63297d5e83208e9e3f142605c3d4c0598ebb5c86ad
+2.5.21 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.0.0|checksum:e789b00fc894bee191a2c1691115f90c383e4a27522d22e171a0f267694b3a91
+2.6.0 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:25693dd42d618c24c4acb1772fbb6f9523df2f7964013aeb811b093b3d47f992
+2.6.1.pre highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:ce59ddec6479df01222766c8ea448920c05909d233ca8f02236e74d69be25e6d,rubygems:> 1.3.1
+2.7.0 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:2690176f0147c075941ee919455e3560d7df7027db5d9b87092812af362cf5e4
+2.8.0 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:24dc7418b899f4109f2e9262dd50ebd35ab816373af366b0cddb1ff64195cc44
+2.9.0 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:2ec39e66d38059ab25003aad12a56e74fb06db7b6e4104eed25e273ec8d6dddb
+2.11.2 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:33754a247be64e19e09cc2409569e4ba471c8f703495147efe53f70561ce8b0b
+2.12.0 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:d38f2776fdcbfa0a7db1101deb30d398047514ffaac04fc6d0a5a8dd71311a83
+2.13.5 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:f741be06ece7bc234809a1df293668248a75271b18d358fa7bb50c90b790be7d
+2.14.1 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:88edb7bd92f6c92a90fcb64d44f700c4e045ed0f60cda4868752434d123c6ac1
+2.14.2 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:b821c1530cd2b2fbf16f239551ac1491256dfc39ffe28833c31666a85ec661d4
+2.15.1 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:cda7451d7115069bdead4eeca46180663a94394861d08974344a46e7975b5427
+2.15.0 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:94779ed638196d586114b3164f053fb8aae0a7a03acf111a4f4a7b86c204d2a5
+2.15.2 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:77af337a28b15683040129cdff9cff4a0fad811328d14893f2e7918087b3a532
+2.15.3 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:6eecd1a860bb9acdfcce7b056573aabbc72474d3115bdfd9430ff2ed0b685432
+2.15.4 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:36be1cff6c8c4e8c569a83cf5e8a058833919d2bd25b8d9928ae33b7fb9da7a7
+3.0.0.pre i18n:>= 0,rake:>= 10.0.0,sshkit:>= 0.0.23|checksum:7340eedac4d43609858659877493d45dbf3e382073e26f2502024992039abd38,rubygems:> 1.3.1
+3.0.0.pre2 i18n:>= 0,rake:>= 10.0.0,sshkit:>= 0.0.23|checksum:ca8ab34cb94812c9a8ca8e9845b0fecfe78fb88fa532d76b62b0940e1c47ce84,rubygems:> 1.3.1
+3.0.0.pre3 i18n:>= 0,rake:>= 10.0.0,sshkit:>= 0.0.23|checksum:e4b84c90dfb23899054a27784a9ceff7906c1f02502d2388eb372388f443eca0,rubygems:> 1.3.1
+3.0.0.pre4 i18n:>= 0,rake:>= 10.0.0,sshkit:>= 0.0.23|checksum:b5049946896ee85ddae9bbbb47749375ddbe336a68d91e1179106f413e1e6421,rubygems:> 1.3.1
+3.0.0.pre5 i18n:>= 0,rake:>= 10.0.0,sshkit:>= 0.0.23|checksum:0ff0caf097f08e79186656cdae660a2d4611b3759804b814ef8846fa2c7f2317,rubygems:> 1.3.1
+3.0.0.pre6 i18n:>= 0,rake:>= 10.0.0,sshkit:>= 0.0.23|checksum:02e1dd9998a959fbe963d5af9620611680f494c75181a06fd5d8a71f85e8457d,rubygems:> 1.3.1
+2.15.5 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:3eb22ec58176918f44a71126b9bb8a1a34ae4efb99835eb72e187d03916604aa
+3.0.0.pre7 i18n:>= 0,rake:>= 10.0.0,sshkit:>= 0.0.23|checksum:4c3216e1d1a3eb4c3854572c4a3662baa0974ee06a822191c4b85b592a7f6eab,rubygems:> 1.3.1
+3.0.0.pre10 i18n:>= 0,rake:>= 10.0.0,sshkit:>= 0.0.23|checksum:a53349793c6d301cd512bc6e1701b9a53676388341e276866e26565ad84809a7,rubygems:> 1.3.1
+3.0.0.pre11 i18n:>= 0,rake:>= 10.0.0,sshkit:>= 0.0.23|checksum:b15a9cb1ffff9a67c3a21a745cc9865a47f290266a2a98951c64a15a607eb25a,rubygems:> 1.3.1
+3.0.0.pre12 i18n:>= 0,rake:>= 10.0.0,sshkit:>= 0.0.23|checksum:9c39de1b2344db8c08e01c47b5cedfacb609edcd250e40fe626ac0bbd3c1264d,rubygems:> 1.3.1
+3.0.0.pre13 i18n:>= 0,rake:>= 10.0.0,sshkit:>= 0.0.23|checksum:8685a9014f6a85a417e67d8fb869ab1f95e5abe6931b0f95f3d760cf511934e6,rubygems:> 1.3.1
+3.0.0.pre14 i18n:>= 0,rake:>= 10.0.0,sshkit:>= 0.0.23|checksum:7c74d23120dbba0929fc83b716f08a6ef441a35637af31e5973922cb86344785,rubygems:> 1.3.1
+3.0.0 i18n:>= 0,rake:>= 10.0.0,sshkit:>= 0.0.23|checksum:93fa0ee9f805bd966903280820f663549804aca9b6624e0fd4bbafabcd054463
+3.0.1 i18n:>= 0,rake:>= 10.0.0,sshkit:>= 0.0.23|checksum:1abbb653c9213ace344dd86d9cee03115be47b5a3724e6a79ddbd75217f78408
+3.1.0 i18n:>= 0,rake:>= 10.0.0,sshkit:~> 1.3|checksum:1050effddeb41c587c0798bdbd4caaca86115d4291089b01e889a5e3fe93fdd5
+3.2.0 i18n:>= 0,rake:>= 10.0.0,sshkit:~> 1.3|checksum:413e288abcaf3b091fdf39a0e0520af38010a0f7127a4658491b78b5fd20f1ef
+3.2.1 i18n:>= 0,rake:>= 10.0.0,sshkit:~> 1.3|checksum:a052919883c824e566682085b5ef971b99e474583fcbd3e42d80ee25a3449d49
+3.3.3 capistrano-stats:~> 1.0.3,i18n:>= 0,rake:>= 10.0.0,sshkit:~> 1.3|checksum:7a0368be4e889ef1152ac075f2763b61da0edab8f83c74836c339e621618d8ef,ruby:>= 1.9.3
+3.3.4 capistrano-stats:~> 1.1.0,i18n:>= 0,rake:>= 10.0.0,sshkit:~> 1.3|checksum:d62849325edc9bbe46422c65f7d2b456a6593d42e87895ee5609e34130676723,ruby:>= 1.9.3
+3.3.5 capistrano-stats:~> 1.1.0,i18n:>= 0,rake:>= 10.0.0,sshkit:~> 1.3|checksum:f828e1f08e0aefd4f1737c55d12d0cf7c9ffe8a6c310686d1fa2b03ccfaf7a8b,ruby:>= 1.9.3
+3.4.0 i18n:>= 0,rake:>= 10.0.0,sshkit:~> 1.3|checksum:b3895b116f0254e8321b668929ece792a9f936416ce740490033cf97a47f87f7,ruby:>= 1.9.3
+2.15.6 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:842559fb8e2e6e3e212d3b67c549ad68a7818deaa5dc6703be8ea9c46e9e587c
+2.15.7 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:cce651191850138810f0bf7d2180751db62b772d54245fe9346760ee2b8db947
+3.4.1 i18n:>= 0,rake:>= 10.0.0,sshkit:~> 1.3|checksum:4b820c7ddfbeeee186180a04ffcb0158a4819ab12cf8c9eb6411d07a9fe1e338,ruby:>= 1.9.3
+3.5.0 airbrussh:>= 1.0.0,capistrano-harrow:>= 0,i18n:>= 0,rake:>= 10.0.0,sshkit:>= 1.9.0|checksum:333edb2a3d87dcc719e1741e6ddc4fd04fee2574491d6a240287e5cf97b1c030,ruby:>= 1.9.3
+2.5.22 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.0.0|checksum:26c87bb050adc3dd55f5ab003b5aaf9dbf4147f516629ebfbd1ea364828f35ee
+2.15.8 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:1ef161c141794a5acac47eb12b67d0aac473bc5b7bbf0d67e3be67f45b8ceed8
+2.15.9 highline:>= 0,net-scp:>= 1.0.0,net-sftp:>= 2.0.0,net-ssh:>= 2.0.14,net-ssh-gateway:>= 1.1.0|checksum:b577a2b5f2ec499b069d074b794c139ec604da09712944df92689bfc20db79a6
+3.6.0 airbrussh:>= 1.0.0,capistrano-harrow:>= 0,i18n:>= 0,rake:>= 10.0.0,sshkit:>= 1.9.0|checksum:2aa8de794897a1e0c2a2b832e2d84aa25ad9532e79922a94d7940a31e6c4b784,ruby:>= 2.0
+3.6.1 airbrussh:>= 1.0.0,capistrano-harrow:>= 0,i18n:>= 0,rake:>= 10.0.0,sshkit:>= 1.9.0|checksum:b052341ed44a06d03c9043aa2b79d390b691bc4473c8e933c07544f592698e6c,ruby:>= 2.0
+3.7.0.beta1 airbrussh:>= 1.0.0,capistrano-harrow:>= 0,i18n:>= 0,rake:>= 10.0.0,sshkit:>= 1.9.0|checksum:90134dc1fb6374a219b65668f20aa3c427710f2c581a60efd540427a28a0ee2a,ruby:>= 2.0,rubygems:> 1.3.1
+3.7.0 airbrussh:>= 1.0.0,capistrano-harrow:>= 0,i18n:>= 0,rake:>= 10.0.0,sshkit:>= 1.9.0|checksum:c2b68f1db04f8115db575b9f7d72074b9820f3a3a728712ce720222b34728ec7,ruby:>= 2.0
+3.7.1 airbrussh:>= 1.0.0,capistrano-harrow:>= 0,i18n:>= 0,rake:>= 10.0.0,sshkit:>= 1.9.0|checksum:4dd6429a5a6f6a4a9be8bb0d22cd0932225f2d8900e2232c7c63a49c0bd82bf0,ruby:>= 2.0

@@ -1,0 +1,7 @@
+---
+0.0.1 faraday_middleware:>= 0,multi_json:>= 0|checksum:zky0AGn3sCNTiTBQ9Ft/+H7tR4IbdgXbZ+5jXCR3I0o=
+0.0.2 faraday_middleware:>= 0,multi_json:>= 0|checksum:9PlRKARihNS9iT8O++osaoZ/iPCJR99z85qtX0fQ9ao=
+0.0.3 faraday_middleware:>= 0,multi_json:>= 0|checksum:8aPj+eAbaEHjgML8vH9BH8lBP+Vgao7wutdrDuPMjq8=
+0.0.4 faraday_middleware:>= 0,multi_json:>= 0|checksum:RgXIqYeTTDJ/ZLSmApB+sL4oLiUy8nzO4dXxh/ywNx4=
+0.0.5 faraday_middleware:>= 0,multi_json:>= 0|checksum:QDWVVzpVzykC+73uHMLz7/Xppn1o6BEVV6iPi4RxvPo=
+0.0.6 faraday_middleware:>= 0,multi_json:>= 0|checksum:OPxNq3p4kWrQmCfVoWSqti+/LLi53gUHdj3h9WHXoRg=,ruby:>= 0

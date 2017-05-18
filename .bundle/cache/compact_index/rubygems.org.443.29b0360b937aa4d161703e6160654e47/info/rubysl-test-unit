@@ -1,0 +1,6 @@
+---
+2.0.1 minitest:~> 4.7|checksum:NJVXoGQM2TKNekIqaynmsGrBjLYkZXU8zcl3RhHPEdo=
+2.0.2 minitest:>= 0|checksum:tm80BnjVayWhVSJ7KuwG0l3N5VgzwmHewpyfIqKQrts=
+2.0.3 minitest:~> 4.7|checksum:Vc7mpVAwZZVLgAsst/pA4jN+ggWaeqxfiCGEHITpKm8=
+1.0.0 minitest:~> 5.0|checksum:sXdKljF1B0jBbESEZFLE0Y1L9hB7mz2S77mz5GPUnF0=
+1.0.1 minitest:~> 4.7|checksum:zSPafIrA6RjWDs+KIhVJmMKyUGzac/703EKaAbTTiLQ=,ruby:>= 0

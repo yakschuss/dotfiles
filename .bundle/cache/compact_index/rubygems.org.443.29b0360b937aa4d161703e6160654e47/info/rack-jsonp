@@ -1,0 +1,7 @@
+---
+1.0.0 |checksum:Q387o5UpJIIVEORq7ieLd8KbJokGsVfv4GcF+o/df9Y=
+1.1.0 rack:>= 0|checksum:9QFyeelWQ87i3TyQHTz30f8VPjCrBTNas4LGlJ+TdDU=
+1.2.0 rack:>= 0|checksum:l1lxHEPcsxo6oPsw4GpdmH9vU/0Xu6ivhzLYbtl1NHw=,rubygems:>= 1.3
+1.2.1 rack:>= 0|checksum:3C0QpQyyXp7qSp2NdTR57n0HjxmhYjQdChFXzrGxehY=,rubygems:>= 1.3
+1.3.0 rack:>= 0|checksum:9DkFFjPm2A1pY8xtHr7qfxCe2KGOlmeB7nLHK+BvpcU=,rubygems:>= 1.3
+1.3.1 rack:>= 0|checksum:LUGH/JYSL6tind398+jEYgWccNrxmZ2FyI5Zv6UaGXw=,rubygems:>= 1.3

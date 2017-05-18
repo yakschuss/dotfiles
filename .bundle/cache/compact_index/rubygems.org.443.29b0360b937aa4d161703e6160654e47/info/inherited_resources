@@ -1,0 +1,26 @@
+---
+0.9.2 |checksum:0ae4e8f5912ccca62b72bc3bab41e25e3bbe82b71cb08bee5373f0a6337ad016
+0.9.3 |checksum:cb1c5d03d5bdab79e2e49d6d42fe6a9fe4ed9b148f0b6e6e5face1e026a8e924
+0.9.4 |checksum:980a723387a7deeff41055c52be10bb190f328d932d70bb82eb2c9b10ef91292
+0.9.5 |checksum:3d62a18ee4d80f6d73ca7151463980f5a324937fa107b9403293ad8744da9a5e
+1.0.pre has_scope:>= 0.3,responders:>= 0.2|checksum:7be85e0dcdd68ba1b5a5c66eaef7180879cb5d383dff3ab81a7846675c17b8ab,rubygems:> 1.3.1
+1.0.0 has_scope:>= 0.3,responders:>= 0.2|checksum:0fdcc7a876907f46bcf2e07b8848d25fd3dd7c43c1fad7b3873ac78b2581f2be
+1.0.1 has_scope:>= 0.3,responders:>= 0.2|checksum:7a0ac3812481fe3e699e768d16b8584e959bb3731b37cefde1c67cb86d462ecd
+1.0.2 has_scope:>= 0.4,responders:>= 0.4.2|checksum:626667172e01e7bac561e306edab35b4ea5bd29ec218262bb859ea0b3b4a1631
+1.1.pre has_scope:~> 0.4.2,responders:~> 0.5.0|checksum:29370c82e06555e49929b18d2264d10c27e70086b35b4fea4c0a3ad23f5fdef7,rubygems:> 1.3.1
+1.0.3 has_scope:~> 0.4.2,responders:~> 0.4.3|checksum:5057215dd82ba63dcfcec409a0fe01d4de98b571708141ee585c40e8b6e715b1
+1.1.0 has_scope:~> 0.4.2,responders:~> 0.5.0|checksum:f78a2c3c8787989576994b6f0e1df37efd3846e383605717d7c3a26673f81914
+1.0.4 has_scope:~> 0.4.2,responders:~> 0.4.3|checksum:128416f4bc9d8d2dc6d1fd824e187335b86afbab9c4f04766ecaf1a0e1eff09c
+1.0.5 has_scope:~> 0.4.2,responders:~> 0.4.3|checksum:4444930578190f27c1a55a6e676aa23fe82a0e04c2cda0f57177d9951c06a845
+1.0.6 has_scope:~> 0.5.0,responders:~> 0.4.6|checksum:0d8516b49aad8c906228917973b8af52b42b8372af12b2786b24aa9a3f3eb87e
+1.1.2 has_scope:~> 0.5.0,responders:~> 0.6.0|checksum:22587ca71723ea238678daec282e3829102bb58151731f6c9bb740f52435b18a
+1.2.0 has_scope:~> 0.5.0,responders:~> 0.6.0|checksum:655a3cef88da0bd2e5815cff6692d83920ce5c3cfb963250a996fe0a863bb0f3
+1.2.1 has_scope:~> 0.5.0,responders:~> 0.6.0|checksum:57b77e485305fbff8c15893b6b2d493bd0c0447524e0dd2172ae7eb6093cbf3f
+1.2.2 has_scope:~> 0.5.0,responders:~> 0.6.0|checksum:274b5408920c7ae189d332da24f9307b5159153db39fda162737c949543a0d47
+1.3.0 has_scope:~> 0.5.0,responders:~> 0.6.0|checksum:58cb9d18bc1856ea8ee8c683950001aeee59dcd9bd0dd16ae7d15459bbbed432
+1.3.1 has_scope:~> 0.5.0,responders:~> 0.6|checksum:7f9bddb3312ad48b89d71999485c18e449c0082672828e1ed7a0ea7e233a7a03
+1.4.0 has_scope:~> 0.5.0,responders:~> 0.9|checksum:cc17c224123aa92aa18c43d72a9c32beada62205ef8c2e619090de69752610eb
+1.4.1 has_scope:~> 0.6.0.rc,responders:~> 1.0.0.rc|checksum:26476e96bf2bd83e9f96c052c0f4a3c85d5809f75d6748c6c691461f7f33c75f
+1.5.0 has_scope:~> 0.6.0.rc,responders:~> 1.0|checksum:4dfbc3b65e7e9227b164679d30ceb97d68675da6aabcff5bf981c9ad170b6bfb
+1.5.1 actionpack:< 4.2&>= 3.2,has_scope:~> 0.6.0.rc,railties:< 4.2&>= 3.2,responders:~> 1.0|checksum:cf327e41876e65f1effa7044a3e5bcc0fdeecf535fac6b9b441b0002af42233b
+1.6.0 actionpack:< 5&>= 3.2,has_scope:~> 0.6.0.rc,railties:< 5&>= 3.2,responders:>= 0|checksum:924c541b34b4c2a7d2d8cd0455188b996cd82c0708373611316f8fa81eaa604f

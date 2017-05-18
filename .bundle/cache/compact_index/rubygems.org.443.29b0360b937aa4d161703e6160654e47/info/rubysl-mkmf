@@ -1,0 +1,4 @@
+---
+1.0.0 |checksum:OUYX5+ASPz9VT+6M9V8WtDCwkbiKeJTrhogATsa4QM4=
+2.0.1 rubysl-fileutils:~> 2.0,rubysl-shellwords:~> 2.0|checksum:ZB8LHyTKpXUBKFc8MdR30cjAH9Vn/mppk4JfbOoHn9k=
+2.1 rubysl-fileutils:~> 2.0,rubysl-shellwords:~> 2.0|checksum:e1e279f3b26430f29722466eae3cd9c0c0fde6143c66c695b18f13f5c737d2a3,ruby:~> 2.0,rubygems:>= 0

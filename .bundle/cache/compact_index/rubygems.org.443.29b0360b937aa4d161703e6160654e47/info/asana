@@ -1,0 +1,13 @@
+---
+0.0.1 activeresource:~> 3.2.3|checksum:5eabc2490cfcaa4a228c4271a65e79ab0ab48015a3fb465f7dfc04a735f3d789
+0.0.2 activeresource:~> 3.2.3|checksum:32d0600793f5bce081c12d10435cacfd21d9061d41b85cda58592d70c772308a
+0.0.3 activeresource:~> 3.2.3|checksum:b69f4cb3d3d6954f3bd2724277ab2eaa9dd8d8d0b94e4e1515abe0258c625565
+0.0.4 activeresource:~> 3.2.3|checksum:62d4ecd959e51772fade1500cea1ccd8094584635a459164ab845cc004af6e72
+0.0.5 activeresource:~> 3.2.3|checksum:7881975014d52edaf72baa5ed4edc8797a8b9332e2579c93484b4607f68823b0
+0.0.6 activeresource:>= 3.2.3|checksum:97b5746426956cd347627f80f83e267084572282cf84f4320ea90dc8fd2d62f4
+0.1.1 faraday:~> 0.9,faraday_middleware:~> 0.9,faraday_middleware-multi_json:~> 0.0,oauth2:~> 1.0|checksum:ebbf1cc9d04e78e756f6a44f4ff50a175e9726f164144bb929ba48a1c4aa418e,ruby:~> 2.0
+0.1.2 faraday:~> 0.9,faraday_middleware:~> 0.9,faraday_middleware-multi_json:~> 0.0,oauth2:~> 1.0|checksum:b167895fdbb3a154a4746e76a2a1046a9173b119d02c9de8b4bf39b00a3c3633,ruby:~> 2.0
+0.2.0 faraday:~> 0.9,faraday_middleware:~> 0.9,faraday_middleware-multi_json:~> 0.0,oauth2:~> 1.0|checksum:
+0.3.0 faraday:~> 0.9,faraday_middleware:~> 0.9,faraday_middleware-multi_json:~> 0.0,oauth2:~> 1.0|checksum:
+0.4.0 faraday:~> 0.9,faraday_middleware:~> 0.9,faraday_middleware-multi_json:~> 0.0,oauth2:~> 1.0|checksum:
+0.5.0 faraday:~> 0.9,faraday_middleware:~> 0.9,faraday_middleware-multi_json:~> 0.0,oauth2:~> 1.0|checksum:

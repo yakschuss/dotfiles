@@ -1,0 +1,10 @@
+---
+1.0.0 omniauth-oauth2:~> 1.1|checksum:8c5852cbb408d61adb8f645e8c0f4e024fdf1094c084a3a9cafbaa961f00ee3a,ruby:>= 0
+1.0.1 omniauth-oauth2:~> 1.1|checksum:ff84a8e12c24fac69e72fab9555588df8c8951cffd43e8788f0a6df11ddbc8a0,ruby:>= 0
+1.0.2 omniauth-oauth2:~> 1.1|checksum:ff5bdccffd2ce06d1d8d278fc415bee4dfeed2a6002c5218e9cc534de8565040,ruby:>= 0
+1.1.0 omniauth-oauth2:~> 1.1|checksum:2388625c04664f2efe7c5cc4b3e0c36d49a04bbcd3d346168f8fc8c2f3aad08d,ruby:>= 0
+1.2.0 omniauth-oauth2:~> 1.1|checksum:a2ccd5fc0405cabdb4ef86c0e7ed2a2a2421e3111d38e87896d05a33f3a317f7,ruby:>= 0
+1.3.0 omniauth-oauth2:~> 1.1|checksum:a6edd42374b686b51eaff5100bc08937f2bbf25d519650479e33eb8fa533c743,ruby:>= 0
+1.4.0 omniauth-oauth2:~> 1.1|checksum:51b60edfe3b260922dd3a0419733392774afa527e6537383a7be78afd29dea7a,ruby:>= 0
+1.4.1 omniauth-oauth2:~> 1.1|checksum:
+1.4.2 omniauth-oauth2:~> 1.1|checksum:83641503d1733f2bdd74a97347f542233bc282639f32fc3c2be097338ac2861d,ruby:>= 0,rubygems:>= 0

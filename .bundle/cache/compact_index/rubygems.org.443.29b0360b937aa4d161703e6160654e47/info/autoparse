@@ -1,0 +1,9 @@
+---
+0.1.0 addressable:~> 2.2.2,extlib:>= 0.9.15,json:>= 1.4.6|checksum:e3d2856d74be88650c2822fbb17614374bd704253aeea5a6c23b333b250b4c7c
+0.2.0 addressable:~> 2.2.2,extlib:>= 0.9.15,json:>= 1.4.6|checksum:e0238dc8e79166991f48c5cdf0bc8ef475cbc793807a6cb2f4c188200ec79bdd
+0.2.1 addressable:~> 2.2.2,extlib:>= 0.9.15,json:>= 1.4.6|checksum:030104e2197b50aa9ef0fe866be87a5ba891bf611e7035b1691c0246d5c42230
+0.2.3 addressable:~> 2.2.2,extlib:>= 0.9.15,json:>= 1.4.6|checksum:32c0a3338d22b85a493772f002cfdc816e12e83ba77a5a7934685bbec416442a
+0.3.0 addressable:~> 2.2.2,extlib:>= 0.9.15,json:>= 1.4.6|checksum:333b5055fc599b23b74069b8e8b01cf98cf5612a336e3a3d95bac35be769e15a
+0.3.1 addressable:~> 2.2.3,extlib:>= 0.9.15,multi_json:>= 1.0.0|checksum:5537d45d37639ce68424a1fbf3bdfaeb39dc827ed36062c799d2360e7f94eab7
+0.3.2 addressable:>= 2.3.1,extlib:>= 0.9.15,multi_json:>= 1.0.0|checksum:e28efb9f827cb820051e6fddf0b6fa06120e09d86308f8c85d5822a7592ce708
+0.3.3 addressable:>= 2.3.1,extlib:>= 0.9.15,multi_json:>= 1.0.0|checksum:6651baaa01f8e5b898e702e38726cab3acbed1226ab9e4f3ab9309f6509bbce0

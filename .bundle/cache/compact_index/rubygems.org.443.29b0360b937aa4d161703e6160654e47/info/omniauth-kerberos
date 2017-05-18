@@ -1,0 +1,4 @@
+---
+0.1.0 omniauth-multipassword:>= 0,timfel-krb5-auth:~> 0.8|checksum:xam1vVijJn2Dv2yKtFASuOlhzsCM/6oJMRI00SG3WRU=
+0.2.0 omniauth-multipassword:>= 0,timfel-krb5-auth:~> 0.8|checksum:K9gMh/S8h/p0W9oMdvkmvVYKESQAznuMfyYi/Ls1wug=
+0.3.0 omniauth-multipassword:>= 0,timfel-krb5-auth:~> 0.8|checksum:B8dZ0PYDQvY+mRxIQZEvg5wN2RJZqaV2/p11ic3Zuhc=,ruby:>= 0

@@ -1,0 +1,40 @@
+---
+0.1.1 |checksum:12ChMmOw7gG+kIwubaBwo9ou1PN04fhfJYa9Z6AKAJI=
+0.1.2 |checksum:PGPDgyMjRE0gn87Al7AWVKsYGnyIWqBYExzPPdmHUDY=
+0.1.3 |checksum:BR6YD3B71Wbf0YS8w8URyjIhMj9T1CMciKEaUzBwnuM=
+0.1.4 |checksum:HZjTDT6aUN9n+d8ZZ65F5lc+N8IYxHdZAUKAM4LeHYE=
+0.1.5 |checksum:95F8KqLJfFKDmp8yCV0UbzjEw1lmEBVv4Wys4HdSQdk=
+0.1.6 |checksum:HhNJbvtTiW10t5IRJdHNxpa3g8N0yGSL9TxZcAEKCP4=
+0.1.7 |checksum:chodqm/n5W8APc9ISekBBqtw2TXWRJICpsGEtKpSZxk=
+0.2.0 |checksum:T/U1rsQDOnPwCSV5m7UrE6Kxnrad0ljWClGIM63xH28=
+0.2.1 |checksum:KNEuVBvz7w/T9t36GL4vxJ7x/vSChEMA81i3yc56AfM=
+0.2.2 |checksum:gvn+ATDuCckyi5VidUQRXz38OKZ+RLdRtsq+iYma0pc=
+0.3.0 |checksum:7QanETvu33hmQlcSQkMjfaw9e7mfOrM9bgOvzqhHX2Y=
+0.3.1 |checksum:NGN5Vw4mgN2oODDhH13G/097KplganEgG7ZvMpNkW5c=
+0.3.2 |checksum:3x9GHisG+wkX5XT6xOmoasHKhgAQ/SlRv6NNdLcfRmQ=
+0.3.3 |checksum:p27JtdgaO+6MClWmEAvaGcwtJbKSCtk9j+gZ70o/adU=
+0.4.0 |checksum:QWjCqhIW98HbHrSFVSv4zMMcaJWDR5V/pYmGehojMW0=
+0.5.0 |checksum:5xnQDMZGjJ5QTwEFw+K5sXAf/SaOZhjD1UjTNELWNdM=
+0.5.1 |checksum:p1lwJH03gBr9RUvIhatCpMX3SJE7LSUHN/kwyd0Erh0=
+0.5.2 |checksum:lGF9Rf1+sxxtI8fo95twP/SMjzKA6DVydrDOKECy50Q=
+0.5.3 |checksum:l0ijeFRTnK8FtY5wJFMP9SO0vA0U3SKAHJpRtnajmE8=
+0.7.0 |checksum:NqVwU1+wm/L8wb0sijuLDK71nlKhybM0CQVyZqL9MmM=
+0.7.1 |checksum:ZCuZt68NWNWrhF0fGU7iFv13TPAJvogY7/3Z4/rKJII=
+0.7.2 |checksum:ixn26AlK1cgyQl+kMIHvNn+R69McxajLhEowUS+7uGs=
+0.7.3 |checksum:gsHzVB9CaS+xXB3YPXrjVjhzcj2gxLnIsLQQ4K+nQ78=
+0.7.4 |checksum:7pLwsLYynML82ifzkdVtnplPNLMZXDoPxIXVcUoK++Q=
+0.7.5 |checksum:pddNWmfnI7xAFPXbhoL4jWW162awqxtYsE+wI0JnWfM=
+1.0.0 |checksum:nZi4l466vKYSaGqZHQEAWRrWzBHm0EsqRk4ibDoga18=
+1.0.1 |checksum:oYdxjkSJ8i5kU3XiQT32YH0Iqvj9biZa2NjJmPGLbtw=
+1.0.2 |checksum:EmgqH3NlRm6rzHlxgNodfijGgAOdsIUG8D0ETNvPCXM=
+1.0.3 |checksum:Du0LfFMVsHq13mB9EOXSDedkmRMsIsGtMIkeH5FGW8w=
+1.1.0 |checksum:7zRdM1BYsFDsvg8uWUUOH2ZIV0+mfzG4U3zerZ6k+hs=
+1.1.1 posix-spawn:~> 0.3.8|checksum:SH/GuauvRrnx+Wdvilz03GP3pBRSzejQH0zzWmHMJHY=,ruby:>= 0
+1.1.2 posix-spawn:~> 0.3.8|checksum:T6xIbO6MFTJ4TlM4vrO1bcdrPS1qjPMZS/erUoXVRkg=,ruby:>= 0
+1.2.0 posix-spawn:~> 0.3.8|checksum:/rFzaYaituu0xOFYKbBpfDxFE55tIxGXItYQ/6yPIgs=,ruby:>= 0
+1.2.1 posix-spawn:~> 0.3.8|checksum:M/KRt7lPbGqbQmcc8phbFAMSw/752RiskowI1WL6Cbk=,ruby:>= 0
+1.3.0 posix-spawn:~> 0.3.8|checksum:M1hee+c8njhjE5IetpccixRbN6TjBdBseVhl5BpnCSw=,ruby:>= 0
+1.3.1 posix-spawn:~> 0.3.8|checksum:1Ln3piMxQgVlnDWnxF4PO0W7En/IAaoVEy+D1yaKP1E=,ruby:>= 0
+1.3.2 |checksum:jBdotAgGn9SAPwv1d8SZH3nqhztq84ZcOfo23O9zkAk=,ruby:>= 0
+1.3.3 |checksum:eMdBFJchmBfLJ912mqTawYNki34EGZgs0A/Yx3gAKQc=,ruby:>= 0
+1.4.0 |checksum:

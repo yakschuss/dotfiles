@@ -1,0 +1,24 @@
+---
+0.0.2 chunky_png:~> 0.10.1|checksum:ab4d40630a034af8e33e2a1ee76fa0c15c862ee52152bfc0ee62ba0efe19e3f8,rubygems:= 1.3.7
+0.0.3 chunky_png:~> 0.10.1|checksum:5062c65ebc57ccde61f4d92e4849714a750b7e899765939b27130f1dc6583c47,rubygems:= 1.3.7
+0.0.4 chunky_png:~> 0.10.2|checksum:cdb3c55e5de3671a3986a61053ed0e7cbd9eb70d4c491c000b1dafe92f425d65,rubygems:= 1.3.7
+0.0.5 chunky_png:~> 0.10.2|checksum:ad73cfe4982595efbed3e91f00ed63d9b15bb54f5ed476f0c2c7609407a24030,rubygems:= 1.3.7
+0.0.6 chunky_png:~> 0.10.2|checksum:00c5da81a56dc52dde921442967b3a4d59e9b26e2428ada36bbe24048f6ce465
+0.0.7 chunky_png:~> 0.10.2|checksum:445a3db5932ce8c4c667bc22e28c105da0038e3519dc7b89f9e221c37a20854e
+0.0.8 chunky_png:~> 0.10.2|checksum:8038f907ea10ed9478d06989aaf2b1edf1b16fd6e5193b216eb7a17842c865f9
+0.1.0 chunky_png:~> 0.10.2|checksum:fb6e86fee8a6aa0a91775f14e1de62e48cdc99741af721bd532237a01f72f894
+0.1.1 chunky_png:~> 0.10.4|checksum:bd756ad1bcd95a100d92657d2676b061dca0a573924b2e5a8e1033ca3c7019ec
+0.2.0 chunky_png:~> 0.11|checksum:5d708f29ef75312be69a174f659a0f18e92ccb82831ca7f7228888d0256fe983
+0.3.0 chunky_png:~> 0.12|checksum:e18987cd75f110726067ac7a3db009f6bd2411aa6ee3f0ff3d3a81e29a46e963
+1.0.0.beta1 chunky_png:~> 1.0.0.beta1|checksum:11ebe20843bdd1d78ac3ea6fdb47f62aac8604f3396cdbfcf217e55fc752efd9,rubygems:> 1.3.1
+1.0.0.rc1 chunky_png:~> 1.0.0.beta1|checksum:d19a143768d7facc286cd387d92752d6947756abf965807560c8231afa89001e,rubygems:> 1.3.1
+1.0.0.rc2 chunky_png:~> 1.0.0.beta1|checksum:72a6167456774451f5cf18ed15d1caba90978d34787352a959101dff13ce5354,rubygems:> 1.3.1
+1.0.0 chunky_png:~> 1.0|checksum:4b8f41f383dd38df5ce1bddb578ea47ef0f59a0ce1640a9a6884e5cefb4592e4
+1.0.1 chunky_png:~> 1|checksum:48c77609b00cd77d804555f94ef94736ca905c2c93cb6ead595de353744799a8
+1.0.2 chunky_png:~> 1.2.1|checksum:ee163852fe4989499e7be17f3f7522c0ad41c103da053de497c9dbe021e470ce
+1.0.3 chunky_png:~> 1.2.1|checksum:7affbdd920f664306792c83c2799a74de9ab39dd77c31c9ad6121cb0192448b9
+1.1.0 chunky_png:~> 1.2.7|checksum:045e049d25de2e7748c288dfbf03d25531caf6bd6ccb4c100a99aec66424e0d9
+1.1.1 chunky_png:~> 1.3.0|checksum:3800bd61a15e7a5ad109e717592c8bcedb2f039b88ef54d68d02501405e586ea
+1.1.2 chunky_png:~> 1.3.1|checksum:2f2d942f625c5a7237979b37fb54a4080adaee5353ec169d13a7ee11386ebc99
+1.2.0 chunky_png:~> 1.3.1|checksum:8d3a750f4324dc7b7532ffc516c5d9777b5899468487ff624342e400443a5873
+1.2.1 chunky_png:~> 1.3.7|checksum:2a8b6392afe486a8f13c727146ffb2c03fa4f98a4cb7faa2e2fd2cd101cc88c3

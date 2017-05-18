@@ -1,0 +1,4 @@
+---
+0.0.0 chronic:>= 0,dm-core:>= 0,dm-migrations:>= 0,i18n:>= 0,trollop:>= 0|checksum:e1b1a0bbcb18705668c8e72ceb2419a4a85644b249abad907e51752a559701a9
+0.0.0x chronic:>= 0,dm-core:>= 0,dm-migrations:>= 0,i18n:>= 0,slop:>= 0|checksum:df4d4dda8276983370df4377e836ca80c9b7e6bee78a101bf3dfb023a230e2c3,rubygems:> 1.3.1
+0.0.1 proc_to_lambda:>= 0,threaded_in_memory_queue:>= 0|checksum:813c3625ac33aef7962ee0b8c621a9df8f72cebe08b80c6817dce7a99291531c

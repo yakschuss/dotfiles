@@ -1,0 +1,5 @@
+---
+0.1.0 |checksum:b4f1aa91bf389ca2517097ee38dcca0e90362e6f94594cca578cbf9b5e9aa4c5
+0.1.1 |checksum:87b90a18ba3361e0f2de109708b0e4044fe57f71c3fad54f3b352c4c12f033f9
+0.1.2 |checksum:a04ef5eea53a45a2ac0df400836db970507078faeeba73df38726e1ba66df9a6,ruby:>= 1.8.7
+1.0.0 |checksum:aa4cdf0e90e7ee96f6e0ce3daae39eaa8f0486124e0d92daf64d2105aeb9069c,ruby:>= 1.8.7

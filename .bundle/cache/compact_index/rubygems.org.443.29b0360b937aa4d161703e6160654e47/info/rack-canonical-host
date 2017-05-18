@@ -1,0 +1,14 @@
+---
+0.0.1 |checksum:8bT9e1KZcWasIuC5VlqV8uYDppfvYtIn4trCfcBHvCo=
+0.0.2 rack:>= 1.0.0|checksum:alVZxOPEwiyWox+sLqOq+t6T6Zs2cTmKed20rcqo5dg=
+0.0.3 rack:>= 1.0.0|checksum:2WfDat4rPNUThAaQqXBEApH5cJquJenQOTovfflOiMo=
+0.0.4 rack:~> 1.0|checksum:nXv/oazc+ohPSQvcmOs9MP1s4hxkOR3DOlAzTKs5X/Q=
+0.0.5 rack:~> 1.0|checksum:o5KnAHm0xwQs6XCPuWFekDMQesq/Vnw2tJSRgGr6Aqs=
+0.0.6 rack:~> 1.0|checksum:SR0wQ2tXFtxelj3VIGwOB8Th6qc3IR7KO/K9VbvYvqw=
+0.0.7 rack:~> 1.0|checksum:PVzFP8jB6EOT2PDj1Vs58EbvTkKqeTM6rRMIMFN+sdE=
+0.0.8 addressable:>= 0,rack:~> 1.0|checksum:e7ZDB7VoJd3X81+GiB8YkgHIjswCjmyQcx2owZxcZWY=
+0.0.9 addressable:>= 0,rack:~> 1.0|checksum:juvrAeirdmHfsEPervF7d6BTsVd1BPY2kh1s7yTYK6Q=
+0.1.0 addressable:>= 0,rack:~> 1.0|checksum:wvGjpg7J4NZEHJFXanx8KZ9P4ZiPnvP9DGY+FJwilrI=,ruby:>= 0
+0.2.0 addressable:< 3&> 0,rack:~> 1.0|checksum:7873adb0001d315975824f7dc939816f23d4146b503c78e0d221afec0db2ad2e,ruby:>= 0,rubygems:>= 0
+0.2.1 addressable:< 3&> 0,rack:< 3&>= 1.0.0|checksum:fca300ca75fece8db1f22547c3e0bdec53f2bd1774d374773b27887e50e211f3,ruby:>= 0,rubygems:>= 0
+0.2.2 addressable:< 3&> 0,rack:< 3&>= 1.0.0|checksum:215111667683555654c2043b4c210c821bb5009cb51e46ef8ae1757f06d685c2,ruby:>= 0,rubygems:>= 0

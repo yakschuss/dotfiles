@@ -1,0 +1,9 @@
+---
+0.0.1 rails:~> 3.2.6|checksum:x920g8zsLnoVaR/mRjsygiW/RuZbJJoEUOK17ZZFoGs=
+0.0.2 rails:~> 3.0|checksum:Cyz7QtbvPznMlPrQeHleGbJlmeefe1USpONy2ZZ+F3g=
+0.0.3 rails:~> 3.0|checksum:E84pIzTXJmaPrf5IIIC53kj/rvx8R6qHdW6ExJzZcyY=
+1.0.0 rails:~> 3.0|checksum:mvAM59w/xE6G9jevpCEoKXxFoC+UsM121yTjKYeTTKo=
+1.0.1 rails:~> 3.0|checksum:01qPNoJEu5Luvs43H/y0e+YBBOh9JYBm7GD0XkP2YhM=
+1.1.0 rails:>= 3.0|checksum:nvwQnAwZ22qbEdqBLTwjOqRG0fsXDVdVxl2svv/i+FQ=
+1.2.0 activerecord:>= 3.0,state_machine:>= 0|checksum:
+1.3.0 activerecord:>= 3.0|checksum:

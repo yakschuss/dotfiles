@@ -1,0 +1,8 @@
+---
+1.0.0 rest-client:>= 0|checksum:2125dd33cc202b3fae607d1b140ad93b64449f85501d76d96db07afc338331a4,ruby:>= 1.9.3,rubygems:>= 0
+1.0.1 rest-client:>= 0|checksum:1b3292d0e720f96df4307abf222a16ff3db88aa78de44a13c23df14946f83254,ruby:>= 1.9.3,rubygems:>= 0
+1.0.2 rest-client:~> 1.8|checksum:121ab0a817a241f91acf9245e137b2e954490c14a4800e10c20193a60572b864,ruby:>= 1.9.3,rubygems:>= 0
+1.0.3 rest-client:~> 1.8|checksum:847ad3b91c48a2882b1b848185a4d6f283a3f4f1da3ffb87286061c6b88a71f1,ruby:>= 1.9.3,rubygems:>= 0
+1.0.4 rest-client:~> 1.8|checksum:0cebd304e0d4923dba22b92cdedf5a5f116c9e0906857711ee78d94fb497520c,ruby:>= 1.9.3,rubygems:>= 0
+1.0.5 rest-client:~> 1.8|checksum:195ff8d72918ad47aead655d7f31732de118c9b4dd9eefd577032e773fc1f23d,ruby:>= 1.9.3,rubygems:>= 0
+1.0.6 rest-client:< 2&>= 1.7.0|checksum:9ca97dc20dd3d91f56ba4a127f01c5a8e634720517b086006b4a6cd7cd1b9c8c,ruby:>= 1.9.3,rubygems:>= 0
