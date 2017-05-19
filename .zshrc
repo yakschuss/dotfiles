@@ -104,3 +104,5 @@ source ~/zsh-git-prompt/zshrc.sh
 export PATH="$HOME/.bin:/usr/local/opt/go/libexec/bin:/Users/jackschuss/.gem/ruby/2.3.0/bin:/Users/jackschuss/.gem/ruby/2.4.0/bin:$(yarn global bin):$PATH"
 eval "$(rbenv init -)"
 eval "$(hub alias -s)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
