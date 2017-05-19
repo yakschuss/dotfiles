@@ -32,7 +32,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'janko-m/vim-test'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'scrooloose/syntastic'
-Plug 'slim-template/vim-slim'
 Plug 'tpope/vim-bundler'
 Plug 'christoomey/vim-system-copy'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

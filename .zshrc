@@ -102,10 +102,10 @@ alias gcplast='git log -1 --pretty=format:"%H" | pbcopy'
 alias fzt='vim $(fzf-tmux)'
 
 source ~/zsh-git-prompt/zshrc.sh
-export PATH="/usr/local/opt/go/libexec/bin:$(yarn global bin):$PATH"
+
 eval "$(rbenv init -)"
 eval "$(hub alias -s)"
 
-export PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/.bin:/usr/local/opt/go/libexec/bin:/Users/jackschuss/.gem/ruby/2.3.0/bin:/Users/jackschuss/.gem/ruby/2.4.0/bin:$(yarn global bin):$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -6,7 +6,7 @@ function battery_charge() {
 MODE_INDICATOR="NORMAL"
 
 PS1='% 🤔 😂 %~%b $(git_super_status) $(vi_mode_prompt_info)
-% %{$fg[blue]%} → '
+% %{$fg[blue]%} (Jack)→ '
 
 RPROMPT=$(battery_charge)
 
