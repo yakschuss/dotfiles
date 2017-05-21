@@ -100,6 +100,7 @@ alias tp="todolist list by project"
 alias config='/usr/bin/git --git-dir=/Users/jackschuss/.dotfiles/ --work-tree=/Users/jackschuss'
 alias gcplast='git log -1 --pretty=format:"%H" | pbcopy'
 alias fzt='vim $(fzf-tmux)'
+alias rspec='bundle exec rspec'
 
 source ~/zsh-git-prompt/zshrc.sh
 

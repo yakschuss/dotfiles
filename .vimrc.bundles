@@ -27,34 +27,88 @@ com! -nargs=+  -bar Bundle call VundleToPlug("Bundle", <args>)
 call plug#begin('~/.vim/bundle')
 
 " Define bundles via Github repos
+
+" run native commands
 Plug 'christoomey/vim-run-interactive'
+
+"ctrl p integration
 Plug 'ctrlpvim/ctrlp.vim'
+
+"test runner integration
 Plug 'janko-m/vim-test'
+
+"edit files that don't exist by creating files
 Plug 'pbrisbin/vim-mkdir'
+
+"syntax checking
 Plug 'scrooloose/syntastic'
+
+"bundler integration
 Plug 'tpope/vim-bundler'
+
+"map cp to pbcopy
 Plug 'christoomey/vim-system-copy'
+
+"fzf integration
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+"automatic ending for certain code structures
 Plug 'tpope/vim-endwise'
+
+"UNIX command integration
 Plug 'tpope/vim-eunuch'
+
+"git wrapper
 Plug 'tpope/vim-fugitive'
+
+" gem configuration 
 Plug 'tpope/vim-projectionist'
+
+"rails integration
 Plug 'tpope/vim-rails'
+
+"vim-rails like support for non rails projects
 Plug 'tpope/vim-rake'
+
+"allow plugins to repeat using . command
 Plug 'tpope/vim-repeat'
+
+"interface with hub commands in git commit editor
 Plug 'tpope/vim-rhubarb'
+
+"use surround commands to surround text objects
 Plug 'tpope/vim-surround'
+
+"comment out text objects
 Plug 'vim-scripts/tComment'
+
+"provide statusbar airline
 Plug 'vim-airline/vim-airline'
+
+" syntax highlighting for different languages. lazy load
 Plug 'sheerun/vim-polyglot'
+
+"emmet for vim
 Plug 'mattn/emmet-vim'
+
+" automatically close HTML tags
 Plug 'alvan/vim-closetag'
+
+"integeration with dash
 Plug 'rizzatti/dash.vim'
-" Plug 'majutsushi/tagbar'
+
+" show git changes in sidebar
 Plug 'airblade/vim-gitgutter'
+
+"startup profiler
 Plug 'tweekmonster/startuptime.vim'
+
+"search and replace using quickfix
 Plug 'vim-scripts/greplace.vim'
+
+" treat _ as text objects by toggling
+Plug 'bkad/CamelCaseMotion'
 
 
 if filereadable(expand("~/.vimrc.bundles.local"))
