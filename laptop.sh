@@ -4,6 +4,10 @@ curl --remote-name https://raw.githubusercontent.com/thoughtbot/laptop/master/ma
 less mac
 sh mac 2>&1 | tee ~/laptop.log
 
+echo "installing oh my zsh"
+
+sh -c "$(curl -fsSL
+https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 echo "cloning in dotfiles"
 
