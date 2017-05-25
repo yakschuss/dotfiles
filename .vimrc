@@ -227,9 +227,6 @@ endfor
 
   "use fzf for word under cursor
   nmap <Leader>f "zyiw:exe "Ag ".@z.""<CR>
-
-  "change word objects to casing and underscore
-  call camelcasemotion#CreateMotionMappings('<leader>')
 "}}}
 
 "Leader Remap {{{

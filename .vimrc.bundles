@@ -107,9 +107,6 @@ Plug 'tweekmonster/startuptime.vim'
 "search and replace using quickfix
 Plug 'vim-scripts/greplace.vim'
 
-" treat _ as text objects by toggling
-Plug 'bkad/CamelCaseMotion'
-
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
