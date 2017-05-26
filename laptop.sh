@@ -21,7 +21,7 @@ git clone git@github.com:yakschuss/dotfiles.git
 echo "backing up old dotfiles"
 
 mkdir -p .config-backup && \
-  config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
+  config checkout 2>&1 | grep -E "\s+\." | awk {'print $1'} | \
   xargs -I{} mv {} .config-backup/{}
 
 config checkout
