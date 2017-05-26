@@ -1,3 +1,7 @@
+#!/bin/sh
+set -e
+set -o pipefail
+
 echo "running thoughtbot laptop script"
 
 curl --remote-name https://raw.githubusercontent.com/thoughtbot/laptop/master/mac
