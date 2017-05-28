@@ -65,6 +65,16 @@
 "}}}
 
 "AutoCmd {{{
+
+" automatically rebalance windows on vim resize
+ autocmd VimResized * :wincmd =
+
+" " zoom a vim pane, <C-w>= to re-balance
+ nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+ nnoremap <leader>= :wincmd =<cr>
+
+
+
   " Load matchit.vim, but only if the user hasn't installed a newer version.
   if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
     runtime! macros/matchit.vim
@@ -247,7 +257,8 @@ endfor
   nnoremap <Leader>r :RunInInteractiveShell<space>
 
   "Testing {{{
-    nnoremap <silent> <Leader>t :TestFile<CR>
+    nnoremap <silent> <Leader>T :TestFile<CR>
+    nnoremap <silent> <Leader>t :TestNearest<CR>
     nnoremap <silent> <Leader>l :TestLast<CR>
     nnoremap <silent> <Leader>a :TestSuite<CR>
     nnoremap <silent> <leader>gt :TestVisit<CR>
