@@ -208,6 +208,11 @@
   nnoremap <C-h> <C-w>h
   nnoremap <C-l> <C-w>l
 
+ set winwidth=84
+ set winheight=5
+ set winminwidth=5
+ set winheight=999
+
   "Create more word objects
   for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '%', '-', '#' ]
     execute 'xnoremap i' . char . ' :<C-u>normal! T' . char . 'vt' . char . '<CR>'
