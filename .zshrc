@@ -58,34 +58,14 @@ export KEYTIMEOUT=1
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+_not_inside_tmux() { [[ -z "$TMUX" ]] }
 
-# export MANPATH="/usr/local/man:$MANPATH"
+ensure_tmux_is_running() {
+  if _not_inside_tmux; then
+    tat
+  fi
+}
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias imgresize="convert -strip -interlace Plane -gaussian-blur 0.05 -quality 85%"
 alias grmerged='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
@@ -109,4 +89,5 @@ eval "$(hub alias -s)"
 
 export PATH="$HOME/.bin:/usr/local/opt/go/libexec/bin:/Users/jackschuss/.gem/ruby/2.3.0/bin:/Users/jackschuss/.gem/ruby/2.4.0/bin:$(yarn global bin):$PATH"
 
+ensure_tmux_is_running
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
