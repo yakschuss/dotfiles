@@ -14,5 +14,9 @@
 	today = log --since=00:00:00 --all --no-merges --oneline --author=jackschuss@gmail.com
 	ctags = !.git/hooks/ctags
 	tack = commit --amend --no-edit
+	unstage = reset
+	bselect = !git branch | grep -v '^*' | fzf-tmux --reverse | xargs git checkout
+	sl = log --oneline --decorate -20
+	alias = config --get-regexp ^alias\\.
 [init]
 	templatedir = ~/dotfiles/git_template/
