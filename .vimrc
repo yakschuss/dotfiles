@@ -148,11 +148,6 @@
   "set autoread
 "}}}
 
-"CTags {{{
-  command! MakeTags !ctags -R ./tags .
-  nmap <F2> :TagbarToggle<CR>
-"}}}
-
 " Tab completion {{{
   " will insert tab at beginning of line,
   " will use completion if not at beginning
