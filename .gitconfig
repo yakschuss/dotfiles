@@ -14,4 +14,4 @@
 	today = log --since=00:00:00 --all --no-merges --oneline --author=jackschuss@gmail.com
 	ctags = !.git/hooks/ctags
 [init]
-	templatedir = ~/.git_template
+	templatedir = ~/dotfiles/git_template/
