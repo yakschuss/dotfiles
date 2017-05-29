@@ -2,6 +2,9 @@
 set -e
 set -o pipefail
 
+
+xcode-select --install
+
 echo "running thoughtbot laptop script"
 
 curl --remote-name https://raw.githubusercontent.com/thoughtbot/laptop/master/mac
