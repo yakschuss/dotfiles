@@ -20,6 +20,9 @@
   set ruler         " show the cursor position all the time
   set showcmd       " display incomplete commands
   set incsearch     " do incremental searching
+  set hlsearch     " do incremental searching
+  set ignorecase
+  set smartcase
   set laststatus=2  " Always display the status line
   set autowrite     " Automatically :write before running commands
 
@@ -168,6 +171,8 @@
 "}}}
 
 "Movement {{{
+  nmap <leader>h :nohlsearch <CR>
+
   imap jk <esc>
   imap kj <esc>
   "
@@ -257,6 +262,7 @@ endfor
   nnoremap <leader>1 ggvG$
   nnoremap <leader>2 :set paste!<CR>i
   nnoremap <leader>3 :set paste!<CR>
+  nnoremap <leader>p :set paste<CR>mmo<esc>"*]p:set nopaste<cr>`]=`m
 
   " Run commands that require an interactive shell
   nnoremap <Leader>r :RunInInteractiveShell<space>
