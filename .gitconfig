@@ -1,22 +1,33 @@
-[core]
-	editor = /usr/local/bin/vim
-[user]
-	name = Jack Schuss
-	email = jackschuss@gmail.com
-[rebase]
-	autosquash = true
 [alias]
-	last = log -1 HEAD
-	stats = shortlog -sn
-	recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format=\"%(refname:short)\"
-	overview = log --all --since=2
-	recap = log --all --oneline --no-merges --author=jackschuss@gmail.com
-	today = log --since=00:00:00 --all --no-merges --oneline --author=jackschuss@gmail.com
-	ctags = !.git/hooks/ctags
-	tack = commit --amend --no-edit
-	unstage = reset
-	bselect = !git branch | grep -v '^*' | fzf-tmux --reverse | xargs git checkout
-	sl = log --oneline --decorate -20
-	alias = config --get-regexp ^alias\\.
+  aa = add --all
+  alias = config --get-regexp ^alias\\.
+  b = branch
+  bselect = !git branch | grep -v '^*' | fzf-tmux --reverse | xargs git checkout
+  ca = commit --amend
+  co = checkout
+  ctags = !.git/hooks/ctags
+  find = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
+  last = log -1 HEAD
+  overview = log --all --since=2
+  recap = log --all --oneline --no-merges --author=jackschuss@gmail.com
+  recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format=\"%(refname:short)\"
+  s = status
+  sl = log --oneline --decorate -20
+  stats = shortlog -sn
+  tack = commit --amend --no-edit
+  today = log --since=00:00:00 --all --no-merges --oneline --author=jackschuss@gmail.com
+  uncommit = reset --soft HEAD^
+  unstage = reset
+[core]
+  editor = /usr/local/bin/vim
+[fetch]
+  prune = true
 [init]
-	templatedir = ~/dotfiles/git_template/
+  templatedir = ~/dotfiles/git_template/
+[push]
+  default = upstream
+[rebase]
+  autosquash = true
+[user]
+  name = Jack Schuss
+  email = jackschuss@gmail.com
