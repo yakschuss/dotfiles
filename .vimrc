@@ -248,6 +248,9 @@ endfor
   "use fzf for word under cursor
   nmap <Leader>f "zyiw:exe "Ag ".@z.""<CR>
 "}}}
+"
+" hilight all occurences of word under cursor in file
+nmap <leader>g "zyiw:exe "/".@z.""<CR>
 
 "Leader Remap {{{
   "explore mode
