@@ -13,5 +13,6 @@
 	recap = log --all --oneline --no-merges --author=jackschuss@gmail.com
 	today = log --since=00:00:00 --all --no-merges --oneline --author=jackschuss@gmail.com
 	ctags = !.git/hooks/ctags
+	tack = commit --amend --no-edit
 [init]
 	templatedir = ~/dotfiles/git_template/
