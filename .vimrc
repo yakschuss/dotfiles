@@ -149,7 +149,7 @@
 "}}}
 
 "CTags {{{
-  command! MakeTags !ctags -R -f ./tags .
+  command! MakeTags !ctags -R ./tags .
   nmap <F2> :TagbarToggle<CR>
 "}}}
 

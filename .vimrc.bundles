@@ -75,6 +75,9 @@ Plug 'tpope/vim-rails'
 "vim-rails like support for non rails projects
 Plug 'tpope/vim-rake'
 
+"bundler support projects
+Plug 'tpope/vim-bundler'
+
 "allow plugins to repeat using . command
 Plug 'tpope/vim-repeat'
 
@@ -110,6 +113,13 @@ Plug 'tweekmonster/startuptime.vim'
 
 "search and replace using quickfix
 Plug 'vim-scripts/greplace.vim'
+
+"textobjects - ruby
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'kana/vim-textobj-user'
+
+"mappings
+Plug 'tpope/vim-unimpaired'
 
 
 if filereadable(expand("~/.vimrc.bundles.local"))
