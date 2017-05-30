@@ -168,8 +168,6 @@
 "}}}
 
 "Movement {{{
-  nmap <leader>h :nohlsearch <CR>
-
   imap jk <esc>
   imap kj <esc>
   "
@@ -222,6 +220,11 @@
     execute 'xnoremap a' . char . ' :<C-u>normal! F' . char . 'vf' . char . '<CR>'
     execute 'onoremap a' . char . ' :normal va' . char . '<CR>'
 endfor
+
+"turn json into ruby hash in file
+nnoremap <leader>h :%s/"\(.*\)"=>/\1\: /g<CR>
+nnoremap <leader>j :%s/\(.*\)\:/"\1" => /g<CR>
+
 "}}}
 
 "Plugins {{{
