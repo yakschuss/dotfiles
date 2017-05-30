@@ -25,6 +25,7 @@
   today = log --since=00:00:00 --all --no-merges --oneline --author=jackschuss@gmail.com
   uncommit = reset --soft HEAD^
   unstage = reset
+  upstream = rev-parse --abbrev-ref --symbolic-full-name @{u}
 [core]
   editor = /usr/local/bin/vim
 [fetch]
