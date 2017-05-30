@@ -28,6 +28,8 @@
   prune = true
 [init]
   templatedir = ~/dotfiles/git_template/
+[merge]
+  ff = only
 [push]
   default = upstream
 [rebase]
