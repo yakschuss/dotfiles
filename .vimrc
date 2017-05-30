@@ -12,6 +12,7 @@
 " Initial Settings {{{
   let mapleader = " "
 
+  nnoremap <leader>RL :source ~/.vimrc<CR>
   set backspace=2   " Backspace deletes like most programs in insert mode
   set nobackup
   set nowritebackup
@@ -20,7 +21,7 @@
   set ruler         " show the cursor position all the time
   set showcmd       " display incomplete commands
   set incsearch     " do incremental searching
-  set hlsearch     " do incremental searching
+  " set hlsearch     " do incremental searching
   set ignorecase
   set smartcase
   set laststatus=2  " Always display the status line
@@ -52,6 +53,7 @@
 
   "colorscheme
   colorscheme dracula
+  nnoremap <leader>clrs :colorscheme github<CR>
   " set background=dark
   syntax on
 
@@ -242,6 +244,9 @@ endfor
 
   "use fzf for word under cursor
   nmap <Leader>f "zyiw:exe "Ag ".@z.""<CR>
+
+  "show diff in statusline
+  set stl+=%{ConflictedVersion()}
 "}}}
 "
 " hilight all occurences of word under cursor in file

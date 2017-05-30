@@ -32,6 +32,7 @@ alias config='/usr/bin/git --git-dir=/Users/jackschuss/.dotfiles/ --work-tree=/U
 alias gcplast='git log -1 --pretty=format:"%H" | pbcopy'
 alias fzt='vim $(fzf-tmux)'
 alias rspec='bundle exec rspec'
+alias fixconflicts='vim +Conflicted'
 
 source ~/zsh-git-prompt/zshrc.sh
 

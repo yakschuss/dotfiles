@@ -65,6 +65,7 @@ Plug 'tpope/vim-eunuch'
 
 "git wrapper
 Plug 'tpope/vim-fugitive'
+Plug 'christoomey/vim-conflicted'
 
 " gem configuration 
 Plug 'tpope/vim-projectionist'
@@ -75,7 +76,7 @@ Plug 'tpope/vim-rails'
 "vim-rails like support for non rails projects
 Plug 'tpope/vim-rake'
 
-"bundler support projects
+"undler support projects
 Plug 'tpope/vim-bundler'
 
 "allow plugins to repeat using . command
@@ -121,6 +122,7 @@ Plug 'kana/vim-textobj-user'
 "mappings
 Plug 'tpope/vim-unimpaired'
 
+Plug 'endel/vim-github-colorscheme'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
