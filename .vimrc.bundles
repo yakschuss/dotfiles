@@ -122,7 +122,11 @@ Plug 'kana/vim-textobj-user'
 "mappings
 Plug 'tpope/vim-unimpaired'
 
+"colorscheme for Gdiff
 Plug 'endel/vim-github-colorscheme'
+
+"elixir vim integration
+Plug 'slashmili/alchemist.vim'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local

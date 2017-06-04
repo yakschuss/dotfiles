@@ -229,6 +229,8 @@ nnoremap <leader>j :%s/\(.*\)\:/"\1" => /g<CR>
 
 "Plugins {{{
   " Use FZF as a fuzzy finder
+  "use ag, which respects .gitignore
+  let $FZF_DEFAULT_COMMAND= 'ag -g ""'
   nmap <c-p> :FZF<return>
   nmap <c-a> :FZF<return>
 
