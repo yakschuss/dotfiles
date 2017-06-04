@@ -252,8 +252,6 @@ nnoremap <leader>j :%s/\(.*\)\:/"\1" => /g<CR>
   set stl+=%{ConflictedVersion()}
 "}}}
 "
-" hilight all occurences of word under cursor in file
-nmap <leader>g "zyiw:exe "/".@z.""<CR>
 
 "Leader Remap {{{
   "explore mode
