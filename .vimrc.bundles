@@ -128,6 +128,12 @@ Plug 'endel/vim-github-colorscheme'
 "elixir vim integration
 Plug 'slashmili/alchemist.vim'
 
+"vim-tmux-runner
+Plug 'christoomey/vim-tmux-runner'
+
+"google searching from vim!
+Plug 'szw/vim-g'
+
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
 endif

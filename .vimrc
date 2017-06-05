@@ -252,6 +252,10 @@ nnoremap <leader>j :%s/\(.*\)\:/"\1" => /g<CR>
 
   "show diff in statusline
   set stl+=%{ConflictedVersion()}
+
+  nnoremap <leader>rr :VtrSendLinesToRunner!<CR>
+
+  nnoremap <Leader>g "zyiw:exe "Googlef ".@z.""<CR>
 "}}}
 "
 
