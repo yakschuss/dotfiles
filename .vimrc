@@ -45,6 +45,9 @@
   set shiftround
   set expandtab
 
+  "persistent undo
+  set undodir=~/.vim/undodir
+
   " display extra whitespace
   set list listchars=tab:»·,trail:·,nbsp:·
 
