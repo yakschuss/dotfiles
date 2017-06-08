@@ -211,6 +211,13 @@
   nnoremap <C-h> <C-w>h
   nnoremap <C-l> <C-w>l
 
+  command! Q q " Bind :Q to :q
+  command! Qall qall
+  command! QA qall
+  command! E e
+  command! W w
+  command! Wq wq
+
  set winwidth=84
  set winheight=5
  set winminwidth=5
