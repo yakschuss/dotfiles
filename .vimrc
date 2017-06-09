@@ -217,6 +217,8 @@
   command! E e
   command! W w
   command! Wq wq
+  command! WQ wq
+  command! Wqall wqall
 
  set winwidth=84
  set winheight=5
