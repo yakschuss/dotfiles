@@ -223,6 +223,12 @@
  set winminwidth=5
  set winheight=999
 
+ " Start interactive EasyAlign in visual mode (e.g. vipga)
+ xmap ga <Plug>(EasyAlign)
+
+ " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+ nmap ga <Plug>(EasyAlign)
+
   "Create more word objects
   for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '%', '-', '#' ]
     execute 'xnoremap i' . char . ' :<C-u>normal! T' . char . 'vt' . char . '<CR>'

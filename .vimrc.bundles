@@ -134,6 +134,9 @@ Plug 'christoomey/vim-tmux-runner'
 "google searching from vim!
 Plug 'szw/vim-g'
 
+"align stuff
+Plug 'junegunn/vim-easy-align'
+
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
 endif
