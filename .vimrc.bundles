@@ -137,6 +137,11 @@ Plug 'szw/vim-g'
 "align stuff
 Plug 'junegunn/vim-easy-align'
 
+"wrapper for prettier
+Plug 'mitermayer/vim-prettier', { 
+      \ 'do': 'yarn install', 
+      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] } 
+
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
 endif
