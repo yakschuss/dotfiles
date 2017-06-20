@@ -127,30 +127,8 @@
 
 "HTML {{{
   let g:jsx_ext_required = 0
-
-  nnoremap ,html :-1read $HOME/.vim/skeleton.html<CR>3jwf>a
-  nnoremap ,rcomponent :-1read $HOME/.vim/component.js<CR>e
-  nnoremap ,rstateless :-1read $HOME/.vim/stateless.js<CR>e
-
   " Treat <li> and <p> tags like the block tags they are
   let g:html_indent_tags = 'li\|p'
-
-  " prettier cli integration
-  
-
-  " set filetypes for auto html closing (include js for React work?)
-  let g:closetag_filenames = "*.html,*.jsx,*.js,*.eex"
-
-  let g:syntastic_javascript_checkers=['standard']
-  let g:syntastic_javascript_standard_exec = 'semistandard'
-
-  "prettier-standard
-  " autocmd FileType javascript set formatprg=prettier.sh
-  " autocmd BufWritePre *.js :normal gggqG
-
-  "automatic semistandard fix on save
-  "autocmd bufwritepost *.js silent !semistandard % --fix
-  "set autoread
 "}}}
 
 " Tab completion {{{
@@ -204,7 +182,7 @@
   vnoremap ∆ :m '>+1<CR>gv=gv
   vnoremap ˚ :m '<-2<CR>gv=gv
 
-  "Quicker window movement Doesn't work with Tmux
+  "Quicker window movement vim-tmux disallows vim -> tmux
   
   nnoremap <C-j> <C-w>j
   nnoremap <C-k> <C-w>k
@@ -227,8 +205,6 @@
 
  " Start interactive EasyAlign in visual mode (e.g. vipga)
  xmap ga <Plug>(EasyAlign)
-
- " Start interactive EasyAlign for a motion/text object (e.g. gaip)
  nmap ga <Plug>(EasyAlign)
 
   "Create more word objects
@@ -238,11 +214,6 @@
     execute 'xnoremap a' . char . ' :<C-u>normal! F' . char . 'vf' . char . '<CR>'
     execute 'onoremap a' . char . ' :normal va' . char . '<CR>'
 endfor
-
-"turn json into ruby hash in file
-nnoremap <leader>h :%s/"\(.*\)"=>/\1\: /g<CR>
-nnoremap <leader>j :%s/\(.*\)\:/"\1" => /g<CR>
-
 "}}}
 
 "Plugins {{{
@@ -268,9 +239,6 @@ nnoremap <leader>j :%s/\(.*\)\:/"\1" => /g<CR>
   "use fzf for word under cursor
   nmap <Leader>f "zyiw:exe "Ag ".@z.""<CR>
 
-  "show diff in statusline
-  set stl+=%{ConflictedVersion()}
-
   nnoremap <leader>rr :VtrSendLinesToRunner!<CR>
 
   nnoremap <Leader>g "zyiw:exe "Googlef ".@z.""<CR>
@@ -290,6 +258,7 @@ nnoremap <leader>j :%s/\(.*\)\:/"\1" => /g<CR>
   nnoremap <leader>1 ggvG$
   nnoremap <leader>2 :set paste!<CR>i
   nnoremap <leader>3 :set paste!<CR>
+  " paste and indent the pasted system clipboard stuff
   nnoremap <leader>p :set paste<CR>mmo<esc>"*]p:set nopaste<cr>`]=`m
 
   " Run commands that require an interactive shell
@@ -305,20 +274,12 @@ nnoremap <leader>j :%s/\(.*\)\:/"\1" => /g<CR>
 "}}}
 
 "Random {{{
-  "fix pbcopy on MacOS Sierra
-  " set clipboard=unnamed
-
-  function! s:tagbar_integration()
-    "tells you what function you're in in airline
-  endfunction
   "" Set spellfile to location that is guaranteed to exist, can be symlinked to
   "" Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
   set spellfile=$HOME/.vim-spell-en.utf-8.add
-  "
-  "" Autocomplete with dictionary words when spell check is on
+  " Autocomplete with dictionary words when spell check is on
   set complete+=kspell
-  "
-  "" Always use vertical diffs
+  " Always use vertical diffs
   set diffopt+=vertical
   
   

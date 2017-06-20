@@ -137,6 +137,9 @@ Plug 'szw/vim-g'
 "align stuff
 Plug 'junegunn/vim-easy-align'
 
+"align stuff
+Plug 'ngmy/vim-rubocop'
+
 "wrapper for prettier
 Plug 'mitermayer/vim-prettier', { 
       \ 'do': 'yarn install', 
