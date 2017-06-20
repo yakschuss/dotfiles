@@ -2,7 +2,7 @@ export ZSH=/Users/jackschuss/.oh-my-zsh
 
 ZSH_THEME="home-screen"
 
-plugins=(zsh-autosuggestions git vi-mode)
+plugins=(zsh-autosuggestions git vi-mode osx colored-man-pages cp)
 
 #vi-mode timeout is 1 ms
 export KEYTIMEOUT=1
