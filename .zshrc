@@ -33,6 +33,9 @@ alias gcplast='git log -1 --pretty=format:"%H" | pbcopy'
 alias fzt='vim $(fzf-tmux)'
 alias rspec='bundle exec rspec'
 alias fixconflicts='vim +Conflicted'
+alias rdm='rake db:migrate'
+alias rdms='rake db:migrate:status'
+alias rdr='rake db:rollback'
 
 source ~/zsh-git-prompt/zshrc.sh
 
