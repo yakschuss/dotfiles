@@ -13,6 +13,7 @@
 "}}}
 
 " Initial Settings {{{
+
   let mapleader = " "
 
   nnoremap <leader>RL :source ~/.vimrc<CR>
@@ -60,7 +61,7 @@
 
   "colorscheme
   colorscheme dracula
-  nnoremap <leader>clrs :colorscheme github<CR>
+  nnoremap <leader>clrs :colorscheme one <CR> <bar> :set background=light <CR>
   " set background=dark
   syntax on
 
