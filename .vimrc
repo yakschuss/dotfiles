@@ -1,4 +1,7 @@
 "Source Location {{{
+  packadd minpac
+  call minpac#init()
+
   if filereadable(expand("~/.vimrc.bundles"))
     source ~/.vimrc.bundles
   endif
@@ -21,6 +24,7 @@
   set ruler         " show the cursor position all the time
   set showcmd       " display incomplete commands
   set incsearch     " do incremental searching
+  set nohlsearch
   " set hlsearch     " do incremental searching
   set ignorecase
   set smartcase
@@ -219,6 +223,7 @@ endfor
 "Plugins {{{
   " Use FZF as a fuzzy finder
   "use ag, which respects .gitignore
+  let g:airline#extensions#tabline#enabled = 0
   let $FZF_DEFAULT_COMMAND= 'ag -g ""'
   nmap <c-p> :FZF<return>
   nmap <c-a> :FZF<return>
@@ -242,6 +247,10 @@ endfor
   nnoremap <leader>rr :VtrSendLinesToRunner!<CR>
 
   nnoremap <Leader>g "zyiw:exe "Googlef ".@z.""<CR>
+
+  " minpac commands:
+  command! PackUpdate call minpac#update()
+  command! PackClean call minpac#clean()
 "}}}
 "
 

@@ -2,151 +2,127 @@ if &compatible
   set nocompatible
 end
 
-" Shim command and function to allow migration from Vundle to vim-plug.
-function! VundleToPlug(vundle_command, arg, ...)
-  echom "You are using Vundle's `".a:vundle_command."` command to declare plugins. Dotfiles now uses vim-plug for plugin management. Please rename uses of `".a:vundle_command."` to `Plug`. Plugin was '".a:arg."'."
-  let vim_plug_options = {}
-
-  if a:0 > 0
-    if has_key(a:1, 'name')
-      let name = a:1.name
-      let vim_plug_options.dir = "$HOME/.vim/bundle/".a:1.name
-    endif
-
-    if has_key(a:1, 'rtp')
-      let vim_plug_options.rtp = a:1.rtp
-    endif
-  endif
-
-  Plug a:arg, vim_plug_options
-endfunction
-
-com! -nargs=+  -bar Plugin call VundleToPlug("Plugin", <args>)
-com! -nargs=+  -bar Bundle call VundleToPlug("Bundle", <args>)
-
-call plug#begin('~/.vim/bundle')
-
-" Define bundles via Github repos
 
 " run native commands
-Plug 'christoomey/vim-run-interactive'
+call minpac#add('christoomey/vim-run-interactive')
 
 " integrate vim with tmux
-Plug 'christoomey/vim-tmux-navigator'
-" Plug 'christoomey/vim-tmux-runner'
+call minpac#add('christoomey/vim-tmux-navigator')
+" call minpac#add('christoomey/vim-tmux-runner'
 
 "ctrl p integration
-Plug 'ctrlpvim/ctrlp.vim'
+call minpac#add('ctrlpvim/ctrlp.vim')
 
 "test runner integration
-Plug 'janko-m/vim-test'
+call minpac#add('janko-m/vim-test')
 
 "edit files that don't exist by creating files
-Plug 'pbrisbin/vim-mkdir'
+call minpac#add('pbrisbin/vim-mkdir')
 
 "syntax checking
-Plug 'scrooloose/syntastic'
+call minpac#add('scrooloose/syntastic')
 
 "bundler integration
-Plug 'tpope/vim-bundler'
+call minpac#add('tpope/vim-bundler')
 
 "map cp to pbcopy
-Plug 'christoomey/vim-system-copy'
+call minpac#add('christoomey/vim-system-copy')
 
 "fzf integration
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+call minpac#add('junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' })
+call minpac#add('junegunn/fzf.vim')
 
 "automatic ending for certain code structures
-Plug 'tpope/vim-endwise'
+call minpac#add('tpope/vim-endwise')
 
 "UNIX command integration
-Plug 'tpope/vim-eunuch'
+call minpac#add('tpope/vim-eunuch')
 
 "git wrapper
-Plug 'tpope/vim-fugitive'
-Plug 'christoomey/vim-conflicted'
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('christoomey/vim-conflicted')
 
 " gem configuration 
-Plug 'tpope/vim-projectionist'
+call minpac#add('tpope/vim-projectionist')
 
 "rails integration
-Plug 'tpope/vim-rails'
+call minpac#add('tpope/vim-rails')
 
 "vim-rails like support for non rails projects
-Plug 'tpope/vim-rake'
+call minpac#add('tpope/vim-rake')
 
 "undler support projects
-Plug 'tpope/vim-bundler'
+call minpac#add('tpope/vim-bundler')
 
 "allow plugins to repeat using . command
-Plug 'tpope/vim-repeat'
+call minpac#add('tpope/vim-repeat')
 
 "interface with hub commands in git commit editor
-Plug 'tpope/vim-rhubarb'
+call minpac#add('tpope/vim-rhubarb')
 
 "use surround commands to surround text objects
-Plug 'tpope/vim-surround'
+call minpac#add('tpope/vim-surround')
 
 "comment out text objects
-Plug 'vim-scripts/tComment'
+call minpac#add('vim-scripts/tComment')
 
 "provide statusbar airline
-Plug 'vim-airline/vim-airline'
+call minpac#add('vim-airline/vim-airline')
 
 " syntax highlighting for different languages. lazy load
-Plug 'sheerun/vim-polyglot'
+call minpac#add('sheerun/vim-polyglot')
 
 "emmet for vim
-Plug 'mattn/emmet-vim'
+call minpac#add('mattn/emmet-vim')
 
 " automatically close HTML tags
-Plug 'alvan/vim-closetag'
+call minpac#add('alvan/vim-closetag')
 
 "integeration with dash
-Plug 'rizzatti/dash.vim'
+call minpac#add('rizzatti/dash.vim')
 
 " show git changes in sidebar
-Plug 'airblade/vim-gitgutter'
+call minpac#add('airblade/vim-gitgutter')
 
 "startup profiler
-Plug 'tweekmonster/startuptime.vim'
+call minpac#add('tweekmonster/startuptime.vim')
 
 "search and replace using quickfix
-Plug 'vim-scripts/greplace.vim'
+call minpac#add('vim-scripts/greplace.vim')
 
 "textobjects - ruby
-Plug 'nelstrom/vim-textobj-rubyblock'
-Plug 'kana/vim-textobj-user'
+call minpac#add('nelstrom/vim-textobj-rubyblock')
+call minpac#add('kana/vim-textobj-user')
 
 "mappings
-Plug 'tpope/vim-unimpaired'
+call minpac#add('tpope/vim-unimpaired')
 
 "colorscheme for Gdiff
-Plug 'endel/vim-github-colorscheme'
+call minpac#add('endel/vim-github-colorscheme')
 
 "elixir vim integration
-Plug 'slashmili/alchemist.vim'
+call minpac#add('slashmili/alchemist.vim')
 
 "vim-tmux-runner
-Plug 'christoomey/vim-tmux-runner'
+call minpac#add('christoomey/vim-tmux-runner')
 
 "google searching from vim!
-Plug 'szw/vim-g'
+call minpac#add('szw/vim-g')
 
 "align stuff
-Plug 'junegunn/vim-easy-align'
+call minpac#add('junegunn/vim-easy-align')
 
 "align stuff
-Plug 'ngmy/vim-rubocop'
+call minpac#add('ngmy/vim-rubocop')
+
+"one-dark theme
+call minpac#add('rakr/vim-one')
 
 "wrapper for prettier
-Plug 'mitermayer/vim-prettier', { 
-      \ 'do': 'yarn install', 
-      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] } 
+call minpac#add('mitermayer/vim-prettier', { 
+      \ 'do': '!yarn install', 
+      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] } )
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
 endif
-
-call plug#end()

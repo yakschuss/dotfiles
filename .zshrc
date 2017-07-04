@@ -18,6 +18,7 @@ ensure_tmux_is_running() {
 }
 
 
+alias vim="nvim"
 alias imgresize="convert -strip -interlace Plane -gaussian-blur 0.05 -quality 85%"
 alias grmerged='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 alias grremote="git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d"
@@ -25,14 +26,14 @@ alias att='tmux a -t'
 alias rake='bundle exec rake'
 alias gct='git checkout'
 alias be='bundle exec'
-alias vlvl='vim $(fzf)'
+alias vlvl='nvim $(fzf)'
 alias t="todolist"
 alias tp="todolist list by project"
 alias config='/usr/bin/git --git-dir=/Users/jackschuss/.dotfiles/ --work-tree=/Users/jackschuss'
 alias gcplast='git log -1 --pretty=format:"%H" | pbcopy'
-alias fzt='vim $(fzf-tmux)'
+alias fzt='nvim $(fzf-tmux)'
 alias rspec='bundle exec rspec'
-alias fixconflicts='vim +Conflicted'
+alias fixconflicts='nvim +Conflicted'
 alias rdm='rake db:migrate'
 alias rdms='rake db:migrate:status'
 alias rdr='rake db:rollback'
