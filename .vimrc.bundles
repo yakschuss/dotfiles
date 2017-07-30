@@ -118,6 +118,9 @@ call minpac#add('ngmy/vim-rubocop')
 "one-dark theme
 call minpac#add('rakr/vim-one')
 
+"editor config plugin
+call minpac#add('editorconfig/editorconfig-vim')
+
 "wrapper for prettier
 call minpac#add('mitermayer/vim-prettier', { 
       \ 'do': '!yarn install', 

@@ -201,6 +201,7 @@
   command! Wq wq
   command! WQ wq
   command! Wqall wqall
+  command! Vsplit vsplit
 
  set winwidth=84
  set winheight=5
@@ -247,6 +248,8 @@ endfor
   nnoremap <leader>rr :VtrSendLinesToRunner!<CR>
 
   nnoremap <Leader>g "zyiw:exe "Googlef ".@z.""<CR>
+
+  let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
   " minpac commands:
   command! PackUpdate call minpac#update()

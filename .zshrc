@@ -18,7 +18,8 @@ ensure_tmux_is_running() {
 }
 
 
-alias vim="nvim"
+alias vim='nvim'
+alias v='nvim'
 alias imgresize="convert -strip -interlace Plane -gaussian-blur 0.05 -quality 85%"
 alias grmerged='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 alias grremote="git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d"
