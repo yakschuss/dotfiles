@@ -87,6 +87,7 @@
  nnoremap <leader>= :wincmd =<cr>
 
 
+ autocmd VimLeave * :exec "mksession!" "~/.vim/sessions/".fnamemodify("getcwd()", ":p:h:t").".vim"
 
   " Load matchit.vim, but only if the user hasn't installed a newer version.
   if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
