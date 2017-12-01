@@ -33,11 +33,12 @@ alias tp="todolist list by project"
 alias config='/usr/bin/git --git-dir=/Users/jackschuss/.dotfiles/ --work-tree=/Users/jackschuss'
 alias gcplast='git log -1 --pretty=format:"%H" | pbcopy'
 alias fzt='nvim $(fzf-tmux)'
-alias rspec='bundle exec rspec'
+alias rspec='bundle exec bin/rspec'
 alias fixconflicts='nvim +Conflicted'
 alias rdm='rake db:migrate'
 alias rdms='rake db:migrate:status'
 alias rdr='rake db:rollback'
+alias sleepcomp='pmset sleepnow'
 
 source ~/zsh-git-prompt/zshrc.sh
 

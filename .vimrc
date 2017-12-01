@@ -119,7 +119,7 @@
   "" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
   if executable('ag')
     " Use Ag over Grep
-    set grepprg=ag\ --nogroup\ --nocolor
+    " set grepprg=ag\ --nogroup\ --nocolor
 
     " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
     let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
@@ -128,6 +128,24 @@
     let g:ctrlp_use_caching = 0
   endif
 "}}}
+"
+
+" --column: Show column number
+" --line-number: Show line number
+" --no-heading: Do not show file headings in results
+" --fixed-strings: Search term as a literal string
+" --ignore-case: Case insensitive search
+" --no-ignore: Do not respect .gitignore, etc...
+" --hidden: Search hidden files and folders
+" --follow: Follow symlinks
+" --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+" --color: Search color options
+
+if executable('rg')
+  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+
+  set grepprg=rg\ --vimgrep
+endif
 
 "HTML {{{
   let g:jsx_ext_required = 0
@@ -225,7 +243,8 @@ endfor
   " Use FZF as a fuzzy finder
   "use ag, which respects .gitignore
   let g:airline#extensions#tabline#enabled = 0
-  let $FZF_DEFAULT_COMMAND= 'ag -g ""'
+  " let $FZF_DEFAULT_COMMAND= 'ag -g ""'
+  let $FZF_DEFAULT_COMMAND= 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
   nmap <c-p> :FZF<return>
   nmap <c-a> :FZF<return>
 
@@ -243,7 +262,8 @@ endfor
   nmap <Leader>D :Dash<CR>
 
   "use fzf for word under cursor
-  nmap <Leader>f "zyiw:exe "Ag ".@z.""<CR>
+  " nmap <Leader>f "zyiw:exe "Ag ".@z.""<CR>
+  nmap <Leader>f "zyiw:exe "Find ".@z.""<CR>
 
   nnoremap <leader>rr :VtrSendLinesToRunner!<CR>
 

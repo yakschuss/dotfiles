@@ -18,7 +18,7 @@
   recap = log --all --oneline --no-merges --author=jackschuss@gmail.com
   recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format=\"%(refname:short)\"
   s = status
-  showlast = !git show $(rev-parse HEAD)
+  showlast = show -1
   sl = log --oneline --decorate -20
   stats = shortlog -sn
   tack = commit --amend --no-edit
@@ -26,6 +26,8 @@
   uncommit = reset --soft HEAD^
   unstage = reset
   upstream = rev-parse --abbrev-ref --symbolic-full-name @{u}
+[commit]
+  template = ~/.gitmessage
 [core]
   editor = /usr/local/bin/vim
 [fetch]
