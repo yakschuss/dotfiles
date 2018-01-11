@@ -243,8 +243,7 @@ endfor
   " Use FZF as a fuzzy finder
   "use ag, which respects .gitignore
   let g:airline#extensions#tabline#enabled = 0
-  " let $FZF_DEFAULT_COMMAND= 'ag -g ""'
-  let $FZF_DEFAULT_COMMAND= 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+   " let $FZF_DEFAULT_COMMAND= 'ag -g ""'
   nmap <c-p> :FZF<return>
   nmap <c-a> :FZF<return>
 
@@ -262,8 +261,8 @@ endfor
   nmap <Leader>D :Dash<CR>
 
   "use fzf for word under cursor
-  " nmap <Leader>f "zyiw:exe "Ag ".@z.""<CR>
-  nmap <Leader>f "zyiw:exe "Find ".@z.""<CR>
+  nmap <Leader>f "zyiw:exe "Ag ".@z.""<CR>
+  " nmap <Leader>f "zyiw:exe "Find ".@z.""<CR>
 
   nnoremap <leader>rr :VtrSendLinesToRunner!<CR>
 
@@ -306,6 +305,7 @@ endfor
 "}}}
 
 "Random {{{
+  autocmd FileType text,markdown let b:vcm_tab_complete = 'dict'
   "" Set spellfile to location that is guaranteed to exist, can be symlinked to
   "" Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
   set spellfile=$HOME/.vim-spell-en.utf-8.add

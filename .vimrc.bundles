@@ -31,6 +31,8 @@ call minpac#add('christoomey/vim-system-copy')
 "fzf integration
 call minpac#add('junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' })
 call minpac#add('junegunn/fzf.vim')
+" ripgrep plugin
+call minpac#add('jremmen/vim-ripgrep')
 
 "automatic ending for certain code structures
 call minpac#add('tpope/vim-endwise')
@@ -120,6 +122,9 @@ call minpac#add('rakr/vim-one')
 
 "editor config plugin
 call minpac#add('editorconfig/editorconfig-vim')
+
+"auto complete plugin
+call minpac#add('ajh17/VimCompletesMe')
 
 "wrapper for prettier
 call minpac#add('mitermayer/vim-prettier', { 

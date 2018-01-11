@@ -18,6 +18,8 @@ ensure_tmux_is_running() {
 }
 
 
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
 alias vim='nvim'
 alias v='nvim'
 alias imgresize="convert -strip -interlace Plane -gaussian-blur 0.05 -quality 85%"
