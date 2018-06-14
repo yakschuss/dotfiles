@@ -10,6 +10,5 @@ open -a Postgres.app
 open -a Dash.app
 open -a Moom.app
 open -a Messages.app
-open -a Luxafor\ 2.app
 
 
