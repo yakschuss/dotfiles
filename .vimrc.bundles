@@ -14,7 +14,7 @@ call minpac#add('christoomey/vim-tmux-navigator')
 call minpac#add('ctrlpvim/ctrlp.vim')
 
 "test runner integration
-call minpac#add('janko-m/vim-test')
+call minpac#add('vim-test/vim-test')
 
 "edit files that don't exist by creating files
 call minpac#add('pbrisbin/vim-mkdir')
@@ -125,11 +125,6 @@ call minpac#add('editorconfig/editorconfig-vim')
 
 "auto complete plugin
 call minpac#add('ajh17/VimCompletesMe')
-
-"wrapper for prettier
-call minpac#add('mitermayer/vim-prettier', { 
-      \ 'do': '!yarn install', 
-      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] } )
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
