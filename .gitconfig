@@ -17,6 +17,7 @@
   pull-request = !hub pull-request
   recap = log --all --oneline --no-merges --author=jackschuss@gmail.com
   recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format=\"%(refname:short)\"
+  rcop = !git ls-files -m | xargs ls -1 2>/dev/null | grep '\\.rb$' | xargs rubocop -a
   s = status
   showlast = show -1
   sl = log --oneline --decorate -20
