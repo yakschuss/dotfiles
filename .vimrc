@@ -86,6 +86,8 @@
  nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
  nnoremap <leader>= :wincmd =<cr>
 
+" disable automatic comment extension after newline
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
  autocmd VimLeave * :exec "mksession!" "~/.vim/sessions/".fnamemodify("getcwd()", ":p:h:t").".vim"
 
@@ -249,14 +251,14 @@ endfor
   nmap <c-p> :FZF<return>
   nmap <c-a> :FZF<return>
 
-  nnoremap <silent> <Leader>s :call fzf#run({
+  nnoremap <silent> <Leader>s :call fzf#run(fzf#vim#with_preview({
         \   'down': '40%',
-        \   'sink': 'botright split' })<CR>
+        \   'sink': 'botright split' }))<CR>
 
   " Open files in vertical horizontal split
-  nnoremap <silent> <Leader>v :call fzf#run({
+  nnoremap <silent> <Leader>v :call fzf#run(fzf#vim#with_preview({
         \   'right': winwidth('.') / 2,
-        \   'sink':  'vertical botright split' })<CR>
+        \   'sink':  'vertical botright split' }))<CR>
 
   "Open Dash d for Globally, D for specific docset
   nmap <Leader>d :Dash!<CR>

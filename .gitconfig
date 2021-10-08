@@ -30,7 +30,7 @@
 [commit]
   template = ~/.gitmessage
 [core]
-  editor = /usr/local/bin/vim
+  editor = /usr/local/bin/nvim
   excludesfile = /Users/jackschuss/.gitignore
 [fetch]
   prune = true
