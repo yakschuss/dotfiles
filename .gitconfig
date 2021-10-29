@@ -31,7 +31,7 @@
   template = ~/.gitmessage
 [core]
   editor = /usr/local/bin/nvim
-  excludesfile = /Users/jackschuss/.gitignore
+	excludesfile = /Users/jackschuss/.gitignore
 [fetch]
   prune = true
 [init]

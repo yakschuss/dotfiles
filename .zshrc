@@ -21,47 +21,37 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 
 alias vim='nvim'
 alias v='nvim'
-alias imgresize="convert -strip -interlace Plane -gaussian-blur 0.05 -quality 85%"
 alias grmerged='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 alias grremote="git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d"
-alias att='tmux a -t'
-alias rake='bundle exec rake'
 alias gct='git checkout'
-alias be='bundle exec'
 alias vlvl='nvim $(fzf)'
-alias t="todolist"
-alias tp="todolist list by project"
 alias config='/usr/bin/git --git-dir=/Users/jackschuss/.dotfiles/ --work-tree=/Users/jackschuss'
 alias gcplast='git log -1 --pretty=format:"%H" | pbcopy'
-alias fzt='vim $(fzf-tmux)'
 alias fixconflicts='nvim +Conflicted'
 alias rdm='rake db:migrate'
-alias rdms='rake db:migrate:status'
 alias rdr='rake db:rollback'
-alias sleepcomp='pmset sleepnow'
 alias socks='ssh socks -D 2001 -N &'
-alias abrew='arch -arm64 brew'
 alias xbrew='arch -x86_64 /usr/local/bin/brew'
 alias abrew='arch -arm64 /opt/homebrew/bin/brew'
 alias git='/opt/homebrew/bin/git'
 
 source ~/zsh-git-prompt/zshrc.sh
 
-# eval "$(rbenv init -)"
-. /usr/local/opt/asdf/libexec/asdf.sh
+eval "$(rbenv init -)"
 # doesn't work with aliases
 # eval "$(hub alias -s)"
 
-# export PATH="$HOME/.rbenv/bin/.bin:/usr/local/opt/go/libexec/bin:$(yarn global bin):$PATH"
+export PATH="$HOME/.rbenv/bin/.bin:/usr/local/opt/go/libexec/bin:$(yarn global bin):$PATH"
+# . $HOME/.asdf/asdf.sh
+
 export PATH="$HOME/usr/local/opt/go/libexec/bin:$(yarn global bin):$PATH"
-
 export PATH="$HOME/.bin:$PATH"
-
 export PATH="/opt/homebrew/bin:$PATH"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+#
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 ensure_tmux_is_running
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
