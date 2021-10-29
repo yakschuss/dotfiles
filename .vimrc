@@ -78,18 +78,17 @@
 "}}}
 
 "AutoCmd {{{
+ " automatically rebalance windows on vim resize
+   autocmd VimResized * :wincmd =
 
-" automatically rebalance windows on vim resize
- autocmd VimResized * :wincmd =
+ "" zoom a vim pane, <C-w>= to re-balance
+  nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+  nnoremap <leader>= :wincmd =<cr>
 
-" " zoom a vim pane, <C-w>= to re-balance
- nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
- nnoremap <leader>= :wincmd =<cr>
+ " disable automatic comment extension after newline
+  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" disable automatic comment extension after newline
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
- autocmd VimLeave * :exec "mksession!" "~/.vim/sessions/".fnamemodify("getcwd()", ":p:h:t").".vim"
+  autocmd VimLeave * :exec "mksession!" "~/.vim/sessions/".fnamemodify("getcwd()", ":p:h:t").".vim"
 
   " Load matchit.vim, but only if the user hasn't installed a newer version.
   if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
@@ -120,18 +119,6 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
   let g:syntastic_eruby_ruby_quiet_messages =
         \ {"regex": "possibly useless use of a variable in void context"}
 
-  "" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-  if executable('ag')
-    " Use Ag over Grep
-    " set grepprg=ag\ --nogroup\ --nocolor
-
-    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-    let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
-
-    " ag is fast enough that CtrlP doesn't need to cache
-    let g:ctrlp_use_caching = 0
-  endif
-"}}}
 "
 
 " --column: Show column number
@@ -145,11 +132,12 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 " --color: Search color options
 
-if executable('rg')
-  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+  if executable('rg')
+    command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 
-  set grepprg=rg\ --vimgrep
-endif
+    set grepprg=rg\ --vimgrep
+  endif
+"}}}
 
 "HTML {{{
   let g:jsx_ext_required = 0
@@ -240,7 +228,7 @@ endif
     execute 'onoremap i' . char . ' :normal vi' . char . '<CR>'
     execute 'xnoremap a' . char . ' :<C-u>normal! F' . char . 'vf' . char . '<CR>'
     execute 'onoremap a' . char . ' :normal va' . char . '<CR>'
-endfor
+  endfor
 "}}}
 
 "Plugins {{{
