@@ -2,6 +2,8 @@ if &compatible
   set nocompatible
 end
 
+" coc
+" call minpac#add('neoclide/coc.nvim')
 
 " run native commands
 call minpac#add('christoomey/vim-run-interactive')
@@ -101,9 +103,6 @@ call minpac#add('tpope/vim-unimpaired')
 
 "colorscheme for Gdiff
 call minpac#add('endel/vim-github-colorscheme')
-
-"elixir vim integration
-call minpac#add('slashmili/alchemist.vim')
 
 "vim-tmux-runner
 call minpac#add('christoomey/vim-tmux-runner')

@@ -18,6 +18,7 @@
   recap = log --all --oneline --no-merges --author=jackschuss@gmail.com
   recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format=\"%(refname:short)\"
   rcop = !git ls-files -m | xargs ls -1 2>/dev/null | grep '\\.rb$' | xargs rubocop -a
+  ercop = !git ls-files -m | xargs ls -1 2>/dev/null | grep '\\.html.erb$' | xargs erblint -a
   s = status
   showlast = show -1
   sl = log --oneline --decorate -20
@@ -30,7 +31,7 @@
 [commit]
   template = ~/.gitmessage
 [core]
-  editor = /usr/local/bin/nvim
+  editor = /opt/homebrew/bin/nvim
 	excludesfile = /Users/jackschuss/.gitignore
 [fetch]
   prune = true
@@ -43,5 +44,10 @@
 [rebase]
   autosquash = true
 [user]
-  name = Jack Schuss
+	name = Jack Schuss
   email = jackschuss@gmail.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

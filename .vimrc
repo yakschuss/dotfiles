@@ -284,6 +284,9 @@
   " paste and indent the pasted system clipboard stuff
   nnoremap <leader>p :set paste<CR>mmo<esc>"*]p:set nopaste<cr>`]=`m
 
+  " copy current file relative path to clipboard
+  nnoremap <leader>cf :let @*=expand("%")<CR>
+
   " Run commands that require an interactive shell
   nnoremap <Leader>r :RunInInteractiveShell<space>
 
