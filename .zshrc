@@ -1,14 +1,4 @@
-export ZSH=/Users/jackschuss/.oh-my-zsh
-
-ZSH_THEME="home-screen"
-
-plugins=(zsh-autosuggestions git vi-mode osx colored-man-pages cp)
-
-#vi-mode timeout is 1 ms
-export KEYTIMEOUT=1
-
- source $ZSH/oh-my-zsh.sh
-
+# plugins=(zsh-autosuggestions git vi-mode osx colored-man-pages cp)
 
 _not_inside_tmux() { [[ -z "$TMUX" ]] }
 
@@ -32,38 +22,27 @@ alias fixconflicts='nvim +Conflicted'
 alias rdm='rake db:migrate'
 alias rdms='rake db:migrate:status'
 alias rdr='rake db:rollback'
-alias socks='ssh socks -D 2001 -N &'
-alias xbrew='arch -x86_64 /usr/local/bin/brew'
-alias abrew='arch -arm64 /opt/homebrew/bin/brew'
 alias git='/opt/homebrew/bin/git'
 alias linter='bundle exec rubocop -A && bundle exec rspec --format documentation --exclude "spec/features/**/*" && bundle exec rspec spec/features --format documentation'
 alias byeconnect='overmind connect web'
 alias noted='~/noted/noted'
 alias n='~/noted/noted'
 alias icloud='~/Library/Mobile\ Documents/com~apple~CloudDocs/'
-
 alias python="/opt/homebrew/bin/python3.9"
 
 source ~/zsh-git-prompt/zshrc.sh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
-# eval "$(rbenv init -)"
-# doesn't work with aliases
-# eval "$(hub alias -s)"
-
-# export PATH="$HOME/.rbenv/bin/.bin:/usr/local/opt/go/libexec/bin:$(yarn global bin):$PATH"
-export PATH="$HOME/usr/local/opt/go/libexec/bin:$(yarn global bin):$PATH"
-# . $HOME/.asdf/asdf.sh
+PROMPT='% 🤔 😂 %~%b $(git_super_status)
+% %{$fg[blue]%} (Jack)→ '
 
 export PATH="$HOME/usr/local/opt/go/libexec/bin:$(yarn global bin):$PATH"
 export PATH="$HOME/.bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
-#
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 ensure_tmux_is_running
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
