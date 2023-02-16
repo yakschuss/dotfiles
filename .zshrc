@@ -1,5 +1,3 @@
-# plugins=(zsh-autosuggestions git vi-mode osx colored-man-pages cp)
-
 _not_inside_tmux() { [[ -z "$TMUX" ]] }
 
 ensure_tmux_is_running() {
