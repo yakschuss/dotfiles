@@ -1,0 +1,16 @@
+[] Deckset
+[] DevUtils
+[] Discord
+[] DisplayLinkManager
+[] GoodNotes
+[] MeetingBar
+[] Moom
+[] Notion
+[] Obsidian
+[] Paste
+[] Slack
+[] Spotify
+[] Things
+[] Typing Mind
+[] WaveLink
+[] Zoom
