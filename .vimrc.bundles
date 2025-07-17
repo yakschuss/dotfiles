@@ -2,382 +2,120 @@ if &compatible
   set nocompatible
 end
 
-" coc
-" call minpac#add('neoclide/coc.nvim')
-
+" Dracula colorscheme
 call minpac#add('dracula/vim')
 
-" run native commands
+" Run native commands
 call minpac#add('christoomey/vim-run-interactive')
 
-" integrate vim with tmux
+" Integrate vim with tmux
 call minpac#add('christoomey/vim-tmux-navigator')
-" call minpac#add('christoomey/vim-tmux-runner'
 
-"ctrl p integration
+" Ctrl p integration
 call minpac#add('ctrlpvim/ctrlp.vim')
 
-"test runner integration
+" Test runner integration
 call minpac#add('vim-test/vim-test')
 
-"edit files that don't exist by creating files
+" Edit files that don't exist by creating files
 call minpac#add('pbrisbin/vim-mkdir')
 
-"syntax checking
+" Syntax checking
 call minpac#add('scrooloose/syntastic')
 
-"bundler integration
+" Bundler integration
 call minpac#add('tpope/vim-bundler')
 
-"map cp to pbcopy
+" Map cp to pbcopy
 call minpac#add('christoomey/vim-system-copy')
 
-"fzf integration
+" FZF integration
 call minpac#add('junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' })
 call minpac#add('junegunn/fzf.vim')
-" ripgrep plugin
+
+" Ripgrep plugin
 call minpac#add('jremmen/vim-ripgrep')
 
-"automatic ending for certain code structures
+" Automatic ending for certain code structures
 call minpac#add('tpope/vim-endwise')
 
-"UNIX command integration
+" UNIX command integration
 call minpac#add('tpope/vim-eunuch')
 
-"git wrapper
+" Git wrapper
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('christoomey/vim-conflicted')
 
-" gem configuration 
+" Gem configuration
 call minpac#add('tpope/vim-projectionist')
 
-"rails integration
+" Rails integration
 call minpac#add('tpope/vim-rails')
 
-"vim-rails like support for non rails projects
-if &compatible
-  set nocompatible
-end
-
-" coc
-" call minpac#add('neoclide/coc.nvim')
-
-call minpac#add('dracula/vim')
-
-" run native commands
-call minpac#add('christoomey/vim-run-interactive')
-
-" integrate vim with tmux
-call minpac#add('christoomey/vim-tmux-navigator')
-" call minpac#add('christoomey/vim-tmux-runner'
-
-"ctrl p integration
-call minpac#add('ctrlpvim/ctrlp.vim')
-
-"test runner integration
-call minpac#add('vim-test/vim-test')
-
-"edit files that don't exist by creating files
-call minpac#add('pbrisbin/vim-mkdir')
-
-"syntax checking
-call minpac#add('scrooloose/syntastic')
-
-"bundler integration
-call minpac#add('tpope/vim-bundler')
-
-"map cp to pbcopy
-call minpac#add('christoomey/vim-system-copy')
-
-"fzf integration
-call minpac#add('junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' })
-call minpac#add('junegunn/fzf.vim')
-" ripgrep plugin
-call minpac#add('jremmen/vim-ripgrep')
-
-"automatic ending for certain code structures
-call minpac#add('tpope/vim-endwise')
-
-"UNIX command integration
-call minpac#add('tpope/vim-eunuch')
-
-"git wrapper
-call minpac#add('tpope/vim-fugitive')
-call minpac#add('christoomey/vim-conflicted')
-
-" gem configuration 
-call minpac#add('tpope/vim-projectionist')
-
-"rails integration
-call minpac#add('tpope/vim-rails')
-
-"vim-rails like support for non rails projects
+" Vim-rails like support for non rails projects
 call minpac#add('tpope/vim-rake')
 
-"undler support projects
-call minpac#add('tpope/vim-bundler')
-
-"allow plugins to repeat using . command
+" Allow plugins to repeat using . command
 call minpac#add('tpope/vim-repeat')
 
-"interface with hub commands in git commit editor
+" Interface with hub commands in git commit editor
 call minpac#add('tpope/vim-rhubarb')
 
-"use surround commands to surround text objects
+" Use surround commands to surround text objects
 call minpac#add('tpope/vim-surround')
 
-"comment out text objects
+" Comment out text objects
 call minpac#add('vim-scripts/tComment')
 
-"provide statusbar airline
+" Provide statusbar airline
 call minpac#add('vim-airline/vim-airline')
 
-" syntax highlighting for different languages. lazy load
+" Syntax highlighting for different languages
 call minpac#add('sheerun/vim-polyglot')
 
-"emmet for vim
+" Emmet for vim
 call minpac#add('mattn/emmet-vim')
 
-" automatically close HTML tags
+" Automatically close HTML tags
 call minpac#add('alvan/vim-closetag')
 
-"integeration with dash
+" Integration with dash
 call minpac#add('rizzatti/dash.vim')
 
-" show git changes in sidebar
+" Show git changes in sidebar
 call minpac#add('airblade/vim-gitgutter')
 
-"startup profiler
+" Startup profiler
 call minpac#add('tweekmonster/startuptime.vim')
 
-"search and replace using quickfix
+" Search and replace using quickfix
 call minpac#add('vim-scripts/greplace.vim')
 
-"textobjects - ruby
+" Textobjects - ruby
 call minpac#add('nelstrom/vim-textobj-rubyblock')
 call minpac#add('kana/vim-textobj-user')
 
-"mappings
+" Mappings
 call minpac#add('tpope/vim-unimpaired')
 
-"colorscheme for Gdiff
+" Colorscheme for Gdiff
 call minpac#add('endel/vim-github-colorscheme')
 
-"vim-tmux-runner
+" Vim-tmux-runner
 call minpac#add('christoomey/vim-tmux-runner')
 
-"google searching from vim!
+" Google searching from vim
 call minpac#add('szw/vim-g')
 
-"align stuff
+" Align stuff
 call minpac#add('junegunn/vim-easy-align')
 
-"align stuff
+" Rubocop integration
 call minpac#add('ngmy/vim-rubocop')
 
-"one-dark theme
-call minpac#add('rakr/vim-one')
-
-" "editor config plugin
-" call minpac#add('nvim-lua/plenary.nvim')
-" call minpac#add('nvim-treesitter/nvim-treesitter')
-" call minpac#add('olimorris/codecompanion.nvim')
-" lua << EOF
-" require("codecompanion").setup {
-" }
-" EOF
-"
-" if filereadable(expand("~/.vimrc.bundles.local"))
-"   source ~/.vimrc.bundles.local
-" endifall minpac#add('tpope/vim-rake')
-
-"undler support projects
-call minpac#add('tpope/vim-bundler')
-
-"allow plugins to repeat using . command
-call minpac#add('tpope/vim-repeat')
-
-"interface with hub commands in git commit editor
-call minpac#add('tpope/vim-rhubarb')
-
-"use surround commands to surround text objects
-call minpac#add('tpope/vim-surround')
-
-"comment out text objects
-call minpac#add('vim-scripts/tComment')
-
-"provide statusbar airline
-call minpac#add('vim-airline/vim-airline')
-
-" syntax highlighting for different languages. lazy load
-call minpac#add('sheerun/vim-polyglot')
-
-"emmet for vim
-call minpac#add('mattn/emmet-vim')
-
-" automatically close HTML tags
-call minpac#add('alvan/vim-closetag')
-if &compatible
-  set nocompatible
-end
-
-" coc
-" call minpac#add('neoclide/coc.nvim')
-
-call minpac#add('dracula/vim')
-
-" run native commands
-call minpac#add('christoomey/vim-run-interactive')
-
-" integrate vim with tmux
-call minpac#add('christoomey/vim-tmux-navigator')
-" call minpac#add('christoomey/vim-tmux-runner'
-
-"ctrl p integration
-call minpac#add('ctrlpvim/ctrlp.vim')
-
-"test runner integration
-call minpac#add('vim-test/vim-test')
-
-"edit files that don't exist by creating files
-call minpac#add('pbrisbin/vim-mkdir')
-
-"syntax checking
-call minpac#add('scrooloose/syntastic')
-
-"bundler integration
-call minpac#add('tpope/vim-bundler')
-
-"map cp to pbcopy
-call minpac#add('christoomey/vim-system-copy')
-
-"fzf integration
-call minpac#add('junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' })
-call minpac#add('junegunn/fzf.vim')
-" ripgrep plugin
-call minpac#add('jremmen/vim-ripgrep')
-
-"automatic ending for certain code structures
-call minpac#add('tpope/vim-endwise')
-
-"UNIX command integration
-call minpac#add('tpope/vim-eunuch')
-
-"git wrapper
-call minpac#add('tpope/vim-fugitive')
-call minpac#add('christoomey/vim-conflicted')
-
-" gem configuration 
-call minpac#add('tpope/vim-projectionist')
-
-"rails integration
-call minpac#add('tpope/vim-rails')
-
-"vim-rails like support for non rails projects
-call minpac#add('tpope/vim-rake')
-
-"undler support projects
-call minpac#add('tpope/vim-bundler')
-
-"allow plugins to repeat using . command
-call minpac#add('tpope/vim-repeat')
-
-"interface with hub commands in git commit editor
-call minpac#add('tpope/vim-rhubarb')
-
-"use surround commands to surround text objects
-call minpac#add('tpope/vim-surround')
-
-"comment out text objects
-call minpac#add('vim-scripts/tComment')
-
-"provide statusbar airline
-call minpac#add('vim-airline/vim-airline')
-
-" syntax highlighting for different languages. lazy load
-call minpac#add('sheerun/vim-polyglot')
-
-"emmet for vim
-call minpac#add('mattn/emmet-vim')
-
-" automatically close HTML tags
-call minpac#add('alvan/vim-closetag')
-
-"integeration with dash
-call minpac#add('rizzatti/dash.vim')
-
-" show git changes in sidebar
-call minpac#add('airblade/vim-gitgutter')
-
-"startup profiler
-call minpac#add('tweekmonster/startuptime.vim')
-
-"search and replace using quickfix
-call minpac#add('vim-scripts/greplace.vim')
-
-"textobjects - ruby
-call minpac#add('nelstrom/vim-textobj-rubyblock')
-call minpac#add('kana/vim-textobj-user')
-
-"mappings
-call minpac#add('tpope/vim-unimpaired')
-
-"colorscheme for Gdiff
-call minpac#add('endel/vim-github-colorscheme')
-
-"vim-tmux-runner
-call minpac#add('christoomey/vim-tmux-runner')
-
-"google searching from vim!
-call minpac#add('szw/vim-g')
-
-"align stuff
-call minpac#add('junegunn/vim-easy-align')
-
-"align stuff
-call minpac#add('ngmy/vim-rubocop')
-
-"one-dark theme
-call minpac#add('rakr/vim-one')
-
-"integeration with dash
-call minpac#add('rizzatti/dash.vim')
-
-" show git changes in sidebar
-call minpac#add('airblade/vim-gitgutter')
-
-"startup profiler
-call minpac#add('tweekmonster/startuptime.vim')
-
-"search and replace using quickfix
-call minpac#add('vim-scripts/greplace.vim')
-
-"textobjects - ruby
-call minpac#add('nelstrom/vim-textobj-rubyblock')
-call minpac#add('kana/vim-textobj-user')
-
-"mappings
-call minpac#add('tpope/vim-unimpaired')
-
-"colorscheme for Gdiff
-call minpac#add('endel/vim-github-colorscheme')
-
-"vim-tmux-runner
-call minpac#add('christoomey/vim-tmux-runner')
-
-"google searching from vim!
-call minpac#add('szw/vim-g')
-
-"align stuff
-call minpac#add('junegunn/vim-easy-align')
-
-"align stuff
-call minpac#add('ngmy/vim-rubocop')
-
-"one-dark theme
+" One-dark theme
 call minpac#add('rakr/vim-one')
 
 " LLM Configs
 call minpac#add('nvim-lua/plenary.nvim')
-
-call minpac#add("OXY2DEV/markview.nvim")
+call minpac#add('OXY2DEV/markview.nvim')

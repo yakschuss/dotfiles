@@ -45,7 +45,9 @@ export BROWSER="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 source ~/zsh-git-prompt/zshrc.sh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# Disabled due to git autocomplete hanging issues - using built-in zsh completion instead
+autoload -Uz compinit && compinit
 
 PROMPT='% 🤔 😂 %~%b $(git_super_status)
 % %{$fg[blue]%} (Jack)→ '
