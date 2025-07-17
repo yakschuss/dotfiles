@@ -1,1 +1,3 @@
-/Users/jackschuss/dotfiles/bin/git-ca
+#!/bin/sh
+
+git commit --amend -v --date="$(date +%Y-%m-%dT%H:%M:%S)"

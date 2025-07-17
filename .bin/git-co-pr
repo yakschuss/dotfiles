@@ -1,1 +1,6 @@
-/Users/jackschuss/dotfiles/bin/git-co-pr
+#!/bin/sh
+
+set -e
+
+git fetch origin "pull/$1/head:pr/$1"
+git checkout "pr/$1"

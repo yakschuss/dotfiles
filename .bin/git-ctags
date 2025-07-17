@@ -1,1 +1,6 @@
-/Users/jackschuss/dotfiles/bin/git-ctags
+#!/bin/sh
+
+set -e
+
+[ -f .git/hooks/ctags ] || git init
+.git/hooks/ctags

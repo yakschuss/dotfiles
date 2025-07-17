@@ -1,0 +1,110 @@
+#!/bin/bash
+
+# Usage message for the script
+usage() {
+    echo "Usage: $0 [-D] [-c] [-f] <branch-name>"
+    echo "  -D  Remove the specified worktree"
+    echo "  -c  Open the worktree using Cursor"
+    echo "  -f  Fuzzy find a worktree to navigate to"
+}
+
+# Initialize flags
+REMOVE_WORKTREE=false
+OPEN_CURSOR=false
+FUZZY_FIND=false
+
+# Parse command-line options
+while getopts ":Dcf" option; do
+    case "${option}" in
+        D) REMOVE_WORKTREE=true ;;
+        c) OPEN_CURSOR=true ;;
+        f) FUZZY_FIND=true ;;
+        *) usage; exit 1 ;;
+    esac
+done
+shift $((OPTIND -1))
+
+# Ensure a branch name is provided if not using fuzzy find
+if [ $# -lt 1 ] && [ "$FUZZY_FIND" = false ]; then
+    usage
+    exit 1
+fi
+
+BRANCH=$1
+DIR=~/Brightline/reef-worktrees/$BRANCH
+CENTRAL_DIR=~/Brightline/reef
+ENV_FILE=~/Brightline/reef/.env.local
+
+# Function to check for command existence
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# Check for required tools
+if ! command_exists git || ! command_exists tmux || [ "$FUZZY_FIND" = true ] && ! command_exists fzf; then
+    echo "ERROR: Please ensure 'git', 'tmux', and 'fzf' are installed and available."
+    exit 1
+fi
+
+if $FUZZY_FIND; then
+    # Use fzf to select a worktree
+    SELECTED_DIR=$(git worktree list --porcelain | grep -e '^worktree ' | sed 's/worktree //' | fzf-tmux --reverse)
+    if [ -n "$SELECTED_DIR" ]; then
+        DIR="$SELECTED_DIR"
+    else
+        echo "No worktree selected."
+        exit 1
+    fi
+fi
+
+if $REMOVE_WORKTREE; then
+    # Change to a central directory before removing the worktree
+    echo "Changing to central directory..."
+    cd "$CENTRAL_DIR"
+
+    # Remove the worktree
+    if [ -d "$DIR" ]; then
+        echo "Removing worktree at $DIR..."
+        git worktree remove "$DIR"
+        git worktree prune
+        echo "Worktree removed."
+    else
+        echo "Worktree directory $DIR does not exist."
+    fi
+    exit 0
+fi
+
+# Check if we are inside a tmux session
+if [ -z "$TMUX" ]; then
+    echo "Please run this inside a tmux session."
+    exit 1
+fi
+
+# Determine if directory exists in worktree and handle worktree addition
+if [ -d "$DIR" ] && git worktree list | grep -q "$DIR"; then
+    echo "Navigating to existing worktree..." 
+elif git show-ref --verify --quiet refs/heads/$BRANCH; then
+    echo "Adding worktree for existing branch..." 
+    git worktree add "$DIR" "$BRANCH"
+else
+    echo "Creating and adding new branch and worktree..." 
+    git worktree add "$DIR" -b "$BRANCH"
+fi
+
+# Copy .env.local if it exists and hasn't already been copied
+if [ -f "$ENV_FILE" ] && [ ! -f "$DIR/.env.local" ]; then
+    echo "Copying .env.local to the worktree..."
+    cp "$ENV_FILE" "$DIR/"
+fi
+
+# Open a new vertical pane and cd to the directory
+tmux split-window -h "cd $DIR; exec $SHELL"
+
+# Open Cursor if requested
+if $OPEN_CURSOR; then
+    if command_exists cursor; then
+        cursor "$DIR"
+    else
+        echo "ERROR: Cursor is not installed or not in your PATH."
+    fi
+fi

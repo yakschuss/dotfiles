@@ -8,6 +8,7 @@
   ca = commit --amend
   ci-s = !hub ci-status
   co = checkout
+  copybranch = !git rev-parse --abbrev-ref HEAD | pbcopy
   ctags = !.git/hooks/ctags
   find = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
   issues = !hub browse -- issues
@@ -18,7 +19,8 @@
   recap = log --all --oneline --no-merges --author=jackschuss@gmail.com
   recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format=\"%(refname:short)\"
   rcop = !git ls-files -m | xargs ls -1 2>/dev/null | grep '\\.rb$' | xargs rubocop -a
-  ercop = !git ls-files -m | xargs ls -1 2>/dev/null | grep '\\.html.erb$' | xargs erblint -a
+  rspec = !git diff --name-only --cached | grep \"_spec\\.rb$\" | xargs bundle exec rspec
+  ercop = !git ls-files -m | xargs ls -1 2>/dev/null | grep '\\.html.erb$' | xargs erb_lint -a
   s = status
   showlast = show -1
   sl = log --oneline --decorate -20
@@ -32,13 +34,14 @@
   template = ~/.gitmessage
 [core]
   editor = /opt/homebrew/bin/nvim
-	excludesfile = /Users/jackschuss/.gitignore
+	excludesfile = /Users/jschuss/.gitignore
 [fetch]
   prune = true
 [init]
   templatedir = ~/dotfiles/git_template/
 [merge]
   ff = only
+  conflictstyle = diff3
 [push]
   default = upstream
 [rebase]

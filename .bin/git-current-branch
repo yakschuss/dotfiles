@@ -1,1 +1,5 @@
-/Users/jackschuss/dotfiles/bin/git-current-branch
+#!/bin/sh
+
+set -e
+
+git rev-parse --abbrev-ref HEAD
