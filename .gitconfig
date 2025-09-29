@@ -18,6 +18,7 @@
   pull-request = !hub pull-request
   recap = log --all --oneline --no-merges --author=jackschuss@gmail.com
   recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format=\"%(refname:short)\"
+  review = "!f() { nvim $(git status --porcelain=v1 2>/dev/null | awk '{print $2}'); }; f"
   rcop = !git ls-files -m | xargs ls -1 2>/dev/null | grep '\\.rb$' | xargs rubocop -a
   rspec = !git diff --name-only --cached | grep \"_spec\\.rb$\" | xargs bundle exec rspec
   ercop = !git ls-files -m | xargs ls -1 2>/dev/null | grep '\\.html.erb$' | xargs erb_lint -a
