@@ -28,7 +28,7 @@ alias icloud='~/Library/Mobile\ Documents/com~apple~CloudDocs/'
 alias python="/opt/homebrew/bin/python3"
 alias reef="cd ~/Brightline/reef"
 alias rgvim="rg_vim"
-alias openall="vim -o $(git status --porcelain | awk '/^ M|^??/ {print $2}')"
+openall() { vim -o $(git status --porcelain | awk '/^ M|^??/ {print $2}'); }
 
 export BROWSER="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
