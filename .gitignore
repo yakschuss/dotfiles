@@ -14,3 +14,7 @@ tmp/**/*
 node_modules
 
 jack_docs/
+
+# Claude - only track commands
+.claude/*
+!.claude/commands/

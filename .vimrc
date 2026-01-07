@@ -114,9 +114,6 @@ augroup END
 "Open images inside vim buffer in iterm (tmux?)
 autocmd BufEnter *.png,*.jpg,*gif exec "!imgcat ".expand("%") | :bw
 
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
-let g:syntastic_eruby_ruby_quiet_messages =
-      \ {"regex": "possibly useless use of a variable in void context"}
 
 "
 
@@ -232,9 +229,6 @@ endfor
 
 "Plugins {{{
 " Use FZF as a fuzzy finder
-"use ag, which respects .gitignore
-let g:airline#extensions#tabline#enabled = 0
-" let $FZF_DEFAULT_COMMAND= 'ag -g ""'
 nmap <c-p> :FZF<return>
 nmap <c-a> :FZF<return>
 
@@ -247,17 +241,11 @@ nnoremap <silent> <Leader>v :call fzf#run(fzf#vim#with_preview({
       \   'right': winwidth('.') / 2,
       \   'sink':  'vertical botright split' }))<CR>
 
-"Open Dash d for Globally, D for specific docset
-nmap <Leader>d :Dash!<CR>
-nmap <Leader>D :Dash<CR>
-
 "use fzf for word under cursor
 nmap <Leader>f "zyiw:exe "Ag ".@z.""<CR>
 " nmap <Leader>f "zyiw:exe "Find ".@z.""<CR>
 
 nnoremap <leader>rr :VtrSendLinesToRunner!<CR>
-
-nnoremap <Leader>g "zyiw:exe "Googlef ".@z.""<CR>
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 

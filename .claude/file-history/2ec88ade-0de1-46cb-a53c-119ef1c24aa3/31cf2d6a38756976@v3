@@ -1,8 +1,0 @@
-<div class="bootstrap-overrides">
-<%= render partial: "staffers/shared/care_cases/case_header", locals: {care_case: current_care_case, tab: "chat"} %>
-
-  <div data-controller="select-navigator" class="mt-6">
-    <%= render Staffers::CareCases::Chats::TabsComponent.new(care_case: current_care_case, tab: @tab, channels: @channels) %>
-    <%= render Staffers::CareCases::Chats::AccessibleChannelComponent.new(accessible_channel: @accessible_channel, member: @member) %>
-  </div>
-</div>

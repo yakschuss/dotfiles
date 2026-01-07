@@ -11,17 +11,11 @@ call minpac#add('christoomey/vim-run-interactive')
 " Integrate vim with tmux
 call minpac#add('christoomey/vim-tmux-navigator')
 
-" Ctrl p integration
-call minpac#add('ctrlpvim/ctrlp.vim')
-
 " Test runner integration
 call minpac#add('vim-test/vim-test')
 
 " Edit files that don't exist by creating files
 call minpac#add('pbrisbin/vim-mkdir')
-
-" Syntax checking
-call minpac#add('scrooloose/syntastic')
 
 " Bundler integration
 call minpac#add('tpope/vim-bundler')
@@ -67,9 +61,6 @@ call minpac#add('tpope/vim-surround')
 " Comment out text objects
 call minpac#add('vim-scripts/tComment')
 
-" Provide statusbar airline
-call minpac#add('vim-airline/vim-airline')
-
 " Syntax highlighting for different languages
 call minpac#add('sheerun/vim-polyglot')
 
@@ -79,14 +70,8 @@ call minpac#add('mattn/emmet-vim')
 " Automatically close HTML tags
 call minpac#add('alvan/vim-closetag')
 
-" Integration with dash
-call minpac#add('rizzatti/dash.vim')
-
 " Show git changes in sidebar
 call minpac#add('airblade/vim-gitgutter')
-
-" Startup profiler
-call minpac#add('tweekmonster/startuptime.vim')
 
 " Search and replace using quickfix
 call minpac#add('vim-scripts/greplace.vim')
@@ -104,17 +89,11 @@ call minpac#add('endel/vim-github-colorscheme')
 " Vim-tmux-runner
 call minpac#add('christoomey/vim-tmux-runner')
 
-" Google searching from vim
-call minpac#add('szw/vim-g')
-
 " Align stuff
 call minpac#add('junegunn/vim-easy-align')
 
 " Rubocop integration
 call minpac#add('ngmy/vim-rubocop')
-
-" One-dark theme
-call minpac#add('rakr/vim-one')
 
 " LLM Configs
 call minpac#add('nvim-lua/plenary.nvim')

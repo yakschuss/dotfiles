@@ -3,19 +3,15 @@
   addp = !git add -N . && git add -p
   alias = config --get-regexp ^alias\\.
   b = branch
-  browse = !hub browse
   bselect = !git branch | grep -v '^*' | fzf-tmux --reverse | xargs git checkout
   ca = commit --amend
-  ci-s = !hub ci-status
   co = checkout
   copybranch = !git rev-parse --abbrev-ref HEAD | pbcopy
   ctags = !.git/hooks/ctags
   find = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
-  issues = !hub browse -- issues
   last = log -1 HEAD
   mup = !git checkout master && git pull && git checkout -
   overview = log --all --since=2
-  pull-request = !hub pull-request
   recap = log --all --oneline --no-merges --author=jackschuss@gmail.com
   recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format=\"%(refname:short)\"
   review = "!f() { nvim $(git status --porcelain=v1 2>/dev/null | awk '{print $2}'); }; f"
@@ -39,7 +35,7 @@
 [fetch]
   prune = true
 [init]
-  templatedir = ~/dotfiles/git_template/
+  templatedir = ~/.git_template/
 [merge]
   ff = only
   conflictstyle = diff3

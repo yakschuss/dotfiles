@@ -1,8 +1,0 @@
-# frozen_string_literal: true
-
-FactoryBot.define do
-  factory :slot_recapture_configuration, class: "SlotRecapture::Configuration" do
-    data { SlotRecapture::ConfigurationData.new }
-    association :created_by, factory: :staffer
-  end
-end
