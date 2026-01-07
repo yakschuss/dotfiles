@@ -1,0 +1,74 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+require Rails.root.join("db", "data", "20251212095222_add_coaching_ongoing_capabilities.rb")
+
+RSpec.describe AddCoachingOngoingCapabilities, type: :migration do
+  describe "#up" do
+    it "creates coaching_ongoing capabilities for staffers in the list with coaching capability" do
+      staffer = FactoryBot.create(:staffer)
+      FactoryBot.create(:care_capability, :coaching, staffer: staffer, region: Region.us)
+
+      stub_const("AddCoachingOngoingCapabilities::STAFFER_IDS", [staffer.id])
+
+      expect { described_class.new.up }.to change { CareCapability.where(capability_id: "coaching_ongoing").count }.by(1)
+
+      ongoing_capability = CareCapability.find_by(staffer: staffer, capability_id: "coaching_ongoing")
+      expect(ongoing_capability).to be_present
+      expect(ongoing_capability.region_id.to_s).to eq("us")
+    end
+
+    it "creates coaching_ongoing for each region where staffer has coaching" do
+      staffer = FactoryBot.create(:staffer)
+      FactoryBot.create(:care_capability, :coaching, staffer: staffer, region: Region.us)
+      FactoryBot.create(:care_capability, :coaching, staffer: staffer, region: Region.california)
+
+      stub_const("AddCoachingOngoingCapabilities::STAFFER_IDS", [staffer.id])
+
+      expect { described_class.new.up }.to change { CareCapability.where(capability_id: "coaching_ongoing").count }.by(2)
+
+      expect(CareCapability.exists?(staffer: staffer, capability_id: "coaching_ongoing", region_id: "us")).to be true
+      expect(CareCapability.exists?(staffer: staffer, capability_id: "coaching_ongoing", region_id: "california")).to be true
+    end
+
+    it "is idempotent" do
+      staffer = FactoryBot.create(:staffer)
+      FactoryBot.create(:care_capability, :coaching, staffer: staffer, region: Region.us)
+
+      stub_const("AddCoachingOngoingCapabilities::STAFFER_IDS", [staffer.id])
+
+      described_class.new.up
+
+      expect { described_class.new.up }.not_to change { CareCapability.where(capability_id: "coaching_ongoing").count }
+    end
+
+    it "skips staffers not in the list" do
+      listed_staffer = FactoryBot.create(:staffer)
+      unlisted_staffer = FactoryBot.create(:staffer)
+      FactoryBot.create(:care_capability, :coaching, staffer: listed_staffer, region: Region.us)
+      FactoryBot.create(:care_capability, :coaching, staffer: unlisted_staffer, region: Region.us)
+
+      stub_const("AddCoachingOngoingCapabilities::STAFFER_IDS", [listed_staffer.id])
+
+      described_class.new.up
+
+      expect(CareCapability.exists?(staffer: listed_staffer, capability_id: "coaching_ongoing")).to be true
+      expect(CareCapability.exists?(staffer: unlisted_staffer, capability_id: "coaching_ongoing")).to be false
+    end
+
+    it "skips staffers that do not exist" do
+      stub_const("AddCoachingOngoingCapabilities::STAFFER_IDS", ["nonexistent-uuid"])
+
+      expect { described_class.new.up }.not_to raise_error
+    end
+
+    it "skips staffers without coaching capability" do
+      staffer = FactoryBot.create(:staffer)
+
+      stub_const("AddCoachingOngoingCapabilities::STAFFER_IDS", [staffer.id])
+
+      expect { described_class.new.up }.not_to change { CareCapability.where(capability_id: "coaching_ongoing").count }
+    end
+  end
+end

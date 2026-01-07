@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Write comprehensive test for ButtonsComponent behavior",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Test cancellation logic for different appointment types and regions",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Test join button logic for virtual vs in-person appointments",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Remove view conditional logic from show.html.erb",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  }
+]

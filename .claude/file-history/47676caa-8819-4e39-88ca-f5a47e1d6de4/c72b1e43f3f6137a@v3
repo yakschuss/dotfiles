@@ -1,0 +1,73 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe SlotRecapture::OpportunityCreator, type: :model do
+  describe "#call" do
+    def create_appointment_for_test
+      care_case = FactoryBot.create(:care_case)
+      clinic = FactoryBot.create(:clinic)
+      staffer = FactoryBot.create(:staffer)
+      FactoryBot.create(:appointment,
+        care_case: care_case,
+        region: care_case.region,
+        clinic: clinic,
+        staffer: staffer,
+        start_time: 48.hours.from_now,
+        end_time: 49.hours.from_now)
+    end
+
+    it "creates an opportunity from an appointment" do
+      appointment = create_appointment_for_test
+      cancelation = FactoryBot.build(:appointment_cancelation, reason: "member_discharged")
+
+      creator = described_class.new
+      result = creator.call(appointment: appointment, appointment_cancelation: cancelation)
+
+      expect(result.success?).to eq(true)
+      expect(result.opportunity).to be_persisted
+      expect(result.opportunity.cancelled_appointment).to eq(appointment)
+      expect(result.opportunity.staffer).to eq(appointment.staffer)
+      expect(result.opportunity.clinic).to eq(appointment.clinic)
+    end
+
+    it "sets correct attributes from appointment" do
+      appointment = create_appointment_for_test
+      cancelation = FactoryBot.build(:appointment_cancelation, reason: "member_discharged")
+
+      creator = described_class.new
+      result = creator.call(appointment: appointment, appointment_cancelation: cancelation)
+
+      opportunity = result.opportunity
+      expect(opportunity.appointment_type_id).to eq(appointment.appointment_type_id.to_s)
+      expect(opportunity.root_appointment_type_id).to eq(appointment.appointment_type.root_appointment_type_id.to_s)
+      expect(opportunity.region_id).to eq(appointment.region_id.to_s)
+      expect(opportunity.start_time).to eq(appointment.start_time)
+      expect(opportunity.status).to eq("pending_verification")
+    end
+
+    it "calculates lead_time_hours correctly" do
+      appointment = create_appointment_for_test
+      cancelation = FactoryBot.build(:appointment_cancelation, reason: "member_discharged")
+
+      creator = described_class.new
+      result = creator.call(appointment: appointment, appointment_cancelation: cancelation)
+
+      expect(result.opportunity.lead_time_hours).to be_within(1).of(48)
+    end
+
+    it "returns failed result when opportunity cannot be saved" do
+      appointment = create_appointment_for_test
+      # Create existing opportunity to violate uniqueness
+      FactoryBot.create(:slot_recapture_opportunity, cancelled_appointment: appointment)
+      cancelation = FactoryBot.build(:appointment_cancelation, reason: "member_discharged")
+
+      creator = described_class.new
+      result = creator.call(appointment: appointment, appointment_cancelation: cancelation)
+
+      expect(result.success?).to eq(false)
+      expect(result.failed).to eq(true)
+      expect(result.errors).to include("Cancelled appointment has already been taken")
+    end
+  end
+end

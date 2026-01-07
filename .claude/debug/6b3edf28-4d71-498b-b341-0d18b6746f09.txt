@@ -1,0 +1,224 @@
+2025-12-11T21:08:29.401Z [DEBUG] Watching for changes in setting files /Users/jschuss/.claude/settings.json, /Users/jschuss/Brightline/reef/.claude/settings.local.json...
+2025-12-11T21:08:29.443Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (40.6ms): security find-generic-password -a $USER -w -s "Claude Code"
+2025-12-11T21:08:29.485Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (41.8ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T21:08:29.529Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2025-12-11T21:08:29.529Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2025-12-11T21:08:29.529Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2025-12-11T21:08:29.529Z [DEBUG] [LSP SERVER MANAGER] initialize() called
+2025-12-11T21:08:29.529Z [DEBUG] [LSP SERVER MANAGER] Calling getAllLspServers()
+2025-12-11T21:08:29.536Z [DEBUG] Loading plugin superpowers from source: {"source":"url","url":"https://github.com/obra/superpowers.git"}
+2025-12-11T21:08:29.536Z [DEBUG] Using provided version for superpowers@superpowers-marketplace: 3.6.2
+2025-12-11T21:08:29.539Z [DEBUG] Applying permission update: Adding 86 allow rule(s) to destination 'localSettings': ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)","Bash(gh pr list:*)","mcp__playwright__browser_navigate","mcp__playwright__browser_hover","mcp__playwright__browser_take_screenshot","Skill(superpowers:systematic-debugging)","mcp__playwright__browser_snapshot","mcp__playwright__browser_click","mcp__playwright__browser_tabs","mcp__playwright__browser_console_messages","mcp__playwright__browser_evaluate","mcp__playwright__browser_wait_for","Bash(curl:*)","Bash(tr:*)","mcp__playwright__browser_type","mcp__playwright__browser_select_option","mcp__playwright__browser_fill_form","mcp__figma-desktop__get_screenshot","Bash(spec/components/staffers/phone_desk/scheduling/validation_error_banner_spec.rb)","Skill(superpowers:brainstorming)","Bash(git pull:*)","Bash(git add:*)","Bash(.env)","mcp__figma-desktop__get_design_context","Bash(ruby -rjson -e:*)","Bash(git reset:*)","Bash(git stash:*)","Bash(git checkout:*)","Bash(git commit:*)","Bash(git branch:*)","Bash(git show:*)","Bash(bundle install:*)","Bash(ruby:*)","Bash(for concern in reminder_subject soft_deletion callable deliverable)","Bash(do echo '=== $concern.rb ===' grep -l include.*$concern /Users/jschuss/Brightline/reef/app/models/*.rb)","Bash(sort:*)","Bash(wc:*)","Bash(script/lint:*)","Bash(bundle exec rubocop:*)","Bash(script/add_feature_flag:*)","Bash(./script/add_feature_flag:*)","Bash(git diff:*)","Bash(git rev-parse:*)","Bash(RAILS_ENV=test bundle exec rails runner:*)","Bash(psql:*)"]
+2025-12-11T21:08:29.545Z [DEBUG] Using versioned cached plugin superpowers from /Users/jschuss/.claude/plugins/cache/superpowers-marketplace/superpowers/3.6.2
+2025-12-11T21:08:29.547Z [DEBUG] Loaded hooks from standard location for plugin superpowers: /Users/jschuss/.claude/plugins/cache/superpowers-marketplace/superpowers/3.6.2/hooks/hooks.json
+2025-12-11T21:08:29.548Z [DEBUG] Found 1 plugins (1 enabled, 0 disabled)
+2025-12-11T21:08:29.559Z [DEBUG] Loading skills from directories: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/jschuss/.claude/skills, project=[]
+2025-12-11T21:08:29.559Z [DEBUG] >>>>> getPluginSkills CALLED <<<<<
+2025-12-11T21:08:29.560Z [DEBUG] Passes: Cache stale, returning cached data and refreshing in background
+2025-12-11T21:08:29.781Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (217.1ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T21:08:29.783Z [DEBUG] Loaded 1 installed plugins from /Users/jschuss/.claude/plugins/installed_plugins.json (schema version 1)
+2025-12-11T21:08:29.783Z [DEBUG] Official marketplace auto-install already attempted, skipping
+2025-12-11T21:08:29.851Z [DEBUG] Creating shell snapshot for zsh (/bin/zsh)
+2025-12-11T21:08:29.851Z [DEBUG] Looking for shell config file: /Users/jschuss/.zshrc
+2025-12-11T21:08:29.851Z [DEBUG] Snapshots directory: /Users/jschuss/.claude/shell-snapshots
+2025-12-11T21:08:29.852Z [DEBUG] Creating snapshot at: /Users/jschuss/.claude/shell-snapshots/snapshot-zsh-1765487309851-sp2w6b.sh
+2025-12-11T21:08:29.852Z [DEBUG] Shell binary exists: true
+2025-12-11T21:08:29.852Z [DEBUG] Execution timeout: 10000ms
+2025-12-11T21:08:29.853Z [DEBUG] Writing to temp file: /Users/jschuss/.claude/todos/6b3edf28-4d71-498b-b341-0d18b6746f09-agent-6b3edf28-4d71-498b-b341-0d18b6746f09.json.tmp.73953.1765487309853
+2025-12-11T21:08:29.862Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (8.6ms)
+2025-12-11T21:08:29.862Z [DEBUG] Temp file written successfully, size: 2 bytes
+2025-12-11T21:08:29.862Z [DEBUG] Renaming /Users/jschuss/.claude/todos/6b3edf28-4d71-498b-b341-0d18b6746f09-agent-6b3edf28-4d71-498b-b341-0d18b6746f09.json.tmp.73953.1765487309853 to /Users/jschuss/.claude/todos/6b3edf28-4d71-498b-b341-0d18b6746f09-agent-6b3edf28-4d71-498b-b341-0d18b6746f09.json
+2025-12-11T21:08:29.862Z [DEBUG] File /Users/jschuss/.claude/todos/6b3edf28-4d71-498b-b341-0d18b6746f09-agent-6b3edf28-4d71-498b-b341-0d18b6746f09.json written atomically
+2025-12-11T21:08:29.868Z [DEBUG] Auto-updating 1 installed marketplaces in background
+2025-12-11T21:08:29.868Z [DEBUG] Auto-updating marketplace "superpowers-marketplace"
+2025-12-11T21:08:29.868Z [DEBUG] getPluginSkills: Processing 1 enabled plugins
+2025-12-11T21:08:29.868Z [DEBUG] Checking plugin superpowers: skillsPath=exists, skillsPaths=0 paths
+2025-12-11T21:08:29.868Z [DEBUG] Attempting to load skills from plugin superpowers default skillsPath: /Users/jschuss/.claude/plugins/cache/superpowers-marketplace/superpowers/3.6.2/skills
+2025-12-11T21:08:29.881Z [DEBUG] Loading hooks from plugin: superpowers
+2025-12-11T21:08:29.881Z [DEBUG] Registered 1 hooks from 1 plugins
+2025-12-11T21:08:29.894Z [DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, duplicates removed: 0)
+2025-12-11T21:08:29.894Z [DEBUG] Loaded 20 skills from plugin superpowers default directory
+2025-12-11T21:08:29.894Z [DEBUG] Total plugin skills loaded: 20
+2025-12-11T21:08:29.894Z [DEBUG] Loaded 3 commands from plugin superpowers default directory
+2025-12-11T21:08:29.894Z [DEBUG] Total plugin commands loaded: 3
+2025-12-11T21:08:29.897Z [DEBUG] getSkills returning: 0 skill dir commands, 20 plugin skills
+2025-12-11T21:08:29.899Z [DEBUG] Loaded 1 agents from plugin superpowers default directory
+2025-12-11T21:08:29.899Z [DEBUG] Total plugin agents loaded: 1
+2025-12-11T21:08:29.915Z [DEBUG] [SLOW OPERATION DETECTED] fs.readdirSync (10.8ms)
+2025-12-11T21:08:29.924Z [DEBUG] [SLOW OPERATION DETECTED] fs.readdirSync (5.9ms)
+2025-12-11T21:08:29.967Z [DEBUG] Total LSP servers loaded: 0
+2025-12-11T21:08:29.967Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2025-12-11T21:08:29.967Z [DEBUG] LSP manager initialized with 0 servers
+2025-12-11T21:08:29.967Z [DEBUG] LSP server manager initialized successfully
+2025-12-11T21:08:29.968Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2025-12-11T21:08:29.973Z [DEBUG] Git remote URL: https://github.com/hellobrightline/reef.git
+2025-12-11T21:08:29.973Z [DEBUG] Parsed repository: hellobrightline/reef from https://github.com/hellobrightline/reef.git
+2025-12-11T21:08:29.973Z [DEBUG] Parsed repository: hellobrightline/reef from URL: https://github.com/hellobrightline/reef.git
+2025-12-11T21:08:29.974Z [DEBUG] Path /Users/jschuss/Brightline/reef already tracked for repo hellobrightline/reef
+2025-12-11T21:08:30.135Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.73953.1765487310135
+2025-12-11T21:08:30.135Z [DEBUG] Preserving file permissions: 100644
+2025-12-11T21:08:30.142Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (7.1ms)
+2025-12-11T21:08:30.142Z [DEBUG] Temp file written successfully, size: 55703 bytes
+2025-12-11T21:08:30.143Z [DEBUG] Applied original permissions to temp file
+2025-12-11T21:08:30.143Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.73953.1765487310135 to /Users/jschuss/.claude.json
+2025-12-11T21:08:30.144Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-11T21:08:30.161Z [DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg)
+2025-12-11T21:08:30.268Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.73953.1765487310268
+2025-12-11T21:08:30.268Z [DEBUG] Preserving file permissions: 100644
+2025-12-11T21:08:30.272Z [DEBUG] Temp file written successfully, size: 55703 bytes
+2025-12-11T21:08:30.273Z [DEBUG] Applied original permissions to temp file
+2025-12-11T21:08:30.273Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.73953.1765487310268 to /Users/jschuss/.claude.json
+2025-12-11T21:08:30.278Z [DEBUG] [SLOW OPERATION DETECTED] fs.renameSync (5.1ms)
+2025-12-11T21:08:30.278Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-11T21:08:30.279Z [DEBUG] Passes eligibility cached for org 6dbeab22-feca-4642-bac7-7d87892e7a7e: false
+2025-12-11T21:08:30.431Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (64.8ms)
+2025-12-11T21:08:30.431Z [DEBUG] Successfully refreshed marketplace: superpowers-marketplace
+2025-12-11T21:08:30.431Z [DEBUG] Successfully auto-updated marketplace "superpowers-marketplace"
+2025-12-11T21:08:30.770Z [DEBUG] Passes: Using fresh cached eligibility data
+2025-12-11T21:08:30.799Z [DEBUG] MCP server "playwright": Starting connection with timeout of 30000ms
+2025-12-11T21:08:30.802Z [DEBUG] MCP server "figma-desktop": Initializing HTTP transport to http://127.0.0.1:3845/mcp
+2025-12-11T21:08:30.802Z [DEBUG] MCP server "figma-desktop": Node version: v22.14.0, Platform: darwin
+2025-12-11T21:08:30.802Z [DEBUG] MCP server "figma-desktop": Environment: {"NODE_OPTIONS":"not set","UV_THREADPOOL_SIZE":"default","HTTP_PROXY":"not set","HTTPS_PROXY":"not set","NO_PROXY":"not set"}
+2025-12-11T21:08:30.814Z [DEBUG] All plugins already in V2, skipping migration
+2025-12-11T21:08:30.827Z [DEBUG] Loaded 1 installed plugins from V2 file at /Users/jschuss/.claude/plugins/installed_plugins_v2.json
+2025-12-11T21:08:30.827Z [DEBUG] Initialized versioned plugins system with 1 plugins
+2025-12-11T21:08:30.828Z [DEBUG] MCP server "figma-desktop": Proxy options: default
+2025-12-11T21:08:30.828Z [DEBUG] MCP server "figma-desktop": HTTP transport options: {"url":"http://127.0.0.1:3845/mcp","headers":{"User-Agent":"claude-code/2.0.65"},"hasAuthProvider":true,"timeoutMs":60000}
+2025-12-11T21:08:30.828Z [DEBUG] MCP server "figma-desktop": HTTP transport created successfully
+2025-12-11T21:08:30.831Z [DEBUG] MCP server "figma-desktop": Client created, setting up request handler
+2025-12-11T21:08:30.831Z [DEBUG] MCP server "figma-desktop": Starting connection with timeout of 30000ms
+2025-12-11T21:08:30.831Z [DEBUG] MCP server "figma-desktop": Testing basic HTTP connectivity to http://127.0.0.1:3845/mcp
+2025-12-11T21:08:30.831Z [DEBUG] MCP server "figma-desktop": Parsed URL: host=127.0.0.1, port=3845, protocol=http:
+2025-12-11T21:08:30.831Z [DEBUG] MCP server "figma-desktop": Using loopback address: 127.0.0.1
+2025-12-11T21:08:30.836Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.73953.1765487310836
+2025-12-11T21:08:30.836Z [DEBUG] Preserving file permissions: 100644
+2025-12-11T21:08:30.842Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.0ms)
+2025-12-11T21:08:30.842Z [DEBUG] Temp file written successfully, size: 55703 bytes
+2025-12-11T21:08:30.842Z [DEBUG] Applied original permissions to temp file
+2025-12-11T21:08:30.842Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.73953.1765487310836 to /Users/jschuss/.claude.json
+2025-12-11T21:08:30.843Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-11T21:08:30.856Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2025-12-11T21:08:30.856Z [DEBUG] Found 1 hook matchers in settings
+2025-12-11T21:08:30.856Z [DEBUG] Matched 1 unique hooks for query "startup" (1 before deduplication)
+2025-12-11T21:08:30.924Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (67.5ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T21:08:30.924Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-11T21:08:31.006Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (50.2ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T21:08:31.006Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-11T21:08:31.063Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (47.6ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T21:08:31.063Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-11T21:08:31.064Z [DEBUG] MCP server "figma-desktop": Successfully connected to http server in 262ms
+2025-12-11T21:08:31.064Z [DEBUG] MCP server "figma-desktop": Connection established with capabilities: {"hasTools":true,"hasPrompts":true,"hasResources":true,"serverVersion":{"name":"Figma Dev Mode MCP Server","version":"1.0.0"}}
+2025-12-11T21:08:31.118Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (52.5ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T21:08:31.118Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-11T21:08:31.167Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (49.2ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T21:08:31.167Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-11T21:08:31.218Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (50.4ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T21:08:31.218Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-11T21:08:31.227Z [DEBUG] Summarizing all 2 messages (~0 tokens)
+2025-12-11T21:08:31.247Z [DEBUG] Getting matching hook commands for SubagentStart with query: Explore
+2025-12-11T21:08:31.247Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T21:08:31.247Z [DEBUG] Matched 0 unique hooks for query "Explore" (0 before deduplication)
+2025-12-11T21:08:31.248Z [DEBUG] Getting matching hook commands for SubagentStart with query: Plan
+2025-12-11T21:08:31.248Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T21:08:31.248Z [DEBUG] Matched 0 unique hooks for query "Plan" (0 before deduplication)
+2025-12-11T21:08:31.278Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.73953.1765487311278
+2025-12-11T21:08:31.278Z [DEBUG] Preserving file permissions: 100644
+2025-12-11T21:08:31.285Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (7.1ms)
+2025-12-11T21:08:31.285Z [DEBUG] Temp file written successfully, size: 55703 bytes
+2025-12-11T21:08:31.285Z [DEBUG] Applied original permissions to temp file
+2025-12-11T21:08:31.285Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.73953.1765487311278 to /Users/jschuss/.claude.json
+2025-12-11T21:08:31.286Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-11T21:08:31.306Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.7ms)
+2025-12-11T21:08:31.956Z [DEBUG] Shell snapshot created successfully (67724 bytes)
+2025-12-11T21:08:32.154Z [DEBUG] Stream started - received first chunk
+2025-12-11T21:08:32.392Z [DEBUG] Stream started - received first chunk
+2025-12-11T21:08:32.668Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.73953.1765487312668
+2025-12-11T21:08:32.668Z [DEBUG] Preserving file permissions: 100644
+2025-12-11T21:08:32.674Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.9ms)
+2025-12-11T21:08:32.675Z [DEBUG] Temp file written successfully, size: 55598 bytes
+2025-12-11T21:08:32.675Z [DEBUG] Applied original permissions to temp file
+2025-12-11T21:08:32.675Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.73953.1765487312668 to /Users/jschuss/.claude.json
+2025-12-11T21:08:32.675Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-11T21:08:32.683Z [DEBUG] performStartupChecks called
+2025-12-11T21:08:32.684Z [DEBUG] Starting background plugin installations
+2025-12-11T21:08:32.685Z [DEBUG] performBackgroundPluginInstallations called
+2025-12-11T21:08:32.716Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.73953.1765487312716
+2025-12-11T21:08:32.716Z [DEBUG] Preserving file permissions: 100644
+2025-12-11T21:08:32.722Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.0ms)
+2025-12-11T21:08:32.722Z [DEBUG] Temp file written successfully, size: 55703 bytes
+2025-12-11T21:08:32.722Z [DEBUG] Applied original permissions to temp file
+2025-12-11T21:08:32.722Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.73953.1765487312716 to /Users/jschuss/.claude.json
+2025-12-11T21:08:32.723Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-11T21:08:32.726Z [DEBUG] Found 1 enabled plugins
+2025-12-11T21:08:32.726Z [DEBUG] All plugins already in V2, skipping migration
+2025-12-11T21:08:32.726Z [DEBUG] Found 1 installed plugins (V2 format)
+2025-12-11T21:08:32.727Z [DEBUG] Loaded plugins - Enabled: 1, Disabled: 0, Commands: 3, Agents: 1, Errors: 0
+2025-12-11T21:08:32.727Z [DEBUG] Found 0 missing plugins (not installed):
+2025-12-11T21:08:32.727Z [DEBUG] Setting installation status: 0 marketplaces, 0 installable plugins, 0 uninstallable plugins
+2025-12-11T21:08:32.733Z [ERROR] MCP server "playwright" Server stderr: npm warn exec The following package was not found and will be installed: @playwright/mcp@0.0.52
+2025-12-11T21:08:32.753Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.73953.1765487312753
+2025-12-11T21:08:32.753Z [DEBUG] Preserving file permissions: 100644
+2025-12-11T21:08:32.759Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.4ms)
+2025-12-11T21:08:32.759Z [DEBUG] Temp file written successfully, size: 55703 bytes
+2025-12-11T21:08:32.761Z [DEBUG] Applied original permissions to temp file
+2025-12-11T21:08:32.761Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.73953.1765487312753 to /Users/jschuss/.claude.json
+2025-12-11T21:08:32.761Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-11T21:08:33.011Z [DEBUG] Summarizing last 399 of 511 messages (~149827 tokens)
+2025-12-11T21:08:33.220Z [DEBUG] AutoUpdaterWrapper: Installation type: npm-global
+2025-12-11T21:08:33.513Z [DEBUG] Stream started - received first chunk
+2025-12-11T21:08:33.584Z [DEBUG] Stream started - received first chunk
+2025-12-11T21:08:34.473Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2025-12-11T21:08:34.473Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T21:08:34.473Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T21:08:35.332Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2025-12-11T21:08:35.332Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T21:08:35.332Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T21:08:36.021Z [DEBUG] MCP server "playwright": Successfully connected to stdio server in 5238ms
+2025-12-11T21:08:36.021Z [DEBUG] MCP server "playwright": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"Playwright","version":"0.0.52"}}
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-12-11T21:08:36.942Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-12-11T21:08:36.942Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-12-11T21:08:36.943Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-12-11T21:08:43.935Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (6.8ms)
+2025-12-11T21:08:44.541Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.3ms)
+2025-12-11T21:08:45.716Z [DEBUG] Getting matching hook commands for SessionStart with query: resume
+2025-12-11T21:08:45.716Z [DEBUG] Found 1 hook matchers in settings
+2025-12-11T21:08:45.716Z [DEBUG] Matched 1 unique hooks for query "resume" (1 before deduplication)

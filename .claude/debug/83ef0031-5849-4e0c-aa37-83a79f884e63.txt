@@ -1,0 +1,766 @@
+[DEBUG] Watching for changes in setting files /Users/jschuss/.claude/settings.json, /Users/jschuss/Brightline/reef/.claude/settings.local.json...
+[DEBUG] Applying permission update: Adding 41 allow rule(s) to destination 'localSettings': ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)"]
+[DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+[DEBUG] Loading skills from directories: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/jschuss/.claude/skills, project=/Users/jschuss/Brightline/reef/.claude/skills
+[DEBUG] >>>>> getPluginSkills CALLED <<<<<
+[DEBUG] Creating shell snapshot for zsh (/bin/zsh)
+[DEBUG] Looking for shell config file: /Users/jschuss/.zshrc
+[DEBUG] Snapshots directory: /Users/jschuss/.claude/shell-snapshots
+[DEBUG] Creating snapshot at: /Users/jschuss/.claude/shell-snapshots/snapshot-zsh-1761758126556-4kg5fa.sh
+[DEBUG] Shell binary exists: true
+[DEBUG] Execution timeout: 10000ms
+[DEBUG] Writing to temp file: /Users/jschuss/.claude/todos/83ef0031-5849-4e0c-aa37-83a79f884e63-agent-83ef0031-5849-4e0c-aa37-83a79f884e63.json.tmp.68225.1761758126558
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /Users/jschuss/.claude/todos/83ef0031-5849-4e0c-aa37-83a79f884e63-agent-83ef0031-5849-4e0c-aa37-83a79f884e63.json.tmp.68225.1761758126558 to /Users/jschuss/.claude/todos/83ef0031-5849-4e0c-aa37-83a79f884e63-agent-83ef0031-5849-4e0c-aa37-83a79f884e63.json
+[DEBUG] File /Users/jschuss/.claude/todos/83ef0031-5849-4e0c-aa37-83a79f884e63-agent-83ef0031-5849-4e0c-aa37-83a79f884e63.json written atomically
+[DEBUG] getPluginSkills: Processing 0 enabled plugins
+[DEBUG] Total plugin skills loaded: 0
+[DEBUG] Total plugin commands loaded: 0
+[DEBUG] Registered 0 hooks from 0 plugins
+[DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, duplicates removed: 0)
+[DEBUG] getSkillsIfEnabled returning: 0 skill dir commands, 0 plugin skills
+[DEBUG] Total plugin agents loaded: 0
+[DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg)
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.68225.1761758126750
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 221296 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.68225.1761758126750 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.68225.1761758126768
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 221296 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.68225.1761758126768 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.68225.1761758126829
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 221296 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.68225.1761758126829 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.68225.1761758127192
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 221296 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.68225.1761758127192 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Getting matching hook commands for SessionStart with query: startup
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.68225.1761758127369
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 221191 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.68225.1761758127369 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.68225.1761758127383
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 221191 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.68225.1761758127383 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] performStartupChecks called
+[DEBUG] Starting background plugin installations
+[DEBUG] performBackgroundPluginInstallations called
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.68225.1761758128515
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 221296 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.68225.1761758128515 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Setting installation status: 0 marketplaces, 0 installable plugins, 0 uninstallable plugins
+[DEBUG] Loaded plugins - Enabled: 0, Disabled: 0, Commands: 0, Agents: 0, Errors: 0
+[DEBUG] Shell snapshot created successfully (68618 bytes)
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] FileHistory: Added snapshot for de6f27f9-67df-4e9c-9d1a-3e7a2b0d3657, tracking 0 files
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] No hook environment files found
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Stream started - received first chunk
+[DEBUG] Permission suggestions for Bash: [
+  {
+    "type": "addRules",
+    "rules": [
+      {
+        "toolName": "Bash",
+        "ruleContent": "gh pr diff:*"
+      }
+    ],
+    "behavior": "allow",
+    "destination": "localSettings"
+  }
+]
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Stream started - received first chunk
+[DEBUG] Permission suggestions for Bash: [
+  {
+    "type": "addRules",
+    "rules": [
+      {
+        "toolName": "Bash",
+        "ruleContent": "gh pr diff:*"
+      }
+    ],
+    "behavior": "allow",
+    "destination": "localSettings"
+  }
+]
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Persisting permission update: addRules to source 'localSettings'
+[DEBUG] Persisting 1 allow rule(s) to localSettings
+[DEBUG] Writing to temp file: /Users/jschuss/Brightline/reef/.claude/settings.local.json.tmp.68225.1761758294868
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2868 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/Brightline/reef/.claude/settings.local.json.tmp.68225.1761758294868 to /Users/jschuss/Brightline/reef/.claude/settings.local.json
+[DEBUG] File /Users/jschuss/Brightline/reef/.claude/settings.local.json written atomically
+[DEBUG] Applying permission update: Adding 1 allow rule(s) to destination 'localSettings': ["Bash(gh pr diff:*)"]
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.68225.1761758356766
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 221448 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.68225.1761758356766 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.68225.1761758356791
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 221448 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.68225.1761758356791 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.68225.1761758356804
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 221492 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.68225.1761758356804 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude/settings.json.tmp.68225.1761761864946
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 174 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude/settings.json.tmp.68225.1761761864946 to /Users/jschuss/.claude/settings.json
+[DEBUG] File /Users/jschuss/.claude/settings.json written atomically
+[DEBUG] Applying permission update: Setting mode to 'acceptEdits'
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.68225.1761761866668
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2773860 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.68225.1761761866668 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Applying permission update: Setting mode to 'plan'
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] FileHistory: Making snapshot for message 42b4c67c-004b-4863-8330-00524c314a44
+[DEBUG] FileHistory: Added snapshot for 42b4c67c-004b-4863-8330-00524c314a44, tracking 0 files
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: AskUserQuestion
+[DEBUG] Getting matching hook commands for PreToolUse with query: AskUserQuestion
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "AskUserQuestion" (0 before deduplication)
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.68225.1761761905982
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2773860 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.68225.1761761905982 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.68225.1761761906051
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2773889 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.68225.1761761906051 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] FileHistory: Making snapshot for message 31b34dc2-fff6-4cee-b773-a9800fac2af1
+[DEBUG] FileHistory: Added snapshot for 31b34dc2-fff6-4cee-b773-a9800fac2af1, tracking 0 files
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Task
+[DEBUG] Getting matching hook commands for PreToolUse with query: Task
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Task" (0 before deduplication)
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Glob
+[DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Glob
+[DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Glob
+[DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Glob
+[DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Glob
+[DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Glob
+[DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Glob
+[DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Glob
+[DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Glob
+[DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Stream started - received first chunk
+[DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Task
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Task" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: ExitPlanMode
+[DEBUG] Getting matching hook commands for PreToolUse with query: ExitPlanMode
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "ExitPlanMode" (0 before deduplication)
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Detected change to /Users/jschuss/.claude/settings.json
+[DEBUG] Replacing all allow rules for destination 'localSettings' with 42 rule(s): ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)"]
+[DEBUG] Detected change to /Users/jschuss/.claude/settings.json
+[DEBUG] Replacing all allow rules for destination 'localSettings' with 42 rule(s): ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)"]
+[DEBUG] Detected change to /Users/jschuss/.claude/settings.json
+[DEBUG] Replacing all allow rules for destination 'localSettings' with 42 rule(s): ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)"]
+[DEBUG] Detected change to /Users/jschuss/.claude/settings.json
+[DEBUG] Replacing all allow rules for destination 'localSettings' with 42 rule(s): ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)"]
+[DEBUG] Detected change to /Users/jschuss/.claude/settings.json
+[DEBUG] Replacing all allow rules for destination 'localSettings' with 42 rule(s): ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)"]
+[DEBUG] Detected change to /Users/jschuss/.claude/settings.json
+[DEBUG] Replacing all allow rules for destination 'localSettings' with 42 rule(s): ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)"]
+[DEBUG] Detected change to /Users/jschuss/.claude/settings.json
+[DEBUG] Replacing all allow rules for destination 'localSettings' with 42 rule(s): ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)"]
+[DEBUG] Detected change to /Users/jschuss/Brightline/reef/.claude/settings.local.json
+[DEBUG] Replacing all allow rules for destination 'localSettings' with 43 rule(s): ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)","Bash(gh pr list:*)"]
+[DEBUG] Detected change to /Users/jschuss/.claude/settings.json
+[DEBUG] Replacing all allow rules for destination 'localSettings' with 43 rule(s): ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)","Bash(gh pr list:*)"]
+[DEBUG] Detected change to /Users/jschuss/.claude/settings.json
+[DEBUG] Replacing all allow rules for destination 'localSettings' with 43 rule(s): ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)","Bash(gh pr list:*)"]
+[DEBUG] Detected change to /Users/jschuss/Brightline/reef/.claude/settings.local.json
+[DEBUG] Replacing all allow rules for destination 'localSettings' with 44 rule(s): ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)","Bash(gh pr list:*)","mcp__playwright__browser_navigate"]
+[DEBUG] Detected change to /Users/jschuss/Brightline/reef/.claude/settings.local.json
+[DEBUG] Replacing all allow rules for destination 'localSettings' with 45 rule(s): ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)","Bash(gh pr list:*)","mcp__playwright__browser_navigate","mcp__playwright__browser_hover"]
+[DEBUG] Detected change to /Users/jschuss/Brightline/reef/.claude/settings.local.json
+[DEBUG] Replacing all allow rules for destination 'localSettings' with 46 rule(s): ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)","Bash(gh pr list:*)","mcp__playwright__browser_navigate","mcp__playwright__browser_hover","mcp__playwright__browser_take_screenshot"]
+[DEBUG] Detected change to /Users/jschuss/.claude/settings.json
+[DEBUG] Replacing all allow rules for destination 'localSettings' with 46 rule(s): ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)","Bash(gh pr list:*)","mcp__playwright__browser_navigate","mcp__playwright__browser_hover","mcp__playwright__browser_take_screenshot"]
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.68225.1762184988498
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 43874 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.68225.1762184988498 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.68225.1762184988509
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 45658 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.68225.1762184988509 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] AutoUpdater: Detected installation type: npm-global
+[DEBUG] AutoUpdater: Using global update method
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] FileHistory: Making snapshot for message 7cb5103d-382c-4cb4-afea-020cd5e64dbd
+[DEBUG] FileHistory: Added snapshot for 7cb5103d-382c-4cb4-afea-020cd5e64dbd, tracking 0 files
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Getting matching hook commands for SessionEnd with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Cleaned up session snapshot: /Users/jschuss/.claude/shell-snapshots/snapshot-zsh-1761758126556-4kg5fa.sh
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.68225.1762184990138
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 45686 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.68225.1762184990138 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically

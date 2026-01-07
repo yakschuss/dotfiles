@@ -1,0 +1,609 @@
+# frozen_string_literal: true
+
+# == Schema Information
+#
+# Table name: care_cases
+#
+#  id                               :uuid             not null, primary key
+#  blended_care_pilot               :boolean          default(FALSE), not null
+#  competency_ids                   :string           default([]), is an Array
+#  deleted_at                       :datetime
+#  disposition                      :string           default("unprocessed"), not null
+#  enrollment_backfill_completed_at :datetime
+#  for_testing                      :boolean          default(FALSE), not null
+#  migrated_to_welkin_v8_at         :datetime
+#  operational_status               :string           default("pending")
+#  primary_problem                  :string
+#  problem_description              :text
+#  problems                         :jsonb
+#  required_capability_ids          :string           default([]), is an Array
+#  status                           :string           default("pre_treatment"), not null
+#  tag_ids                          :string           is an Array
+#  created_at                       :datetime         not null
+#  updated_at                       :datetime         not null
+#  account_id                       :uuid
+#  brightline_id                    :string
+#  deleted_by_staffer_id            :uuid
+#  healthie_patient_id              :string
+#  program_id                       :string
+#  proxy_id                         :uuid
+#  region_id                        :string           not null
+#  welkin_patient_id                :string
+#  welkin_v8_patient_id             :string
+#
+# Indexes
+#
+#  index_care_cases_on_account_id            (account_id)
+#  index_care_cases_on_brightline_id         (brightline_id) UNIQUE
+#  index_care_cases_on_deleted_at            (deleted_at)
+#  index_care_cases_on_healthie_patient_id   (healthie_patient_id)
+#  index_care_cases_on_program_id            (program_id)
+#  index_care_cases_on_region_id             (region_id)
+#  index_care_cases_on_welkin_patient_id     (welkin_patient_id) UNIQUE
+#  index_care_cases_on_welkin_v8_patient_id  (welkin_v8_patient_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (deleted_by_staffer_id => staffers.id)
+#
+class CareCase < ApplicationRecord
+  class PatientAlreadyAssignedError < BrightlineError; end
+  include PgSearch::Model
+  include YamlModel::Associations
+  include BrightlineId.new(prefix: "BC")
+  include ::Eligibility::CoveredEntityHelper
+  include EventSystem::Listener
+
+  self.ignored_columns += ["athena_patient_id"]
+
+  # TODO: When working on identity, move these to a YAML model
+  COMPETENCIES = [
+    "racial_and_ethnic_identity",
+    "gender_identity",
+    "sexual_identity"
+  ]
+
+  COMPETENCY_NAMES = {
+    autism_spectrum_disorder_coaching: "Autism",
+    gender_identity: "Gender identity",
+    racial_and_ethnic_identity: "Racial and ethnic identity",
+    sexual_identity: "Sexual identity"
+  }
+
+  belongs_to_yaml_model :program, optional: true
+  belongs_to_yaml_model :region
+  references_many_yaml_model :required_capabilities, class_name: "Capability"
+  references_many_yaml_model :tags, class_name: "CareCaseTagging::Tag"
+
+  multisearchable against: :searchable_content
+
+  def searchable_content
+    members.map { |member| I18n.transliterate(member.full_name) }.join(" ")
+  end
+
+  on(MemberNameChangedEvent, MemberAssignedToCareCaseEvent) do |event|
+    next unless PgSearch.multisearch_enabled?
+    event.member.care_cases.each { it.update_pg_search_document }
+  end
+
+  pg_search_scope :search_by_member_name, associated_against: {
+    patients: [:first_name, :last_name],
+    caregivers: [:first_name, :last_name]
+  }, using: {
+    trigram: {word_similarity: true}
+  }, ignoring: :accents
+
+  pg_search_scope :search_by_brightline_id, against: [:brightline_id], associated_against: {
+    patients: [:brightline_id],
+    caregivers: [:brightline_id],
+    account: [:brightline_id]
+  }
+
+  has_paper_trail
+
+  belongs_to :account, optional: true
+  has_one :account_owner, through: :account, class_name: "Member", source: :owner
+  has_many :events, as: :subject
+  has_many :viewable_events, as: :subject
+
+  has_many :clinical_roles
+  has_many :staffers, through: :clinical_roles
+  has_one :primary_clinical_role, -> { where(clinical_roles: {primary: true}) }, class_name: "ClinicalRole"
+  has_one :primary_staffer, through: :primary_clinical_role, class_name: "Staffer", source: :staffer
+
+  has_many :reminders, class_name: "TaskManagement::Reminder"
+  has_one :next_reminder, -> { incomplete.order(due_date: :asc, id: :asc) }, class_name: "TaskManagement::Reminder"
+
+  has_many :notes
+  has_one :latest_note, -> { order(created_at: :desc) }, class_name: "Note"
+
+  has_many :appointments
+  has_one :previous_appointment, -> { past_or_ongoing.not_canceled.chronological(sort: :desc) }, class_name: "Appointment"
+  has_one :next_appointment, -> { upcoming_or_ongoing.not_canceled.chronological }, class_name: "Appointment"
+  has_many :upcoming_appointments, -> { upcoming_or_ongoing.not_canceled.chronological }, class_name: "Appointment"
+  has_one :initial_treatment, -> { initial_treatment.chronological(sort: :desc) }, class_name: "Appointment"
+
+  has_many :appointment_reservations
+  has_one :next_appointment_reservation, -> { newest }, class_name: "AppointmentReservation"
+
+  has_many :case_roles
+  has_one :patient_case_role, -> { merge(CaseRole.with_role_names("patient")) }, class_name: "CaseRole"
+  has_many :members, -> { visible.distinct }, through: :case_roles
+  has_one :patient, -> { merge(CaseRole.with_role_names("patient")) }, through: :patient_case_role, source: :member, class_name: "Member"
+  has_many :caregivers, -> { order("case_roles.created_at").merge(CaseRole.with_role_names("caregiver")) }, through: :case_roles, source: :member, class_name: "Member"
+  has_many :patients, -> { merge(CaseRole.with_role_names("patient")) }, through: :case_roles, source: :member, class_name: "Member"
+  has_many :primary_members, -> { merge(CaseRole.primary_case_roles) }, through: :case_roles, source: :member, class_name: "Member"
+  has_many :secondary_members, -> { merge(CaseRole.secondary_case_roles) }, through: :case_roles, source: :member, class_name: "Member"
+  has_one :caregiver_provided_patient_information
+  has_one :patient_information_journey, class_name: "PatientInformation::Journey"
+  has_many :candid_patients
+
+  has_one :square_customer
+  has_many :square_payment_methods, through: :square_customer
+  has_many :square_payments, through: :square_payment_methods
+
+  has_many :handouts, -> { merge(AssignedExercise.handouts) }, class_name: "AssignedExercise"
+  has_many :digital_exercises, -> { merge(AssignedExercise.digital_exercises) }, class_name: "AssignedExercise"
+  has_many :assigned_exercises
+  has_many :completed_exercises, through: :assigned_exercises
+  has_many :fears
+  has_many :assessment_assignments
+  has_many :connect_assignments, class_name: "Connect::Assignment"
+  has_many :service_line_recommendations
+  has_many :service_line_enrollments, class_name: "ServiceLine::Enrollment"
+
+  has_many :care_case_clinics
+  has_many :clinics, through: :care_case_clinics
+
+  has_many :account_promotions, through: :account
+  has_many :assignments, class_name: "Paperwork::Assignment"
+  has_many :cardiovascular_screens
+  has_many :care_case_covered_entities
+  has_many :cgi_scores
+  has_many :goals
+  has_many :coverage_infos
+  has_many :covered_entities, through: :care_case_covered_entities
+  has_many :diagnoses
+  has_many :initial_consultations
+  has_many :invoices
+  has_many :medical_histories
+  has_many :payment_form_assignments
+  has_many :prior_authorization_records
+  has_many :promotions, through: :account_promotions
+  has_many :questionnaire_submissions, class_name: "Paperwork::QuestionnaireSubmission"
+  has_many :signature_requests, class_name: "Paperwork::SignatureRequest"
+  has_many :welkin_custom_data_records
+  has_many :service_line_referrals
+  has_many :clinical_referrals, through: :service_line_referrals, source: :referral, source_type: "ClinicalReferral"
+  has_many :internal_referrals, through: :service_line_referrals, source: :referral, source_type: "ServiceLineReferrals::InternalReferral"
+  has_many :connect_activities
+  has_many :activation_periods
+  has_many :ongoing_eligibility_checks
+  has_one :healthie_care_case_migration, class_name: "Healthie::CareCaseMigration"
+
+  has_one :scheduling_preferences, class_name: "CareCase::SchedulingPreferences"
+
+  has_many :bundles, class_name: "Coco::Bundle"
+
+  # Lead source attribution relationships
+  has_one :care_case_external_provider, dependent: :destroy
+
+  validates :required_capability_ids, array_inclusion: {in: Capability.ids, message: "option %{rejected_values} not allowed"}
+  validates :competency_ids, array_inclusion: {in: COMPETENCIES, message: "option %{rejected_values} not allowed"}
+
+  scope :visible, -> { where(deleted_at: nil) }
+  scope :cared_for_by, ->(staffer_id, primary: false) { where(id: ClinicalRole.where(staffer_id: staffer_id, primary: primary ? true : [true, false]).select(:care_case_id)) if staffer_id.present? }
+  scope :including_test_data, ->(show_test_data) { where(for_testing: false) unless show_test_data }
+  scope :with_status, ->(status) { where(status: status) if status.present? }
+  scope :with_status_or_excluding_pending, ->(status) { where(status: status.present? ? status : (CareCase::Status.all - CareCase::Status.pending).ids) }
+  scope :excluding_pending, -> { where.not(status: CareCase::Status.pending) }
+  scope :with_operational_status, ->(operational_status) { where(operational_status: operational_status) if operational_status.present? }
+  scope :with_operational_status_or_excluding_inactive, ->(operational_status) { where(operational_status: operational_status.present? ? operational_status : OPERATIONAL_STATUSES.keys.without("inactive")) }
+  scope :with_disposition, ->(disposition) { where(disposition: disposition) if disposition.present? }
+  scope :with_member_name_matching, ->(name) { search_by_member_name(name) if name.present? }
+  scope :in_region, ->(region) { for_regions(Region.find(region).self_with_descendants) if region.present? }
+  scope :for_regions, ->(*regions) { where(region_id: regions.flatten.map { |region| Region.find(region).id }) }
+  scope :for_program, ->(program) { where(program_id: Program.find(program).id) if program.present? }
+  scope :in_clinic, ->(clinic_id) { joins(:clinics).where(care_case_clinics: {clinic_id: clinic_id}) if clinic_id.present? }
+  scope :active_in_coaching_program, -> { including_test_data(false).in_treatment.not_operational_status_inactive.where(program_id: Program.coaching.map(&:id)) }
+  scope :accessible_to_coach, ->(staffer) { joins(:account).where(account: Account.cared_for_or_coached_by(staffer)) }
+  scope :ordered, -> { order(created_at: :asc) }
+  scope :with_contract, ->(contract_id) { includes(:covered_entities).where(covered_entities: {contract_id: contract_id}) }
+  scope :with_payer, ->(payer_id) do
+    payer_ids = Array(payer_id).compact_blank
+    return if payer_ids.empty?
+
+    dtc_payer_id = Contracts::Special.direct_to_consumer.payer.id
+    non_dtc_payer_ids = payer_ids - [dtc_payer_id].compact
+
+    conditions = []
+    if payer_ids.include?(dtc_payer_id)
+      # DTC means no active covered entities
+      conditions << where.not(
+        id: CoveredEntity.active_now.joins(:care_case_covered_entities).select(:care_case_id).distinct
+      )
+    end
+    if non_dtc_payer_ids.any?
+      # Non-DTC means has active covered entities with those payers
+      conditions << where(
+        id: CoveredEntity.active_now.with_payer_id(non_dtc_payer_ids).joins(:care_case_covered_entities).select(:care_case_id).distinct
+      )
+    end
+
+    conditions.reduce(&:or)
+  end
+  scope :with_brightline_id, ->(brightline_id) { search_by_brightline_id(brightline_id) if brightline_id.present? }
+  scope :with_healthie_patient_id, ->(healthie_patient_id) { where(healthie_patient_id:) if healthie_patient_id.present? }
+  scope :with_account_brightline_id, ->(account_brightline_id) { joins(:account).where("accounts.brightline_id = ?", account_brightline_id) if account_brightline_id.present? }
+  scope :filtered_by_blended_care_pilot, ->(in_pilot) { where(blended_care_pilot: in_pilot) }
+  scope :filtered_by_upcoming_appointments, ->(enabled = true) { left_joins(:upcoming_appointments).group("care_cases.id").having("COUNT(appointments.id) > 0") if enabled }
+  scope :filtered_by_upcoming_appointments_with_staffer_and_type, ->(root_appointment_type_ids: nil, staffer_id: nil) {
+    relation = left_joins(:upcoming_appointments)
+
+    if root_appointment_type_ids.present?
+      appointment_type_ids = root_appointment_type_ids.flat_map { |root_id|
+        AppointmentType.select_by(root_appointment_type_id: root_id.to_s).map(&:id)
+      }
+      relation = relation.where(appointments: {appointment_type_id: appointment_type_ids}) if appointment_type_ids.present?
+    end
+
+    if staffer_id.present?
+      relation = relation.where(appointments: {staffer_id:})
+    end
+
+    relation.group("care_cases.id").having("COUNT(appointments.id) > 0")
+  }
+  scope :filtered_by_no_upcoming_appointments, ->(enabled = true) { left_joins(:upcoming_appointments).group("care_cases.id").having("COUNT(appointments.id) = 0") if enabled }
+  scope :with_tag, ->(tag_id) { where("tag_ids && ?", "{#{tag_id}}") if tag_id.present? }
+  scope :with_service_line_enrollment, ->(service_line_id) { joins(:service_line_enrollments).where(service_line_enrollments: {service_line_id:}) if service_line_id.present? }
+  scope :with_active_service_line_enrollment, ->(service_line_id) { with_service_line_enrollment(service_line_id).merge(ServiceLine::Enrollment.active) if service_line_id.present? }
+
+  delegate :full_name, to: :patient, prefix: true, allow_nil: true
+  delegate :has_login?, to: :patient, prefix: true, allow_nil: true
+  delegate :first_name, to: :patient, prefix: true, allow_nil: true
+  delegate :last_name, to: :patient, prefix: true, allow_nil: true
+  delegate :first_name_last_initial, to: :patient, prefix: true, allow_nil: true
+  delegate :phone, to: :patient, prefix: true, allow_nil: true
+  delegate :email, to: :patient, prefix: true, allow_nil: true
+  delegate :age, to: :patient, prefix: true, allow_nil: true
+  delegate :date_of_birth, to: :patient, prefix: true, allow_nil: true
+  delegate :timezone, to: :patient, prefix: true, allow_nil: true
+
+  delegate :preferred_name, to: :care_case_patient, prefix: :patient
+  delegate :legal_name, to: :care_case_patient, prefix: :patient
+  delegate :ensured_first_name_with_age, to: :care_case_patient, prefix: :patient
+  delegate :ensured_first_name, to: :care_case_patient, prefix: :patient
+  delegate :ensured_last_name, to: :care_case_patient, prefix: :patient
+  delegate :ensured_full_name, to: :care_case_patient, prefix: :patient
+  delegate :ensured_formatted_age, to: :care_case_patient, prefix: :patient
+
+  delegate :full_name, to: :caregiver, prefix: true, allow_nil: true
+  delegate :first_name, to: :caregiver, prefix: true, allow_nil: true
+  delegate :last_name, to: :caregiver, prefix: true, allow_nil: true
+  delegate :phone, to: :caregiver, prefix: true, allow_nil: true
+  delegate :email, to: :caregiver, prefix: true, allow_nil: true
+  delegate :zip, to: :caregiver, prefix: true, allow_nil: true
+  delegate :last_logged_in_at, to: :caregiver, prefix: true, allow_nil: true
+
+  delegate :id, to: :primary_staffer, prefix: true, allow_nil: true
+  delegate :full_name, to: :primary_staffer, prefix: true, allow_nil: true
+  delegate :first_name, to: :primary_staffer, prefix: true, allow_nil: true
+  delegate :last_name, to: :primary_staffer, prefix: true, allow_nil: true
+  delegate :welkin_worker_id, to: :primary_staffer, prefix: true, allow_nil: true
+  delegate :welkin_v8_user_id, to: :primary_staffer, prefix: true, allow_nil: true
+
+  delegate :name, :member_facing_name, to: :program, prefix: true, allow_nil: true
+
+  alias_attribute :flipper_id, :brightline_id
+
+  after_update :log_operational_status_change, if: :saved_change_to_operational_status?
+  after_update :log_program_change, if: :saved_change_to_program_id?
+  after_create :track_create_events
+
+  DISPOSITION_MAPPINGS = {
+    "unprocessed" => "New",
+    "no_show_left_message" => "No show - left voicemail or message",
+    "no_show_no_message" => "No show - no voicemail",
+    "good_fit_and_interested" => "Good fit for Brightline - interested in joining",
+    "good_fit_but_needs_time_to_decide" => "Good fit for Brightline - would like time to consider joining",
+    "good_fit_but_no_interest" => "Good fit for Brightline - not interested in joining",
+    "no_fit_due_to_location" => "Not a fit - outside supported geographies",
+    "no_fit_due_to_privacy" => "Not a fit - no private location for sessions",
+    "no_fit_due_to_technology_access" => "Not a fit - limited device or data access",
+    "no_fit_due_to_technology_comfort" => "Not a fit - unfamiliar with technology",
+    "no_fit_due_to_insurance_billing" => "Not a fit - needs insurance billing",
+    "no_fit_due_to_caregiver_unavailable" => "Not a fit - caregiver unavailable",
+    "no_fit_due_to_medication_management" => "Not a fit - only medication management",
+    "no_fit_due_to_services_required" => "Not a fit - outside supported services",
+    "no_fit_other" => "Not a fit - other",
+    "unsure" => "Not sure of fit - need to discuss",
+    "unsure_need_clinician_consult" => "Not sure of fit - need clinician consult",
+    "unsupported_age" => "Outside of supported age range",
+    "teenager" => "Is a teenager"
+  }
+
+  OPERATIONAL_STATUSES = {
+    "pending" => "Pending",
+    "active" => "Active",
+    "no_fit" => "Not a fit",
+    "no_show" => "No show",
+    "inactive" => "Inactive"
+  }
+
+  enum :disposition, DISPOSITION_MAPPINGS.keys.zip(DISPOSITION_MAPPINGS.keys).to_h, prefix: :disposition
+  enum :operational_status, OPERATIONAL_STATUSES.keys.zip(OPERATIONAL_STATUSES.keys).to_h, prefix: :operational_status
+  enum :status, Status.enumed
+
+  delegate :before_treatment?, :is_or_was_in_treatment?, to: :explicit_status
+
+  def clinic
+    clinics.first
+  end
+
+  def members_ordered_by_role_name
+    @members_ordered_by_role_name ||= begin
+      ids = case_roles.ordered_by_role_name.pluck(:member_id).uniq
+      Member.where(id: ids).find_ordered(ids)
+    end
+  end
+
+  def members_with_role_names(role_names)
+    ids = case_roles.with_role_names(role_names).ordered_by_role_name.pluck(:member_id).uniq
+    Member.where(id: ids).find_ordered(ids)
+  end
+
+  def care_case_patient
+    patient ? CareCase::Patient.new(patient) : CareCase::NoPatient.new
+  end
+
+  def assign_patient!(member)
+    if patient.present?
+      raise PatientAlreadyAssignedError.new("Case #{id} already has Member #{patient.id} assigned as patient")
+    else
+      case_roles.create!(role_name: "patient", member: member)
+      self.patient = member
+    end
+  end
+
+  def coaching_excluded?
+    return true if patient&.caregiver_provided_patient_information&.indicates_coaching_exclusionary_concern?
+    return true if CareNavigation::Journey.for_care_case(self)&.assessment_assignment&.coaching_excluded?
+
+    false
+  end
+
+  def treatment_excluded?
+    safety_check = SafetyCheck.most_recent_for_care_case(self)
+    return true if safety_check&.risk_factors_present?
+
+    false
+  end
+
+  def assignments_for(member)
+    assignments.includes(:assignable).assigned_to(member).ordered_by_required
+  end
+
+  def assigned_assessments_for(member)
+    assessment_assignments.assigned_to(member).order(:created_at)
+  end
+
+  def subject
+    CareCase::Subject.new(patient: patient, program: program)
+  end
+
+  def add_caregiver!(member)
+    case_roles.create!(role_name: "caregiver", member: member)
+  end
+
+  def add_caregivers!(members)
+    members.each { |member| add_caregiver!(member) }
+  end
+
+  def needs_primary_goal?(staffer)
+    goals.primary.active.for_staffer(staffer).empty?
+  end
+
+  def caregiver
+    @caregiver ||= caregivers.first
+  end
+
+  def secondary_problems
+    problems.excluding(primary_problem).join("; ")
+  end
+
+  def problems
+    Array(super)
+  end
+
+  def humanized_status
+    explicit_status.name
+  end
+
+  # TODO: The `status` method should return this
+  def explicit_status
+    Status.find(status)
+  end
+
+  def humanized_disposition
+    DISPOSITION_MAPPINGS[disposition]
+  end
+
+  def humanized_operational_status
+    OPERATIONAL_STATUSES[operational_status]
+  end
+
+  # TODO: This can be a scope
+  def active_payment_method
+    square_customer&.active_payment_method
+  end
+
+  def has_active_payment_method?
+    active_payment_method.present?
+  end
+
+  def active_promotion
+    account_promotions.unused.ordered.first
+  end
+
+  # NOTE: This will expand in the future to include at least
+  # Track and Progress exercises in addition to Learn
+
+  # TODO: Should this be a scope? It seemed more complicated
+  # when `.or`-ing multiple other scopes together than making it an instance method.
+  def library_exercises
+    assigned_exercises.learn
+  end
+
+  def staffers_by_primacy
+    staffers.includes(:clinical_roles).order("clinical_roles.primary desc")
+  end
+
+  def care_team
+    CareCaseStaffer.for(self, staffers: staffers_for_care_team_display)
+  end
+
+  # Supervisors added via SupervisorCareCaseSync should not appear in the Care Team UI.
+  # A supervisor is hidden if their trainee is also on this care case.
+  def staffers_for_care_team_display
+    return staffers_by_primacy unless Flipper.enabled?(:supervisor_trainee_relationship)
+
+    staffer_ids_on_case = staffer_ids.to_set
+    supervisor_ids = SupervisorTraineeRelationship
+      .where(trainee_id: staffer_ids_on_case)
+      .pluck(:supervisor_id)
+      .to_set & staffer_ids_on_case
+
+    staffers_by_primacy.reject { |staffer| supervisor_ids.include?(staffer.id) }
+  end
+
+  def recent_service_line_referrals
+    service_line_referrals.recent.first(2)
+  end
+
+  def cared_for_by?(staffer)
+    staffers.include?(staffer)
+  end
+
+  def accessible_to_coach?(staffer)
+    cared_for_by?(staffer) || account.coached_by?(staffer)
+  end
+
+  def in_treatment?
+    status == "in_treatment"
+  end
+
+  def referable?
+    patient.present? && !in_therapy?
+  end
+
+  def graduated?
+    status == "post_treatment"
+  end
+
+  def in_coaching?
+    in_treatment? && program&.coaching?
+  end
+
+  def in_therapy?
+    in_treatment? && (program&.behavioral_therapy? || program&.speech_therapy?)
+  end
+
+  def active_service_line_recommendation
+    service_line_recommendations.active.chronological.last
+  end
+
+  def assign_exercise!(form_id:, member:)
+    assigned_exercises.create!(
+      exercise_id: form_id,
+      member: member
+    )
+  end
+
+  def for_teen?
+    Rules::CareCase::TeenCase.call(self)
+  end
+
+  def applicable_for_feature_flag_group?(group)
+    !!account_owner&.applicable_for_feature_flag_group?(group)
+  end
+
+  def mark_as_deleted!(staffer_id)
+    if deletable?
+      update!(deleted_at: Time.zone.now, deleted_by_staffer_id: staffer_id)
+    end
+  end
+
+  def deletable?
+    return false unless pending?
+    return false if active_covered_entities_for_care_case(self).any?
+
+    true
+  end
+
+  def intake_appointment_scheduled?
+    intake_appointment_type_ids = AppointmentType.intake.map(&:id)
+    appointments.any? { |apt| intake_appointment_type_ids.include?(apt.appointment_type_id) }
+  end
+
+  def intake_appointment_completed?
+    intake_appointment_type_ids = AppointmentType.intake.map(&:id)
+    appointments.any? { |apt| intake_appointment_type_ids.include?(apt.appointment_type_id) && apt.completed? }
+  end
+
+  def patient_focus_areas
+    patient.caregiver_provided_patient_information.focus_areas.map { |focus_area| FocusArea.find(focus_area) }.compact_blank
+  end
+
+  def patient_engagement_strategies
+    engagement_strategies = patient.caregiver_provided_patient_information.engagement_strategies
+    EngagementStrategy.all.select { |strategy| engagement_strategies.include?(strategy.id.to_s) }
+  end
+
+  def caregiver_provided_patient_information
+    ActiveSupport::Deprecation.warn("The CareCase#caregiver_provided_patient_information association is deprecated. Please use Member#caregiver_provided_patient_information instead.")
+    super
+  end
+
+  def eligible_members_for_provider_channel
+    members = caregivers.to_a
+    members << patient if for_teen?
+    members
+  end
+
+  def add_note(body, critical: false)
+    return if body.blank?
+    notes.create!(body:, critical:, account_id: account_id)
+  end
+
+  private
+
+  def log_operational_status_change
+    status_change = previous_changes["operational_status"]
+
+    return unless status_change.present?
+
+    EventSystem::Publisher.broadcast(
+      CareCaseOperationalStatusChangedEvent.new(
+        care_case: self,
+        previous_status: status_change.first,
+        status: operational_status
+      )
+    )
+  end
+
+  def log_program_change
+    previous_program_id, new_program_id = saved_changes["program_id"]
+
+    EventSystem::Publisher.broadcast(
+      CareCaseProgramChangedEvent.new(
+        care_case: self,
+        previous_program_id: previous_program_id,
+        program_id: new_program_id
+      )
+    )
+  end
+
+  def track_create_events
+    CareCase::TrackCreateEventsJob.set(wait: 2.hours).perform_later(id)
+  end
+end

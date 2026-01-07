@@ -1,0 +1,11 @@
+# frozen_string_literal: true
+
+class CreateSlotRecaptureConfigurations < ActiveRecord::Migration[8.0]
+  def change
+    create_table :slot_recapture_configurations, id: :uuid do |t|
+      t.jsonb :data, null: false, default: {}
+      t.references :created_by, type: :uuid, foreign_key: { to_table: :staffers }
+      t.datetime :created_at, null: false
+    end
+  end
+end

@@ -1,0 +1,486 @@
+[DEBUG] Watching for changes in setting files /Users/jschuss/.claude/settings.json, /Users/jschuss/Brightline/reef/.claude/settings.local.json...
+[DEBUG] Applying permission update: Adding 37 allow rule(s) to destination 'localSettings': ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch"]
+[DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+[DEBUG] >>>>> getSkillsIfEnabled() CALLED <<<<<
+[DEBUG] ENABLE_SKILLS value: true, type: boolean
+[DEBUG] ENABLE_SKILLS check passed, loading skills...
+[DEBUG] Loading skills from directories: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/jschuss/.claude/skills, project=/Users/jschuss/Brightline/reef/.claude/skills
+[DEBUG] >>>>> getPluginSkills CALLED <<<<<
+[DEBUG] Creating shell snapshot for zsh (/bin/zsh)
+[DEBUG] Looking for shell config file: /Users/jschuss/.zshrc
+[DEBUG] Snapshots directory: /Users/jschuss/.claude/shell-snapshots
+[DEBUG] Creating snapshot at: /Users/jschuss/.claude/shell-snapshots/snapshot-zsh-1761577463696-2behys.sh
+[DEBUG] Shell binary exists: true
+[DEBUG] Execution timeout: 10000ms
+[DEBUG] Writing to temp file: /Users/jschuss/.claude/todos/af98a3a9-3578-42bf-9564-2e30de89f0a7-agent-af98a3a9-3578-42bf-9564-2e30de89f0a7.json.tmp.65434.1761577463698
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /Users/jschuss/.claude/todos/af98a3a9-3578-42bf-9564-2e30de89f0a7-agent-af98a3a9-3578-42bf-9564-2e30de89f0a7.json.tmp.65434.1761577463698 to /Users/jschuss/.claude/todos/af98a3a9-3578-42bf-9564-2e30de89f0a7-agent-af98a3a9-3578-42bf-9564-2e30de89f0a7.json
+[DEBUG] File /Users/jschuss/.claude/todos/af98a3a9-3578-42bf-9564-2e30de89f0a7-agent-af98a3a9-3578-42bf-9564-2e30de89f0a7.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.65434.1761577463789
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 190372 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.65434.1761577463789 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] getPluginSkills: Processing 0 enabled plugins
+[DEBUG] Total plugin skills loaded: 0
+[DEBUG] Total plugin commands loaded: 0
+[DEBUG] Registered 0 hooks from 0 plugins
+[DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, duplicates removed: 0)
+[DEBUG] getSkillsIfEnabled returning: 0 skill dir commands, 0 plugin skills
+[DEBUG] Total plugin agents loaded: 0
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.65434.1761577463985
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 190372 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.65434.1761577463985 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.65434.1761577464013
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 190372 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.65434.1761577464013 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg)
+[ERROR] AxiosError: AxiosError: Request failed with status code 401
+    at UR (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:24:1136)
+    at IncomingMessage.<anonymous> (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:29:9845)
+    at IncomingMessage.emit (node:events:530:35)
+    at IncomingMessage.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at g3A.request (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:31:2129)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async dh2 (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:3574:15030)
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.65434.1761577464052
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 190372 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.65434.1761577464052 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.65434.1761577464081
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 190805 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.65434.1761577464081 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.65434.1761577464385
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 190805 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.65434.1761577464385 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Failed to fetch Grove notice config: AxiosError: Request failed with status code 401
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.65434.1761577464632
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 190805 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.65434.1761577464632 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Getting matching hook commands for SessionStart with query: startup
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.65434.1761577464729
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 190700 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.65434.1761577464729 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.65434.1761577464742
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 190700 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.65434.1761577464742 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] performStartupChecks called
+[DEBUG] Starting background plugin installations
+[DEBUG] performBackgroundPluginInstallations called
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.65434.1761577465628
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 190805 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.65434.1761577465628 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Setting installation status: 0 marketplaces, 0 installable plugins, 0 uninstallable plugins
+[DEBUG] Loaded plugins - Enabled: 0, Disabled: 0, Commands: 0, Agents: 0, Errors: 0
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Shell snapshot created successfully (67724 bytes)
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.65434.1761577465694
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 190805 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.65434.1761577465694 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.65434.1761577466722
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 190805 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.65434.1761577466722 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] FileHistory: Added snapshot for 27a0b66b-a06d-4499-a2a2-5ff85d5920cd, tracking 0 files
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Glob
+[DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Read
+[DEBUG] Getting matching hook commands for PreToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Read
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Glob
+[DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Glob
+[DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Stream started - received first chunk
+[DEBUG] Permission suggestions for Bash: [
+  {
+    "type": "addRules",
+    "rules": [
+      {
+        "toolName": "Bash",
+        "ruleContent": "DISABLE_SPRING=1 bundle exec rspec:*"
+      }
+    ],
+    "behavior": "allow",
+    "destination": "localSettings"
+  }
+]
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Persisting permission update: addRules to source 'localSettings'
+[DEBUG] Persisting 1 allow rule(s) to localSettings
+[DEBUG] Writing to temp file: /Users/jschuss/Brightline/reef/.claude/settings.local.json.tmp.65434.1761577536999
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 2735 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/Brightline/reef/.claude/settings.local.json.tmp.65434.1761577536999 to /Users/jschuss/Brightline/reef/.claude/settings.local.json
+[DEBUG] File /Users/jschuss/Brightline/reef/.claude/settings.local.json written atomically
+[DEBUG] Applying permission update: Adding 1 allow rule(s) to destination 'localSettings': ["Bash(DISABLE_SPRING=1 bundle exec rspec:*)"]
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] No hook environment files found
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.65434.1761577560890
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 190805 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.65434.1761577560890 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] executePreToolHooks called for tool: Bash
+[DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] Permission suggestions for Bash: [
+  {
+    "type": "addRules",
+    "rules": [
+      {
+        "toolName": "Bash",
+        "ruleContent": "ruby -e:*"
+      }
+    ],
+    "behavior": "allow",
+    "destination": "localSettings"
+  }
+]
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Permission suggestions for Edit: [
+  {
+    "type": "setMode",
+    "mode": "acceptEdits",
+    "destination": "session"
+  }
+]
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] FileHistory: Tracked file modification for /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb
+[DEBUG] Writing to temp file: /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb.tmp.65434.1761577836946
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 15162 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb.tmp.65434.1761577836946 to /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb
+[DEBUG] File /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Permission suggestions for Edit: [
+  {
+    "type": "setMode",
+    "mode": "acceptEdits",
+    "destination": "session"
+  }
+]
+[DEBUG] Getting matching hook commands for Notification with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Applying permission update: Setting mode to 'acceptEdits'
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Writing to temp file: /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb.tmp.65434.1761577918038
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 15165 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb.tmp.65434.1761577918038 to /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb
+[DEBUG] File /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb.tmp.65434.1761577924505
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 15168 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb.tmp.65434.1761577924505 to /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb
+[DEBUG] File /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb.tmp.65434.1761577930832
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 15171 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb.tmp.65434.1761577930832 to /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb
+[DEBUG] File /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Edit
+[DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb.tmp.65434.1761577938277
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 15174 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb.tmp.65434.1761577938277 to /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb
+[DEBUG] File /Users/jschuss/Brightline/reef/spec/models/paperwork/access_token_spec.rb written atomically
+[DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] executePreToolHooks called for tool: Grep
+[DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+[DEBUG] Hooks: getAsyncHookResponseAttachments called
+[DEBUG] Hooks: checkForNewResponses called
+[DEBUG] Hooks: Found 0 total hooks in registry
+[DEBUG] Hooks: checkForNewResponses returning 0 responses
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Stream started - received first chunk
+[DEBUG] Getting matching hook commands for Stop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.65434.1761577958072
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 191625 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.65434.1761577958072 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Getting matching hook commands for SessionEnd with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] Cleaned up session snapshot: /Users/jschuss/.claude/shell-snapshots/snapshot-zsh-1761577463696-2behys.sh
+[DEBUG] FileHistory: Making snapshot for message 910a7d51-1504-4aff-9661-914f92562975
+[DEBUG] FileHistory: Added snapshot for 910a7d51-1504-4aff-9661-914f92562975, tracking 1 files
+[DEBUG] Rendering user message with 1 content blocks
+[DEBUG] Block 0: <command-name>/exit</command-name>
+            <command-message>exit</command-message>
+            <...
+[DEBUG] UserCommandMessage rendering: "exit" (args: "none")
+[DEBUG] isSkillFormat: false, prefix: "/"
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.65434.1761582958026
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 191625 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.65434.1761582958026 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.65434.1761582958042
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 191625 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.65434.1761582958042 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.65434.1761582958061
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 192048 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.65434.1761582958061 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically

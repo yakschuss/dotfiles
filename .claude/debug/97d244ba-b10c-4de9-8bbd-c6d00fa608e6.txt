@@ -1,0 +1,140 @@
+[DEBUG] Watching for changes in setting files /Users/jschuss/.claude/settings.json, /Users/jschuss/Brightline/reef/.claude/settings.local.json...
+[DEBUG] Applying permission update: Adding 37 allow rule(s) to destination 'localSettings': ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch"]
+[DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+[DEBUG] >>>>> getSkillsIfEnabled() CALLED <<<<<
+[DEBUG] ENABLE_SKILLS value: true, type: boolean
+[DEBUG] ENABLE_SKILLS check passed, loading skills...
+[DEBUG] Loading skills from directories: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/jschuss/.claude/skills, project=/Users/jschuss/Brightline/reef/.claude/skills
+[DEBUG] >>>>> getPluginSkills CALLED <<<<<
+[DEBUG] Creating shell snapshot for zsh (/bin/zsh)
+[DEBUG] Looking for shell config file: /Users/jschuss/.zshrc
+[DEBUG] Snapshots directory: /Users/jschuss/.claude/shell-snapshots
+[DEBUG] Creating snapshot at: /Users/jschuss/.claude/shell-snapshots/snapshot-zsh-1760986639290-aev2s1.sh
+[DEBUG] Shell binary exists: true
+[DEBUG] Execution timeout: 10000ms
+[DEBUG] Writing to temp file: /Users/jschuss/.claude/todos/97d244ba-b10c-4de9-8bbd-c6d00fa608e6-agent-97d244ba-b10c-4de9-8bbd-c6d00fa608e6.json.tmp.11180.1760986639296
+[DEBUG] Temp file written successfully, size: 2 bytes
+[DEBUG] Renaming /Users/jschuss/.claude/todos/97d244ba-b10c-4de9-8bbd-c6d00fa608e6-agent-97d244ba-b10c-4de9-8bbd-c6d00fa608e6.json.tmp.11180.1760986639296 to /Users/jschuss/.claude/todos/97d244ba-b10c-4de9-8bbd-c6d00fa608e6-agent-97d244ba-b10c-4de9-8bbd-c6d00fa608e6.json
+[DEBUG] File /Users/jschuss/.claude/todos/97d244ba-b10c-4de9-8bbd-c6d00fa608e6-agent-97d244ba-b10c-4de9-8bbd-c6d00fa608e6.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.11180.1760986639324
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1217089 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.11180.1760986639324 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] getPluginSkills: Processing 0 enabled plugins
+[DEBUG] Total plugin skills loaded: 0
+[DEBUG] Total plugin commands loaded: 0
+[DEBUG] Registered 0 hooks from 0 plugins
+[DEBUG] Loaded 0 skills total (managed: 0, user: 0, project: 0)
+[DEBUG] getSkillsIfEnabled returning: 0 skill dir commands, 0 plugin skills
+[DEBUG] Total plugin agents loaded: 0
+[DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg)
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.11180.1760986639564
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1217089 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.11180.1760986639564 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.11180.1760986639644
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1217089 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.11180.1760986639644 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.11180.1760986640051
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1217089 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.11180.1760986640051 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Getting matching hook commands for SessionStart with query: startup
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.11180.1760986640147
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1216984 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.11180.1760986640147 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.11180.1760986640172
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1216984 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.11180.1760986640172 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] performStartupChecks called
+[DEBUG] Starting background plugin installations
+[DEBUG] performBackgroundPluginInstallations called
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.11180.1760986641530
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1217089 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.11180.1760986641530 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Setting installation status: 0 marketplaces, 0 installable plugins, 0 uninstallable plugins
+[DEBUG] Loaded plugins - Enabled: 0, Disabled: 0, Commands: 0, Agents: 0, Errors: 0
+[DEBUG] Skills and commands included in Skill tool:
+[DEBUG] Slash commands included in SlashCommand tool:
+[DEBUG] Shell snapshot created successfully (67724 bytes)
+[DEBUG] Stream started - received first chunk
+[DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+[DEBUG] AutoUpdaterWrapper: Installation type: npm-global, using native: false
+[DEBUG] Getting matching hook commands for SessionStart with query: resume
+[DEBUG] Found 0 hook matchers in settings
+[DEBUG] Matched 0 unique hooks for query "resume" (0 before deduplication)
+[DEBUG] FileHistory: Copied backup 8ee03f2b117c720b@v1 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 67a712af1127c127@v1 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 8ee03f2b117c720b@v2 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 67a712af1127c127@v2 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 4e7fa5767259dc6b@v1 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup fc0fcad3aff51ac4@v1 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 8ee03f2b117c720b@v3 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 4e7fa5767259dc6b@v2 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup fc0fcad3aff51ac4@v2 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 67a712af1127c127@v3 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 8ee03f2b117c720b@v4 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 4e7fa5767259dc6b@v3 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup fc0fcad3aff51ac4@v3 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 8ee03f2b117c720b@v5 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 4e7fa5767259dc6b@v4 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup fc0fcad3aff51ac4@v4 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 8ee03f2b117c720b@v6 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 67a712af1127c127@v4 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 67a712af1127c127@v5 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 98813678b857135c@v1 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 8ee03f2b117c720b@v7 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup fc0fcad3aff51ac4@v5 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 98813678b857135c@v2 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 8ee03f2b117c720b@v8 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup fc0fcad3aff51ac4@v6 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 67a712af1127c127@v6 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 67a712af1127c127@v7 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 8deee345f6358e96@v1 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 67a712af1127c127@v8 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 8deee345f6358e96@v2 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 8ee03f2b117c720b@v9 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 6f9cd443e720f117@v1 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 5b9d0e40d26dca69@v1 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 6f9cd443e720f117@v2 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 5b9d0e40d26dca69@v2 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 6f9cd443e720f117@v3 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 6f9cd443e720f117@v4 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 67a712af1127c127@v9 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 8ee03f2b117c720b@v10 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] FileHistory: Copied backup 8ee03f2b117c720b@v11 from session 6690dd7e-9fcc-49c5-aff8-9b2956cd6b04 to 97d244ba-b10c-4de9-8bbd-c6d00fa608e6
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.11180.1760986653733
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1216984 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.11180.1760986653733 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.11180.1760986653787
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 1216984 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.11180.1760986653787 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically

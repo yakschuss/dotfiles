@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Update Document model to include end_of_flow attribute",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Add end_of_flow: true to HIPAA forms in documents.yml",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Modify Assignment.prioritized scope to handle end_of_flow documents",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Run specs to verify implementation",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  }
+]

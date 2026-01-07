@@ -1,0 +1,201 @@
+require "rails_helper"
+
+RSpec.describe Staffers::Calendaring::TemplateCalendarComponent, type: :component do
+  describe "rendering" do
+    around do |example|
+      with_controller_class ::BaseController do
+        example.run
+      end
+    end
+
+    it "renders template calendar with default settings" do
+      template = build_sample_template
+
+      render_inline(described_class.new(template: template))
+
+      expect(page).to have_css('[data-controller="components--template-calendar-drag"]')
+      expect(page).to have_css('[data-components--template-calendar-drag-step-minutes-value="30"]')
+      expect(page).to have_css('[data-components--template-calendar-drag-editable-value="true"]')
+      expect(page).to have_css('[data-components--template-calendar-drag-days-value="6"]')
+
+      # Should show 6 day headers (Monday through Saturday)
+      expect(page).to have_text("Mon")
+      expect(page).to have_text("Tue")
+      expect(page).to have_text("Wed")
+      expect(page).to have_text("Thu")
+      expect(page).to have_text("Fri")
+      expect(page).to have_text("Sat")
+
+      # Should render grid cells for the calendar
+      expect(page).to have_css(".grid-cell")
+
+      # Should render all template blocks with their IDs
+      template.template_blocks.each do |block|
+        expect(page).to have_css("[data-block-id='#{block.id}']")
+      end
+
+      # Should have exactly 2 blocks total
+      expect(page).to have_css("[data-block-id]", count: 2)
+    end
+
+    it "renders with 30 minute step" do
+      template = build_sample_template
+
+      render_inline(described_class.new(template: template, step: 30.minutes))
+
+      expect(page).to have_css('[data-components--template-calendar-drag-step-minutes-value="30"]')
+
+      # Should render grid cells for the calendar
+      expect(page).to have_css(".grid-cell")
+
+      # Should still render all blocks
+      expect(page).to have_css("[data-block-id]", count: 2)
+    end
+
+    it "renders as non-editable" do
+      template = build_sample_template
+
+      render_inline(described_class.new(template: template, editable: false))
+
+      expect(page).to have_css('[data-components--template-calendar-drag-editable-value="false"]')
+
+      # Should still render all blocks
+      template.template_blocks.each do |block|
+        expect(page).to have_css("[data-block-id='#{block.id}']")
+      end
+    end
+
+    it "renders empty state when no regular hours" do
+      empty_template = build_empty_template
+
+      render_inline(described_class.new(template: empty_template))
+
+      expect(page).to have_text("No Working Hours Set")
+      expect(page).to have_text("Please set hours before configuring time blocks")
+      expect(page).not_to have_css('[data-controller="components--template-calendar-drag"]')
+      expect(page).not_to have_css("[data-block-id]")
+      expect(page).not_to have_css(".grid-cell")
+    end
+
+    it "validates step size" do
+      template = build_sample_template
+
+      expect {
+        described_class.new(template: template, step: 10.minutes)
+      }.to raise_error(ArgumentError, /Step must be either 15 minutes or 30 minutes/)
+    end
+
+    context "default step size based on staffer type" do
+      it "defaults to 15 minute step for coach templates" do
+        coach = FactoryBot.create(:staffer, :coach)
+        template = build_template_for_staffer(coach)
+
+        render_inline(described_class.new(template: template))
+
+        expect(page).to have_css('[data-components--template-calendar-drag-step-minutes-value="15"]')
+      end
+
+      it "defaults to 30 minute step for non-coach templates" do
+        therapist = FactoryBot.create(:staffer, :therapist)
+        template = build_template_for_staffer(therapist)
+
+        render_inline(described_class.new(template: template))
+
+        expect(page).to have_css('[data-components--template-calendar-drag-step-minutes-value="30"]')
+      end
+
+      it "allows explicit step to override default for coach templates" do
+        coach = FactoryBot.create(:staffer, :coach)
+        template = build_template_for_staffer(coach)
+
+        render_inline(described_class.new(template: template, step: 30.minutes))
+
+        expect(page).to have_css('[data-components--template-calendar-drag-step-minutes-value="30"]')
+      end
+
+      it "allows 15 minute step to be explicitly set for non-coach templates" do
+        therapist = FactoryBot.create(:staffer, :therapist)
+        template = build_template_for_staffer(therapist)
+
+        render_inline(described_class.new(template: template, step: 15.minutes))
+
+        expect(page).to have_css('[data-components--template-calendar-drag-step-minutes-value="15"]')
+      end
+    end
+  end
+
+  private
+
+  def build_sample_template
+    template = FactoryBot.create(:calendaring_template,
+      id: SecureRandom.uuid,
+      timezone: "America/New_York",
+      starts_on: 1.week.ago,
+      ends_on: nil)
+
+    # Add regular hours for Monday-Friday (10 AM - 6 PM) and Wednesday (8 AM - 4 PM)
+    template.template_regular_hours << FactoryBot.create(:calendaring_template_regular_hour,
+      template: template,
+      day_of_week: 1,
+      start_time_hour: 10,
+      start_time_minute: 0,
+      end_time_hour: 18,
+      end_time_minute: 0)
+
+    template.template_regular_hours << FactoryBot.create(:calendaring_template_regular_hour,
+      template: template,
+      day_of_week: 3,
+      start_time_hour: 8,
+      start_time_minute: 0,
+      end_time_hour: 16,
+      end_time_minute: 0)
+
+    # Add a couple of blocks
+    ongoing_type = FactoryBot.create(:calendaring_template_block_type,
+      name: "Ongoing Session",
+      duration_minutes: 60)
+
+    template.template_blocks << FactoryBot.create(:calendaring_template_block,
+      template: template,
+      template_block_type: ongoing_type,
+      day_of_week: 1,
+      start_time_hour: 11,
+      start_time_minute: 0)
+
+    template.template_blocks << FactoryBot.create(:calendaring_template_block,
+      template: template,
+      template_block_type: ongoing_type,
+      day_of_week: 3,
+      start_time_hour: 9,
+      start_time_minute: 0)
+
+    template
+  end
+
+  def build_empty_template
+    FactoryBot.create(:calendaring_template,
+      id: SecureRandom.uuid,
+      timezone: "America/New_York",
+      starts_on: 1.week.ago,
+      ends_on: nil)
+  end
+
+  def build_template_for_staffer(staffer)
+    template = FactoryBot.create(:calendaring_template,
+      id: SecureRandom.uuid,
+      staffer: staffer,
+      timezone: "America/New_York",
+      starts_on: 1.week.ago,
+      ends_on: nil)
+
+    template.template_regular_hours << FactoryBot.create(:calendaring_template_regular_hour,
+      template: template,
+      day_of_week: 1,
+      start_time_hour: 10,
+      start_time_minute: 0,
+      end_time_hour: 18,
+      end_time_minute: 0)
+
+    template
+  end
+end

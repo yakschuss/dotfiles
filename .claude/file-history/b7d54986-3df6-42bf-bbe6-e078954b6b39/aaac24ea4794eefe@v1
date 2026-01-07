@@ -1,0 +1,104 @@
+# frozen_string_literal: true
+
+module Members
+  module CareCases
+    class AppointmentSchedulingRequestsController < BaseController
+      include CareCaseScoped
+      include AcuityAppointmentSchedulable
+
+      def show
+        redirect_if_not_scheduleable && return unless current_appointment_scheduling_request.scheduleable?
+        @availability_data = Calendaring::Appointment::Availability::Data.new(
+          date: date,
+          slots: available_appointments
+        )
+      rescue Acuity::Api::Client::Error => e
+        render_availability_error(e)
+      end
+
+      private
+
+      def initial_request?
+        !params[:date].present?
+      end
+
+      def date
+        @date ||= if initial_request?
+          first_available_date(
+            appointment_type: current_appointment_scheduling_request.appointment_type,
+            staffers: [current_appointment_scheduling_request.staffer],
+            timezone: current_appointment_scheduling_request.member.timezone,
+            care_case: current_care_case
+          )
+        else
+          Date.parse(params[:date])
+        end
+      end
+
+      def available_appointments
+        if Flipper.enabled?(:change_calendaring_times_api)
+          availability_request_reporter.track! if initial_request?
+          Calendaring::Api::Availability.times(
+            root_appointment_type: current_appointment_scheduling_request.appointment_type.root_appointment_type,
+            date_range: date..date,
+            timezone: current_appointment_scheduling_request.member.timezone,
+            filters: {
+              appointment_type: current_appointment_scheduling_request.appointment_type,
+              staffers: [current_appointment_scheduling_request.staffer],
+              region: current_care_case.region
+            }
+          ).by_legacy_weekly_view
+        else
+          Calendaring::AvailableAppointments.new(
+            date: date,
+            availability_context: availability_context,
+            availability_request_reporter: legacy_availability_request_reporter
+          )
+        end
+      end
+
+      def availability_request_reporter
+        @availability_request_reporter ||= Calendaring::AppointmentAvailabilityRequestReporter.new(
+          request_context: Calendaring::AvailabilityRequestContext.appointment_scheduling_request,
+          care_case: current_care_case,
+          member: current_appointment_scheduling_request.member,
+          staffers: [current_appointment_scheduling_request.staffer],
+          root_appointment_type: current_appointment_scheduling_request.appointment_type.root_appointment_type,
+          filters: {
+            region: current_care_case.region,
+            appointment_type: current_appointment_scheduling_request.appointment_type,
+            payer: Eligibility::AssumedResponsiblePayer.for(current_care_case)
+          }
+        )
+      end
+
+      def availability_context
+        Calendaring::AvailabilityContext.new(
+          appointment_type: current_appointment_scheduling_request.appointment_type,
+          care_case: current_care_case,
+          member: current_appointment_scheduling_request.member,
+          staffers: [current_appointment_scheduling_request.staffer],
+          request_context: Calendaring::AvailabilityRequestContext.appointment_scheduling_request,
+          interpretation_language_id: current_appointment_scheduling_request.interpretation_language_id
+        )
+      end
+
+      def legacy_availability_request_reporter
+        if initial_request?
+          Calendaring::AppointmentAvailabilityRequestReporter.from_availability_context(availability_context)
+        else
+          Calendaring::NoopAvailabilityRequestReporter.new
+        end
+      end
+
+      def redirect_if_not_scheduleable
+        flash[:error] = helpers.scoped_t(:link_expired)
+        redirect_to members_account_family_path(current_care_case.account)
+      end
+
+      helper_method def current_appointment_scheduling_request
+        @current_appointment_scheduling_request ||= Calendaring::AppointmentSchedulingRequest.where(care_case: current_care_case).find(params[:id])
+      end
+    end
+  end
+end

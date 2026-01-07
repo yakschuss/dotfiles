@@ -1,0 +1,37 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe Staffers::Calendaring::TemplateFormComponent, type: :component do
+  describe "#time_options" do
+    it "includes 11:00 PM" do
+      staffer = FactoryBot.create(:staffer)
+      form = Calendaring::TemplateForm.new(staffer: staffer)
+
+      component = described_class.new(form: form)
+      options = component.send(:time_options)
+
+      expect(options).to include(["11:00 PM", "23:00"])
+    end
+
+    it "ends at 11:00 PM" do
+      staffer = FactoryBot.create(:staffer)
+      form = Calendaring::TemplateForm.new(staffer: staffer)
+
+      component = described_class.new(form: form)
+      options = component.send(:time_options)
+
+      expect(options.last).to eq(["11:00 PM", "23:00"])
+    end
+
+    it "starts at 7:00 AM" do
+      staffer = FactoryBot.create(:staffer)
+      form = Calendaring::TemplateForm.new(staffer: staffer)
+
+      component = described_class.new(form: form)
+      options = component.send(:time_options)
+
+      expect(options.first).to eq(["7:00 AM", "07:00"])
+    end
+  end
+end

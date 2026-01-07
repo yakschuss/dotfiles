@@ -1,0 +1,34 @@
+# frozen_string_literal: true
+
+module SlotRecapture
+  class FilledDetector
+    include EventSystem::Listener
+
+    on(AppointmentScheduledEvent) do |event|
+      next unless Flipper.enabled?(:slot_recapture_enabled)
+
+      new.handle(event)
+    end
+
+    def initialize(config: Configuration.current.data)
+      @config = config
+    end
+
+    def handle(event)
+      return unless @config.auto_detect_filled
+
+      appointment = event.appointment
+
+      opportunity = Opportunity
+        .where(status: [Opportunity::Status.open, Opportunity::Status.offered])
+        .where(staffer_id: appointment.staffer_id)
+        .where(start_time: (appointment.start_time - 1.minute)..(appointment.start_time + 1.minute))
+        .first
+
+      return unless opportunity
+
+      opportunity.filled!
+      Rails.logger.info("[SlotRecapture] Opportunity #{opportunity.id} marked as filled")
+    end
+  end
+end

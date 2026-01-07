@@ -12,3 +12,5 @@ tmp/**/*
 
 .vimrc.local
 node_modules
+
+jack_docs/

@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Fix SQL injection vulnerability in clinic verification query",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Implement IP-based authentication in clinic_from_ip method",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Strengthen session token generation with better entropy",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Test fixes and run linting",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  }
+]

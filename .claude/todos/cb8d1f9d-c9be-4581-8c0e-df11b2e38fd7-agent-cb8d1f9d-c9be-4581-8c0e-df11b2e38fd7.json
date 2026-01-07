@@ -1,0 +1,20 @@
+[
+  {
+    "content": "Analyze the date comparison error in availability_form.rb",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Find the Acuity date query method",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Create console reproduction snippet",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  }
+]

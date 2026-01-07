@@ -1,0 +1,166 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe SlotRecapture::CancellationHandler, type: :model do
+  before do
+    Flipper.enable(:slot_recapture_enabled)
+  end
+
+  after do
+    Flipper.disable(:slot_recapture_enabled)
+  end
+
+  describe "#handle" do
+    def create_eligible_appointment
+      care_case = FactoryBot.create(:care_case)
+      clinic = FactoryBot.create(:clinic)
+      staffer = FactoryBot.create(:staffer)
+      FactoryBot.create(:appointment,
+        care_case: care_case,
+        region: care_case.region,
+        clinic: clinic,
+        staffer: staffer,
+        start_time: 48.hours.from_now,
+        end_time: 49.hours.from_now)
+    end
+
+    it "creates an opportunity for eligible cancellations" do
+      appointment = create_eligible_appointment
+      cancelation = FactoryBot.create(:appointment_cancelation,
+        appointment: appointment,
+        reason: "member_discharged")
+
+      event = AppointmentCanceledEvent.new(
+        appointment: appointment,
+        care_case: appointment.care_case,
+        appointment_cancelation: cancelation,
+        source: :reef
+      )
+
+      expect {
+        described_class.new.handle(event)
+      }.to change(SlotRecapture::Opportunity, :count).by(1)
+    end
+
+    it "enqueues availability verification job" do
+      appointment = create_eligible_appointment
+      cancelation = FactoryBot.create(:appointment_cancelation,
+        appointment: appointment,
+        reason: "member_discharged")
+
+      event = AppointmentCanceledEvent.new(
+        appointment: appointment,
+        care_case: appointment.care_case,
+        appointment_cancelation: cancelation,
+        source: :reef
+      )
+
+      expect {
+        described_class.new.handle(event)
+      }.to have_enqueued_job(SlotRecapture::CancellationHandler::VerifyAvailabilityJob)
+    end
+
+    it "does not create opportunity for ineligible cancellations" do
+      care_case = FactoryBot.create(:care_case)
+      clinic = FactoryBot.create(:clinic)
+      staffer = FactoryBot.create(:staffer)
+      # Appointment with insufficient lead time
+      appointment = FactoryBot.create(:appointment,
+        care_case: care_case,
+        region: care_case.region,
+        clinic: clinic,
+        staffer: staffer,
+        start_time: 12.hours.from_now,
+        end_time: 13.hours.from_now)
+
+      cancelation = FactoryBot.create(:appointment_cancelation,
+        appointment: appointment,
+        reason: "member_discharged")
+
+      event = AppointmentCanceledEvent.new(
+        appointment: appointment,
+        care_case: appointment.care_case,
+        appointment_cancelation: cancelation,
+        source: :reef
+      )
+
+      expect {
+        described_class.new.handle(event)
+      }.not_to change(SlotRecapture::Opportunity, :count)
+    end
+
+    it "does not create opportunity for non-intake appointments" do
+      care_case = FactoryBot.create(:care_case)
+      clinic = FactoryBot.create(:clinic)
+      staffer = FactoryBot.create(:staffer)
+      # Use a non-intake appointment type
+      appointment = FactoryBot.create(:appointment,
+        care_case: care_case,
+        region: care_case.region,
+        clinic: clinic,
+        staffer: staffer,
+        appointment_type_id: "therapy_session_virtual",
+        start_time: 48.hours.from_now,
+        end_time: 49.hours.from_now)
+
+      cancelation = FactoryBot.create(:appointment_cancelation,
+        appointment: appointment,
+        reason: "member_discharged")
+
+      event = AppointmentCanceledEvent.new(
+        appointment: appointment,
+        care_case: appointment.care_case,
+        appointment_cancelation: cancelation,
+        source: :reef
+      )
+
+      expect {
+        described_class.new.handle(event)
+      }.not_to change(SlotRecapture::Opportunity, :count)
+    end
+  end
+
+  describe SlotRecapture::CancellationHandler::VerifyAvailabilityJob do
+    it "marks opportunity as open when availability is confirmed" do
+      opportunity = FactoryBot.create(:slot_recapture_opportunity, status: "pending_verification")
+
+      # Stub Acuity availability check
+      allow(Acuity::Api::Availability::CheckTimes).to receive(:for).and_return([{valid: true}])
+
+      described_class.new.perform(opportunity.id)
+
+      opportunity.reload
+      expect(opportunity.status).to eq("open")
+      expect(opportunity.slot_verified_at).to be_present
+    end
+
+    it "marks opportunity as ineligible when availability is not confirmed" do
+      opportunity = FactoryBot.create(:slot_recapture_opportunity, status: "pending_verification")
+
+      # Stub Acuity availability check to return unavailable
+      allow(Acuity::Api::Availability::CheckTimes).to receive(:for).and_return([{valid: false}])
+
+      described_class.new.perform(opportunity.id)
+
+      opportunity.reload
+      expect(opportunity.status).to eq("ineligible")
+    end
+
+    it "handles missing opportunity gracefully" do
+      expect {
+        described_class.new.perform("non-existent-id")
+      }.not_to raise_error
+    end
+
+    it "skips non-pending opportunities" do
+      opportunity = FactoryBot.create(:slot_recapture_opportunity, :open)
+
+      allow(Acuity::Api::Availability::CheckTimes).to receive(:for)
+
+      described_class.new.perform(opportunity.id)
+
+      expect(Acuity::Api::Availability::CheckTimes).not_to have_received(:for)
+    end
+  end
+end

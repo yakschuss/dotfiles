@@ -1,0 +1,38 @@
+[
+  {
+    "content": "Create Paperwork::ClinicVerificationForm (first_name, last_name, date_of_birth)",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Implement ClinicVerificationsController with verification logic",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Add routes for clinic verification flow",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Create verification form view",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  },
+  {
+    "content": "Write controller and form tests (no let blocks)",
+    "status": "completed",
+    "priority": "medium",
+    "id": "5"
+  },
+  {
+    "content": "Test integration with existing paperwork flow",
+    "status": "completed",
+    "priority": "low",
+    "id": "6"
+  }
+]

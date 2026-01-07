@@ -1,0 +1,1188 @@
+---
+# ATTENTION: This file is sorted. When adding or removing appointment types please make sure to check
+# where in our dropdowns the types should appear. The order affects staffers only.
+# When deactivating a type, please move it to the bottom of the file.
+appointment_types:
+  therapy_diagnostic_evaluation_60minute_virtual:
+    active:
+      _feature_flag: 60_60_60_appointment_types
+      _flag_on: true
+      _flag_off: false
+    root_appointment_type_id: therapy_diagnostic_evaluation
+    name: _t
+    internal_name: Therapy Diagnostic Evaluation (60 minutes) (virtual)
+    acuity_id: <%= ENV["ACUITY_THERAPY_DIAGNOSTIC_EVALUATION_60MINUTE_VIRTUAL_ID"] %>
+    duration: 60
+    buffer: 0
+    mode: video
+    pricing_category_id: initial_virtual
+    requires_audience: true
+  therapy_diagnostic_evaluation_virtual:
+    active: true
+    root_appointment_type_id: therapy_diagnostic_evaluation
+    name: _t
+    internal_name: Therapy Diagnostic Evaluation (virtual)
+    acuity_id: <%= ENV["ACUITY_THERAPY_DIAGNOSTIC_EVALUATION_VIRTUAL_ID"] %>
+    duration: 90
+    buffer: 0
+    mode: video
+    pricing_category_id: initial_virtual
+  therapy_diagnostic_evaluation_60minute_in_person:
+    active:
+      _feature_flag: 60_60_60_appointment_types
+      _flag_on: true
+      _flag_off: false
+    root_appointment_type_id: therapy_diagnostic_evaluation
+    name: _t
+    internal_name: Therapy Diagnostic Evaluation (60 minutes) (in person)
+    acuity_id: <%= ENV["ACUITY_THERAPY_DIAGNOSTIC_EVALUATION_60MINUTE_IN_PERSON_ID"] %>
+    duration: 60
+    buffer: 0
+    mode: in_person
+    pricing_category_id: initial_in_person
+    requires_audience: true
+  therapy_diagnostic_evaluation_in_person:
+    active: true
+    root_appointment_type_id: therapy_diagnostic_evaluation
+    name: _t
+    internal_name: Therapy Diagnostic Evaluation (in person)
+    acuity_id: <%= ENV["ACUITY_THERAPY_DIAGNOSTIC_EVALUATION_IN_PERSON_ID"] %>
+    duration: 90
+    buffer: 0
+    mode: in_person
+    pricing_category_id: initial_in_person
+  therapy_diagnostic_evaluation_followup_virtual:
+    active: true
+    root_appointment_type_id: therapy_diagnostic_evaluation_followup
+    name: _t
+    internal_name: Therapy Diagnostic Evaluation Follow-up (virtual)
+    acuity_id: <%= ENV["ACUITY_THERAPY_DIAGNOSTIC_EVALUATION_FOLLOWUP_VIRTUAL_ID"] %>
+    duration: 55
+    buffer: 5
+    mode: video
+    pricing_category_id: ongoing_virtual
+  therapy_diagnostic_evaluation_followup_in_person:
+    active: true
+    root_appointment_type_id: therapy_diagnostic_evaluation_followup
+    name: _t
+    internal_name: Therapy Diagnostic Evaluation Follow-up (in person)
+    acuity_id: <%= ENV["ACUITY_THERAPY_DIAGNOSTIC_EVALUATION_FOLLOWUP_IN_PERSON_ID"] %>
+    duration: 55
+    buffer: 5
+    mode: in_person
+    pricing_category_id: ongoing_in_person
+  therapy_session_virtual:
+    active: true
+    root_appointment_type_id: therapy_session
+    name: _t
+    internal_name: Therapy Session (virtual)
+    acuity_id: <%= ENV["ACUITY_THERAPY_SESSION_VIRTUAL_ID"] %>
+    duration: 55
+    buffer: 5
+    mode: video
+    pricing_category_id: ongoing_virtual
+  therapy_session_in_person:
+    active: true
+    root_appointment_type_id: therapy_session
+    name: _t
+    internal_name: Therapy Session (in person)
+    acuity_id: <%= ENV["ACUITY_THERAPY_SESSION_IN_PERSON_ID"] %>
+    duration: 55
+    buffer: 5
+    mode: in_person
+    pricing_category_id: ongoing_in_person
+  therapy_session_30minute_virtual:
+    active: true
+    root_appointment_type_id: therapy_session
+    name: _t
+    internal_name: Therapy Session (30 minutes) (virtual)
+    acuity_id: <%= ENV["ACUITY_THERAPY_SESSION_30MINUTE_VIRTUAL_ID"] %>
+    duration: 30
+    buffer: 0
+    mode: video
+    billable_duration_minimum_minutes: 16
+    pricing_category_id: ongoing_virtual
+  therapy_session_30minute_in_person:
+    active: true
+    root_appointment_type_id: therapy_session
+    name: _t
+    internal_name: Therapy Session (30 minutes) (in person)
+    acuity_id: <%= ENV["ACUITY_THERAPY_SESSION_30MINUTE_IN_PERSON_ID"] %>
+    duration: 30
+    buffer: 0
+    mode: in_person
+    billable_duration_minimum_minutes: 16
+    pricing_category_id: ongoing_in_person
+  therapy_caregiver_session_virtual:
+    active: true
+    root_appointment_type_id: therapy_caregiver_session
+    name: _t
+    internal_name: Therapy Caregiver Session (virtual)
+    acuity_id: <%= ENV["ACUITY_THERAPY_CAREGIVER_SESSION_VIRTUAL_ID"] %>
+    duration: 55
+    buffer: 5
+    mode: video
+    pricing_category_id: caregiver_virtual
+  therapy_caregiver_session_in_person:
+    active: true
+    root_appointment_type_id: therapy_caregiver_session
+    name: _t
+    internal_name: Therapy Caregiver Session (in person)
+    acuity_id: <%= ENV["ACUITY_THERAPY_CAREGIVER_SESSION_IN_PERSON_ID"] %>
+    duration: 55
+    buffer: 5
+    mode: in_person
+    pricing_category_id: caregiver_in_person
+  psychological_testing_diagnostic_evaluation_60minute_virtual:
+    active:
+      _feature_flag: 60_60_60_appointment_types
+      _flag_on: true
+      _flag_off: false
+    root_appointment_type_id: psychological_testing_diagnostic_evaluation
+    name: _t
+    internal_name: Psychological Testing Diagnostic Evaluation (60 minutes) (virtual)
+    acuity_id: <%= ENV["ACUITY_PSYCHOLOGICAL_TESTING_DIAGNOSTIC_EVALUATION_60MINUTE_VIRTUAL_ID"] %>
+    duration: 60
+    buffer: 0
+    mode: video
+    pricing_category_id: initial_virtual
+    requires_audience: true
+  psychological_testing_diagnostic_evaluation_virtual:
+    active: true
+    root_appointment_type_id: psychological_testing_diagnostic_evaluation
+    name: _t
+    internal_name: Psychological Testing Diagnostic Evaluation (virtual)
+    acuity_id: <%= ENV["ACUITY_PSYCHOLOGICAL_TESTING_DIAGNOSTIC_EVALUATION_VIRTUAL_ID"] %>
+    duration: 90
+    buffer: 0
+    mode: video
+    pricing_category_id: initial_virtual
+  psychological_testing_diagnostic_evaluation_60minute_in_person:
+    active:
+      _feature_flag: 60_60_60_appointment_types
+      _flag_on: true
+      _flag_off: false
+    root_appointment_type_id: psychological_testing_diagnostic_evaluation
+    name: _t
+    internal_name: Psychological Testing Diagnostic Evaluation (60 minutes) (in person)
+    acuity_id: <%= ENV["ACUITY_PSYCHOLOGICAL_TESTING_DIAGNOSTIC_EVALUATION_60MINUTE_IN_PERSON_ID"] %>
+    duration: 60
+    buffer: 0
+    mode: in_person
+    pricing_category_id: initial_in_person
+    requires_audience: true
+  psychological_testing_diagnostic_evaluation_in_person:
+    active: true
+    root_appointment_type_id: psychological_testing_diagnostic_evaluation
+    name: _t
+    internal_name: Psychological Testing Diagnostic Evaluation (in person)
+    acuity_id: <%= ENV["ACUITY_PSYCHOLOGICAL_TESTING_DIAGNOSTIC_EVALUATION_IN_PERSON_ID"] %>
+    duration: 90
+    buffer: 0
+    mode: in_person
+    pricing_category_id: initial_in_person
+  psychological_testing_3hour_in_person:
+    active:
+      _feature_flag: enable_3hr_psych_testing
+      _flag_on: true
+      _flag_off: false
+    root_appointment_type_id: psychological_testing
+    name: _t
+    internal_name: Psychological Testing (3 hour)
+    acuity_id: <%= ENV["ACUITY_PSYCHOLOGICAL_TESTING_3HOUR_IN_PERSON_ID"] %>
+    duration: 180
+    buffer: 0
+    mode: in_person
+    pricing_category_id: testing_administration_in_person
+  psychological_testing_in_person:
+    active:
+      _feature_flag: deprecate_4hr_psych_testing
+      _flag_on: false
+      _flag_off: true
+    root_appointment_type_id: psychological_testing
+    name: _t
+    internal_name: Psychological Testing (4 hour)
+    acuity_id: <%= ENV["ACUITY_PSYCHOLOGICAL_TESTING_IN_PERSON_ID"] %>
+    duration: 240
+    buffer: 0
+    mode: in_person
+    pricing_category_id: testing_administration_in_person
+  psychological_testing_continued_1hour_in_person:
+    active: true
+    root_appointment_type_id: psychological_testing_continued
+    name: _t
+    internal_name: Psychological Testing Continued (1 hour)
+    acuity_id: <%= ENV["ACUITY_PSYCHOLOGICAL_TESTING_CONTINUED_1HOUR_IN_PERSON_ID"] %>
+    duration: 60
+    buffer: 0
+    mode: in_person
+    pricing_category_id: testing_administration_in_person
+  psychological_testing_continued_2hour_in_person:
+    active: true
+    root_appointment_type_id: psychological_testing_continued
+    name: _t
+    internal_name: Psychological Testing Continued (2 hour)
+    acuity_id: <%= ENV["ACUITY_PSYCHOLOGICAL_TESTING_CONTINUED_2HOUR_IN_PERSON_ID"] %>
+    duration: 120
+    buffer: 0
+    mode: in_person
+    pricing_category_id: testing_administration_in_person
+  psychological_testing_continued_3hour_in_person:
+    active: true
+    root_appointment_type_id: psychological_testing_continued
+    name: _t
+    internal_name: Psychological Testing Continued (3 hour)
+    acuity_id: <%= ENV["ACUITY_PSYCHOLOGICAL_TESTING_CONTINUED_3HOUR_IN_PERSON_ID"] %>
+    duration: 180
+    buffer: 0
+    mode: in_person
+    pricing_category_id: testing_administration_in_person
+  psychological_testing_continued_4hour_in_person:
+    active:
+      _feature_flag: deprecate_4hr_psych_testing
+      _flag_on: false
+      _flag_off: true
+    root_appointment_type_id: psychological_testing_continued
+    name: _t
+    internal_name: Psychological Testing Continued (4 hour)
+    acuity_id: <%= ENV["ACUITY_PSYCHOLOGICAL_TESTING_CONTINUED_4HOUR_IN_PERSON_ID"] %>
+    duration: 240
+    buffer: 0
+    mode: in_person
+    pricing_category_id: testing_administration_in_person
+  psychological_testing_followup_virtual:
+    active: true
+    root_appointment_type_id: psychological_testing_followup
+    name: _t
+    internal_name: Psychological Testing Follow-up (virtual)
+    acuity_id: <%= ENV["ACUITY_PSYCHOLOGICAL_TESTING_FOLLOWUP_VIRTUAL_ID"] %>
+    duration: 55
+    buffer: 5
+    mode: video
+    pricing_category_id: followup_virtual
+  psychological_testing_followup_in_person:
+    active: true
+    root_appointment_type_id: psychological_testing_followup
+    name: _t
+    internal_name: Psychological Testing Follow-up (in person)
+    acuity_id: <%= ENV["ACUITY_PSYCHOLOGICAL_TESTING_FOLLOWUP_IN_PERSON_ID"] %>
+    duration: 55
+    buffer: 5
+    mode: in_person
+    pricing_category_id: followup_in_person
+  psychological_testing_consultation_virtual:
+    active: true
+    root_appointment_type_id: psychological_testing_consultation
+    name: _t
+    internal_name: Psychological Testing Consultation (virtual)
+    acuity_id: <%= ENV["ACUITY_PSYCHOLOGICAL_TESTING_CONSULTATION_VIRTUAL_ID"] %>
+    duration: 55
+    buffer: 5
+    mode: video
+    pricing_category_id: consultation_virtual
+  psychological_testing_consultation_in_person:
+    active: true
+    root_appointment_type_id: psychological_testing_consultation
+    name: _t
+    internal_name: Psychological Testing Consultation (in person)
+    acuity_id: <%= ENV["ACUITY_PSYCHOLOGICAL_TESTING_CONSULTATION_IN_PERSON_ID"] %>
+    duration: 55
+    buffer: 5
+    mode: in_person
+    pricing_category_id: consultation_in_person
+  psychiatry_consultation_virtual:
+    active: true
+    root_appointment_type_id: psychiatry_consultation
+    name: _t
+    internal_name: Psychiatry Consultation (virtual)
+    acuity_id: <%= ENV["ACUITY_PSYCHIATRY_CONSULTATION_VIRTUAL_ID"] %>
+    duration: 55
+    buffer: 5
+    mode: video
+    pricing_category_id: consultation_virtual
+  psychiatry_consultation_in_person:
+    active: true
+    root_appointment_type_id: psychiatry_consultation
+    name: _t
+    internal_name: Psychiatry Consultation (in person)
+    acuity_id: <%= ENV["ACUITY_PSYCHIATRY_CONSULTATION_IN_PERSON_ID"] %>
+    duration: 55
+    buffer: 5
+    mode: in_person
+    pricing_category_id: consultation_in_person
+  psychiatry_diagnostic_evaluation_60minute_virtual:
+    active:
+      _feature_flag: 60_60_60_appointment_types
+      _flag_on: true
+      _flag_off: false
+    root_appointment_type_id: psychiatry_diagnostic_evaluation
+    name: _t
+    internal_name: Psychiatry Diagnostic Evaluation (60 minutes) (virtual)
+    acuity_id: <%= ENV["ACUITY_PSYCHIATRY_DIAGNOSTIC_EVALUATION_60MINUTE_VIRTUAL_ID"] %>
+    duration: 60
+    buffer: 0
+    mode: video
+    pricing_category_id: initial_virtual
+    requires_audience: true
+  psychiatry_diagnostic_evaluation_virtual:
+    active: true
+    root_appointment_type_id: psychiatry_diagnostic_evaluation
+    name: _t
+    internal_name: Psychiatry Diagnostic Evaluation (virtual)
+    acuity_id: <%= ENV["ACUITY_PSYCHIATRY_DIAGNOSTIC_EVALUATION_VIRTUAL_ID"] %>
+    duration: 90
+    buffer: 0
+    mode: video
+    pricing_category_id: initial_virtual
+  psychiatry_diagnostic_evaluation_60minute_in_person:
+    active:
+      _feature_flag: 60_60_60_appointment_types
+      _flag_on: true
+      _flag_off: false
+    root_appointment_type_id: psychiatry_diagnostic_evaluation
+    name: _t
+    internal_name: Psychiatry Diagnostic Evaluation (60 minutes) (in person)
+    acuity_id: <%= ENV["ACUITY_PSYCHIATRY_DIAGNOSTIC_EVALUATION_60MINUTE_IN_PERSON_ID"] %>
+    duration: 60
+    buffer: 0
+    mode: in_person
+    pricing_category_id: initial_in_person
+    requires_audience: true
+  psychiatry_diagnostic_evaluation_in_person:
+    active: true
+    root_appointment_type_id: psychiatry_diagnostic_evaluation
+    name: _t
+    internal_name: Psychiatry Diagnostic Evaluation (in person)
+    acuity_id: <%= ENV["ACUITY_PSYCHIATRY_DIAGNOSTIC_EVALUATION_IN_PERSON_ID"] %>
+    duration: 90
+    buffer: 0
+    mode: in_person
+    pricing_category_id: initial_in_person
+  psychiatry_diagnostic_evaluation_followup_virtual:
+    active: true
+    root_appointment_type_id: psychiatry_diagnostic_evaluation_followup
+    name: _t
+    internal_name: Psychiatry Diagnostic Evaluatio Follow-up Session (virtual)
+    acuity_id: <%= ENV["ACUITY_PSYCHIATRY_DIAGNOSTIC_EVALUATION_FOLLOWUP_VIRTUAL_ID"] %>
+    duration: 55
+    buffer: 5
+    mode: video
+    pricing_category_id: followup_virtual
+  psychiatry_diagnostic_evaluation_followup_in_person:
+    active: true
+    root_appointment_type_id: psychiatry_diagnostic_evaluation_followup
+    name: _t
+    internal_name: Psychiatry Diagnostic Evaluation Follow-up Session (in person)
+    acuity_id: <%= ENV["ACUITY_PSYCHIATRY_DIAGNOSTIC_EVALUATION_FOLLOWUP_IN_PERSON_ID"] %>
+    duration: 55
+    buffer: 5
+    mode: in_person
+    pricing_category_id: followup_in_person
+  psychiatry_session_virtual:
+    active: true
+    root_appointment_type_id: psychiatry_session
+    name: _t
+    internal_name: Psychiatry Session (telehealth)
+    acuity_id: <%= ENV["ACUITY_PSYCHIATRY_SESSION_VIRTUAL_ID"] %>
+    duration: 25
+    buffer: 5
+    mode: video
+    pricing_category_id: ongoing_virtual
+  psychiatry_session_in_person:
+    active: true
+    root_appointment_type_id: psychiatry_session
+    name: _t
+    internal_name: Psychiatry Session (in person)
+    acuity_id: <%= ENV["ACUITY_PSYCHIATRY_SESSION_IN_PERSON_ID"] %>
+    duration: 25
+    buffer: 5
+    mode: in_person
+    pricing_category_id: ongoing_in_person
+  therapy_initial_session:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_THERAPY_INITIAL_SESSION_ENABLED", false)) %>
+    root_appointment_type_id: therapy_initial_session
+    name: _t
+    internal_name: Therapy Initial Session
+    acuity_id: <%= ENV["ACUITY_THERAPY_INITIAL_SESSION_ID"] %>
+    duration: 60
+    buffer: 10
+    mode: video
+    pricing_category_id: initial_virtual
+  coaching_goal_setting:
+    active: true
+    root_appointment_type_id: coaching_goal_setting
+    name: _t
+    internal_name: Welcome Session
+    acuity_id: <%= ENV["ACUITY_COACHING_GOAL_SETTING_ID"] %>
+    duration: 30
+    buffer: 30
+    mode: video
+    pricing_category_id: initial_virtual
+  coaching_goal_setting_with_interpretation:
+    active: true
+    root_appointment_type_id: coaching_goal_setting
+    name: _t
+    internal_name: Welcome Session with Interpreter
+    acuity_id: <%= ENV["ACUITY_COACHING_GOAL_SETTING_WITH_INTERPRETATION_ID"] %>
+    duration: 45
+    buffer: 15
+    mode: video
+    pricing_category_id: initial_virtual
+    communication_assistance: interpretation
+  therapy_telehealth:
+    active: true
+    root_appointment_type_id: therapy_session_legacy
+    name: _t
+    internal_name: Therapy (telehealth)
+    acuity_id: <%= ENV["ACUITY_THERAPY_TELEHEALTH_ID"] %>
+    duration: 55
+    buffer: 5
+    mode: video
+    billable_duration_minimum_minutes: 16
+    pricing_category_id: ongoing_virtual
+  therapy_caregiver_session:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_THERAPY_CAREGIVER_SESSION_ENABLED", false)) %>
+    root_appointment_type_id: therapy_caregiver_session_legacy
+    name: _t
+    internal_name: Therapy Caregiver Session (30 minutes)
+    acuity_id: <%= ENV["ACUITY_THERAPY_CAREGIVER_SESSION_ID"] %>
+    duration: 30
+    buffer: 5
+    mode: video
+    billable_duration_minimum_minutes: 26
+    pricing_category_id: caregiver_virtual
+  booster_session:
+    active: true
+    root_appointment_type_id: booster_session
+    name: _t
+    internal_name: Therapy Booster Session
+    acuity_id: <%= ENV["ACUITY_BOOSTER_SESSION_ID"] %>
+    duration: 55
+    buffer: 5
+    mode: video
+    billable_duration_minimum_minutes: 16
+    pricing_category_id: ongoing_virtual
+  brief_check_in_phone:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_BRIEF_CHECK_IN_PHONE_ENABLED", false)) %>
+    root_appointment_type_id: brief_check_in
+    name: _t
+    internal_name: Therapy Brief Check-in (phone)
+    acuity_id: <%= ENV["ACUITY_BRIEF_CHECK_IN_PHONE_ID"] %>
+    duration: 15
+    buffer: 15
+    mode: phone
+    pricing_category_id: unbillable
+  brief_check_in:
+    active: true
+    root_appointment_type_id: brief_check_in
+    name: _t
+    internal_name: Therapy Brief Check-in
+    acuity_id: <%= ENV["ACUITY_BRIEF_CHECK_IN_ID"] %>
+    duration: 10
+    buffer: 15
+    mode: video
+    pricing_category_id: unbillable
+  coaching_session:
+    active: true
+    root_appointment_type_id: coaching_session
+    name: _t
+    internal_name: Coaching - Session
+    acuity_id: <%= ENV["ACUITY_COACHING_SESSION_ID"] %>
+    duration: 30
+    buffer: 0
+    mode: video
+    pricing_category_id: ongoing_virtual
+  coaching_session_with_interpretation:
+    active: true
+    root_appointment_type_id: coaching_session
+    name: _t
+    internal_name: Coaching - Session with Interpreter
+    acuity_id: <%= ENV["ACUITY_COACHING_SESSION_WITH_INTERPRETATION_ID"] %>
+    duration: 45
+    buffer: 15
+    mode: video
+    pricing_category_id: ongoing_virtual
+    communication_assistance: interpretation
+  coaching_caregiver_session:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_COACHING_CAREGIVER_SESSION_ENABLED", false)) %>
+    root_appointment_type_id: coaching_caregiver_session
+    name: _t
+    internal_name: Coaching Caregiver Session
+    acuity_id: <%= ENV["ACUITY_COACHING_CAREGIVER_SESSION_ID"] %>
+    duration: 30
+    buffer: 0
+    mode: video
+    pricing_category_id: ongoing_virtual
+  coaching_caregiver_session_with_interpretation:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_COACHING_CAREGIVER_SESSION_ENABLED", false)) %>
+    root_appointment_type_id: coaching_caregiver_session
+    name: _t
+    internal_name: Coaching Caregiver Session with Interpreter
+    acuity_id: <%= ENV["ACUITY_COACHING_CAREGIVER_SESSION_WITH_INTERPRETATION_ID"] %>
+    duration: 45
+    buffer: 15
+    mode: video
+    pricing_category_id: ongoing_virtual
+    communication_assistance: interpretation
+  coaching_booster_session:
+    active: true
+    root_appointment_type_id: coaching_booster_session
+    name: _t
+    internal_name: Coaching - Booster Session
+    acuity_id: <%= ENV["ACUITY_COACHING_BOOSTER_SESSION_ID"] %>
+    duration: 30
+    buffer: 0
+    mode: video
+    pricing_category_id: ongoing_virtual
+  coaching_booster_session_with_interpretation:
+    active: true
+    root_appointment_type_id: coaching_booster_session
+    name: _t
+    internal_name: Coaching - Booster Session with Interpreter
+    acuity_id: <%= ENV["ACUITY_COACHING_BOOSTER_SESSION_WITH_INTERPRETATION_ID"] %>
+    duration: 45
+    buffer: 15
+    mode: video
+    pricing_category_id: ongoing_virtual
+    communication_assistance: interpretation
+  coaching_brief_check_in:
+    active: true
+    root_appointment_type_id: coaching_brief_check_in
+    name: _t
+    internal_name: Coaching - Brief Check-in
+    acuity_id: <%= ENV["ACUITY_COACHING_BRIEF_CHECK_IN_ID"] %>
+    duration: 15
+    buffer: 15
+    mode: video
+    pricing_category_id: unbillable
+  coaching_brief_check_in_with_interpretation:
+    active: true
+    root_appointment_type_id: coaching_brief_check_in
+    name: _t
+    internal_name: Coaching - Brief Check-in with Interpreter
+    acuity_id: <%= ENV["ACUITY_COACHING_BRIEF_CHECK_IN_WITH_INTERPRETATION_ID"] %>
+    duration: 30
+    buffer: 15
+    mode: video
+    pricing_category_id: unbillable
+    communication_assistance: interpretation
+  coaching_brief_check_in_phone:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_COACHING_BRIEF_CHECK_IN_PHONE_ENABLED", false)) %>
+    root_appointment_type_id: coaching_brief_check_in
+    name: _t
+    internal_name: Coaching - Brief Check-in (phone)
+    acuity_id: <%= ENV["ACUITY_COACHING_BRIEF_CHECK_IN_PHONE_ID"] %>
+    duration: 15
+    buffer: 15
+    mode: phone
+    pricing_category_id: unbillable
+  coaching_brief_check_in_phone_with_interpretation:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_COACHING_BRIEF_CHECK_IN_PHONE_ENABLED", false)) %>
+    root_appointment_type_id: coaching_brief_check_in
+    name: _t
+    internal_name: Coaching - Brief Check-in (phone) with Interpreter
+    acuity_id: <%= ENV["ACUITY_COACHING_BRIEF_CHECK_IN_PHONE_WITH_INTERPRETATION_ID"] %>
+    duration: 30
+    buffer: 15
+    mode: phone
+    pricing_category_id: unbillable
+    communication_assistance: interpretation
+  autism_spectrum_disorder_coaching_session:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_AUTISM_SPECTRUM_DISORDER_COACHING_SESSION_ENABLED", false)) %>
+    root_appointment_type_id: autism_spectrum_disorder_coaching_session
+    name: _t
+    internal_name: Parent/Caregiver Coaching for Autism - Session
+    acuity_id: <%= ENV["ACUITY_AUTISM_SPECTRUM_DISORDER_COACHING_SESSION_ID"] %>
+    duration: 30
+    buffer: 30
+    mode: video
+    pricing_category_id: ongoing_virtual
+  autism_spectrum_disorder_coaching_session_with_interpretation:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_AUTISM_SPECTRUM_DISORDER_COACHING_SESSION_ENABLED", false)) %>
+    root_appointment_type_id: autism_spectrum_disorder_coaching_session
+    name: _t
+    internal_name: Parent/Caregiver Coaching for Autism - Session with Interpreter
+    acuity_id: <%= ENV["ACUITY_AUTISM_SPECTRUM_DISORDER_COACHING_SESSION_WITH_INTERPRETATION_ID"] %>
+    duration: 30
+    buffer: 30
+    mode: video
+    pricing_category_id: ongoing_virtual
+    communication_assistance: interpretation
+  autism_spectrum_disorder_coaching_brief_check_in:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_AUTISM_SPECTRUM_DISORDER_COACHING_BRIEF_CHECK_IN_ENABLED", false)) %>
+    root_appointment_type_id: autism_spectrum_disorder_coaching_brief_check_in
+    name: _t
+    internal_name: Parent/Caregiver Coaching for Autism - Brief Check-in
+    acuity_id: <%= ENV["ACUITY_AUTISM_SPECTRUM_DISORDER_COACHING_BRIEF_CHECK_IN_ID"] %>
+    duration: 15
+    buffer: 15
+    mode: video
+    pricing_category_id: unbillable
+  autism_spectrum_disorder_coaching_brief_check_in_with_interpretation:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_AUTISM_SPECTRUM_DISORDER_COACHING_BRIEF_CHECK_IN_ENABLED", false)) %>
+    root_appointment_type_id: autism_spectrum_disorder_coaching_brief_check_in
+    name: _t
+    internal_name: Parent/Caregiver Coaching for Autism - Brief Check-in with Interpreter
+    acuity_id: <%= ENV["ACUITY_AUTISM_SPECTRUM_DISORDER_COACHING_BRIEF_CHECK_IN_WITH_INTERPRETATION_ID"] %>
+    duration: 15
+    buffer: 15
+    mode: video
+    pricing_category_id: unbillable
+    communication_assistance: interpretation
+  autism_spectrum_disorder_coaching_brief_check_in_phone:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_AUTISM_SPECTRUM_DISORDER_COACHING_BRIEF_CHECK_IN_PHONE_ENABLED", false)) %>
+    root_appointment_type_id: autism_spectrum_disorder_coaching_brief_check_in
+    name: _t
+    internal_name: Parent/Caregiver Coaching for Autism - Brief Check-in (phone)
+    acuity_id: <%= ENV["ACUITY_AUTISM_SPECTRUM_DISORDER_COACHING_BRIEF_CHECK_IN_PHONE_ID"] %>
+    duration: 15
+    buffer: 15
+    mode: phone
+    pricing_category_id: unbillable
+  autism_spectrum_disorder_coaching_brief_check_in_phone_with_interpretation:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_AUTISM_SPECTRUM_DISORDER_COACHING_BRIEF_CHECK_IN_PHONE_ENABLED", false)) %>
+    root_appointment_type_id: autism_spectrum_disorder_coaching_brief_check_in
+    name: _t
+    internal_name: Parent/Caregiver Coaching for Autism - Brief Check-in (phone) with Interpreter
+    acuity_id: <%= ENV["ACUITY_AUTISM_SPECTRUM_DISORDER_COACHING_BRIEF_CHECK_IN_PHONE_WITH_INTERPRETATION_ID"] %>
+    duration: 15
+    buffer: 15
+    mode: phone
+    pricing_category_id: unbillable
+    communication_assistance: interpretation
+  medication_management:
+    active: true
+    root_appointment_type_id: medication_management
+    name: _t
+    internal_name: Medication Management
+    acuity_id: <%= ENV["ACUITY_MEDICATION_MANAGEMENT_ID"] %>
+    duration: 30
+    buffer: 10
+    mode: video
+    pricing_category_id: ongoing_virtual
+  medication_management_brief_check_in_phone:
+    active: true
+    root_appointment_type_id: medication_management_brief_check_in
+    name: _t
+    internal_name: Medication Management - Brief Check-in (phone)
+    acuity_id: <%= ENV["ACUITY_MEDICATION_MANAGEMENT_BRIEF_CHECK_IN_PHONE_ID"] %>
+    duration: 15
+    buffer: 15
+    mode: phone
+    pricing_category_id: unbillable
+  medication_management_brief_check_in:
+    active: false
+    root_appointment_type_id: medication_management_brief_check_in
+    name: _t
+    internal_name: Medication Management - Brief Check-in
+    acuity_id: <%= ENV["ACUITY_MEDICATION_MANAGEMENT_BRIEF_CHECK_IN_ID"] %>
+    duration: 10
+    buffer: 10
+    mode: video
+    pricing_category_id: unbillable
+  autism_spectrum_disorder_coaching_goal_setting:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_AUTISM_SPECTRUM_DISORDER_COACHING_GOAL_SETTING_ENABLED", false)) %>
+    root_appointment_type_id: autism_spectrum_disorder_coaching_goal_setting
+    name: _t
+    internal_name: Parent/Caregiver Coaching for Autism - Welcome Session
+    acuity_id: <%= ENV["ACUITY_AUTISM_SPECTRUM_DISORDER_COACHING_GOAL_SETTING_ID"] %>
+    duration: 30
+    buffer: 30
+    mode: video
+    pricing_category_id: initial_virtual
+  autism_spectrum_disorder_coaching_goal_setting_with_interpretation:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_AUTISM_SPECTRUM_DISORDER_COACHING_GOAL_SETTING_ENABLED", false)) %>
+    root_appointment_type_id: autism_spectrum_disorder_coaching_goal_setting
+    name: _t
+    internal_name: Parent/Caregiver Coaching for Autism - Welcome Session with Interpreter
+    acuity_id: <%= ENV["ACUITY_AUTISM_SPECTRUM_DISORDER_COACHING_GOAL_SETTING_WITH_INTERPRETATION_ID"] %>
+    duration: 30
+    buffer: 30
+    mode: video
+    pricing_category_id: initial_virtual
+    communication_assistance: interpretation
+  diagnostic_evaluation:
+    active: true
+    root_appointment_type_id: diagnostic_evaluation
+    name: _t
+    internal_name: Diagnostic Evaluation
+    acuity_id: <%= ENV["ACUITY_DIAGNOSTIC_EVALUATION_ID"] %>
+    duration: 60
+    buffer: 15
+    mode: video
+    pricing_category_id: initial_virtual
+  ### TO SORT ###
+  care_guide_session:
+    active: true
+    root_appointment_type_id: care_guide_session
+    name: _t
+    internal_name: Guided Care Initial Session
+    acuity_id: <%= ENV["ACUITY_CARE_GUIDE_SESSION_ID"] %>
+    duration: 30
+    buffer: 30
+    mode: video
+    pricing_category_id: unbillable
+  care_guide_session_with_interpretation:
+    active: true
+    root_appointment_type_id: care_guide_session
+    name: _t
+    internal_name: Guided Care Initial Session with Interpreter
+    acuity_id: <%= ENV["ACUITY_CARE_GUIDE_SESSION_WITH_INTERPRETATION_ID"] %>
+    duration: 45
+    buffer: 15
+    mode: video
+    pricing_category_id: unbillable
+    communication_assistance: interpretation
+  care_guide_session_follow_up:
+    active: true
+    root_appointment_type_id: care_guide_session_follow_up
+    name: _t
+    internal_name: Guided Care Follow-Up Session
+    acuity_id: <%= ENV["ACUITY_CARE_GUIDE_SESSION_FOLLOW_UP_ID"] %>
+    duration: 30
+    buffer: 30
+    mode: video
+    pricing_category_id: unbillable
+  care_guide_session_follow_up_with_interpretation:
+    active: true
+    root_appointment_type_id: care_guide_session_follow_up
+    name: _t
+    internal_name: Guided Care Follow-Up Session with Interpreter
+    acuity_id: <%= ENV["ACUITY_CARE_GUIDE_SESSION_FOLLOW_UP_WITH_INTERPRETATION_ID"] %>
+    duration: 45
+    buffer: 15
+    mode: video
+    pricing_category_id: unbillable
+    communication_assistance: interpretation
+  therapy_parent_management_training_session:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_THERAPY_PARENT_MANAGEMENT_TRAINING_ENABLED", false)) %>
+    root_appointment_type_id: therapy_parent_management_training_session
+    name: _t
+    internal_name: Therapy Caregiver Session (50 minutes)
+    acuity_id: <%= ENV["ACUITY_THERAPY_PARENT_MANAGEMENT_TRAINING_ID"] %>
+    duration: 50
+    buffer: 10
+    mode: video
+    billable_duration_minimum_minutes: 16
+    pricing_category_id: caregiver_virtual
+  therapy_blended_care:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_THERAPY_BLENDED_CARE_ENABLED", false)) %>
+    root_appointment_type_id: therapy_blended_care
+    name: _t
+    internal_name: Therapy Session [30min]
+    acuity_id: <%= ENV["ACUITY_THERAPY_BLENDED_CARE_SESSION_ID"] %>
+    duration: 30
+    buffer: 5
+    mode: video
+    billable_duration_minimum_minutes: 16
+    pricing_category_id: ongoing_virtual
+
+  #################################
+  # ASL related appointment types #
+  #################################
+  therapy_initial_session_asl:
+    active: true
+    root_appointment_type_id: therapy_initial_session
+    name: _t
+    internal_name: Therapy Initial Session [ASL]
+    acuity_id: <%= ENV["ACUITY_THERAPY_INITIAL_SESSION_ASL_ID"] %>
+    duration: 120
+    buffer: 20
+    mode: video
+    pricing_category_id: initial_virtual
+    communication_assistance: asl
+  coaching_goal_setting_asl:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_ASL_ENABLED", false)) %>
+    root_appointment_type_id: coaching_goal_setting
+    name: _t
+    internal_name: Welcome Session [ASL]
+    acuity_id: <%= ENV["ACUITY_COACHING_GOAL_SETTING_ASL_ID"] %>
+    duration: 60
+    buffer: 30
+    mode: video
+    pricing_category_id: initial_virtual
+    communication_assistance: asl
+  therapy_telehealth_asl:
+    active: true
+    root_appointment_type_id: therapy_session_legacy
+    name: _t
+    internal_name: Therapy (telehealth) [ASL]
+    acuity_id: <%= ENV["ACUITY_THERAPY_TELEHEALTH_ASL_ID"] %>
+    duration: 110
+    buffer: 5
+    mode: video
+    billable_duration_minimum_minutes: 16
+    pricing_category_id: ongoing_virtual
+    communication_assistance: asl
+  therapy_caregiver_session_asl:
+    active: true
+    root_appointment_type_id: therapy_caregiver_session_legacy
+    name: _t
+    internal_name: Therapy Caregiver Session (30 minutes) [ASL]
+    acuity_id: <%= ENV["ACUITY_THERAPY_CAREGIVER_SESSION_ASL_ID"] %>
+    duration: 60
+    buffer: 30
+    mode: video
+    billable_duration_minimum_minutes: 26
+    pricing_category_id: caregiver_virtual
+    communication_assistance: asl
+  booster_session_asl:
+    active: true
+    root_appointment_type_id: booster_session
+    name: _t
+    internal_name: Therapy Booster Session [ASL]
+    acuity_id: <%= ENV["ACUITY_BOOSTER_SESSION_ASL_ID"] %>
+    duration: 110
+    buffer: 5
+    mode: video
+    billable_duration_minimum_minutes: 16
+    pricing_category_id: ongoing_virtual
+    communication_assistance: asl
+  brief_check_in_asl:
+    active: true
+    root_appointment_type_id: brief_check_in
+    name: _t
+    internal_name: Therapy Brief Check-in [ASL]
+    acuity_id: <%= ENV["ACUITY_BRIEF_CHECK_IN_ASL_ID"] %>
+    duration: 20
+    buffer: 30
+    mode: video
+    pricing_category_id: unbillable
+    communication_assistance: asl
+  coaching_session_asl:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_ASL_ENABLED", false)) %>
+    root_appointment_type_id: coaching_session
+    name: _t
+    internal_name: Coaching - Session [ASL]
+    acuity_id: <%= ENV["ACUITY_COACHING_SESSION_ASL_ID"] %>
+    duration: 60
+    buffer: 30
+    mode: video
+    pricing_category_id: ongoing_virtual
+    communication_assistance: asl
+  coaching_booster_session_asl:
+    active: true
+    root_appointment_type_id: coaching_booster_session
+    name: _t
+    internal_name: Coaching - Booster Session [ASL]
+    acuity_id: <%= ENV["ACUITY_COACHING_BOOSTER_SESSION_ASL_ID"] %>
+    duration: 60
+    buffer: 30
+    mode: video
+    pricing_category_id: ongoing_virtual
+    communication_assistance: asl
+  coaching_brief_check_in_asl:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_ASL_ENABLED", false)) %>
+    root_appointment_type_id: coaching_brief_check_in
+    name: _t
+    internal_name: Coaching - Brief Check-in [ASL]
+    acuity_id: <%= ENV["ACUITY_COACHING_BRIEF_CHECK_IN_ASL_ID"] %>
+    duration: 30
+    buffer: 30
+    mode: video
+    pricing_category_id: unbillable
+    communication_assistance: asl
+  coaching_caregiver_session_asl:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_COACHING_CAREGIVER_SESSION_ASL_ENABLED", false)) %>
+    root_appointment_type_id: coaching_caregiver_session
+    name: _t
+    internal_name: Coaching Caregiver Session [ASL]
+    acuity_id: <%= ENV["ACUITY_COACHING_CAREGIVER_SESSION_ASL_ID"] %>
+    duration: 60
+    buffer: 30
+    mode: video
+    pricing_category_id: ongoing_virtual
+    communication_assistance: asl
+  autism_spectrum_disorder_coaching_session_asl:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_ASL_ENABLED", false)) %>
+    root_appointment_type_id: autism_spectrum_disorder_coaching_session
+    name: _t
+    internal_name: Parent/Caregiver Coaching for Autism - Session [ASL]
+    acuity_id: <%= ENV["ACUITY_AUTISM_SPECTRUM_DISORDER_COACHING_SESSION_ASL_ID"] %>
+    duration: 60
+    buffer: 30
+    mode: video
+    pricing_category_id: ongoing_virtual
+    communication_assistance: asl
+  autism_spectrum_disorder_coaching_brief_check_in_asl:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_ASL_ENABLED", false)) %>
+    root_appointment_type_id: autism_spectrum_disorder_coaching_brief_check_in
+    name: _t
+    internal_name: Parent/Caregiver Coaching for Autism - Brief Check-in [ASL]
+    acuity_id: <%= ENV["ACUITY_AUTISM_SPECTRUM_DISORDER_COACHING_BRIEF_CHECK_IN_ASL_ID"] %>
+    duration: 30
+    buffer: 30
+    mode: video
+    pricing_category_id: unbillable
+    communication_assistance: asl
+  autism_spectrum_disorder_coaching_goal_setting_asl:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_ASL_ENABLED", false)) %>
+    root_appointment_type_id: autism_spectrum_disorder_coaching_goal_setting
+    name: _t
+    internal_name: Parent/Caregiver Coaching for Autism - Welcome Session [ASL]
+    acuity_id: <%= ENV["ACUITY_AUTISM_SPECTRUM_DISORDER_COACHING_GOAL_SETTING_ASL_ID"] %>
+    duration: 60
+    buffer: 30
+    mode: video
+    pricing_category_id: initial_virtual
+    communication_assistance: asl
+  medication_management_asl:
+    active: true
+    root_appointment_type_id: medication_management
+    name: _t
+    internal_name: Medication Management [ASL]
+    acuity_id: <%= ENV["ACUITY_MEDICATION_MANAGEMENT_ASL_ID"] %>
+    duration: 60
+    buffer: 10
+    mode: video
+    pricing_category_id: ongoing_virtual
+    communication_assistance: asl
+  diagnostic_evaluation_asl:
+    active: true
+    root_appointment_type_id: diagnostic_evaluation
+    name: _t
+    internal_name: Diagnostic Evaluation [ASL]
+    acuity_id: <%= ENV["ACUITY_DIAGNOSTIC_EVALUATION_ASL_ID"] %>
+    duration: 120
+    buffer: 10
+    mode: video
+    pricing_category_id: initial_virtual
+    communication_assistance: asl
+  medication_management_brief_check_in_asl:
+    active: true
+    root_appointment_type_id: medication_management_brief_check_in
+    name: _t
+    internal_name: Medication Management - Brief Check-in [ASL]
+    acuity_id: <%= ENV["ACUITY_MEDICATION_MANAGEMENT_BRIEF_CHECK_IN_ASL_ID"] %>
+    duration: 20
+    buffer: 10
+    mode: video
+    pricing_category_id: unbillable
+    communication_assistance: asl
+
+  ################
+  # Legacy Types #
+  ################
+  first_phone_call:
+    active: false
+    root_appointment_type_id: first_phone_call
+    name: _t
+    internal_name: First Phone Call
+    acuity_id: <%= ENV["ACUITY_FIRST_PHONE_CALL_ID"] %>
+    duration: 15
+    mode: phone
+    pricing_category_id: unbillable
+  coaching_first_phone_call_asl:
+    active: false
+    root_appointment_type_id: first_phone_call
+    name: _t
+    internal_name: Coaching - First Phone Call [ASL]
+    acuity_id: <%= ENV["ACUITY_COACHING_FIRST_PHONE_CALL_ASL_ID"] %>
+    duration: 30
+    mode: phone
+    pricing_category_id: unbillable
+    communication_assistance: asl
+  parent_training:
+    active: false
+    root_appointment_type_id: therapy_caregiver_session_legacy
+    name: _t
+    internal_name: Parent Training
+    acuity_id: <%= ENV["ACUITY_PARENT_TRAINING_ID"] %>
+    duration: 50
+    mode: video
+    pricing_category_id: unbillable
+  slp_eval:
+    active: false
+    root_appointment_type_id: slp_eval
+    name: _t
+    internal_name: Speech Evaluation
+    acuity_id: <%= ENV["ACUITY_SLP_EVAL_ID"] %>
+    duration: 90
+    mode: video
+    pricing_category_id: unbillable
+  slp_eval_asl:
+    active: false
+    root_appointment_type_id: slp_eval
+    name: _t
+    internal_name: Speech Evaluation [ASL]
+    acuity_id: <%= ENV["ACUITY_SLP_EVAL_ASL_ID"] %>
+    duration: 180
+    mode: video
+    pricing_category_id: unbillable
+    communication_assistance: asl
+  slp_eval_direct:
+    active: false
+    root_appointment_type_id: slp_eval
+    name: _t
+    internal_name: Speech Evaluation (direct)
+    acuity_id: <%= ENV["ACUITY_SLP_EVAL_DIRECT_ID"] %>
+    duration: 90
+    mode: video
+    pricing_category_id: unbillable
+  slp_eval_direct_asl:
+    active: false
+    root_appointment_type_id: slp_eval
+    name: _t
+    internal_name: Speech Evaluation (direct) [ASL]
+    acuity_id: <%= ENV["ACUITY_SLP_EVAL_DIRECT_ASL_ID"] %>
+    duration: 180
+    mode: video
+    pricing_category_id: unbillable
+    communication_assistance: asl
+  slp_treatment_telehealth:
+    active: false
+    root_appointment_type_id: slp_treatment
+    name: _t
+    internal_name: Speech Treatment (telehealth)
+    acuity_id: <%= ENV["ACUITY_SLP_TREATMENT_TELEHEALTH_ID"] %>
+    duration: 50
+    mode: video
+    pricing_category_id: unbillable
+  slp_treatment_telehealth_asl:
+    active: false
+    root_appointment_type_id: slp_treatment
+    name: _t
+    internal_name: Speech Treatment (telehealth) [ASL]
+    acuity_id: <%= ENV["ACUITY_SLP_TREATMENT_TELEHEALTH_ASL_ID"] %>
+    duration: 100
+    mode: video
+    pricing_category_id: unbillable
+    communication_assistance: asl
+  medication_evaluation:
+    active: false
+    root_appointment_type_id: diagnostic_evaluation
+    name: _t
+    internal_name: Medication Evaluation
+    acuity_id: <%= ENV["ACUITY_MEDICATION_EVALUATION_ID"] %>
+    duration: 60
+    mode: video
+    pricing_category_id: unbillable
+  parent_therapist_meeting:
+    active: false
+    root_appointment_type_id: parent_therapist_meeting
+    name: _t
+    internal_name: Parent & Therapist Meeting
+    acuity_id: <%= ENV["ACUITY_PARENT_THERAPIST_MEETING_ID"] %>
+    duration: 50
+    mode: video
+    pricing_category_id: unbillable
+  parent_therapist_meeting_asl:
+    active: false
+    root_appointment_type_id: parent_therapist_meeting
+    name: _t
+    internal_name: Parent & Therapist Meeting [ASL]
+    acuity_id: <%= ENV["ACUITY_PARENT_THERAPIST_MEETING_ASL_ID"] %>
+    duration: 100
+    mode: video
+    pricing_category_id: unbillable
+    communication_assistance: asl
+  parent_therapist_consultation_direct:
+    active: false
+    root_appointment_type_id: parent_therapist_meeting
+    name: _t
+    internal_name: Parent & Therapist Consultation (direct)
+    acuity_id: <%= ENV["ACUITY_PARENT_THERAPIST_CONSULTATION_DIRECT_ID"] %>
+    duration: 50
+    mode: video
+    pricing_category_id: unbillable
+  parent_therapist_consultation_direct_asl:
+    active: false
+    root_appointment_type_id: parent_therapist_meeting
+    name: _t
+    internal_name: Parent & Therapist Consultation (direct) [ASL]
+    acuity_id: <%= ENV["ACUITY_PARENT_THERAPIST_CONSULTATION_DIRECT_ASL_ID"] %>
+    duration: 100
+    mode: video
+    pricing_category_id: unbillable
+    communication_assistance: asl
+  child_therapist_meeting:
+    active: false
+    root_appointment_type_id: child_therapist_meeting
+    name: _t
+    internal_name: Child & Therapist Meeting
+    acuity_id: <%= ENV["ACUITY_CHILD_THERAPIST_MEETING_ID"] %>
+    duration: 50
+    mode: video
+    pricing_category_id: unbillable
+  child_therapist_meeting_asl:
+    active: false
+    root_appointment_type_id: child_therapist_meeting
+    name: _t
+    internal_name: Child & Therapist Meeting [ASL]
+    acuity_id: <%= ENV["ACUITY_CHILD_THERAPIST_MEETING_ASL_ID"] %>
+    duration: 100
+    mode: video
+    pricing_category_id: unbillable
+    communication_assistance: asl
+  therapy_in_person:
+    active: false
+    root_appointment_type_id: therapy_session
+    name: _t
+    internal_name: Therapy (in-person)
+    acuity_id: <%= ENV["ACUITY_THERAPY_IN_PERSON_ID"] %>
+    duration: 50
+    mode: in_person
+    pricing_category_id: unbillable
+  coaching_stress_reduction:
+    active: false
+    root_appointment_type_id: coaching_session
+    name: _t
+    internal_name: Coaching for Stressful Days
+    acuity_id: <%= ENV["ACUITY_COACHING_STRESS_REDUCTION_ID"] %>
+    duration: 30
+    mode: video
+    pricing_category_id: unbillable
+  caregiver_coaching_child_tantrums:
+    active: false
+    root_appointment_type_id: coaching_session
+    name: _t
+    internal_name: Caregiver Coaching for Child Tantrums
+    acuity_id: <%= ENV["ACUITY_CAREGIVER_COACHING_CHILD_TANTRUMS_ID"] %>
+    duration: 30
+    mode: video
+    pricing_category_id: unbillable
+  caregiver_coaching_child_anxiety:
+    active: false
+    root_appointment_type_id: coaching_session
+    name: _t
+    internal_name: Caregiver Coaching for Child Anxiety
+    acuity_id: <%= ENV["ACUITY_CAREGIVER_COACHING_CHILD_ANXIETY_ID"] %>
+    duration: 30
+    mode: video
+    pricing_category_id: unbillable
+  coaching_sadness:
+    active: false
+    root_appointment_type_id: coaching_session
+    name: _t
+    internal_name: Coaching for Sadness
+    acuity_id: <%= ENV["ACUITY_COACHING_SADNESS_ID"] %>
+    duration: 30
+    mode: video
+    pricing_category_id: unbillable
+  coaching_organizational_skills:
+    active: false
+    root_appointment_type_id: coaching_session
+    name: _t
+    internal_name: Coaching for Getting Organized
+    acuity_id: <%= ENV["ACUITY_COACHING_ORGANIZATIONAL_SKILLS_ID"] %>
+    duration: 30
+    mode: video
+    pricing_category_id: unbillable
+  coaching_social_emotional_learning:
+    active: false
+    root_appointment_type_id: coaching_session
+    name: _t
+    internal_name: Coaching for Social-Emotional Skills
+    acuity_id: <%= ENV["ACUITY_COACHING_SOCIAL_EMOTIONAL_LEARNING_ID"] %>
+    duration: 30
+    mode: video
+    pricing_category_id: unbillable
+  coaching_wrap_up:
+    active: false
+    root_appointment_type_id: coaching_session
+    name: _t
+    internal_name: Coaching - Wrap Up Session
+    acuity_id: <%= ENV["ACUITY_COACHING_WRAP_UP_ID"] %>
+    duration: 30
+    mode: video
+    pricing_category_id: unbillable

@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Check current status of dotfiles repository",
+    "status": "in_progress",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Remove .oh-my-zsh directory from remote repository",
+    "status": "pending",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Update remote repository with current local dotfiles",
+    "status": "pending",
+    "priority": "medium",
+    "id": "3"
+  },
+  {
+    "content": "Set up automatic syncing for future updates",
+    "status": "pending",
+    "priority": "medium",
+    "id": "4"
+  }
+]

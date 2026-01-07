@@ -1,0 +1,23 @@
+# frozen_string_literal: true
+
+module Triage
+  class ExpireServiceLineRecommendationJob < ApplicationJob
+    queue_as :default
+
+    def perform(service_line_recommendation_id)
+      service_line_recommendation = ::ServiceLineRecommendation.ready_to_expire.where(id: service_line_recommendation_id).first
+      return unless service_line_recommendation
+
+      journey = CareNavigation::Journey.start!(
+        account: service_line_recommendation.care_case.account,
+        care_case: service_line_recommendation.care_case,
+        member: service_line_recommendation.member
+      )
+
+      ActiveRecord::Base.transaction do
+        service_line_recommendation.expire!
+        journey&.reset_journey!
+      end
+    end
+  end
+end

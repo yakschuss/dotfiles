@@ -1,0 +1,143 @@
+# frozen_string_literal: true
+
+module CareCases
+  class AvailabilitiesController < BaseController
+    include CareCaseScoped
+    include ScheduleAppointmentHelpers
+
+    caseload_sidebar
+
+    layout "application_strapless", only: [:show]
+
+    def show
+      @form = Calendaring::AvailabilityForm.new(**clinic_availability_filter_params.reverse_merge(care_case_id: current_care_case.id, account_id: current_care_case.account.id))
+      @form.track_request
+    end
+
+    def slots
+      @slots = if staffers_for_appointment_type.any?
+        Calendaring::AvailableAppointments.new(date_range: date_range, availability_context: availability_context, availability_request_reporter: availability_request_reporter).slots
+      else
+        {}
+      end
+    end
+
+    private
+
+    def initial_request?
+      params[:commit].present?
+    end
+
+    def availability_request_reporter
+      if initial_request?
+        Calendaring::AppointmentAvailabilityRequestReporter.from_availability_context(availability_context)
+      else
+        Calendaring::NoopAvailabilityRequestReporter.new
+      end
+    end
+
+    def care_case_members
+      current_care_case.members_with_role_names([CaseRoleName.caregiver, CaseRoleName.patient, CaseRoleName.external_caregiver])
+    end
+
+    def availability_context
+      Calendaring::AvailabilityContext.new(care_case: current_care_case, member: member, appointment_type: appointment_type, staffers: staffers, request_context: Calendaring::AvailabilityRequestContext.member_support_scheduling)
+    end
+
+    def staffers
+      if filter_params[:staffer_id].present?
+        [CareCaseStaffer.new(care_case: current_care_case, staffer: Staffer.find(filter_params[:staffer_id]))]
+      else
+        staffers_for_appointment_type
+      end
+    end
+
+    helper_method def available_staffers
+      return [] unless appointment_type.present?
+
+      @available_staffers ||= [OpenStruct.new(id: nil, full_name_with_roles: "Any Staffer")] + staffers_for_appointment_type
+    end
+
+    def staffers_for_appointment_type
+      return [] unless appointment_type.present?
+
+      effective_appointment_type = if as_boolean(filter_params[:include_staffers_off_for_intake]) && Calendaring::AvailableStaffers::ALTERNATE_APPOINTMENT_MAPPING[appointment_type].present?
+        Calendaring::AvailableStaffers::ALTERNATE_APPOINTMENT_MAPPING[appointment_type]
+      else
+        appointment_type
+      end
+
+      @staffers_for_appointment_type ||= Calendaring::AvailableStaffers.new(
+        care_case: current_care_case,
+        appointment_type: effective_appointment_type,
+        include_uncredentialed_staffers: as_boolean(filter_params[:include_uncredentialed_staffers]),
+        additional_required_capabilities:
+      ).all
+    end
+
+    def additional_required_capabilities
+      return [] unless appointment_type.coaching?
+
+      if filter_params[:additional_required_capabilities].nil?
+        CareCase::DerivedExtraCapabilities.new(care_case: current_care_case).all
+      else
+        Capability.all.select { |capability| filter_params[:additional_required_capabilities].include?(capability.id.to_s) }
+      end
+    end
+
+    def member
+      @member ||= current_care_case.members.find(filter_params[:member_id])
+    end
+
+    helper_method def date_range
+      start_date..(start_date + 6.days)
+    end
+
+    helper_method def start_date
+      @start_date ||= Date.parse(filter_params[:start_date].presence || Time.zone.today.to_s)
+    end
+
+    helper_method def selected_time
+      return nil unless filter_params[:selected_time]
+      @selected_time ||= Time.use_zone(member.timezone) do
+        Time.zone.parse(filter_params[:selected_time])
+      end
+    end
+
+    helper_method def filter_params
+      params.permit!.slice(
+        :start_date,
+        :selected_time,
+        :member_id,
+        :appointment_type_id,
+        :staffer_id,
+        :participant_ids,
+        :include_uncredentialed_staffers,
+        :include_staffers_off_for_intake,
+        :additional_required_capabilities
+      )
+    end
+
+    def clinic_availability_filter_params
+      params
+        .fetch(:availability_filters, {})
+        .permit(
+          :clinic_id,
+          :payer_id,
+          :appointment_type_mode,
+          :appointment_duration,
+          :root_appointment_type_id,
+          :account_id,
+          :care_case_id,
+          :staffer_id,
+          :interpretation_language_id,
+          staffer_ids: [],
+          clinic_ids: []
+        )
+        .with_defaults(
+          root_appointment_type_id: RootAppointmentType.all.first.id
+        )
+        .to_h.symbolize_keys
+    end
+  end
+end

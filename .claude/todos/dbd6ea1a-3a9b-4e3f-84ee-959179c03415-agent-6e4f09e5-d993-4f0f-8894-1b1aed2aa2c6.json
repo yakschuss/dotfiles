@@ -1,0 +1,44 @@
+[
+  {
+    "content": "Check for Rack::Attack configuration and rate limiting mechanisms",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Examine application security measures (CSRF, authentication)",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Look for anti-enumeration measures",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Review session management and timeout configurations",
+    "status": "completed",
+    "priority": "high",
+    "id": "4"
+  },
+  {
+    "content": "Check audit logging and security monitoring",
+    "status": "completed",
+    "priority": "high",
+    "id": "5"
+  },
+  {
+    "content": "Examine PII/PHI protection measures",
+    "status": "completed",
+    "priority": "high",
+    "id": "6"
+  },
+  {
+    "content": "Look for IP blocking and security middleware",
+    "status": "completed",
+    "priority": "high",
+    "id": "7"
+  }
+]

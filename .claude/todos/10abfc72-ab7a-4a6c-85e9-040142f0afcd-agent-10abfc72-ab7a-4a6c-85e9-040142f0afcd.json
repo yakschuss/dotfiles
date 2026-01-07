@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Update component dependency injection - pass member as parameter",
+    "status": "completed",
+    "priority": "medium",
+    "id": "1"
+  },
+  {
+    "content": "Check all translation file updates from PR feedback",
+    "status": "completed",
+    "priority": "medium",
+    "id": "2"
+  },
+  {
+    "content": "Update view templates to use prism-text-small consistently",
+    "status": "completed",
+    "priority": "medium",
+    "id": "3"
+  },
+  {
+    "content": "Remove unused translation keys",
+    "status": "completed",
+    "priority": "low",
+    "id": "4"
+  }
+]

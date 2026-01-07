@@ -1,0 +1,146 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe SlotRecapture::Match do
+  def build_match(score:, breakdown: {}, entry: nil, opportunity: nil)
+    described_class.new(
+      entry: entry || instance_double(WaitList::Entry),
+      opportunity: opportunity || instance_double(SlotRecapture::Opportunity),
+      score: score,
+      breakdown: {
+        same_provider: 0.0,
+        clinic_match: 0.0,
+        exact_type: 0.0,
+        priority: 0.0,
+        wait_time: 0.0
+      }.merge(breakdown)
+    )
+  end
+
+  describe "#same_provider?" do
+    it "returns true when same_provider breakdown is positive" do
+      match = build_match(score: 0.5, breakdown: {same_provider: 0.4})
+
+      expect(match.same_provider?).to eq(true)
+    end
+
+    it "returns false when same_provider breakdown is zero" do
+      match = build_match(score: 0.5, breakdown: {same_provider: 0.0})
+
+      expect(match.same_provider?).to eq(false)
+    end
+  end
+
+  describe "#clinic_match?" do
+    it "returns true when clinic_match breakdown is positive" do
+      match = build_match(score: 0.5, breakdown: {clinic_match: 0.25})
+
+      expect(match.clinic_match?).to eq(true)
+    end
+
+    it "returns false when clinic_match breakdown is zero" do
+      match = build_match(score: 0.5, breakdown: {clinic_match: 0.0})
+
+      expect(match.clinic_match?).to eq(false)
+    end
+  end
+
+  describe "#quality" do
+    it "returns :strong for scores >= 0.7" do
+      match = build_match(score: 0.7)
+      expect(match.quality).to eq(:strong)
+
+      match = build_match(score: 0.9)
+      expect(match.quality).to eq(:strong)
+    end
+
+    it "returns :partial for scores >= 0.4 and < 0.7" do
+      match = build_match(score: 0.4)
+      expect(match.quality).to eq(:partial)
+
+      match = build_match(score: 0.69)
+      expect(match.quality).to eq(:partial)
+    end
+
+    it "returns :weak for scores < 0.4" do
+      match = build_match(score: 0.39)
+      expect(match.quality).to eq(:weak)
+
+      match = build_match(score: 0.1)
+      expect(match.quality).to eq(:weak)
+    end
+  end
+
+  describe "delegation methods" do
+    it "delegates care_case to entry" do
+      care_case = FactoryBot.build(:care_case)
+      entry = instance_double(WaitList::Entry, care_case: care_case)
+      match = build_match(score: 0.5, entry: entry)
+
+      expect(match.care_case).to eq(care_case)
+    end
+
+    it "delegates patient through care_case" do
+      patient = FactoryBot.build(:child)
+      care_case = instance_double(CareCase, patient: patient)
+      entry = instance_double(WaitList::Entry, care_case: care_case)
+      match = build_match(score: 0.5, entry: entry)
+
+      expect(match.patient).to eq(patient)
+    end
+
+    it "delegates caregivers through care_case" do
+      caregivers = [FactoryBot.build(:member)]
+      care_case = instance_double(CareCase, caregivers: caregivers)
+      entry = instance_double(WaitList::Entry, care_case: care_case)
+      match = build_match(score: 0.5, entry: entry)
+
+      expect(match.caregivers).to eq(caregivers)
+    end
+  end
+
+  describe "#contact_email" do
+    it "returns account owner email when available" do
+      owner = instance_double(Member, email: "owner@example.com")
+      account = instance_double(Account, owner: owner)
+      care_case = instance_double(CareCase, account: account)
+      entry = instance_double(WaitList::Entry, care_case: care_case)
+      match = build_match(score: 0.5, entry: entry)
+
+      expect(match.contact_email).to eq("owner@example.com")
+    end
+
+    it "falls back to patient email when owner is nil" do
+      account = instance_double(Account, owner: nil)
+      patient = instance_double(Member, email: "patient@example.com")
+      care_case = instance_double(CareCase, account: account, patient: patient)
+      entry = instance_double(WaitList::Entry, care_case: care_case)
+      match = build_match(score: 0.5, entry: entry)
+
+      expect(match.contact_email).to eq("patient@example.com")
+    end
+  end
+
+  describe "#contact_phone" do
+    it "returns account owner phone when available" do
+      owner = instance_double(Member, phone: "555-1234")
+      account = instance_double(Account, owner: owner)
+      care_case = instance_double(CareCase, account: account)
+      entry = instance_double(WaitList::Entry, care_case: care_case)
+      match = build_match(score: 0.5, entry: entry)
+
+      expect(match.contact_phone).to eq("555-1234")
+    end
+
+    it "falls back to patient phone when owner is nil" do
+      account = instance_double(Account, owner: nil)
+      patient = instance_double(Member, phone: "555-5678")
+      care_case = instance_double(CareCase, account: account, patient: patient)
+      entry = instance_double(WaitList::Entry, care_case: care_case)
+      match = build_match(score: 0.5, entry: entry)
+
+      expect(match.contact_phone).to eq("555-5678")
+    end
+  end
+end

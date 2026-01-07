@@ -1,0 +1,62 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe Staffers::ReminderChatLinksComponent, type: :component do
+  let(:account) { FactoryBot.create(:account) }
+  let(:care_case) { FactoryBot.create(:care_case, account: account) }
+  let(:staffer) { FactoryBot.create(:staffer) }
+  let(:reminder) { FactoryBot.create(:reminder, account: account, care_case: care_case) }
+
+  let(:sendbird_chat_channel_with_care_case) do
+    FactoryBot.create(:sendbird_chat_channel, account: account, care_case_id: care_case.id)
+  end
+  let(:sendbird_chat_channel_without_care_case) do
+    FactoryBot.create(:sendbird_chat_channel, account: account, care_case_id: nil)
+  end
+
+  before do
+    channels = [
+      instance_double("Chat::AccessibleStafferChannel", care_case_id: care_case.id),
+      instance_double("Chat::AccessibleStafferChannel", care_case_id: nil)
+    ]
+    allow(Chat::AccessibleStafferChannel).to receive(:for_all_members_scoped_to_staffer).and_return(
+      Chat::StafferChannelList.new(channels)
+    )
+  end
+
+  describe "#accessible_staffer_channels" do
+    context "when reminder has care_case_id" do
+      it "returns only channels matching the care case" do
+        component = described_class.new(reminder: reminder, staffer: staffer)
+        channels = component.send(:accessible_staffer_channels)
+
+        expect(channels.length).to eq(1)
+        expect(channels.first.sendbird_chat_channel.care_case_id).to eq(care_case.id)
+      end
+    end
+
+    context "when reminder has care_case_id but no matching channels exist" do
+      let(:other_care_case) { FactoryBot.create(:care_case, account: account) }
+      let(:reminder) { FactoryBot.create(:reminder, account: account, care_case: other_care_case) }
+
+      it "falls back to all channels" do
+        component = described_class.new(reminder: reminder, staffer: staffer)
+        channels = component.send(:accessible_staffer_channels)
+
+        expect(channels.length).to eq(2)
+      end
+    end
+
+    context "when reminder has no care_case_id" do
+      let(:reminder) { FactoryBot.create(:reminder, account: account, care_case: nil) }
+
+      it "returns all channels" do
+        component = described_class.new(reminder: reminder, staffer: staffer)
+        channels = component.send(:accessible_staffer_channels)
+
+        expect(channels.length).to eq(2)
+      end
+    end
+  end
+end

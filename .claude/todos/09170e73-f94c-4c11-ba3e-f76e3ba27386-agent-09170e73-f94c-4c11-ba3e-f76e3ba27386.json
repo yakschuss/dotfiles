@@ -1,0 +1,37 @@
+[
+  {
+    "content": "Investigate TB-1345 branch for trainee/supervisor relationship methods",
+    "status": "completed",
+    "id": "1"
+  },
+  {
+    "content": "Examine Healthie reminder processor for note completion handling",
+    "status": "completed",
+    "id": "2"
+  },
+  {
+    "content": "Research existing workflow patterns for similar features",
+    "status": "completed",
+    "id": "3"
+  },
+  {
+    "content": "Design interface for trainee note completion workflow",
+    "status": "completed",
+    "id": "4"
+  },
+  {
+    "content": "Create new branch TB-1346 from main",
+    "status": "completed",
+    "id": "5"
+  },
+  {
+    "content": "Implement create_supervisor_reminder method in ReminderProcessor",
+    "status": "completed",
+    "id": "6"
+  },
+  {
+    "content": "Write tests for the new workflow",
+    "status": "completed",
+    "id": "7"
+  }
+]

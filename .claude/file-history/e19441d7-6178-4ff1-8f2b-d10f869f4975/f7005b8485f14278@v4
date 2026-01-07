@@ -1,0 +1,17 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe Capability do
+  describe ".coaching_ongoing" do
+    it "is active" do
+      expect(described_class.coaching_ongoing.active).to be true
+    end
+  end
+
+  describe ".active" do
+    it "includes coaching_ongoing" do
+      expect(described_class.active).to include(described_class.coaching_ongoing)
+    end
+  end
+end

@@ -1,0 +1,31 @@
+# frozen_string_literal: true
+
+module Staffers
+  class ReminderChatLinksComponent < ViewComponent::Base
+    attr_reader :reminder, :staffer, :account
+
+    def initialize(reminder:, staffer:)
+      @reminder = reminder
+      @account = reminder.account
+      @staffer = staffer
+    end
+
+    private
+
+    def accessible_staffer_channels
+      all_channels = Chat::AccessibleStafferChannel.for_all_members_scoped_to_staffer(account: account, staffer: staffer)
+
+      channels = if reminder.care_case_id.present?
+        care_case_channels = all_channels.for_care_case(reminder.care_case_id)
+        care_case_channels.any? ? care_case_channels : all_channels
+      else
+        all_channels
+      end
+
+      # Filter out channels without member_participant to prevent URL generation errors
+      # This can happen when supervisors are auto-added to care cases but their chat
+      # channel setup is incomplete (no member sendbird_user)
+      channels.reject { |channel| channel.member_participant.nil? }
+    end
+  end
+end

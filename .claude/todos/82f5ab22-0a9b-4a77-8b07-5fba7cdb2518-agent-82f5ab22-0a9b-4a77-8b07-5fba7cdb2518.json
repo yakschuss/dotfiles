@@ -1,0 +1,27 @@
+[
+  {
+    "content": "Search codebase for insurance coverage and 1199 contract references",
+    "status": "completed",
+    "activeForm": "Searching codebase for insurance coverage and 1199 contract references"
+  },
+  {
+    "content": "Understand how appointments relate to insurance coverage",
+    "status": "completed",
+    "activeForm": "Understanding how appointments relate to insurance coverage"
+  },
+  {
+    "content": "Identify existing patterns for contract-specific logic",
+    "status": "completed",
+    "activeForm": "Identifying existing patterns for contract-specific logic"
+  },
+  {
+    "content": "Implement solution to skip reminder for 1199 coverage",
+    "status": "in_progress",
+    "activeForm": "Implementing solution to skip reminder for 1199 coverage"
+  },
+  {
+    "content": "Write tests for the new logic",
+    "status": "pending",
+    "activeForm": "Writing tests for the new logic"
+  }
+]

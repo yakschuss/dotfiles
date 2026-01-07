@@ -1,0 +1,77 @@
+# frozen_string_literal: true
+
+module Staffers
+  module CareCases::Chats
+    class TabsComponent < ViewComponent::Base
+      include TabHelpers
+
+      attr_reader :care_case, :tab
+
+      def initialize(care_case:, tab:, channels:)
+        @care_case = care_case
+        @tab = tab
+        @channels = channels
+      end
+
+      def member_select_options
+        {
+          caregiver: ["#{care_case.caregiver.first_name} (caregiver)", chat_url("caregiver")],
+          teen: ["#{care_case.patient_preferred_name} (teen)", chat_url("teen")]
+        }.reject { |k, _| @channels[k].blank? }.map { |_, v| v }
+      end
+
+      def staffer_select_options
+        one_channel_per_staffer.map do |channel|
+          [staffer_display_name(channel), staffer_chat_url(channel)]
+        end
+      end
+
+      def one_channel_per_staffer
+        channels.group_by { |channel| channel.sendbird_user.id }.map { |_, grouped_channels| grouped_channels.first }
+      end
+
+      def current_staffer_name
+        return unless params[:sendbird_user_id]
+
+        channel = channels.find { |channel| channel.sendbird_user.id == params[:sendbird_user_id].to_i }
+        staffer_display_name(channel) if channel
+      end
+
+      def channels
+        @channels[tab.to_sym]
+      end
+
+      def chat_url(tab)
+        care_case_chats_path(care_case, tab: tab)
+      end
+
+      private
+
+      def staffer_display_name(channel)
+        role = chat_type_to_role(channel.sendbird_chat_channel.chat_type)
+        view_only_suffix = channel.sendbird_user.spectator? ? " - view only" : ""
+        "#{channel.sendbird_user.nickname} (#{role})#{view_only_suffix}"
+      end
+
+      def staffer_chat_url(channel)
+        care_case_chat_path(
+          care_case,
+          channel.sendbird_chat_channel.id,
+          sendbird_user_id: channel.sendbird_user.id,
+          tab: params[:tab]
+        )
+      end
+
+      def chat_type_to_role(chat_type)
+        case chat_type
+        when Chat::Type.therapist then "therapist"
+        when Chat::Type.prescriber then "prescriber"
+        when Chat::Type.coach then "coach"
+        when Chat::Type.member_support then "Member Support"
+        when Chat::Type.care_guide then "care guide"
+        else "staff"
+        end
+      end
+    end
+  end
+end

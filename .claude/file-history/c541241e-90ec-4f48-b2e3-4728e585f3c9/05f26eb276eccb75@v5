@@ -1,0 +1,65 @@
+<<<<<<< HEAD
+<div class="flex flex-col space-y-3 mb-5">
+  <div class="w-1/2 mt-6 flex">
+    <div class="my-auto mr-4 shrink-0">
+      <p class="prism-text-small">Chat with:</p>
+    </div>
+    <%= select_tag :chat_member_select,
+          options_for_select(member_select_options, chat_url(tab)),
+          onchange: "window.location.href=this.value;",
+          class: "shrink-0 form-select block w-full px-2 py-3 prism-text-small bg-white bg-clip-padding bg-no-repeat border border-solid border-blue rounded-md transition ease-in-out m-0 focus:bg-white focus:border-blue-600 focus:outline-none" %>
+  </div>
+
+  <div class="w-1/2 flex">
+    <div class="my-auto mr-4 shrink-0">
+      <p class="prism-text-small">Chat view:</p>
+    </div>
+    <%= render Wave::Select.new(
+          title: "chat_channel_select",
+          options: channels.map { |channel| [channel.short_name, care_case_chat_path(care_case, channel.sendbird_chat_channel.id, sendbird_user_id: channel.sendbird_user.id, tab: tab)] },
+||||||| parent of 0425809c54 (WIP)
+<div class="flex flex-col space-y-3 mb-5">
+  <div class="w-1/2 mt-6 flex">
+    <div class="my-auto mr-4 shrink-0">
+      <p class="prism-text-small">Chat with:</p>
+    </div>
+    <%= select_tag :chat_member_select,
+          options_for_select(member_select_options, chat_url(params[:tab])),
+          onchange: "window.location.href=this.value;",
+          class: "shrink-0 form-select block w-full px-2 py-3 prism-text-small bg-white bg-clip-padding bg-no-repeat border border-solid border-blue rounded-md transition ease-in-out m-0 focus:bg-white focus:border-blue-600 focus:outline-none" %>
+  </div>
+
+  <div class="w-1/2 flex">
+    <div class="my-auto mr-4 shrink-0">
+      <p class="prism-text-small">Chat view:</p>
+    </div>
+    <%= render Wave::Select.new(
+          title: "chat_channel_select",
+          options: channels.map { |channel| [channel.short_name, care_case_chat_path(care_case, channel.sendbird_chat_channel.id, sendbird_user_id: channel.sendbird_user.id, tab: params[:tab])] },
+=======
+<div class="flex gap-4 mb-5">
+  <div class="flex-1 flex flex-col gap-2" data-controller="select-navigator">
+    <label class="text-sm font-medium text-gray-800">Chat with</label>
+    <%= render Prism::Select.new(
+          title: "chat_member_select",
+          options: member_select_options,
+          selected_option: member_select_options.find { |opt| opt[1] == chat_url(params[:tab]) }&.first || member_select_options.first&.first,
+>>>>>>> 0425809c54 (WIP)
+          data_params: {"data-select-navigator-target": "select"},
+          change_action: "change->select-navigator#navigate",
+          classes: ""
+        ) %>
+  </div>
+
+  <div class="flex-1 flex flex-col gap-2" data-controller="select-navigator">
+    <label class="text-sm font-medium text-gray-800">Staffer</label>
+    <%= render Prism::Select.new(
+          title: "chat_channel_select",
+          options: staffer_select_options,
+          selected_option: current_staffer_name || staffer_select_options.first&.first,
+          data_params: {"data-select-navigator-target": "select"},
+          change_action: "change->select-navigator#navigate",
+          classes: ""
+        ) %>
+  </div>
+</div>

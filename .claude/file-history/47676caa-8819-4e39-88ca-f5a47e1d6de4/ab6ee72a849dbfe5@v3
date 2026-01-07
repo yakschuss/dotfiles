@@ -1,0 +1,93 @@
+# frozen_string_literal: true
+
+module SlotRecapture
+  class Matcher
+    def initialize(config: Configuration.current.data)
+      @config = config
+    end
+
+    def matches_for(opportunity)
+      entries = base_query(opportunity)
+      entries = apply_clinic_filter(entries, opportunity)
+
+      entries
+        .map { |entry| build_match(entry, opportunity) }
+        .sort_by { |m| -m.score }
+        .first(@config.matches_per_opportunity)
+    end
+
+    private
+
+    def base_query(opportunity)
+      WaitList::Entry
+        .active
+        .with_root_appointment_type_id(opportunity.root_appointment_type_id)
+        .joins(:care_case)
+        .where(care_cases: {region_id: opportunity.region_id})
+        .includes(care_case: [:patient, :caregivers, :account, {clinical_roles: :staffer}])
+    end
+
+    def apply_clinic_filter(entries, opportunity)
+      return entries unless @config.clinic_mismatch_excludes
+
+      entries.select do |entry|
+        entry.clinic_ids.blank? || entry.clinic_ids.include?(opportunity.clinic_id)
+      end
+    end
+
+    def build_match(entry, opportunity)
+      breakdown = calculate_breakdown(entry, opportunity)
+      score = breakdown.values.sum
+
+      Match.new(
+        entry: entry,
+        opportunity: opportunity,
+        score: score,
+        breakdown: breakdown
+      )
+    end
+
+    def calculate_breakdown(entry, opportunity)
+      weights = @config.weights
+
+      {
+        same_provider: same_provider_score(entry, opportunity) * weights[:same_provider],
+        clinic_match: clinic_match_score(entry, opportunity) * weights[:clinic_match],
+        exact_type: exact_type_score(entry, opportunity) * weights[:exact_type],
+        priority: priority_score(entry) * weights[:priority],
+        wait_time: wait_time_score(entry) * weights[:wait_time]
+      }
+    end
+
+    def same_provider_score(entry, opportunity)
+      provider_ids = if @config.same_provider_check == "all_staffers"
+        entry.care_case.staffers.pluck(:id)
+      else
+        [entry.care_case.primary_staffer&.id].compact
+      end
+
+      provider_ids.include?(opportunity.staffer_id) ? 1.0 : 0.0
+    end
+
+    def clinic_match_score(entry, opportunity)
+      return 1.0 if entry.clinic_ids.blank? && @config.empty_clinic_ids_means_any
+      return 1.0 if entry.clinic_ids.include?(opportunity.clinic_id)
+      0.0
+    end
+
+    def exact_type_score(entry, opportunity)
+      return 1.0 if entry.appointment_type_id == opportunity.appointment_type_id
+      0.0
+    end
+
+    def priority_score(entry)
+      entry.priority? ? 1.0 : 0.0
+    end
+
+    def wait_time_score(entry)
+      days_waiting = (Time.current.to_date - entry.added_at.to_date).to_i
+      capped_days = [days_waiting, @config.wait_time_cap_days].min
+      capped_days.to_f / @config.wait_time_cap_days
+    end
+  end
+end

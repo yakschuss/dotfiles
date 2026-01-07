@@ -1,0 +1,56 @@
+[
+  {
+    "content": "Remove current_care_case override from LimitedPaperworkSession to fix security vulnerability",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Add proper authorization to payment form modal",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Fix race condition in payment method assignment using .last",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Consolidate duplicate assignment components into single component",
+    "status": "pending",
+    "priority": "medium",
+    "id": "4"
+  },
+  {
+    "content": "Fix component inheritance - use ApplicationComponent instead of ViewComponent::Base",
+    "status": "completed",
+    "priority": "medium",
+    "id": "5"
+  },
+  {
+    "content": "Add proper error handling for assignment completion",
+    "status": "pending",
+    "priority": "medium",
+    "id": "6"
+  },
+  {
+    "content": "Improve authorization logic to be more explicit",
+    "status": "pending",
+    "priority": "medium",
+    "id": "7"
+  },
+  {
+    "content": "Add missing analytics parameters to direct redirects",
+    "status": "pending",
+    "priority": "low",
+    "id": "8"
+  },
+  {
+    "content": "Improve test coverage for session integration",
+    "status": "pending",
+    "priority": "low",
+    "id": "9"
+  }
+]

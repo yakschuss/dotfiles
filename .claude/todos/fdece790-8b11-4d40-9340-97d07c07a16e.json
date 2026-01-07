@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Research Auth0 password change flow and required parameters",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Add new Auth0 API method for changing password with token",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Create new controller action for handling password change form",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Create password change view component based on design",
+    "status": "completed",
+    "priority": "high",
+    "id": "4"
+  },
+  {
+    "content": "Add routes for password change form",
+    "status": "completed",
+    "priority": "medium",
+    "id": "5"
+  }
+]

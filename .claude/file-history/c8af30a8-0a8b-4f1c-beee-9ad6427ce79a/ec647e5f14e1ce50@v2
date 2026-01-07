@@ -1,0 +1,100 @@
+# frozen_string_literal: true
+
+class AddCoachingOngoingCapabilities < ActiveRecord::Migration[8.0]
+  STAFFER_IDS = [
+    "20886bd8-239f-4fa0-a0fc-f7e17132b710", # AJ Harris
+    "598f201e-980d-48bf-a658-1718498cfdc1", # Alexis Goff
+    "80373e88-5f50-4a64-a0e3-39a273b3c4bd", # Blaze Riverstone
+    "aafb52dd-12f7-4e8d-93c9-ed434d0a1481", # Brianna Rachall
+    "f1664153-ca6c-4de5-a1cc-108370eaac70", # Charlene Montgomery
+    "9fc53dbd-5315-4ff6-834b-f1ab202b1297", # Chasikya Rawls
+    "17833d1c-367a-4203-b43b-0549cf7c3123", # Chelsea Ahmed
+    "b16df028-e5f9-4720-95cc-0d422a6a477a", # Cheyanna Matthias
+    "7772162c-3f3e-4372-97f7-7d0b12c85e51", # Corey Finan
+    "f2a2f7e3-487b-479b-8209-0ad889621576", # Cortney Middleton-Beatty
+    "8e10e4cc-99ad-49c7-9da5-3ab9735fde5c", # Deborah Eduakwa
+    "25db4ae8-9c93-42a6-9af9-5384c73de0d1", # Ellene Wright
+    "3d9f2b17-9537-4f94-a53e-d819fefec0f9", # Emily Muscato
+    "3558cbaf-eff5-4d83-9f6b-18ef100977f3", # Erica Allen
+    "135581ea-5dac-4386-9950-608ef9a8b443", # Gentamu Mckinney
+    "777fd318-766e-47d6-b8a9-b78cc7bf6903", # Hannah Neal
+    "2a2d6244-20c6-4934-8033-eb5b0d18eaf3", # Jacqueline Lee
+    "0858c578-bed0-41b4-8681-20ff7bf04663", # Jade Chau
+    "b7dea223-b283-40c2-9cc7-52689a83daa4", # Jessica Elliott
+    "538e91c5-9247-49f9-8314-1ecda04da681", # Jessica Guenther
+    "e0126aa7-1527-4bfd-b3ce-7c3067b9ffee", # Jordan Miller
+    "a3d8a266-0359-402f-a65e-8666f917c404", # Kristin Porter
+    "0e4ec35a-cb63-454f-b3cf-2708bb8fd8a9", # Liz Borman
+    "b54ec69f-3567-4605-8c3d-c6d9429e0a79", # Lyndsie Coon
+    "6605d11e-33f2-4833-a3f3-605810846178", # Marcella Meeks
+    "b2319483-f0c0-40ab-a369-9b878a072b2e", # Margarita Rodriguez
+    "90f3e36f-2c76-49d6-acac-b1318eda11da", # Melissa Heisner
+    "ac843be6-2266-432a-9781-a65b1fd78306", # Michelle Chiles
+    "8e218e9c-5442-44c5-8f56-3c1f9a5791b5", # Neal Sundberg
+    "7a9c0081-9228-4e84-8eb5-b6fd2fd28f92", # Nissa Campbell
+    "b81e2346-72f1-4fa5-a6ba-d7326e612f7c", # Nubia Clermont
+    "4bfa9a1d-cb81-4862-9597-4cb70afaea3c", # Patricia Saiz
+    "3f770885-d421-4458-935e-a6aa7fc69c82", # Sharelle Guyton
+    "5463b6fb-8cdb-44c6-9f86-58ee9ccb0db3", # Trae Wilson
+    "08ea8035-2c22-4911-b327-f41434717aba", # Alexa Esquivel Morales
+    "02ed2d0e-5795-412f-aaf0-29f625115e44", # Alli Jorgensen
+    "233f91f5-cc3c-459a-b6d2-569b02ca671d", # Andres Celis Arias
+    "b5ee2479-568a-4098-ba26-82524bda3402", # Brandi Burton
+    "860e8970-e4e0-4fc5-acd7-c3a4d71b2658", # Denisse Castillo
+    "af1e9184-b7e8-47a2-8dc8-f01d9035ee3a", # Ismeri Rodriguez
+    "23ce79be-237d-4ad3-b330-3c3aa9ddb44c", # Kiel Williams
+    "ea0bc784-3b77-4471-9ae0-d0ad0af5807a"  # Marina Hood
+  ].freeze
+
+  def up
+    created_count = 0
+    skipped_count = 0
+    not_found_staffers = []
+    no_coaching_capability = []
+
+    STAFFER_IDS.each do |staffer_id|
+      staffer = Staffer.find_by(id: staffer_id)
+
+      if staffer.nil?
+        not_found_staffers << staffer_id
+        next
+      end
+
+      coaching_capabilities = CareCapability.where(staffer_id: staffer_id, capability_id: "coaching")
+
+      if coaching_capabilities.empty?
+        no_coaching_capability << "#{staffer.full_name} (#{staffer_id})"
+        next
+      end
+
+      coaching_capabilities.find_each do |capability|
+        result = CareCapability.find_or_create_by(
+          staffer_id: capability.staffer_id,
+          capability_id: "coaching_ongoing",
+          region_id: capability.region_id
+        )
+
+        if result.previously_new_record?
+          created_count += 1
+        else
+          skipped_count += 1
+        end
+      end
+    end
+
+    Rails.logger.info "[AddCoachingOngoingCapabilities] Created #{created_count} coaching_ongoing capabilities"
+    Rails.logger.info "[AddCoachingOngoingCapabilities] Skipped #{skipped_count} (already existed)"
+
+    if not_found_staffers.any?
+      Rails.logger.warn "[AddCoachingOngoingCapabilities] Staffers not found: #{not_found_staffers.join(", ")}"
+    end
+
+    if no_coaching_capability.any?
+      Rails.logger.warn "[AddCoachingOngoingCapabilities] Staffers without coaching capability: #{no_coaching_capability.join(", ")}"
+    end
+  end
+
+  def down
+    raise ActiveRecord::IrreversibleMigration
+  end
+end

@@ -1,0 +1,1588 @@
+2025-12-11T18:44:48.361Z [DEBUG] Watching for changes in setting files /Users/jschuss/.claude/settings.json, /Users/jschuss/Brightline/reef/.claude/settings.local.json...
+2025-12-11T18:44:48.394Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (31.8ms): security find-generic-password -a $USER -w -s "Claude Code"
+2025-12-11T18:44:48.426Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (31.5ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T18:44:48.461Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2025-12-11T18:44:48.461Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2025-12-11T18:44:48.461Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2025-12-11T18:44:48.461Z [DEBUG] [LSP SERVER MANAGER] initialize() called
+2025-12-11T18:44:48.461Z [DEBUG] [LSP SERVER MANAGER] Calling getAllLspServers()
+2025-12-11T18:44:48.466Z [DEBUG] Loading plugin superpowers from source: {"source":"url","url":"https://github.com/obra/superpowers.git"}
+2025-12-11T18:44:48.466Z [DEBUG] Using provided version for superpowers@superpowers-marketplace: 3.6.2
+2025-12-11T18:44:48.469Z [DEBUG] Applying permission update: Adding 86 allow rule(s) to destination 'localSettings': ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)","Bash(gh pr list:*)","mcp__playwright__browser_navigate","mcp__playwright__browser_hover","mcp__playwright__browser_take_screenshot","Skill(superpowers:systematic-debugging)","mcp__playwright__browser_snapshot","mcp__playwright__browser_click","mcp__playwright__browser_tabs","mcp__playwright__browser_console_messages","mcp__playwright__browser_evaluate","mcp__playwright__browser_wait_for","Bash(curl:*)","Bash(tr:*)","mcp__playwright__browser_type","mcp__playwright__browser_select_option","mcp__playwright__browser_fill_form","mcp__figma-desktop__get_screenshot","Bash(spec/components/staffers/phone_desk/scheduling/validation_error_banner_spec.rb)","Skill(superpowers:brainstorming)","Bash(git pull:*)","Bash(git add:*)","Bash(.env)","mcp__figma-desktop__get_design_context","Bash(ruby -rjson -e:*)","Bash(git reset:*)","Bash(git stash:*)","Bash(git checkout:*)","Bash(git commit:*)","Bash(git branch:*)","Bash(git show:*)","Bash(bundle install:*)","Bash(ruby:*)","Bash(for concern in reminder_subject soft_deletion callable deliverable)","Bash(do echo '=== $concern.rb ===' grep -l include.*$concern /Users/jschuss/Brightline/reef/app/models/*.rb)","Bash(sort:*)","Bash(wc:*)","Bash(script/lint:*)","Bash(bundle exec rubocop:*)","Bash(script/add_feature_flag:*)","Bash(./script/add_feature_flag:*)","Bash(git diff:*)","Bash(git rev-parse:*)","Bash(RAILS_ENV=test bundle exec rails runner:*)","Bash(psql:*)"]
+2025-12-11T18:44:48.473Z [DEBUG] Using versioned cached plugin superpowers from /Users/jschuss/.claude/plugins/cache/superpowers-marketplace/superpowers/3.6.2
+2025-12-11T18:44:48.475Z [DEBUG] Loaded hooks from standard location for plugin superpowers: /Users/jschuss/.claude/plugins/cache/superpowers-marketplace/superpowers/3.6.2/hooks/hooks.json
+2025-12-11T18:44:48.476Z [DEBUG] Found 1 plugins (1 enabled, 0 disabled)
+2025-12-11T18:44:48.484Z [DEBUG] Loading skills from directories: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/jschuss/.claude/skills, project=[]
+2025-12-11T18:44:48.484Z [DEBUG] >>>>> getPluginSkills CALLED <<<<<
+2025-12-11T18:44:48.484Z [DEBUG] Passes: Cache stale, returning cached data and refreshing in background
+2025-12-11T18:44:48.639Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (151.4ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:44:48.641Z [DEBUG] Loaded 1 installed plugins from /Users/jschuss/.claude/plugins/installed_plugins.json (schema version 1)
+2025-12-11T18:44:48.641Z [DEBUG] Official marketplace auto-install already attempted, skipping
+2025-12-11T18:44:48.693Z [DEBUG] Creating shell snapshot for zsh (/bin/zsh)
+2025-12-11T18:44:48.693Z [DEBUG] Looking for shell config file: /Users/jschuss/.zshrc
+2025-12-11T18:44:48.693Z [DEBUG] Snapshots directory: /Users/jschuss/.claude/shell-snapshots
+2025-12-11T18:44:48.694Z [DEBUG] Creating snapshot at: /Users/jschuss/.claude/shell-snapshots/snapshot-zsh-1765478688693-1bmtxd.sh
+2025-12-11T18:44:48.694Z [DEBUG] Shell binary exists: true
+2025-12-11T18:44:48.694Z [DEBUG] Execution timeout: 10000ms
+2025-12-11T18:44:48.695Z [DEBUG] Writing to temp file: /Users/jschuss/.claude/todos/18fd1cc9-2b52-4c42-bef8-555cf2e07050-agent-18fd1cc9-2b52-4c42-bef8-555cf2e07050.json.tmp.7162.1765478688695
+2025-12-11T18:44:48.709Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (13.6ms)
+2025-12-11T18:44:48.709Z [DEBUG] Temp file written successfully, size: 2 bytes
+2025-12-11T18:44:48.709Z [DEBUG] Renaming /Users/jschuss/.claude/todos/18fd1cc9-2b52-4c42-bef8-555cf2e07050-agent-18fd1cc9-2b52-4c42-bef8-555cf2e07050.json.tmp.7162.1765478688695 to /Users/jschuss/.claude/todos/18fd1cc9-2b52-4c42-bef8-555cf2e07050-agent-18fd1cc9-2b52-4c42-bef8-555cf2e07050.json
+2025-12-11T18:44:48.709Z [DEBUG] File /Users/jschuss/.claude/todos/18fd1cc9-2b52-4c42-bef8-555cf2e07050-agent-18fd1cc9-2b52-4c42-bef8-555cf2e07050.json written atomically
+2025-12-11T18:44:48.713Z [DEBUG] Auto-updating 1 installed marketplaces in background
+2025-12-11T18:44:48.713Z [DEBUG] Auto-updating marketplace "superpowers-marketplace"
+2025-12-11T18:44:48.714Z [DEBUG] getPluginSkills: Processing 1 enabled plugins
+2025-12-11T18:44:48.714Z [DEBUG] Checking plugin superpowers: skillsPath=exists, skillsPaths=0 paths
+2025-12-11T18:44:48.714Z [DEBUG] Attempting to load skills from plugin superpowers default skillsPath: /Users/jschuss/.claude/plugins/cache/superpowers-marketplace/superpowers/3.6.2/skills
+2025-12-11T18:44:48.721Z [DEBUG] Loading hooks from plugin: superpowers
+2025-12-11T18:44:48.721Z [DEBUG] Registered 1 hooks from 1 plugins
+2025-12-11T18:44:48.739Z [DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, duplicates removed: 0)
+2025-12-11T18:44:48.739Z [DEBUG] Loaded 20 skills from plugin superpowers default directory
+2025-12-11T18:44:48.739Z [DEBUG] Total plugin skills loaded: 20
+2025-12-11T18:44:48.739Z [DEBUG] Loaded 3 commands from plugin superpowers default directory
+2025-12-11T18:44:48.739Z [DEBUG] Total plugin commands loaded: 3
+2025-12-11T18:44:48.741Z [DEBUG] getSkills returning: 0 skill dir commands, 20 plugin skills
+2025-12-11T18:44:48.743Z [DEBUG] Loaded 1 agents from plugin superpowers default directory
+2025-12-11T18:44:48.743Z [DEBUG] Total plugin agents loaded: 1
+2025-12-11T18:44:48.776Z [DEBUG] [SLOW OPERATION DETECTED] fs.readdirSync (7.1ms)
+2025-12-11T18:44:48.781Z [DEBUG] Total LSP servers loaded: 0
+2025-12-11T18:44:48.781Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2025-12-11T18:44:48.781Z [DEBUG] LSP manager initialized with 0 servers
+2025-12-11T18:44:48.781Z [DEBUG] LSP server manager initialized successfully
+2025-12-11T18:44:48.781Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2025-12-11T18:44:48.785Z [DEBUG] Git remote URL: https://github.com/hellobrightline/reef.git
+2025-12-11T18:44:48.786Z [DEBUG] Parsed repository: hellobrightline/reef from https://github.com/hellobrightline/reef.git
+2025-12-11T18:44:48.786Z [DEBUG] Parsed repository: hellobrightline/reef from URL: https://github.com/hellobrightline/reef.git
+2025-12-11T18:44:48.786Z [DEBUG] Path /Users/jschuss/Brightline/reef already tracked for repo hellobrightline/reef
+2025-12-11T18:44:48.942Z [DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg)
+2025-12-11T18:44:49.002Z [DEBUG] [SLOW OPERATION DETECTED] fs.readFileSync (10.2ms)
+2025-12-11T18:44:49.018Z [DEBUG] [SLOW OPERATION DETECTED] fs.readFileSync (15.1ms)
+2025-12-11T18:44:49.084Z [DEBUG] [SLOW OPERATION DETECTED] fs.readFileSync (5.9ms)
+2025-12-11T18:44:49.085Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.7162.1765478689085
+2025-12-11T18:44:49.085Z [DEBUG] Preserving file permissions: 100644
+2025-12-11T18:44:49.092Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.2ms)
+2025-12-11T18:44:49.092Z [DEBUG] Temp file written successfully, size: 56275 bytes
+2025-12-11T18:44:49.092Z [DEBUG] Applied original permissions to temp file
+2025-12-11T18:44:49.092Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.7162.1765478689085 to /Users/jschuss/.claude.json
+2025-12-11T18:44:49.099Z [DEBUG] [SLOW OPERATION DETECTED] fs.renameSync (6.8ms)
+2025-12-11T18:44:49.099Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-11T18:44:49.099Z [DEBUG] Passes eligibility cached for org 6dbeab22-feca-4642-bac7-7d87892e7a7e: false
+2025-12-11T18:44:49.109Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.5ms)
+2025-12-11T18:44:49.109Z [DEBUG] Successfully refreshed marketplace: superpowers-marketplace
+2025-12-11T18:44:49.109Z [DEBUG] Successfully auto-updated marketplace "superpowers-marketplace"
+2025-12-11T18:44:49.553Z [DEBUG] Passes: Using fresh cached eligibility data
+2025-12-11T18:44:49.578Z [DEBUG] MCP server "playwright": Starting connection with timeout of 30000ms
+2025-12-11T18:44:49.581Z [DEBUG] MCP server "figma-desktop": Initializing HTTP transport to http://127.0.0.1:3845/mcp
+2025-12-11T18:44:49.581Z [DEBUG] MCP server "figma-desktop": Node version: v22.14.0, Platform: darwin
+2025-12-11T18:44:49.581Z [DEBUG] MCP server "figma-desktop": Environment: {"NODE_OPTIONS":"not set","UV_THREADPOOL_SIZE":"default","HTTP_PROXY":"not set","HTTPS_PROXY":"not set","NO_PROXY":"not set"}
+2025-12-11T18:44:49.586Z [DEBUG] All plugins already in V2, skipping migration
+2025-12-11T18:44:49.602Z [DEBUG] Loaded 1 installed plugins from V2 file at /Users/jschuss/.claude/plugins/installed_plugins_v2.json
+2025-12-11T18:44:49.602Z [DEBUG] Initialized versioned plugins system with 1 plugins
+2025-12-11T18:44:49.603Z [DEBUG] MCP server "figma-desktop": Proxy options: default
+2025-12-11T18:44:49.603Z [DEBUG] MCP server "figma-desktop": HTTP transport options: {"url":"http://127.0.0.1:3845/mcp","headers":{"User-Agent":"claude-code/2.0.65"},"hasAuthProvider":true,"timeoutMs":60000}
+2025-12-11T18:44:49.603Z [DEBUG] MCP server "figma-desktop": HTTP transport created successfully
+2025-12-11T18:44:49.606Z [DEBUG] MCP server "figma-desktop": Client created, setting up request handler
+2025-12-11T18:44:49.606Z [DEBUG] MCP server "figma-desktop": Starting connection with timeout of 30000ms
+2025-12-11T18:44:49.606Z [DEBUG] MCP server "figma-desktop": Testing basic HTTP connectivity to http://127.0.0.1:3845/mcp
+2025-12-11T18:44:49.606Z [DEBUG] MCP server "figma-desktop": Parsed URL: host=127.0.0.1, port=3845, protocol=http:
+2025-12-11T18:44:49.606Z [DEBUG] MCP server "figma-desktop": Using loopback address: 127.0.0.1
+2025-12-11T18:44:49.609Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.7162.1765478689609
+2025-12-11T18:44:49.609Z [DEBUG] Preserving file permissions: 100644
+2025-12-11T18:44:49.616Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.6ms)
+2025-12-11T18:44:49.616Z [DEBUG] Temp file written successfully, size: 56275 bytes
+2025-12-11T18:44:49.616Z [DEBUG] Applied original permissions to temp file
+2025-12-11T18:44:49.616Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.7162.1765478689609 to /Users/jschuss/.claude.json
+2025-12-11T18:44:49.617Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-11T18:44:49.629Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2025-12-11T18:44:49.629Z [DEBUG] Found 1 hook matchers in settings
+2025-12-11T18:44:49.629Z [DEBUG] Matched 1 unique hooks for query "startup" (1 before deduplication)
+2025-12-11T18:44:49.674Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (44.6ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T18:44:49.674Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-11T18:44:49.696Z [DEBUG] Getting matching hook commands for SubagentStart with query: Explore
+2025-12-11T18:44:49.696Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:44:49.696Z [DEBUG] Matched 0 unique hooks for query "Explore" (0 before deduplication)
+2025-12-11T18:44:49.701Z [DEBUG] Getting matching hook commands for SubagentStart with query: Plan
+2025-12-11T18:44:49.701Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:44:49.701Z [DEBUG] Matched 0 unique hooks for query "Plan" (0 before deduplication)
+2025-12-11T18:44:49.765Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (51.5ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T18:44:49.765Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-11T18:44:49.768Z [DEBUG] Summarizing all 52 messages (~17787 tokens)
+2025-12-11T18:44:49.788Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.4ms)
+2025-12-11T18:44:49.841Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (49.2ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T18:44:49.841Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-11T18:44:49.841Z [DEBUG] MCP server "figma-desktop": Successfully connected to http server in 260ms
+2025-12-11T18:44:49.841Z [DEBUG] MCP server "figma-desktop": Connection established with capabilities: {"hasTools":true,"hasPrompts":true,"hasResources":true,"serverVersion":{"name":"Figma Dev Mode MCP Server","version":"1.0.0"}}
+2025-12-11T18:44:49.886Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (44.3ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T18:44:49.886Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-11T18:44:49.937Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (50.0ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T18:44:49.937Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-11T18:44:49.984Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (47.2ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T18:44:49.984Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-11T18:44:49.994Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.7162.1765478689994
+2025-12-11T18:44:49.994Z [DEBUG] Preserving file permissions: 100644
+2025-12-11T18:44:50.000Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.7ms)
+2025-12-11T18:44:50.000Z [DEBUG] Temp file written successfully, size: 56275 bytes
+2025-12-11T18:44:50.001Z [DEBUG] Applied original permissions to temp file
+2025-12-11T18:44:50.001Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.7162.1765478689994 to /Users/jschuss/.claude.json
+2025-12-11T18:44:50.001Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-11T18:44:50.103Z [DEBUG] Shell snapshot created successfully (67724 bytes)
+2025-12-11T18:44:50.680Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.7162.1765478690680
+2025-12-11T18:44:50.680Z [DEBUG] Preserving file permissions: 100644
+2025-12-11T18:44:50.687Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.4ms)
+2025-12-11T18:44:50.687Z [DEBUG] Temp file written successfully, size: 56170 bytes
+2025-12-11T18:44:50.687Z [DEBUG] Applied original permissions to temp file
+2025-12-11T18:44:50.687Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.7162.1765478690680 to /Users/jschuss/.claude.json
+2025-12-11T18:44:50.688Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-11T18:44:50.694Z [DEBUG] performStartupChecks called
+2025-12-11T18:44:50.694Z [DEBUG] Starting background plugin installations
+2025-12-11T18:44:50.694Z [DEBUG] performBackgroundPluginInstallations called
+2025-12-11T18:44:50.708Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.7162.1765478690708
+2025-12-11T18:44:50.708Z [DEBUG] Preserving file permissions: 100644
+2025-12-11T18:44:50.712Z [DEBUG] Temp file written successfully, size: 56275 bytes
+2025-12-11T18:44:50.712Z [DEBUG] Applied original permissions to temp file
+2025-12-11T18:44:50.712Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.7162.1765478690708 to /Users/jschuss/.claude.json
+2025-12-11T18:44:50.713Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-11T18:44:50.715Z [DEBUG] Found 1 enabled plugins
+2025-12-11T18:44:50.715Z [DEBUG] All plugins already in V2, skipping migration
+2025-12-11T18:44:50.715Z [DEBUG] Found 1 installed plugins (V2 format)
+2025-12-11T18:44:50.716Z [DEBUG] Loaded plugins - Enabled: 1, Disabled: 0, Commands: 3, Agents: 1, Errors: 0
+2025-12-11T18:44:50.716Z [DEBUG] Found 0 missing plugins (not installed):
+2025-12-11T18:44:50.716Z [DEBUG] Setting installation status: 0 marketplaces, 0 installable plugins, 0 uninstallable plugins
+2025-12-11T18:44:50.736Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.7162.1765478690736
+2025-12-11T18:44:50.736Z [DEBUG] Preserving file permissions: 100644
+2025-12-11T18:44:50.741Z [DEBUG] Temp file written successfully, size: 56275 bytes
+2025-12-11T18:44:50.741Z [DEBUG] Applied original permissions to temp file
+2025-12-11T18:44:50.741Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.7162.1765478690736 to /Users/jschuss/.claude.json
+2025-12-11T18:44:50.742Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-11T18:44:51.060Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:44:51.065Z [DEBUG] AutoUpdaterWrapper: Installation type: npm-global
+2025-12-11T18:44:51.193Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:44:51.539Z [DEBUG] MCP server "playwright": Successfully connected to stdio server in 1975ms
+2025-12-11T18:44:51.539Z [DEBUG] MCP server "playwright": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"Playwright","version":"0.0.51"}}
+2025-12-11T18:44:52.406Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:44:53.126Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2025-12-11T18:44:53.126Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:44:53.126Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:44:55.499Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2025-12-11T18:44:55.499Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:44:55.499Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-12-11T18:44:59.691Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-12-11T18:44:59.691Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-12-11T18:44:59.691Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-12-11T18:45:08.457Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:45:08.457Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:45:08.457Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:45:08.457Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:45:08.464Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:45:08.464Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:45:08.483Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-12-11T18:45:08.483Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:08.483Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:45:08.490Z [DEBUG] FileHistory: Added snapshot for df47207f-062b-4311-9fa4-f5acdbbfdaf8, tracking 0 files
+2025-12-11T18:45:08.526Z [DEBUG] Total plugin output styles loaded: 0
+2025-12-11T18:45:09.343Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:11.367Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:16.770Z [DEBUG] executePreToolHooks called for tool: Task
+2025-12-11T18:45:16.776Z [DEBUG] Getting matching hook commands for PreToolUse with query: Task
+2025-12-11T18:45:16.776Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:16.776Z [DEBUG] Matched 0 unique hooks for query "Task" (0 before deduplication)
+2025-12-11T18:45:16.801Z [DEBUG] Getting matching hook commands for SubagentStart with query: Explore
+2025-12-11T18:45:16.801Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:16.801Z [DEBUG] Matched 0 unique hooks for query "Explore" (0 before deduplication)
+2025-12-11T18:45:16.826Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (8.7ms)
+2025-12-11T18:45:19.015Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:20.384Z [DEBUG] executePreToolHooks called for tool: Glob
+2025-12-11T18:45:20.384Z [DEBUG] executePreToolHooks called for tool: Glob
+2025-12-11T18:45:20.384Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:45:20.385Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:45:20.390Z [DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+2025-12-11T18:45:20.390Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:20.390Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-11T18:45:20.390Z [DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+2025-12-11T18:45:20.390Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:20.390Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-11T18:45:20.390Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:45:20.390Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:20.390Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:45:20.390Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:45:20.390Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:20.390Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:45:20.628Z [DEBUG] rg error (signal=null, code=2, stderr: rg: unrecognized file type: rb
+), 0 results
+2025-12-11T18:45:20.637Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:45:20.637Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:20.637Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:45:20.992Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:45:20.992Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:20.992Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:45:23.084Z [DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+2025-12-11T18:45:23.084Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:23.084Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-11T18:45:23.096Z [DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+2025-12-11T18:45:23.096Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:23.096Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-11T18:45:23.125Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:45:23.125Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:45:24.363Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:26.034Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:45:26.034Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:45:26.034Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:45:26.039Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:45:26.039Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:26.039Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:45:26.039Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:45:26.039Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:26.039Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:26.039Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:45:26.039Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:26.039Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:26.054Z [DEBUG] tree-sitter: WASM files not found
+2025-12-11T18:45:26.078Z [DEBUG] No session environment scripts found
+2025-12-11T18:45:26.101Z [DEBUG] rg error (signal=null, code=2, stderr: rg: unrecognized file type: rb
+), 0 results
+2025-12-11T18:45:26.110Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:45:26.111Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:26.111Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:45:26.134Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:45:26.134Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:26.134Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:26.318Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:45:26.318Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:26.318Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:26.337Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:45:26.337Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:45:26.801Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:27.102Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:27.445Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:28.007Z [ERROR] Error: Error: EISDIR: illegal operation on a directory, read
+    at Module.readFileSync (node:fs:442:20)
+    at file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:9:429
+    at NI (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:8:8084)
+    at Object.readFileSync (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:9:404)
+    at CyB (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:4353:16895)
+    at Object.call (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:1431:909)
+    at file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:1625:1472
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-12-11T18:45:29.002Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:45:29.009Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:45:29.009Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:29.009Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:29.093Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:45:29.093Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:29.093Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:29.108Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:45:29.115Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:45:29.115Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:29.115Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:29.175Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:45:29.175Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:29.175Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:29.203Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:45:29.203Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:45:29.549Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:30.137Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:30.687Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:31.766Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:45:31.775Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:45:31.775Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:31.775Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:31.775Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:45:31.781Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:45:31.781Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:31.781Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:45:31.823Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:45:31.823Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:31.823Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:45:31.858Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:45:31.858Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:31.858Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:31.884Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:45:31.884Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:45:32.167Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (6.2ms)
+2025-12-11T18:45:32.877Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:33.115Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:35.311Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:45:35.311Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:45:35.312Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:45:35.316Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:45:35.316Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:35.316Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:35.316Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:45:35.316Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:35.316Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:35.316Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:45:35.316Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:35.316Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:35.434Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:45:35.434Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:35.434Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:35.524Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:45:35.524Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:35.524Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:35.533Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:45:35.533Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:35.533Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:35.566Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:45:35.566Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:45:35.960Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:36.190Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:36.231Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:37.247Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:39.024Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:45:39.024Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:45:39.032Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:45:39.032Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:39.032Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:39.032Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:45:39.032Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:39.032Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:39.032Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:45:39.037Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:45:39.037Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:39.037Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:45:39.076Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:45:39.076Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:39.076Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:45:39.143Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:45:39.143Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:39.143Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:39.164Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:45:39.164Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:39.164Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:39.200Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:45:39.200Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:45:39.682Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:39.787Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:40.968Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:41.963Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:45:41.972Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:45:41.972Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:41.972Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:41.972Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:45:41.979Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:45:41.979Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:41.979Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:45:42.014Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:45:42.014Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:42.014Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:45:42.058Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:45:42.058Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:42.058Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:42.082Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:45:42.082Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:45:42.713Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:43.621Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:45.719Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:45:45.720Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:45:45.726Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:45:45.726Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:45.726Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:45.726Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:45:45.726Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:45.726Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:45.726Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:45:45.732Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:45:45.732Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:45.732Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:45:45.768Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:45:45.768Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:45.768Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:45:45.813Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:45:45.813Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:45.813Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:45.936Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:45:45.936Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:45.936Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:45.958Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:45:45.958Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:45:46.566Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:46.663Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:47.854Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:49.593Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:45:49.599Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:45:49.599Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:49.599Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:49.599Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:45:49.600Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:45:49.605Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:45:49.605Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:49.605Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:45:49.605Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:45:49.605Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:49.605Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:45:49.645Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:45:49.645Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:49.645Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:45:49.645Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:45:49.645Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:49.645Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:45:49.867Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:45:49.867Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:49.867Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:49.888Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:45:49.888Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:45:50.992Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:51.309Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:53.044Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:45:53.044Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:45:53.052Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:45:53.052Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:53.052Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:53.052Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:45:53.052Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:53.052Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:53.052Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:45:53.062Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:45:53.062Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:53.062Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:45:53.099Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:45:53.099Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:53.099Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:45:53.137Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:45:53.137Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:53.137Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:53.394Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:45:53.394Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:53.394Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:53.414Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:45:53.414Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:45:53.888Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:55.011Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:55.028Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (6.1ms)
+2025-12-11T18:45:55.265Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:56.442Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:45:56.451Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:45:56.451Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:56.451Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:56.451Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:45:56.457Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:45:56.457Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:56.457Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:45:56.488Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:45:56.488Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:56.488Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:45:56.857Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:45:56.857Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:56.857Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:56.881Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:45:56.881Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:45:57.541Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:58.506Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:45:59.984Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:45:59.990Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:45:59.990Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:59.990Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:45:59.990Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:45:59.996Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:45:59.996Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:45:59.996Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:46:00.030Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:46:00.030Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:00.030Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:46:00.229Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:46:00.229Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:00.229Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:46:00.255Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:46:00.256Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:46:01.304Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:46:01.812Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:46:03.249Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:46:03.254Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:46:03.254Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:03.254Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:46:03.254Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:46:03.259Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:46:03.259Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:03.259Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:46:03.290Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:46:03.290Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:03.290Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:46:03.330Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:46:03.330Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:03.330Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:46:03.352Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:46:03.352Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:46:03.829Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:46:04.428Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:46:05.428Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:46:05.433Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:46:05.433Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:05.433Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:46:05.459Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:46:05.459Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:05.459Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:46:05.487Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:46:05.487Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:46:06.868Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:46:17.168Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2025-12-11T18:46:17.168Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:17.168Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:46:17.185Z [DEBUG] Getting matching hook commands for PostToolUse with query: Task
+2025-12-11T18:46:17.185Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:17.185Z [DEBUG] Matched 0 unique hooks for query "Task" (0 before deduplication)
+2025-12-11T18:46:17.196Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:46:17.196Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:46:17.196Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:46:17.196Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:46:17.207Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:46:17.207Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:46:19.726Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:46:20.882Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:46:20.885Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:46:20.885Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:20.885Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:46:20.908Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:46:20.908Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:20.908Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:46:20.917Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:46:20.917Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:46:20.917Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:46:20.917Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:46:20.923Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:46:20.923Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:46:23.485Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:46:25.039Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:46:25.045Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:46:25.045Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:25.045Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:46:25.075Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:46:25.075Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:25.075Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:46:25.082Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:46:25.082Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:46:25.082Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:46:25.082Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:46:25.089Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:46:25.089Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:46:25.618Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.3ms)
+2025-12-11T18:46:27.498Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:46:28.265Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (8.8ms)
+2025-12-11T18:46:30.777Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:46:30.784Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:46:30.784Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:30.784Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:46:30.843Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:46:30.843Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:30.843Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:46:30.851Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:46:30.851Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:46:30.851Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:46:30.851Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:46:30.857Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:46:30.857Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:46:33.367Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:46:36.679Z [DEBUG] executePreToolHooks called for tool: Edit
+2025-12-11T18:46:36.685Z [DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+2025-12-11T18:46:36.685Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:36.685Z [DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+2025-12-11T18:46:36.701Z [DEBUG] Permission suggestions for Edit: [
+  {
+    "type": "setMode",
+    "mode": "acceptEdits",
+    "destination": "session"
+  }
+]
+2025-12-11T18:46:36.720Z [DEBUG] executePermissionRequestHooks called for tool: Edit
+2025-12-11T18:46:36.734Z [DEBUG] Getting matching hook commands for PermissionRequest with query: Edit
+2025-12-11T18:46:36.734Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:36.734Z [DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+2025-12-11T18:46:42.730Z [DEBUG] Getting matching hook commands for Notification with query: permission_prompt
+2025-12-11T18:46:42.730Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:42.730Z [DEBUG] Matched 0 unique hooks for query "permission_prompt" (0 before deduplication)
+2025-12-11T18:46:50.007Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:46:50.007Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:46:50.007Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:46:50.007Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:46:50.015Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:46:50.015Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:46:50.315Z [DEBUG] AutoUpdaterWrapper: Installation type: npm-global
+2025-12-11T18:46:52.646Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:46:57.818Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:46:57.824Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:46:57.824Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:46:57.824Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:47:03.326Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (13.8ms)
+2025-12-11T18:47:08.367Z [DEBUG] Getting matching hook commands for PostToolUseFailure with query: Bash
+2025-12-11T18:47:08.367Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:47:08.367Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:47:08.380Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:47:08.380Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:47:08.380Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:47:08.380Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:47:08.387Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:47:08.387Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:47:11.294Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:47:17.794Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-12-11T18:47:17.794Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:47:17.794Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:47:17.967Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (167.9ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:47:18.130Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (161.5ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:48:23.093Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:48:23.093Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:48:23.093Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:48:23.093Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:48:23.103Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:48:23.103Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:48:23.109Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-12-11T18:48:23.109Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:48:23.109Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:48:23.110Z [DEBUG] FileHistory: Making snapshot for message 314192ea-361f-48c7-9480-7a118067443b
+2025-12-11T18:48:23.110Z [DEBUG] FileHistory: Added snapshot for 314192ea-361f-48c7-9480-7a118067443b, tracking 0 files
+2025-12-11T18:48:24.047Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:48:25.787Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:48:27.201Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:48:27.208Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:48:27.208Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:48:27.208Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:48:27.237Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:48:27.237Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:48:27.237Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:48:27.250Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:48:27.250Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:48:27.250Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:48:27.250Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:48:27.256Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:48:27.256Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:48:29.806Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:48:31.945Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:48:31.950Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:48:31.950Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:48:31.950Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:48:32.289Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:48:32.289Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:48:32.289Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:48:32.296Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:48:32.296Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:48:32.296Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:48:32.296Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:48:32.301Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:48:32.301Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:48:34.764Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:48:35.695Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:48:35.700Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:48:35.700Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:48:35.700Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:48:35.725Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:48:35.725Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:48:35.725Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:48:35.733Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:48:35.733Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:48:35.733Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:48:35.733Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:48:35.737Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:48:35.737Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:48:38.002Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:48:40.707Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:48:40.712Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:48:40.712Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:48:40.712Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:48:41.055Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:48:41.055Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:48:41.055Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:48:41.065Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:48:41.065Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:48:41.065Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:48:41.065Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:48:41.070Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:48:41.070Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:48:43.449Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:48:44.347Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:48:44.351Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:48:44.351Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:48:44.351Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:48:44.376Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:48:44.376Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:48:44.376Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:48:44.384Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:48:44.384Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:48:44.384Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:48:44.384Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:48:44.388Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:48:44.388Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:48:46.844Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:48:48.517Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:48:48.522Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:48:48.522Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:48:48.522Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:48:48.548Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:48:48.548Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:48:48.548Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:48:48.555Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:48:48.555Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:48:48.555Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:48:48.555Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:48:48.559Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:48:48.559Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:48:50.832Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:48:52.195Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:48:52.199Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:48:52.199Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:48:52.199Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:48:52.222Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:48:52.222Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:48:52.222Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:48:52.231Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:48:52.231Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:48:52.231Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:48:52.231Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:48:52.238Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:48:52.238Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:48:54.537Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:48:56.002Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:48:56.006Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:48:56.006Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:48:56.006Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:48:56.031Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:48:56.031Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:48:56.031Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:48:56.038Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:48:56.038Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:48:56.038Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:48:56.038Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:48:56.044Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:48:56.044Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:48:58.803Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:49:04.864Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (7.7ms)
+2025-12-11T18:49:06.990Z [DEBUG] [SLOW OPERATION DETECTED] fs.statSync (11.5ms)
+2025-12-11T18:49:08.295Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-12-11T18:49:08.295Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:49:08.295Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:49:08.489Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (191.1ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:49:08.665Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (173.1ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:49:51.242Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 301s uptime
+2025-12-11T18:49:51.242Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-11T18:49:52.317Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (73.0ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T18:49:52.318Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-11T18:50:08.677Z [DEBUG] Getting matching hook commands for Notification with query: idle_prompt
+2025-12-11T18:50:08.677Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:50:08.677Z [DEBUG] Matched 0 unique hooks for query "idle_prompt" (0 before deduplication)
+2025-12-11T18:50:31.616Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:50:31.616Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:50:31.616Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:50:31.616Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:50:31.628Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:50:31.628Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:50:31.636Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-12-11T18:50:31.636Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:50:31.636Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:50:31.637Z [DEBUG] FileHistory: Making snapshot for message 7a7b4767-0050-4078-84ec-8f00a280d44f
+2025-12-11T18:50:31.638Z [DEBUG] FileHistory: Added snapshot for 7a7b4767-0050-4078-84ec-8f00a280d44f, tracking 0 files
+2025-12-11T18:50:32.405Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:50:34.522Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:50:36.486Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:50:36.491Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:50:36.491Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:50:36.491Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:50:36.521Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:50:36.521Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:50:36.521Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:50:36.532Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:50:36.532Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:50:36.532Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:50:36.532Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:50:36.541Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:50:36.541Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:50:39.654Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:50:47.404Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:50:47.407Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:50:47.407Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:50:47.407Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:50:47.434Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:50:47.434Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:50:47.434Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:50:47.445Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:50:47.445Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:50:47.445Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:50:47.445Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:50:47.453Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:50:47.453Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:50:50.586Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:50:56.802Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-12-11T18:50:56.802Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:50:56.802Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:50:56.961Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (156.5ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:50:57.128Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (164.8ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:51:08.176Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:51:08.176Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:51:08.176Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:51:08.176Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:51:08.189Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:51:08.190Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:51:08.199Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-12-11T18:51:08.199Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:08.199Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:51:08.200Z [DEBUG] FileHistory: Making snapshot for message 0e468bf8-50d7-4e37-a592-8b997bc3afab
+2025-12-11T18:51:08.200Z [DEBUG] FileHistory: Added snapshot for 0e468bf8-50d7-4e37-a592-8b997bc3afab, tracking 0 files
+2025-12-11T18:51:09.236Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:51:10.728Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:51:13.622Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:51:13.625Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:51:13.625Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:13.625Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:51:13.680Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:51:13.680Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:13.680Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:51:13.687Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:51:13.687Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:51:13.687Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:51:13.687Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:51:13.694Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:51:13.694Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:51:16.529Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:51:17.683Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:51:17.691Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:51:17.691Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:17.691Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:51:17.735Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:51:17.735Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:17.735Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:51:17.742Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:51:17.742Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:51:17.742Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:51:17.742Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:51:17.747Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:51:17.747Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:51:20.065Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:51:21.261Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:51:21.266Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:51:21.266Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:21.266Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:51:21.290Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:51:21.290Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:21.290Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:51:21.297Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:51:21.297Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:51:21.297Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:51:21.297Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:51:21.304Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:51:21.304Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:51:22.222Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.2ms)
+2025-12-11T18:51:23.984Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:51:25.898Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:51:25.907Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:51:25.907Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:25.907Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:51:25.961Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:51:25.961Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:25.961Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:51:25.972Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:51:25.972Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:51:25.972Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:51:25.972Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:51:25.977Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:51:25.977Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:51:28.450Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:51:34.726Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:51:34.730Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:51:34.730Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:34.730Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:51:34.869Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:51:34.869Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:34.869Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:51:34.876Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:51:34.876Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:51:34.876Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:51:34.876Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:51:34.880Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:51:34.880Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:51:37.907Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:51:39.809Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:51:39.814Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:51:39.814Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:39.814Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:51:40.127Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:51:40.127Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:40.127Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:51:40.134Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:51:40.134Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:51:40.134Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:51:40.134Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:51:40.139Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:51:40.139Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:51:42.792Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:51:44.922Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:51:44.927Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:51:44.927Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:44.927Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:51:44.964Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:51:44.964Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:44.964Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:51:44.972Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:51:44.972Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:51:44.972Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:51:44.972Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:51:44.979Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:51:44.979Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:51:47.971Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:51:50.092Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:51:50.098Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:51:50.098Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:50.098Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:51:50.135Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:51:50.135Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:50.135Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:51:50.144Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:51:50.144Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:51:50.144Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:51:50.144Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:51:50.149Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:51:50.149Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:51:53.214Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:51:53.986Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.7162.1765479113986
+2025-12-11T18:51:53.986Z [DEBUG] Preserving file permissions: 100644
+2025-12-11T18:51:53.991Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.3ms)
+2025-12-11T18:51:53.991Z [DEBUG] Temp file written successfully, size: 56275 bytes
+2025-12-11T18:51:53.991Z [DEBUG] Applied original permissions to temp file
+2025-12-11T18:51:53.991Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.7162.1765479113986 to /Users/jschuss/.claude.json
+2025-12-11T18:51:53.996Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-11T18:51:56.534Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:51:56.540Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:51:56.540Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:56.540Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:51:56.571Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:51:56.571Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:56.571Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:51:56.580Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:51:56.580Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:51:56.580Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:51:56.580Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:51:56.586Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:51:56.586Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:51:59.116Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:51:59.987Z [DEBUG] executePreToolHooks called for tool: Glob
+2025-12-11T18:51:59.988Z [DEBUG] executePreToolHooks called for tool: Glob
+2025-12-11T18:51:59.994Z [DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+2025-12-11T18:51:59.994Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:59.994Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-11T18:51:59.994Z [DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+2025-12-11T18:51:59.994Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:51:59.994Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-11T18:52:01.244Z [DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+2025-12-11T18:52:01.244Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:01.244Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-11T18:52:01.256Z [DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+2025-12-11T18:52:01.256Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:01.256Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-11T18:52:01.264Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:52:01.264Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:52:01.264Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:52:01.264Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:52:01.268Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:52:01.268Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:52:04.060Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:52:04.501Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:52:04.506Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:52:04.506Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:04.506Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:52:04.530Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:52:04.530Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:04.530Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:52:04.537Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:52:04.537Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:52:04.537Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:52:04.537Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:52:04.541Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:52:04.541Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:52:07.304Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:52:11.685Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:52:11.691Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:52:11.691Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:11.691Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:52:11.740Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:52:11.740Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:11.740Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:52:11.748Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:52:11.748Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:52:11.748Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:52:11.748Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:52:11.753Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:52:11.753Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:52:14.542Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:52:15.590Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:52:15.593Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:52:15.593Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:15.593Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:52:15.629Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:52:15.629Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:15.629Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:52:15.638Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:52:15.638Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:52:15.638Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:52:15.638Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:52:15.643Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:52:15.643Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:52:18.392Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:52:19.026Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:52:19.033Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:52:19.033Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:19.033Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:52:19.061Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:52:19.061Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:19.061Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:52:19.069Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:52:19.069Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:52:19.069Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:52:19.069Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:52:19.073Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:52:19.073Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:52:21.751Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:52:23.375Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:52:23.381Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:52:23.381Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:23.381Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:52:23.431Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:52:23.431Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:23.431Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:52:23.439Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:52:23.439Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:52:23.440Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:52:23.440Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:52:23.445Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:52:23.445Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:52:25.929Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:52:27.952Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.7162.1765479147952
+2025-12-11T18:52:27.952Z [DEBUG] Preserving file permissions: 100644
+2025-12-11T18:52:27.959Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (7.8ms)
+2025-12-11T18:52:27.960Z [DEBUG] Temp file written successfully, size: 56275 bytes
+2025-12-11T18:52:27.960Z [DEBUG] Applied original permissions to temp file
+2025-12-11T18:52:27.960Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.7162.1765479147952 to /Users/jschuss/.claude.json
+2025-12-11T18:52:27.961Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-11T18:52:29.209Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:52:29.213Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:52:29.213Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:29.213Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:52:29.271Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:52:29.271Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:29.271Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:52:29.278Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:52:29.278Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:52:29.278Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:52:29.278Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:52:29.284Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:52:29.284Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:52:31.565Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:52:33.746Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:52:33.752Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:52:33.752Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:33.752Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:52:33.826Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:52:33.826Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:33.826Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:52:33.846Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:52:33.846Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:52:33.846Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:52:33.846Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:52:33.853Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:52:33.853Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:52:36.381Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:52:39.230Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:52:39.234Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:52:39.234Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:39.234Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:52:39.297Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:52:39.297Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:39.297Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:52:39.304Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:52:39.304Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:52:39.304Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:52:39.304Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:52:39.311Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:52:39.311Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:52:41.883Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:52:42.770Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:52:42.775Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:52:42.775Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:42.775Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:52:42.846Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:52:42.846Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:42.846Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:52:42.853Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:52:42.853Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:52:42.853Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:52:42.853Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:52:42.857Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:52:42.857Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:52:45.742Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:52:48.677Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:52:48.685Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:52:48.685Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:48.685Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:52:48.747Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:52:48.747Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:48.747Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:52:48.754Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:52:48.754Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:52:48.754Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:52:48.754Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:52:48.761Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:52:48.761Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:52:51.115Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:52:52.400Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:52:52.406Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:52:52.406Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:52.406Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:52:52.564Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:52:52.564Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:52.564Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:52:52.572Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:52:52.572Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:52:52.572Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:52:52.572Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:52:52.576Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:52:52.576Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:52:55.225Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:52:55.900Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.7162.1765479175900
+2025-12-11T18:52:55.901Z [DEBUG] Preserving file permissions: 100644
+2025-12-11T18:52:55.909Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (9.0ms)
+2025-12-11T18:52:55.910Z [DEBUG] Temp file written successfully, size: 56275 bytes
+2025-12-11T18:52:55.910Z [DEBUG] Applied original permissions to temp file
+2025-12-11T18:52:55.910Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.7162.1765479175900 to /Users/jschuss/.claude.json
+2025-12-11T18:52:55.911Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-11T18:52:57.956Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T18:52:57.960Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T18:52:57.960Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:52:57.960Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:53:06.436Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T18:53:06.436Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:53:06.436Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T18:53:06.450Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:53:06.450Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:53:06.450Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:53:06.450Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:53:06.456Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:53:06.456Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:53:07.516Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:53:09.534Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:53:10.271Z [DEBUG] [SLOW OPERATION DETECTED] fs.readdirSync (65.9ms)
+2025-12-11T18:53:10.293Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:53:10.293Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:53:10.293Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:53:10.293Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:53:10.303Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:53:10.303Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:53:12.895Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:53:15.044Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-12-11T18:53:15.044Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:53:15.044Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:53:15.211Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (163.9ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:53:15.375Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (162.1ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:53:26.693Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:53:26.693Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:53:26.693Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:53:26.693Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:53:26.700Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:53:26.700Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:53:26.711Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-12-11T18:53:26.711Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:53:26.711Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:53:26.713Z [DEBUG] FileHistory: Making snapshot for message 1aad73b8-aa31-46b8-8f9a-2847c7f430f3
+2025-12-11T18:53:26.714Z [DEBUG] FileHistory: Added snapshot for 1aad73b8-aa31-46b8-8f9a-2847c7f430f3, tracking 0 files
+2025-12-11T18:53:27.196Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:53:29.634Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:53:31.667Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:53:31.672Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:53:31.672Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:53:31.672Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:53:31.707Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:53:31.707Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:53:31.707Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:53:31.718Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:53:31.718Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:53:31.718Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:53:31.718Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:53:31.727Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:53:31.727Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:53:34.828Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:53:35.416Z [DEBUG] executePreToolHooks called for tool: Glob
+2025-12-11T18:53:35.425Z [DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+2025-12-11T18:53:35.425Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:53:35.425Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-11T18:53:36.374Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.7162.1765479216374
+2025-12-11T18:53:36.374Z [DEBUG] Preserving file permissions: 100644
+2025-12-11T18:53:36.383Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (9.2ms)
+2025-12-11T18:53:36.383Z [DEBUG] Temp file written successfully, size: 56275 bytes
+2025-12-11T18:53:36.383Z [DEBUG] Applied original permissions to temp file
+2025-12-11T18:53:36.383Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.7162.1765479216374 to /Users/jschuss/.claude.json
+2025-12-11T18:53:36.384Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-11T18:53:36.791Z [DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+2025-12-11T18:53:36.791Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:53:36.791Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-11T18:53:36.798Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:53:36.798Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:53:36.798Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:53:36.798Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:53:36.805Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:53:36.805Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:53:41.741Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:53:45.875Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:53:45.881Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:53:45.881Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:53:45.881Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:53:46.238Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:53:46.238Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:53:46.238Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:53:46.244Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:53:46.244Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:53:46.244Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:53:46.244Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:53:46.250Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:53:46.250Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:53:48.875Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:53:49.583Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:53:49.589Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:53:49.589Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:53:49.589Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:53:49.615Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:53:49.615Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:53:49.615Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:53:49.623Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:53:49.623Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:53:49.623Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:53:49.623Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:53:49.630Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:53:49.630Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:53:52.122Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:53:52.614Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (7.8ms)
+2025-12-11T18:53:57.686Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-12-11T18:53:57.686Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:53:57.686Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:53:57.898Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (209.1ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:53:58.093Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (193.3ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:54:11.853Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:54:11.853Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:54:11.853Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:54:11.853Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:54:11.859Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:54:11.859Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:54:11.866Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-12-11T18:54:11.866Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:54:11.866Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:54:11.867Z [DEBUG] FileHistory: Making snapshot for message 3a63d018-1998-41a1-8280-e34e0812a5ce
+2025-12-11T18:54:11.867Z [DEBUG] FileHistory: Added snapshot for 3a63d018-1998-41a1-8280-e34e0812a5ce, tracking 0 files
+2025-12-11T18:54:12.524Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:54:14.596Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:54:18.371Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-12-11T18:54:18.371Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:54:18.371Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:54:18.650Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (275.4ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:54:18.899Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (247.0ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:54:55.413Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 605s uptime
+2025-12-11T18:54:55.414Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-11T18:54:56.505Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (86.2ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T18:54:56.505Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-11T18:55:04.769Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:55:04.769Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:55:04.769Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:55:04.769Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:55:04.780Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:55:04.780Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:55:04.793Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-12-11T18:55:04.793Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:55:04.793Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:55:04.794Z [DEBUG] FileHistory: Making snapshot for message 1a3ebdad-c664-4950-8186-52349b6ec07d
+2025-12-11T18:55:04.794Z [DEBUG] FileHistory: Added snapshot for 1a3ebdad-c664-4950-8186-52349b6ec07d, tracking 0 files
+2025-12-11T18:55:05.772Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:55:07.447Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:55:11.479Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-12-11T18:55:11.479Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:55:11.479Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:55:11.652Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (170.3ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:55:11.814Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (160.1ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:55:47.426Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (7.5ms)
+2025-12-11T18:55:48.249Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:55:48.249Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:55:48.249Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:55:48.249Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:55:48.257Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:55:48.257Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:55:48.270Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-12-11T18:55:48.270Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:55:48.270Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:55:48.272Z [DEBUG] FileHistory: Making snapshot for message d4da9aad-c5df-4948-895a-98dc964c21ec
+2025-12-11T18:55:48.272Z [DEBUG] FileHistory: Added snapshot for d4da9aad-c5df-4948-895a-98dc964c21ec, tracking 0 files
+2025-12-11T18:55:49.458Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:55:51.022Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:55:51.317Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (6.6ms)
+2025-12-11T18:55:53.253Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-11T18:55:53.258Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-11T18:55:53.258Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:55:53.258Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:55:53.683Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-11T18:55:53.683Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:55:53.683Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-11T18:55:53.690Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:55:53.690Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:55:53.690Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:55:53.690Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:55:53.694Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:55:53.694Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:55:56.297Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:55:56.744Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:55:56.748Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:55:56.748Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:55:56.748Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:55:56.770Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:55:56.770Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:55:56.770Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:55:56.780Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:55:56.780Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:55:56.780Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:55:56.780Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:55:56.786Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:55:56.786Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:56:00.797Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:56:02.654Z [DEBUG] executePreToolHooks called for tool: Glob
+2025-12-11T18:56:02.657Z [DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+2025-12-11T18:56:02.657Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:56:02.657Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-11T18:56:03.673Z [DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+2025-12-11T18:56:03.673Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:56:03.673Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-11T18:56:03.679Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:56:03.679Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:56:03.679Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:56:03.679Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:56:03.683Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:56:03.683Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:56:06.230Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:56:07.096Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:56:07.104Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:56:07.104Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:56:07.104Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:56:07.130Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:56:07.130Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:56:07.130Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:56:07.148Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:56:07.148Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:56:07.148Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:56:07.148Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:56:07.153Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:56:07.153Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:56:09.888Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:56:10.387Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:56:10.392Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:56:10.392Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:56:10.392Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:56:10.423Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:56:10.423Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:56:10.423Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:56:10.434Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:56:10.434Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:56:10.434Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:56:10.434Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:56:10.447Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:56:10.447Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:56:13.063Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:56:15.948Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (14.8ms)
+2025-12-11T18:56:17.616Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-12-11T18:56:17.616Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:56:17.616Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:56:17.788Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (169.3ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:56:17.963Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (172.1ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:57:08.941Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:57:08.941Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:57:08.941Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:57:08.941Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:57:08.947Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:57:08.947Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:57:08.958Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-12-11T18:57:08.958Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:57:08.958Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:57:08.960Z [DEBUG] FileHistory: Making snapshot for message 0ab6d4cc-ece8-409c-9aec-472130797c98
+2025-12-11T18:57:08.961Z [DEBUG] FileHistory: Added snapshot for 0ab6d4cc-ece8-409c-9aec-472130797c98, tracking 0 files
+2025-12-11T18:57:09.677Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:57:11.757Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:57:14.090Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-11T18:57:14.094Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-11T18:57:14.094Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:57:14.094Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:57:14.122Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-11T18:57:14.122Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:57:14.122Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-11T18:57:14.130Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:57:14.130Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:57:14.130Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:57:14.130Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:57:14.140Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:57:14.140Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:57:17.141Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:57:21.816Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (6.4ms)
+2025-12-11T18:57:23.588Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-12-11T18:57:23.588Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:57:23.588Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:57:23.766Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (175.5ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:57:23.922Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (153.8ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:58:13.019Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (9.3ms)
+2025-12-11T18:58:15.636Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:58:15.636Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:58:15.636Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:58:15.636Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:58:15.642Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:58:15.642Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:58:15.655Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-12-11T18:58:15.655Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:58:15.655Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:58:15.656Z [DEBUG] FileHistory: Making snapshot for message 745c925f-7f46-46e6-813b-2e6eec588833
+2025-12-11T18:58:15.657Z [DEBUG] FileHistory: Added snapshot for 745c925f-7f46-46e6-813b-2e6eec588833, tracking 0 files
+2025-12-11T18:58:16.397Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:58:18.161Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:58:21.934Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-12-11T18:58:21.934Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:58:21.934Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:58:22.116Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (180.0ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:58:22.290Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (170.2ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:59:43.310Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T18:59:43.310Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T18:59:43.310Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T18:59:43.310Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T18:59:43.315Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T18:59:43.315Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T18:59:43.322Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-12-11T18:59:43.322Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:59:43.322Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:59:43.323Z [DEBUG] FileHistory: Making snapshot for message 411a249a-4965-4ee6-9325-92b3e96b2915
+2025-12-11T18:59:43.325Z [DEBUG] FileHistory: Added snapshot for 411a249a-4965-4ee6-9325-92b3e96b2915, tracking 0 files
+2025-12-11T18:59:43.925Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:59:46.075Z [DEBUG] Stream started - received first chunk
+2025-12-11T18:59:49.909Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-12-11T18:59:49.909Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T18:59:49.909Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T18:59:50.075Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (164.3ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:59:50.237Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (159.7ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T18:59:58.314Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 908s uptime
+2025-12-11T18:59:58.314Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-11T18:59:59.414Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (89.8ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T18:59:59.414Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-11T19:00:27.356Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T19:00:27.356Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T19:00:27.356Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T19:00:27.356Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T19:00:27.364Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T19:00:27.364Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T19:00:27.375Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-12-11T19:00:27.375Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T19:00:27.375Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T19:00:27.376Z [DEBUG] FileHistory: Making snapshot for message 9e025ae1-c26c-4931-ab2e-7a0c0399c7c8
+2025-12-11T19:00:27.376Z [DEBUG] FileHistory: Added snapshot for 9e025ae1-c26c-4931-ab2e-7a0c0399c7c8, tracking 0 files
+2025-12-11T19:00:28.307Z [DEBUG] Stream started - received first chunk
+2025-12-11T19:00:30.028Z [DEBUG] Stream started - received first chunk
+2025-12-11T19:00:31.305Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T19:00:31.312Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T19:00:31.312Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T19:00:31.312Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T19:00:32.231Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T19:00:32.231Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T19:00:32.231Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T19:00:32.246Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T19:00:32.246Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T19:00:32.246Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T19:00:32.246Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T19:00:32.259Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T19:00:32.259Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T19:00:33.012Z [DEBUG] Stream started - received first chunk
+2025-12-11T19:00:35.473Z [DEBUG] Stream started - received first chunk
+2025-12-11T19:00:36.490Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-11T19:00:36.496Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-11T19:00:36.496Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T19:00:36.496Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T19:00:36.589Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-11T19:00:36.589Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T19:00:36.589Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-11T19:00:36.596Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T19:00:36.596Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T19:00:36.596Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T19:00:36.596Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T19:00:36.600Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T19:00:36.600Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T19:00:37.356Z [DEBUG] Stream started - received first chunk
+2025-12-11T19:00:39.317Z [DEBUG] Stream started - received first chunk
+2025-12-11T19:00:40.015Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.4ms)
+2025-12-11T19:00:40.235Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-12-11T19:00:40.235Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T19:00:40.235Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T19:00:40.402Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (164.2ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T19:00:40.563Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (159.1ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T19:01:40.573Z [DEBUG] Getting matching hook commands for Notification with query: idle_prompt
+2025-12-11T19:01:40.573Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T19:01:40.573Z [DEBUG] Matched 0 unique hooks for query "idle_prompt" (0 before deduplication)
+2025-12-11T19:05:00.693Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 1210s uptime
+2025-12-11T19:05:00.694Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-11T19:05:01.773Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (74.1ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T19:05:01.773Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-11T19:06:09.364Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.5ms)
+2025-12-11T19:06:11.822Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-11T19:06:11.822Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-11T19:06:11.822Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-11T19:06:11.822Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-11T19:06:11.826Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2025-12-11T19:06:11.826Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2025-12-11T19:06:11.838Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-12-11T19:06:11.838Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T19:06:11.838Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T19:06:11.840Z [DEBUG] FileHistory: Making snapshot for message 21ad8f67-3fb4-429b-81f6-445523298bcf
+2025-12-11T19:06:11.841Z [DEBUG] FileHistory: Added snapshot for 21ad8f67-3fb4-429b-81f6-445523298bcf, tracking 0 files
+2025-12-11T19:06:12.380Z [DEBUG] Stream started - received first chunk
+2025-12-11T19:06:14.945Z [DEBUG] Stream started - received first chunk
+2025-12-11T19:06:18.233Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-12-11T19:06:18.233Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T19:06:18.233Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-11T19:06:18.421Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (185.2ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T19:06:18.608Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (185.6ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-11T19:07:18.613Z [DEBUG] Getting matching hook commands for Notification with query: idle_prompt
+2025-12-11T19:07:18.613Z [DEBUG] Found 0 hook matchers in settings
+2025-12-11T19:07:18.613Z [DEBUG] Matched 0 unique hooks for query "idle_prompt" (0 before deduplication)
+2025-12-11T19:10:03.168Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 1513s uptime
+2025-12-11T19:10:03.168Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-11T19:10:04.255Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (83.9ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T19:10:04.255Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-11T19:15:05.627Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 1815s uptime
+2025-12-11T19:15:05.628Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-11T19:15:06.979Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (347.4ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T19:15:06.980Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-11T19:20:08.712Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 2118s uptime
+2025-12-11T19:20:08.713Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-11T19:20:09.816Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (93.6ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T19:20:09.816Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-11T19:25:11.146Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 2421s uptime
+2025-12-11T19:25:11.147Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-11T19:25:12.264Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (111.6ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-11T19:25:12.264Z [DEBUG] MCP server "figma-desktop": No token data found

@@ -1,0 +1,38 @@
+# frozen_string_literal: true
+
+FactoryBot.define do
+  factory :slot_recapture_opportunity, class: "SlotRecapture::Opportunity" do
+    association :cancelled_appointment, factory: [:appointment, :with_care_case, :in_the_future]
+    association :staffer
+    association :clinic
+    appointment_type_id { AppointmentType.therapy_initial_session.id }
+    root_appointment_type_id { RootAppointmentType.therapy_initial_session.id }
+    region_id { Region.california.id }
+    start_time { 48.hours.from_now }
+    lead_time_hours { 48 }
+    status { "pending_verification" }
+
+    trait :open do
+      status { "open" }
+      slot_verified_at { Time.current }
+    end
+
+    trait :offered do
+      status { "offered" }
+      slot_verified_at { Time.current }
+    end
+
+    trait :filled do
+      status { "filled" }
+      slot_verified_at { Time.current }
+    end
+
+    trait :expired do
+      status { "expired" }
+    end
+
+    trait :ineligible do
+      status { "ineligible" }
+    end
+  end
+end

@@ -1,0 +1,31 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe Staffers::Accounts::Members::MemberTabsComponent, type: :component do
+  it "renders the chat channels in order of short name" do
+    coach = FactoryBot.create(:staffer, :coach, timezone: "Eastern Time (US & Canada)")
+    caregiver = FactoryBot.create(:member, :with_personal_information, :with_sendbird_user)
+    children = FactoryBot.create_list(:member, 1, :with_personal_information, :with_sendbird_user)
+
+    account = FactoryBot.create(:account, owner: caregiver, caregivers: [caregiver], children: children)
+
+    create_chat_channel(chat_type: "coach", account: account, caregiver: caregiver, coach: coach)
+    create_chat_channel(chat_type: "member_support", account: account, caregiver: caregiver, coach: coach)
+
+    render_inline(described_class.new(account: account, member: caregiver, staffer: coach))
+
+    expect(page).to have_content(/Member overview[^-]*App usage[^-]*Coach chat[^-]*MS chat/)
+  end
+
+  def create_chat_channel(chat_type:, account:, caregiver:, coach:)
+    chat_channel = FactoryBot.create(:sendbird_chat_channel, account: account, chat_type: chat_type)
+
+    FactoryBot.create(:sendbird_chat_channel_membership, :with_message, sendbird_chat_channel: chat_channel, sendbird_user: caregiver.sendbird_user, last_message_sent_at: 3.hours.ago)
+
+    coach_sendbird_user = Chat::StafferParticipant.new(coach).sendbird_user_with_fewest_memberships
+    FactoryBot.create(:sendbird_chat_channel_membership, :with_message, sendbird_chat_channel: chat_channel, sendbird_user: coach_sendbird_user, last_message_sent_at: 4.hours.ago)
+
+    Chat::AccessibleStafferChannel.new(sendbird_chat_channel: chat_channel, sendbird_user: coach_sendbird_user)
+  end
+end

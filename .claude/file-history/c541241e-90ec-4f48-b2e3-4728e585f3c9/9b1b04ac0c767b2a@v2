@@ -1,0 +1,58 @@
+# frozen_string_literal: true
+
+# Find the care case Kenny McCormick
+care_case = CareCase.find_by(id: 'eab467ca-c0c8-453e-9869-33abadfefbca')
+
+if care_case
+  puts "Creating test messages for Care Case: #{care_case.id}"
+
+  # Get the chat channels for this care case
+  channels = SendbirdChatChannel.where(care_case_id: care_case.id)
+
+  channels.each do |channel|
+    puts "  Channel: #{channel.id} (#{channel.chat_type})"
+
+    # Find memberships for this channel
+    memberships = channel.memberships.limit(2)
+
+    memberships.each_with_index do |membership, index|
+      # Update membership to have a recent message
+      time = (index + 1).hours.ago
+      membership.update!(
+        last_message_sent_at: time
+      )
+      puts "    Updated membership for user #{membership.sendbird_user_id}"
+    end
+  end
+
+  puts ''
+  puts 'Test messages created for care case!'
+  puts "Visit: http://localhost:3000/care_cases/#{care_case.id}/chats"
+end
+
+# Also update Sharon Marsh account chats
+puts ''
+account = Account.find_by(id: '4558f8da-80ac-44d1-bc2e-bdf91470cd58')
+if account
+  puts 'Creating test messages for Sharon Marsh account'
+
+  channels = SendbirdChatChannel.where(account_id: account.id)
+  channels.each do |channel|
+    puts "  Channel: #{channel.id} (#{channel.chat_type})"
+
+    memberships = channel.memberships.limit(2)
+    memberships.each_with_index do |membership, index|
+      time = (index + 1).hours.ago
+      membership.update!(
+        last_message_sent_at: time
+      )
+      puts "    Updated membership for user #{membership.sendbird_user_id}"
+    end
+  end
+
+  member = account.members.first
+  first_channel = channels.first
+  puts ''
+  puts 'Test messages created for account!'
+  puts "Visit: http://localhost:3000/accounts/#{account.id}/members/#{member.id}/chats/#{first_channel.id}"
+end

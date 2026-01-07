@@ -1,0 +1,82 @@
+<%= content_for :page_title, "Opportunity Details" %>
+
+<div class="container mx-auto px-4 py-6">
+  <div class="mb-4">
+    <%= link_to "Back to Opportunities", slot_recapture_opportunities_path, class: "text-blue-600 hover:underline" %>
+  </div>
+
+  <div class="bg-white rounded-lg shadow p-6 mb-6">
+    <h1 class="text-2xl font-bold mb-4">Slot Recapture Opportunity</h1>
+
+    <div class="grid grid-cols-2 gap-4 mb-6">
+      <div>
+        <p class="text-sm text-gray-600">Provider</p>
+        <p class="font-semibold"><%= @opportunity.staffer.full_name %></p>
+      </div>
+      <div>
+        <p class="text-sm text-gray-600">Clinic</p>
+        <p class="font-semibold"><%= @opportunity.clinic.name %></p>
+      </div>
+      <div>
+        <p class="text-sm text-gray-600">Appointment Time</p>
+        <p class="font-semibold"><%= @opportunity.start_time.strftime("%B %d, %Y at %l:%M %p") %></p>
+      </div>
+      <div>
+        <p class="text-sm text-gray-600">Time Until Appointment</p>
+        <p class="font-semibold"><%= format_duration_in_days_hours(@opportunity.hours_until_start) %></p>
+      </div>
+      <div>
+        <p class="text-sm text-gray-600">Status</p>
+        <p class="font-semibold"><%= @opportunity.status.humanize %></p>
+      </div>
+    </div>
+
+    <% if @opportunity.offered? || @opportunity.open? %>
+      <div class="flex space-x-2">
+        <%= button_to "Mark as Filled", filled_slot_recapture_opportunity_path(@opportunity), method: :patch, class: "prism-button-primary", data: { turbo: false } %>
+        <%= button_to "Mark as Expired", expired_slot_recapture_opportunity_path(@opportunity), method: :patch, class: "prism-button-secondary", data: { turbo: false } %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="bg-white rounded-lg shadow p-6">
+    <h2 class="text-xl font-bold mb-4">Waitlist Matches</h2>
+    <p class="text-sm text-gray-600 mb-4">Families on the waitlist who could potentially fill this slot, ranked by compatibility.</p>
+
+    <% if @matches.empty? %>
+      <p class="text-gray-500">No matching waitlist entries found.</p>
+    <% else %>
+      <table class="table table-sm table-striped w-full">
+        <thead>
+          <tr>
+            <th class="text-left">Patient</th>
+            <th class="text-left">Care Case</th>
+            <th class="text-left">Match Quality</th>
+            <th class="text-left">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @matches.each do |match| %>
+            <tr>
+              <td class="font-semibold"><%= match.patient_name.presence || "Unknown" %></td>
+              <td>
+                <%= link_to match.care_case.brightline_id, care_case_path(match.care_case), class: "text-blue-600 hover:underline" %>
+              </td>
+              <td>
+                <% quality_color = { strong: "text-green-600", partial: "text-yellow-600", weak: "text-gray-500" }[match.quality] %>
+                <span class="<%= quality_color %> font-medium"><%= match.quality.to_s.capitalize %></span>
+                <span class="text-gray-400 text-sm">(<%= (match.score * 100).round %>%)</span>
+              </td>
+              <td class="text-sm text-gray-600">
+                <% details = [] %>
+                <% details << "Same provider" if match.same_provider? %>
+                <% details << "Clinic match" if match.clinic_match? %>
+                <%= details.any? ? details.join(", ") : "General match" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>

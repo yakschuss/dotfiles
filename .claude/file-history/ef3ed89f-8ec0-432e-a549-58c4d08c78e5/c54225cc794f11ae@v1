@@ -1,0 +1,43 @@
+# frozen_string_literal: true
+
+module SlotRecapture
+  class ConfigurationData
+    include ActiveModel::API
+    include ActiveModel::Attributes
+
+    # Weights (should sum to 1.0)
+    attribute :weight_same_provider, :float, default: 0.4
+    attribute :weight_clinic_match, :float, default: 0.25
+    attribute :weight_exact_type, :float, default: 0.15
+    attribute :weight_priority, :float, default: 0.1
+    attribute :weight_wait_time, :float, default: 0.1
+
+    # Thresholds
+    attribute :lead_time_hours_minimum, :integer, default: 24
+    attribute :wait_time_cap_days, :integer, default: 90
+    attribute :matches_per_opportunity, :integer, default: 5
+
+    # Matching rules
+    attribute :empty_clinic_ids_means_any, :boolean, default: true
+    attribute :clinic_mismatch_excludes, :boolean, default: false
+    attribute :same_provider_check, :string, default: "primary_only" # or 'all_staffers'
+
+    # Behavior
+    attribute :auto_detect_filled, :boolean, default: true
+    attribute :allow_reopen_after_outreach_expires, :boolean, default: true
+
+    def weights
+      {
+        same_provider: weight_same_provider,
+        clinic_match: weight_clinic_match,
+        exact_type: weight_exact_type,
+        priority: weight_priority,
+        wait_time: weight_wait_time
+      }
+    end
+
+    def weights_valid?
+      weights.values.sum.between?(0.99, 1.01)
+    end
+  end
+end

@@ -1,0 +1,254 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe Members::CareNavigation::RecommendationsController, :aggregate_failures, scope: :members do
+  def create_actors(recommendation:, patient_age: 6, patient_login: false, region: Region.washington)
+    focus_areas = (recommendation == :therapy_only) ? ["substance_use"] : []
+    member = FactoryBot.create(:member, :with_login, :with_personal_information)
+    patient = if patient_login
+      FactoryBot.create(:member, :with_login, date_of_birth: patient_age.years.ago, first_name: "Myra", last_name: member.last_name)
+    else
+      FactoryBot.create(:member, date_of_birth: patient_age.years.ago, first_name: "Myra", last_name: member.last_name)
+    end
+
+    staffer = FactoryBot.create(:staffer, :coach)
+    account = FactoryBot.create(:account, caregivers: [member], children: [patient], assigned_coach: staffer, region: region)
+
+    # Create a care guide to simulate mix of staffers and catch errors with care guide flow.
+    _care_guide = FactoryBot.create(:staffer, :care_guide)
+    autism_coach = FactoryBot.create(:staffer, :autism_spectrum_disorder_coach)
+
+    # Add availability metrics to prevent fallback to live API calls
+    FactoryBot.create(:provider_availability_metric, :coaching, staffer: staffer)
+    FactoryBot.create(:provider_availability_metric, :coaching, staffer: autism_coach)
+
+    FactoryBot.create(:caregiver_provided_patient_information, member: patient, patient_preferred_name: patient.first_name, focus_areas: focus_areas)
+    care_case_traits = [:pending, (region == Region.california) ? :with_california_coverage : nil].compact
+    care_case = FactoryBot.create(:care_case, *care_case_traits, caregivers: [member], patient:, account:)
+    assessment_assignment = FactoryBot.create(:assessment_assignment, :psc17_plus_coaching_exclusion_nov_2023, :completed, care_case:, member:)
+
+    journey = CareNavigation::Journey.start!(account:, member:, care_case:)
+    journey.update!(assessment_assignment: assessment_assignment)
+    FactoryBot.create(:service_line_recommendation, recommendation, care_case:, member:, assessment_assignment:)
+    FactoryBot.create(:caregiver_provided_patient_information, member: care_case.patient, focus_areas: ["emotional_skills"])
+
+    OpenStruct.new(member:, patient:, care_case:, account:, assessment_assignment:)
+  end
+
+  def translate(key, options = {})
+    I18n.t(key, scope: "components.members.care_navigation.care_options.program_info_component", **options)
+  end
+
+  describe "GET #index" do
+    context "when service_line_recommendation is missing" do
+      it "resets the journey and redirects to the first step" do
+        member = FactoryBot.create(:member, :with_login, :with_personal_information)
+        patient = FactoryBot.create(:member, date_of_birth: 6.years.ago, first_name: "Myra")
+        account = FactoryBot.create(:account, caregivers: [member], children: [patient])
+        care_case = FactoryBot.create(:care_case, :pending, caregivers: [member], patient: patient, account: account)
+        journey = CareNavigation::Journey.start!(account: account, member: member, care_case: care_case)
+        journey.update!(most_recent_step_completed: "assessment_results")
+
+        log_in_as_member(member)
+        get members_care_case_care_navigation_recommendations_path(care_case)
+
+        expect(response).to redirect_to(new_members_care_case_care_navigation_resource_offering_path(care_case))
+        expect(journey.reload.most_recent_step_completed).to be_nil
+      end
+    end
+
+    context "when the current member is not logged in" do
+      it "redirects to login" do
+        actors = create_actors(recommendation: :strong_therapy)
+
+        get members_care_case_care_navigation_recommendations_path(actors.care_case)
+
+        expect(response).to redirect_to(members_root_path)
+      end
+    end
+
+    context "when the current member is a teen" do
+      it "redirects to the dashboard", skip: "Legacy intake flow is currently disabled" do
+        actors = create_actors(recommendation: :strong_therapy, patient_age: 14, patient_login: true)
+
+        log_in_as_member(actors.patient)
+        get members_care_case_care_navigation_recommendations_path(actors.care_case)
+
+        expect(response).to redirect_to(members_account_family_path(actors.account))
+      end
+    end
+
+    context "when the current member is in unsupported geo" do
+      it "redirects to the dashboard" do
+        actors = create_actors(recommendation: :strong_therapy, patient_age: 14, patient_login: true, region: Region.north_dakota)
+
+        log_in_as_member(actors.patient)
+        get members_care_case_care_navigation_recommendations_path(actors.care_case)
+
+        expect(response).to redirect_to(members_patient_information_terminal_screen_path(:unsupported_region))
+      end
+    end
+
+    context "when the current member has unsupported age" do
+      it "redirects to the dashboard", skip: "Legacy intake flow is currently disabled" do
+        actors = create_actors(recommendation: :strong_therapy, patient_age: 18, patient_login: true, region: Region.washington)
+
+        log_in_as_member(actors.patient)
+        get members_care_case_care_navigation_recommendations_path(actors.care_case)
+
+        expect(response).to redirect_to(members_patient_information_terminal_screen_path(:unsupported_age))
+      end
+    end
+
+    context "california member" do
+      it "shows the additional support buttons" do
+        actors = create_actors(recommendation: :strong_therapy, region: Region.california)
+
+        log_in_as_member(actors.member)
+        get members_care_case_care_navigation_recommendations_path(actors.care_case)
+
+        expect(response.body).to have_link("Local support")
+        expect(response.body).to have_link("Explore articles & videos")
+        expect(response.body).to have_text("See crisis resources")
+      end
+
+      it "shows program cards for each available program" do
+        actors = create_actors(recommendation: :strong_therapy, region: Region.california)
+
+        log_in_as_member(actors.member)
+        get members_care_case_care_navigation_recommendations_path(actors.care_case)
+
+        %w[kids_coaching autism_spectrum_disorder_coaching].each do |program_id|
+          expect(response.body).to have_text(
+            translate("#{program_id}.title")
+          )
+          expect(response.body).to have_text(
+            translate("#{program_id}.description")
+          )
+        end
+      end
+
+      it "includes CTA buttons to book care for each available program" do
+        actors = create_actors(recommendation: :strong_therapy, region: Region.california)
+        url_for_offering = ->(offering, label) { offering.new(care_case: actors.care_case).path(source: "care nav results | program_card | #{label}") }
+
+        log_in_as_member(actors.member)
+        get members_care_case_care_navigation_recommendations_path(actors.care_case)
+
+        offerings = [
+          [CareNavigation::Offerings::KidsCoaching, 1],
+          [CareNavigation::Offerings::AutismSpectrumDisorderCoaching, 1]
+        ]
+
+        offerings.each do |offering|
+          label = translate("#{offering.first.id}.cta_button_text", count: offering.last)
+          expect(response.body).to have_selector("form[action='#{url_for_offering.call(offering.first, label)}']")
+          expect(response.body).to have_button(label)
+        end
+      end
+
+      it "doesn't show the program comparison table" do
+        actors = create_actors(recommendation: :strong_therapy, region: Region.california)
+
+        log_in_as_member(actors.member)
+        get members_care_case_care_navigation_recommendations_path(actors.care_case)
+
+        expect(response.body).not_to have_text("Therapy vs Coaching at a glance")
+      end
+    end
+
+    context "washington member", skip: "Legacy intake flow is currently disabled" do
+      it "shows program cards for each available program" do
+        actors = create_actors(recommendation: :strong_therapy, region: Region.washington)
+
+        log_in_as_member(actors.member)
+        get members_care_case_care_navigation_recommendations_path(actors.care_case)
+
+        expect(response.body).to have_text(
+          translate("kids_therapy.title")
+        )
+        expect(response.body).to include(
+          translate("kids_therapy.description")
+        )
+      end
+
+      it "includes CTA buttons to book care for each available program" do
+        actors = create_actors(recommendation: :strong_therapy, region: Region.washington)
+        url_for_offering = ->(offering, label) { offering.new(care_case: actors.care_case).path(source: "care nav results | program_card | #{label}") }
+
+        log_in_as_member(actors.member)
+        get members_care_case_care_navigation_recommendations_path(actors.care_case)
+
+        offerings = [
+          [CareNavigation::Offerings::KidsTherapy, 0]
+        ]
+
+        offerings.each do |offering|
+          label = translate("#{offering.first.id}.cta_button_text", count: offering.last)
+
+          expect(response.body).to have_selector("form[action='#{url_for_offering.call(offering.first, label)}']")
+          expect(response.body).to have_button(label)
+        end
+      end
+
+      it "does not show the additional support buttons" do
+        actors = create_actors(recommendation: :strong_therapy, region: Region.washington)
+
+        log_in_as_member(actors.member)
+        get members_care_case_care_navigation_recommendations_path(actors.care_case)
+
+        expect(response.body).not_to have_link("Local support")
+        expect(response.body).not_to have_link("Explore articles & videos")
+        expect(response.body).not_to have_text("See crisis resources")
+      end
+
+      it "doesn't show the program comparison table" do
+        actors = create_actors(recommendation: :strong_therapy, region: Region.washington)
+
+        log_in_as_member(actors.member)
+        get members_care_case_care_navigation_recommendations_path(actors.care_case)
+
+        expect(response.body).not_to have_text("Therapy vs Coaching at a glance")
+      end
+    end
+
+    context "when recommendation leads to care guide offering" do
+      it "shows care guide video offering" do
+        actors = create_actors(recommendation: :care_guide, region: Region.california)
+        # Create safety check with risk factors to trigger high acuity (treatment exclusion)
+        FactoryBot.create(:safety_check, care_case: actors.care_case, member: actors.member, risk_factors: ["dangerous_behaviors"])
+
+        log_in_as_member(actors.member)
+        get members_care_case_care_navigation_recommendations_path(actors.care_case)
+
+        expect(response.body).to have_text(
+          translate("care_guide_video.title")
+        )
+        expect(response.body).to have_text(
+          translate("care_guide_video.description")
+        )
+      end
+
+      it "includes CTA button for care guide video offering" do
+        actors = create_actors(recommendation: :care_guide, region: Region.california)
+        # Create safety check with risk factors to trigger high acuity (treatment exclusion)
+        FactoryBot.create(:safety_check, care_case: actors.care_case, member: actors.member, risk_factors: ["dangerous_behaviors"])
+        url_for_offering = ->(offering, label) { offering.new(care_case: actors.care_case).path(source: "care nav results | program_card | #{label}") }
+
+        log_in_as_member(actors.member)
+        get members_care_case_care_navigation_recommendations_path(actors.care_case)
+
+        offerings = [
+          [CareNavigation::Offerings::CareGuideVideo, 1]
+        ]
+
+        offerings.each do |offering|
+          label = translate("#{offering.first.id}.cta_button_text", count: offering.last)
+          expect(response.body).to have_selector("form[action='#{url_for_offering.call(offering.first, label)}']")
+          expect(response.body).to have_button(label)
+        end
+      end
+    end
+  end
+end

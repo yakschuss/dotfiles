@@ -1,0 +1,649 @@
+# frozen_string_literal: true
+
+require "sidekiq-ent/web"
+
+constraints subdomain: "reef" do
+  get "auth/auth0_staffer/callback" => "sessions#create"
+  get "auth/failure" => "sessions#failure"
+  get "login" => "home#show", :as => "login"
+  get "logout" => "sessions#destroy"
+  delete "logout" => "sessions#destroy"
+  # This allows bypassing Auth0 in development and login as the given ID
+  get "backdoor_login/:staffer_id" => "sessions#backdoor_login" unless BrightlineStack.production?
+
+  namespace :healthie do
+    resources :assignments, only: [:index, :create, :new]
+    get "assignments/:exercise_id", to: "assignments#new"
+    resources :goals, only: [:index, :new, :create, :show, :edit, :update] do
+      resources :goal_entries, only: [:create], controller: :goal_entries
+    end
+    resources :reminders, only: [:index, :new, :create]
+    resources :confidence_and_stress_scales, only: [:index, :create]
+    resources :safety_plans, only: [:index, :create]
+    resources :appointments, only: [:index]
+    resource :patient_info, only: [:show]
+    resource :preappointment, only: [:show]
+    resources :digital_contents, only: [:index]
+    resource :waiting_room, only: [:show]
+    resource :scheduling_preferences, only: [:show, :create]
+  end
+
+  resources :promotions
+  resources :app_versions
+  resources :invoices, only: [:index, :update, :show] do
+    resources :candid_patient_responsibilities, only: [:create]
+  end
+  resources :invoice_line_items, only: [] do
+    resources :promotions, only: [:create, :destroy], controller: :invoice_line_item_promotions
+    resources :adjustments, only: [:create, :destroy], controller: :invoice_line_item_adjustments
+  end
+
+  resources :billable_appointments, only: [:update] do
+    resources :insurance_invoices, only: [:index, :create], controller: :insurance_invoices
+    scope module: :billable_appointments do
+      resource :icd10_codes, only: [:create, :destroy]
+    end
+  end
+
+  resources :scheduled_notifications, only: [:index, :update]
+
+  resources :billable_session_passes, only: [:update] do
+    resources :insurance_invoices, only: [:index, :create], controller: :insurance_invoices
+  end
+
+  resources :appointment_types, only: [:index]
+
+  resources :appointments, only: [:index, :show, :edit] do
+    scope module: "appointments" do
+      resources :no_shows, only: [:create]
+      resources :acceptances, only: [:create]
+      resource :hold, only: [:show] do
+        scope module: "holds" do
+          resources :confirmations, only: [:create]
+          resources :releases, only: [:create]
+        end
+      end
+      resources :cancelations, only: [:new, :create]
+      resource :statuses, only: [:edit, :update]
+
+      namespace :healthie do
+        resource :appointment, only: [:create]
+        resource :manual_note_syncs, only: [:create]
+      end
+    end
+  end
+
+  resources :care_guide_tasks, only: [:index, :update] do
+    resources :care_guide_task_claims, only: [:create]
+    resources :care_guide_task_expires, only: [:create]
+  end
+  resources :reminders, only: [:index] do
+    resources :reminder_claims, only: [:create]
+  end
+
+  resources :caseload_care_cases, only: [:index, :show]
+
+  resources :new_patient_limits, only: [:index]
+  resources :templates, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    resources :template_blocks, only: [:new, :create, :edit, :update, :destroy], controller: "templates/template_blocks"
+    resources :publishes, only: [:new, :create], controller: "templates/publishes"
+  end
+
+  resources :template_block_types, only: [:index, :new, :create, :edit, :update, :destroy]
+
+  resources :care_recommendations, only: [:index, :edit, :update]
+
+  resources :staffers do
+    resources :bios, only: [:create, :update]
+    resources :care_competencies, only: [:create, :edit, :update, :destroy]
+    resources :capabilities, module: "staffers", only: [:show, :update, :destroy]
+    resources :new_patient_limits, only: [:new, :edit, :create, :update]
+  end
+
+  resources :supervisor_trainee_relationships, only: [:create, :destroy], param: :trainee_id
+
+  namespace :staffer_management do
+    resources :deactivated_staffers, only: [:index, :destroy] do
+      patch :reactivate, on: :member
+    end
+  end
+
+  resources :caseloads, only: [:show] do
+    scope module: "caseloads" do
+      resource :tables, only: [:show]
+      resource :weekly_calendar, only: [:show]
+      resources :appointment_slot_reservations, only: [:create] do
+        post "new", on: :collection, as: :new
+      end
+      namespace "appointment_slots" do
+        resources :payment_method_reminders, only: [:create]
+      end
+    end
+  end
+
+  resources :care_capabilities, only: [:create, :destroy]
+  resources :covered_entities, only: [:show, :edit, :update, :destroy] do
+    get "preview", on: :member
+  end
+
+  resources :coverage_logs, only: [] do
+    post "clone", on: :member
+  end
+  resources :coverage_infos, only: [:index, :update] do
+    scope module: :coverage_infos do
+      resources :covered_entities, only: [:index, :update]
+    end
+    resources :coverage_confirmations, only: [:new, :create] do
+      get "preview", on: :collection
+    end
+  end
+  resources :ongoing_eligibility_checks, only: [:index, :edit, :update] do
+    get "preview", on: :member
+  end
+  resources :eligibility_requests, only: [:create, :new, :show] do
+    scope module: :eligibility_requests do
+      resources :covered_entities, only: [:create]
+    end
+  end
+  resources :eligibility_files, only: [:index, :show] do
+    post "start_eligibility_file_job", on: :collection
+    post "cancel", on: :member
+    post "retry", on: :member
+  end
+
+  namespace :eligibility_verifications do
+    resources :covered_entities, only: [:create]
+    namespace :residency do
+      resources :staffer_contexts, only: [:new, :create, :show]
+    end
+  end
+
+  namespace :document_store do
+    resources :documents, only: [:index, :new, :create, :show] do
+      member do
+        patch "purge"
+        post "pgp_decrypt"
+        post "run_callback"
+      end
+    end
+  end
+
+  namespace :file_source do
+    resources :configurations, only: [:new, :create]
+    resources :remote_files, only: [:index, :show]
+  end
+
+  resources :contracts, only: [:new, :create, :edit, :index, :show, :update] do
+    get "raw", on: :member
+    scope module: :contracts do
+      resources :matching_infos, only: [:create, :update, :destroy]
+    end
+  end
+  resources :contract_versions, except: [:destroy]
+  resources :claim_requests, only: [:index, :show, :update] do
+    resources :candid_claims, only: [:create]
+  end
+
+  resources :out_of_office_blocks, only: [:create, :destroy, :update]
+  resources :staffer_credentials, only: [:create, :destroy, :edit, :update]
+
+  resources :matching_infos, only: [:index]
+  resources :payers, only: [:index, :new, :create, :show, :edit, :update]
+  resources :sponsors, only: [:index]
+
+  resources :connect_activation_definitions, except: [:destroy]
+  resources :session_pools, except: [:destroy]
+  resources :session_pass_definitions, except: [:destroy]
+
+  namespace :referrals do
+    resources :account_leads do
+      resources :conversions, only: [:new, :create]
+    end
+  end
+
+  namespace :phone_desk do
+    resources :accounts, only: [:index, :new, :create, :edit, :update] do
+      resources :payments, only: [:new, :create] do
+        patch :show_form, on: :collection
+      end
+      namespace :payments do
+        resources :eligibility_requests, only: [:create]
+      end
+      resources :call_logs, only: [:new, :create, :edit, :update]
+
+      namespace :scheduling do
+        resources :appointment_bundles, only: [:new, :create]
+        resource :available_appointments, only: [:show]
+        namespace :available_appointments do
+          resource :calendars, only: [:show]
+          resource :selection_validations, only: [:show]
+          resource :reviews, only: [:show]
+          resources :steps, only: [:show, :create], param: :appointment_index
+        end
+        resources :bookings, only: [:new, :create]
+        resources :step_bookings, only: [:create]
+        resource :confirmation, only: [:show]
+      end
+    end
+
+    resources :faqs, only: [:index]
+    resources :external_providers, only: [:index]
+    resources :employers, only: [:index]
+
+    namespace :scheduling do
+      namespace :faqs do
+        resource :calendar, only: [:show]
+      end
+    end
+
+    resources :available_appointments, only: [:index]
+    get "care_case_fields/:id", to: "accounts#care_case_fields"
+
+    namespace :wait_list do
+      resources :entries, only: [:new, :create]
+    end
+  end
+
+  resources :clinics, only: [:index, :new, :create, :edit, :update, :destroy]
+
+  resources :accounts, only: [:index, :show, :update, :destroy] do
+    scope module: "accounts" do
+      resource :preferred_clinic, only: [:update]
+      resources :covered_entities, only: [:index, :new, :create, :update]
+      resources :members, only: [:edit, :update, :show] do
+        scope module: "chats" do
+          resource :supplemental_coach, only: [:create, :destroy]
+        end
+        resources :chats, only: [:show] do
+          resources :unread_messages, only: [:create]
+          scope module: "chats" do
+            resource :flag, only: [:create, :destroy]
+          end
+        end
+        scope module: "members" do
+          resources :reminders, only: [:index, :new, :edit]
+          resource :connect_usage, only: [:show]
+          resource :outreach, only: [:show]
+        end
+        resource :email_change, only: [:edit, :update, :show]
+        resource :multi_factor_authentication, only: [:destroy]
+        resource :owner_invites, only: [:create]
+        resource :sms_messages, only: [:create]
+        resource :policy_acceptance, only: [:destroy]
+      end
+      resource :member_support, only: [:create]
+      # singular since there can only be one assigned_backup_coach
+      resource :assigned_account_care_guide, only: [:create], controller: "assigned_account_care_guide"
+      resource :assigned_backup_coach, only: [:create, :destroy], controller: "assigned_backup_coach"
+      resource :assigned_account_coach, only: [:create], controller: "assigned_account_coach"
+
+      resources :notes, only: [:create, :update]
+      resources :reminders, only: [:index, :new, :edit, :create, :update]
+      resources :events, only: [:index]
+      resources :tags, only: [:destroy] do
+        get "edit", on: :collection
+        post "update", on: :collection
+      end
+      resources :external_providers, only: [:show], param: :external_provider_id
+    end
+  end
+
+  namespace :coach_workflows do
+    resources :chats, only: [:index]
+    resources :chats_title, only: [:index]
+    resources :reminders, only: [:index]
+    resources :sendbird_chat_channel_memberships, only: [:update]
+  end
+
+  resources :duplicate_care_cases, only: [:destroy]
+  resources :care_cases, only: [:index, :show, :update] do
+    scope module: "care_cases" do
+      resources :chats, only: [:index, :show]
+      resources :prior_authorization_records, only: [:index, :new, :create, :edit, :update, :destroy]
+    end
+    resource :patient_invite, only: [:create]
+    resources :account_promotions, only: [:create, :index, :destroy]
+    resources :events, only: [:index], controller: "care_case_events"
+    resources :care_journey_activities, only: [:index], controller: "care_case_care_journey_activities"
+    resources :invoices, only: [:index], controller: "care_case_invoices"
+    resources :square_payments, only: [:create, :show]
+    resources :square_refunds, only: [:create]
+    resources :email_reminders, only: [:create]
+    resources :assignments, only: [:index, :destroy]
+    resources :assessment_assignments, only: [:create, :destroy, :show]
+    resources :payment_form_assignments, only: [:create, :destroy]
+    resources :assigned_exercises, only: [:create, :destroy, :show]
+    resources :assigned_connect_contents, only: [:create, :destroy, :show]
+    resources :questionnaire_submissions, only: [:show, :create, :destroy]
+    resources :cardiovascular_screens, only: [:show]
+    resources :signature_requests, only: [:show, :create, :destroy] do
+      resources :notifications, controller: "signature_request_notifications", only: [:create]
+    end
+
+    resources :care_form_assignments, only: [:create]
+    namespace :care_documents do
+      resources :therapy_care_plans, except: [:index]
+      resources :discharge_summaries, except: [:index]
+    end
+
+    resources :clinical_roles, only: [:create, :destroy]
+    resources :care_navigators, only: [:create], controller: "care_case_care_navigators"
+
+    resource :healthie_patient, only: [:show]
+    resources :square_payment_methods, only: [:show]
+    resource :coverage_overview, only: [:show], controller: "coverage_overview" do
+      post :link_account_covered_entities, on: :collection
+    end
+
+    resource :treatment_initiation, only: [:new, :create]
+    resource :treatment_status_updates, only: [:create]
+    resource :pre_treatment_notes, only: [:show]
+    resources :roles, only: [:index, :create], controller: "care_case_roles"
+    resources :role_members, only: [:new, :create, :destroy], controller: "care_case_role_members"
+
+    resources :medical_histories, only: [:new, :create], controller: "care_case_medical_histories"
+    resource :medical_history_request, only: [:create], controller: "care_case_medical_history_request"
+    resource :med_management, only: [:show], controller: "care_case_med_management"
+
+    resources :digital_contents, only: [:show]
+    scope module: "care_cases" do
+      resources :candid_patients, except: [:index, :show, :destroy]
+      resources :exclusions, only: [:index]
+      resources :digital_contents, only: [:index]
+      resource :scheduling_preferences, only: [:edit, :update]
+      resources :scheduled_appointments, only: [:new, :create]
+      resources :appointments, only: [:index, :edit, :update] do
+        resource :appointment_detail, only: [:show]
+        resources :billable_appointments, only: [:index, :new, :create]
+        resources :billable_session_passes, only: [:index]
+      end
+      resources :appointment_holds, only: [] do
+        resource :appointment_hold_detail, only: [:show]
+      end
+      resources :appointment_slot_instances, only: [] do
+        resource :skipped_appointment_detail, only: [:show]
+      end
+      resources :appointment_scheduling_requests, only: [:new, :create]
+      resources :bookings, only: [:new, :create]
+      resources :covered_entities, only: [:new, :create]
+      resources :goals, only: [:index, :new, :create, :show, :edit, :update] do
+        resources :goal_claims, only: [:create]
+        resources :goal_entries, only: [:create]
+      end
+      resources :member_email_changes, only: [:edit, :update]
+      resources :notes, only: [:create, :update]
+      resources :reminders, only: [:index, :create, :update, :edit, :new]
+      resource :availability, only: [:show] do
+        get :slots
+      end
+      namespace :availabilities do
+        resource :calendar, only: [:show]
+      end
+      resource :filtered_appointments_table, only: [:show]
+      resources :appointment_slots, only: [:index]
+      resources :appointment_slot_reservations, only: [:create] do
+        # TODO: This route is not quite right - it ends up as
+        # new_care_case_appointment_slot_reservations_path (plural) instead of singular.
+        # But didn't feel worth moving outside of the scope.
+        post "new", on: :collection, as: :new
+        scope module: "appointment_slots" do
+          resources :releases, only: [:new, :create]
+          resources :cadence_transitions, only: [:new, :create]
+          resources :management_options, only: [:new]
+        end
+      end
+      namespace :appointment_slots do
+        resources :payment_method_reminders, only: [:create]
+        resources :reminders, only: [:create]
+        resource :weekly_calendar, only: [:show]
+      end
+      resources :clinical_referrals, only: [:show]
+      resources :internal_referrals, only: [:show]
+      resource :preappointment, only: [:show] do
+        scope module: "preappointment" do
+          resource :paperwork, only: [:show]
+          resource :exercises, only: [:show]
+          resource :goals, only: [:show]
+          resource :goals_and_questionnaires, only: [:show]
+          resource :assessments, only: [:show]
+          resource :assessments_and_goals, only: [:show]
+          resource :notes, only: [:show]
+          resource :upcoming_appointment_card, only: [:show]
+          resource :recent_assessment_result, only: [:show]
+          resource :assign_paperwork_form, only: [:show, :create]
+          resource :assign_exercises_form, only: [:show, :create]
+          resource :assign_assessments_form, only: [:show, :create]
+          resource :exercise_summary, only: [:show]
+
+          resources :members, only: [] do
+            resource :assignment_list, only: [:show]
+            resource :exercises_list, only: [:show]
+            resource :notification_list, only: [:show]
+            resource :assessment_list, only: [:show]
+            resources :assessment_results, only: [:show]
+            resources :assessment_types, only: [:destroy]
+          end
+        end
+      end
+      resources :tags, only: [:destroy] do
+        get "edit", on: :collection
+        post "update", on: :collection
+      end
+
+      namespace :healthie do
+        resources :notes, only: [:index] do
+          scope module: :notes do
+            resource :associated_data, only: [:show]
+            resources :unlock_requests, only: [:create]
+
+            resources :linkable_appointments, only: [:index]
+            resources :linked_appointments, only: [] do
+              post :create, on: :member
+            end
+          end
+        end
+      end
+
+      namespace :service_line do
+        resources :enrollments, only: [:new, :create, :edit, :update]
+      end
+
+      namespace :coco do
+        resources :activities, only: [:show]
+        resources :activity_assignments, only: [:create, :destroy]
+        resources :bundles, only: [:index, :new, :update, :show] do
+          scope module: :bundles do
+            resources :scheduling, only: [:new, :create]
+            resource :single_activities, only: [:new, :create, :destroy]
+
+            namespace :focuses do
+              resources :selections, only: [:create]
+            end
+            namespace :skills do
+              resources :selections, only: [:show]
+            end
+          end
+        end
+        resources :care_plans, only: [:index, :show, :edit, :update] do
+          scope module: :care_plans do
+            resource :focuses, only: [:new, :create, :update]
+            resource :goals, only: [:new, :create, :update] do
+              scope module: :goals do
+                resources :custom_goals, only: [:new]
+                resources :current_goals, only: [:new, :create, :edit, :update]
+              end
+            end
+          end
+        end
+      end
+
+      resources :external_providers, only: [:show], param: :external_provider_id
+    end
+  end
+
+  namespace :member_support do
+    resources :conversations, only: [:index]
+    resources :claimed_conversations, only: [:show, :create, :destroy]
+    resources :unclaimed_conversations, only: [:create]
+    resources :read_conversations, only: [:create]
+    resources :conversation_notifications, only: [:index]
+  end
+
+  namespace :wait_list do
+    resources :entries, only: [:index, :new, :create, :edit, :update] do
+      scope module: :entries do
+        resources :outreach_attempts, only: [:index, :new, :create, :destroy]
+        resources :removals, only: [:new, :create]
+      end
+    end
+  end
+
+  namespace :slot_recapture do
+    resources :opportunities, only: [:index, :show] do
+      member do
+        patch :filled
+        patch :expired
+      end
+      resources :outreach_attempts, only: [:new, :create]
+    end
+    resource :configuration, only: [:show, :edit, :update]
+  end
+
+  constraints DevToolsUIAccess do
+    mount Flipper::UI.app(Flipper) => "/flipper"
+    mount Sidekiq::Web => "/sidekiq"
+    mount PgHero::Engine, at: "pghero"
+    if defined? ::Coverband
+      mount Coverband::Reporters::Web.new, at: "/coverband"
+    end
+  end
+
+  resources :lead_sources, only: [:index, :create, :update, :destroy]
+  get "/dev_tools", to: "dev_tools#show"
+
+  namespace :dev_tools do
+    resources :address_changes, only: [:new, :create]
+    resources :duplicate_care_cases, only: [:new, :create]
+    resources :california_enablements, only: [:new, :create]
+    resources :california_coverages, only: [:new, :create]
+    resources :eligibility_verifications, only: [:index, :show]
+    resources :optum_api_requests, only: [:new, :create]
+    resources :questionnaire_translations, only: [:new, :create]
+    resources :care_guide_swaps, only: [:new, :create]
+    resources :care_guide_referrals, only: [:new, :create]
+    resources :member_data_deletions, only: [:new, :create]
+    resources :healthie_caseload_syncs, only: [:create]
+
+    namespace :candid do
+      resources :encounters, only: [:index]
+    end
+  end
+
+  # Mount Lookbook with access constraint, and redirect to
+  # /login with a parameter to allow redirection to the
+  # original path after login.
+  # Use two fallback routes to handle both /lookbook and
+  # deeper paths like /lookbook/prism/button_preview/selectable
+  mount Lookbook::Engine, at: "/lookbook", constraints: LookbookAccess.new
+  constraints lambda { |request| !LookbookAccess.new.matches?(request) } do
+    get "/lookbook", to: redirect { |_params, request| "/login?after_login=#{request.original_fullpath}" }
+    get "/lookbook/*path", to: redirect { |_params, request| "/login?after_login=#{request.original_fullpath}" }
+  end
+
+  get "/quick_search", to: "quick_search#index"
+
+  namespace :stickersheets do
+    resources :typography, only: [:index]
+    resource :forms, only: [:show]
+  end
+
+  resources :digital_contents, only: [:index, :show] do
+    scope module: :digital_contents do
+      resources :assignments, only: [:create]
+      resource :preview, only: [:show]
+      resource :save, only: [:create, :destroy]
+    end
+  end
+  namespace :digital_contents do
+    resources :topics, only: [:show]
+    resources :staffers, only: [] do
+      resources :saves, only: [:index]
+    end
+  end
+
+  resources :region_updates, only: [:new, :create]
+
+  namespace :care_navigation do
+    resources :algorithms, only: [:index, :update]
+    resources :resets, only: [:create]
+  end
+
+  resources :ahoy_event_dictionary, only: [:index]
+  resources :analytics_event_dictionary, only: [:index]
+  get "analytics_event_dictionary/amplitude" => "analytics_event_dictionary#amplitude"
+
+  root to: "home#show", as: :reef_root
+
+  resource :dashboard, only: [:show], path: "/dashboard", controller: "dashboard"
+
+  get "version", to: proc { [200, {}, [REEF_VERSION]] }
+
+  namespace :webhooks do
+    resources :acuity_webhooks, only: :create
+    resources :alchemer_webhooks, only: :create
+    resources :iterable_webhooks, only: :create
+    resources :sendbird_webhooks, only: :create
+    resources :twilio_webhooks, only: :create
+    resources :mailgun_webhooks, only: :create
+    resources :healthie_webhooks, only: :create
+    resources :formstack_webhooks, only: :create
+    namespace :marketing do
+      namespace :iterable do
+        resources :journey_webhooks, only: :create
+      end
+    end
+  end
+
+  # Define routes that match the subset of ActiveStorage features we use, but mapped to controllers that require
+  # authentication as an active staffer, and constrained to the reef subdomain. Only define a route for the `proxy`
+  # file serving method, not `redirect`, because our prod S3 bucket restricts requests to whitelisted ip addresses.
+  scope ActiveStorage.routes_prefix do
+    get "/blobs/proxy/:signed_id/*filename" => "active_storage/authenticated/blobs/proxy#show", :as => :rails_service_blob_proxy
+  end
+end
+
+# Copied from config/routes.rb of the version of ActiveStorage currently in use, formatting and all. This is the code
+# that defines the `rails_storage_proxy_path` helper method, which generates a url with the appropriate parameters for
+# a given blob or representation. This would normally be set up when ActiveStorage routes are drawn, however since that
+# is disabled, this has to be set up manually as well.
+#
+# Note that if model does not respond to `signed_id` it is assumed to be a representation, which we have no use for
+# currently. If serving representations is desired, a route will need to be added as above.
+#
+# This is in this file because it relates to the ActiveStorage routes defined constrained to the reef subdomain above,
+# but `direct` cannot be called from within a scope block.
+#
+# rubocop:disable Layout/ExtraSpacing
+direct :rails_storage_proxy do |model, options|
+  if model.respond_to?(:signed_id)
+    route_for(
+      :rails_service_blob_proxy,
+      model.signed_id,
+      model.filename,
+      options
+    )
+  else
+    signed_blob_id = model.blob.signed_id
+    variation_key  = model.variation.key
+    filename       = model.blob.filename
+
+    route_for(
+      :rails_blob_representation_proxy,
+      signed_blob_id,
+      variation_key,
+      filename,
+      options
+    )
+  end
+end
+# rubocop:enable Layout/ExtraSpacing

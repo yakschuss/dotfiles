@@ -1,0 +1,96 @@
+<div
+  data-controller="prism--select"
+  data-action="
+    click@window->prism--select#closeList
+    keyup@window->prism--select#closeList
+  "
+  class="<%= classes %>">
+  <div class="hidden">
+    <%# The "real" select box that controls form state %>
+    <% if form.present? %>
+      <%= form.select(
+            form_field,
+            options_for_select(options, selected_option),
+            {include_blank: include_blank},
+            {
+              class: styles.select(classes),
+              "aria-label": title,
+              "data-action": change_action,
+              "data-prism--select-target": "realSelect",
+              **data_params
+            }
+          ) %>
+    <% else %>
+      <%= select_tag title,
+            options_for_select(options, selected_option),
+            include_blank: include_blank,
+            class: styles.select(classes),
+            "aria-label": title,
+            "data-action": change_action,
+            "data-prism--select-target": "realSelect",
+            **data_params %>
+    <% end %>
+  </div>
+
+  <%# The "fake" select box that looks pretty %>
+  <div class="relative mt-1">
+    <button
+      type="button"
+      aria-haspopup="listbox"
+      aria-expanded="true"
+      aria-label="<%= title %>"
+      data-prism--select-target="selected"
+      data-action="click->prism--select#toggleList"
+      class="
+        border border-gray-700/60 placeholder-gray-500 py-2 rounded-md w-full
+        focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500
+        relative cursor-default bg-white pl-3 pr-10 text-left shadow-xs
+        focus:border-indigo-500 focus:ring-indigo-500 h-14 prism-text-regular
+      ">
+      <span class="block truncate selected-name prism-text-regular"><%= selected_option %></span>
+      <span
+        class="
+          pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2
+        ">
+        <%= render Prism::Icon.new(name: :expand_more, classes: "text-gray-700") %>
+      </span>
+    </button>
+
+    <ul
+      tabindex="-1"
+      role="listbox"
+      aria-label="<%= title %>"
+      data-prism--select-target="list"
+      class="
+        hidden absolute z-10 max-h-60 w-full overflow-x-hidden rounded-md bg-white py-1
+        shadow-lg ring-1 ring-black/5 focus:outline-none prism-text-regular
+      ">
+      <% options.each do |option| %>
+        <li
+          role="option"
+          tabindex="0"
+          data-prism--select-target="option"
+          data-action="
+            click->prism--select#selectOption
+            keyup->prism--select#selectOption
+            focus->prism--select#focusOption
+            blur->prism--select#blurOption
+          "
+          class="
+            group text-gray-900 relative select-none mx-2 hover:bg-green-700
+            hover:text-white focus:bg-green-700 focus:text-white p-2 rounded-sm
+            cursor-pointer h-9
+          ">
+          <span class="block truncate option-name"><%= option_display_text(option) %></span>
+
+          <span class="absolute inset-y-0 right-0 flex items-center pr-4">
+            <%= render Prism::Icon.new(
+                  name: :check_small,
+                  classes: "h-5 w-5 group-hover:text-white option-icon hidden"
+                ) %>
+          </span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

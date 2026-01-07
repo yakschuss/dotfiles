@@ -1,0 +1,38 @@
+[
+  {
+    "content": "Examine the notification_schedules.yml changes for timing updates",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Review SchedulingNotification condition method changes",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Analyze the new paperwork conditions and integration",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Check test coverage for new conditions and logic",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  },
+  {
+    "content": "Evaluate impact on notification cadence and gaps",
+    "status": "completed",
+    "priority": "medium",
+    "id": "5"
+  },
+  {
+    "content": "Review any potential business logic inconsistencies",
+    "status": "completed",
+    "priority": "medium",
+    "id": "6"
+  }
+]

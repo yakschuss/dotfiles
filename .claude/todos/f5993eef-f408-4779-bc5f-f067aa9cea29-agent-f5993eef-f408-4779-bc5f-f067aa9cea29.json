@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Search for all instances of 'Paperwork' in member-facing views and code",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Replace 'Paperwork' with 'Forms' in member-facing views",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Update any related tests to use 'Forms' instead of 'Paperwork'",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Run tests to ensure all changes are working correctly",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  }
+]

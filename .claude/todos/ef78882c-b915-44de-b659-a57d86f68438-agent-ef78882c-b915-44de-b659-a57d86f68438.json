@@ -1,0 +1,38 @@
+[
+  {
+    "content": "Identify where the region_sync_modal_controller should be attached",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Find region select elements that need the modal functionality",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Fix the region_updates_controller request handling",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Test the modal functionality end-to-end",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  },
+  {
+    "content": "Add the region_sync_modal_controller to a region select form",
+    "status": "completed",
+    "priority": "high",
+    "id": "5"
+  },
+  {
+    "content": "Add modal functionality to phone desk account form",
+    "status": "completed",
+    "priority": "high",
+    "id": "6"
+  }
+]

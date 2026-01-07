@@ -1,0 +1,39 @@
+# frozen_string_literal: true
+
+module SlotRecapture
+  class EligibilityFilter
+    Result = Struct.new(:eligible, :reason, keyword_init: true) do
+      def eligible?
+        eligible
+      end
+    end
+
+    def initialize(config: Configuration.current.data)
+      @config = config
+    end
+
+    def check(appointment:, appointment_cancelation:)
+      # Check lead time
+      lead_time_hours = ((appointment.start_time - Time.current) / 1.hour).to_i
+      if lead_time_hours < @config.lead_time_hours_minimum
+        return Result.new(eligible: false, reason: "Lead time #{lead_time_hours}h < minimum #{@config.lead_time_hours_minimum}h")
+      end
+
+      # Check cancellation reason allows slot reuse
+      if appointment_cancelation&.reason.present?
+        cancelation_reason = CancelationReason.find_by_id(appointment_cancelation.reason)
+        if cancelation_reason && !cancelation_reason.slot_enabled?
+          return Result.new(eligible: false, reason: "Cancellation reason '#{appointment_cancelation.reason}' not slot-enabled")
+        end
+      end
+
+      # Check appointment type is waitlistable
+      root_type = appointment.appointment_type&.root_appointment_type_id
+      unless RootAppointmentType.ids.include?(root_type)
+        return Result.new(eligible: false, reason: "Appointment type '#{root_type}' not waitlistable")
+      end
+
+      Result.new(eligible: true, reason: nil)
+    end
+  end
+end

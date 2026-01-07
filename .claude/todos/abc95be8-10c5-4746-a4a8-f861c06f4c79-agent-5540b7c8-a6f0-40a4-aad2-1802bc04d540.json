@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Examine ApplicationController and authentication middleware for before_action filters",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Check payment form controllers for authentication requirements",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Look for recent changes to authentication logic that might affect limited paperwork",
+    "status": "completed",
+    "priority": "medium",
+    "id": "3"
+  },
+  {
+    "content": "Investigate guest session logic and any bypassing conditions",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  },
+  {
+    "content": "Find the exact location where login redirect is triggered",
+    "status": "completed",
+    "priority": "high",
+    "id": "5"
+  }
+]

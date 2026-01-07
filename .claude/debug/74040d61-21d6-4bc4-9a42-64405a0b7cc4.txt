@@ -1,0 +1,1247 @@
+2025-12-15T16:17:04.345Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (39.8ms): security find-generic-password -a $USER -w -s "Claude Code"
+2025-12-15T16:17:04.382Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (36.2ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:17:04.428Z [DEBUG] Watching for changes in setting files /Users/jschuss/.claude/settings.json, /Users/jschuss/Brightline/reef/.claude/settings.local.json...
+2025-12-15T16:17:04.472Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2025-12-15T16:17:04.472Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2025-12-15T16:17:04.472Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2025-12-15T16:17:04.476Z [DEBUG] LSP server manager initialized successfully
+2025-12-15T16:17:04.476Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2025-12-15T16:17:04.479Z [DEBUG] Applying permission update: Adding 87 allow rule(s) to destination 'localSettings': ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)","Bash(gh pr list:*)","mcp__playwright__browser_navigate","mcp__playwright__browser_hover","mcp__playwright__browser_take_screenshot","Skill(superpowers:systematic-debugging)","mcp__playwright__browser_snapshot","mcp__playwright__browser_click","mcp__playwright__browser_tabs","mcp__playwright__browser_console_messages","mcp__playwright__browser_evaluate","mcp__playwright__browser_wait_for","Bash(curl:*)","Bash(tr:*)","mcp__playwright__browser_type","mcp__playwright__browser_select_option","mcp__playwright__browser_fill_form","mcp__figma-desktop__get_screenshot","Bash(spec/components/staffers/phone_desk/scheduling/validation_error_banner_spec.rb)","Skill(superpowers:brainstorming)","Bash(git pull:*)","Bash(git add:*)","Bash(.env)","mcp__figma-desktop__get_design_context","Bash(ruby -rjson -e:*)","Bash(git reset:*)","Bash(git stash:*)","Bash(git checkout:*)","Bash(git commit:*)","Bash(git branch:*)","Bash(git show:*)","Bash(bundle install:*)","Bash(ruby:*)","Bash(for concern in reminder_subject soft_deletion callable deliverable)","Bash(do echo '=== $concern.rb ===' grep -l include.*$concern /Users/jschuss/Brightline/reef/app/models/*.rb)","Bash(sort:*)","Bash(wc:*)","Bash(script/lint:*)","Bash(bundle exec rubocop:*)","Bash(script/add_feature_flag:*)","Bash(./script/add_feature_flag:*)","Bash(git diff:*)","Bash(git rev-parse:*)","Bash(RAILS_ENV=test bundle exec rails runner:*)","Bash(psql:*)","Bash(DISABLE_SPRING=1 RAILS_ENV=test bundle exec rails runner:*)"]
+2025-12-15T16:17:04.487Z [DEBUG] Loading plugin superpowers from source: {"source":"url","url":"https://github.com/obra/superpowers.git"}
+2025-12-15T16:17:04.487Z [DEBUG] Using provided version for superpowers@superpowers-marketplace: 3.6.2
+2025-12-15T16:17:04.488Z [DEBUG] Using versioned cached plugin superpowers from /Users/jschuss/.claude/plugins/cache/superpowers-marketplace/superpowers/3.6.2
+2025-12-15T16:17:04.490Z [DEBUG] Loaded hooks from standard location for plugin superpowers: /Users/jschuss/.claude/plugins/cache/superpowers-marketplace/superpowers/3.6.2/hooks/hooks.json
+2025-12-15T16:17:04.490Z [DEBUG] Found 1 plugins (1 enabled, 0 disabled)
+2025-12-15T16:17:04.495Z [DEBUG] Stats cache stale (2025-12-11), processing 2025-12-12 to 2025-12-14 in background
+2025-12-15T16:17:04.504Z [DEBUG] Loading skills from directories: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/jschuss/.claude/skills, project=[]
+2025-12-15T16:17:04.505Z [DEBUG] Passes: Cache stale, returning cached data and refreshing in background
+2025-12-15T16:17:04.639Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (131.8ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-15T16:17:04.640Z [DEBUG] Loaded 1 installed plugins from /Users/jschuss/.claude/plugins/installed_plugins.json
+2025-12-15T16:17:04.642Z [DEBUG] Official marketplace auto-install already attempted, skipping
+2025-12-15T16:17:04.881Z [DEBUG] Creating shell snapshot for zsh (/bin/zsh)
+2025-12-15T16:17:04.882Z [DEBUG] Looking for shell config file: /Users/jschuss/.zshrc
+2025-12-15T16:17:04.882Z [DEBUG] Snapshots directory: /Users/jschuss/.claude/shell-snapshots
+2025-12-15T16:17:04.883Z [DEBUG] Creating snapshot at: /Users/jschuss/.claude/shell-snapshots/snapshot-zsh-1765815424882-uhaw0e.sh
+2025-12-15T16:17:04.883Z [DEBUG] Shell binary exists: true
+2025-12-15T16:17:04.883Z [DEBUG] Execution timeout: 10000ms
+2025-12-15T16:17:04.884Z [DEBUG] Writing to temp file: /Users/jschuss/.claude/todos/74040d61-21d6-4bc4-9a42-64405a0b7cc4-agent-74040d61-21d6-4bc4-9a42-64405a0b7cc4.json.tmp.69957.1765815424884
+2025-12-15T16:17:04.906Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (21.7ms)
+2025-12-15T16:17:04.906Z [DEBUG] Temp file written successfully, size: 2 bytes
+2025-12-15T16:17:04.906Z [DEBUG] Renaming /Users/jschuss/.claude/todos/74040d61-21d6-4bc4-9a42-64405a0b7cc4-agent-74040d61-21d6-4bc4-9a42-64405a0b7cc4.json.tmp.69957.1765815424884 to /Users/jschuss/.claude/todos/74040d61-21d6-4bc4-9a42-64405a0b7cc4-agent-74040d61-21d6-4bc4-9a42-64405a0b7cc4.json
+2025-12-15T16:17:04.906Z [DEBUG] File /Users/jschuss/.claude/todos/74040d61-21d6-4bc4-9a42-64405a0b7cc4-agent-74040d61-21d6-4bc4-9a42-64405a0b7cc4.json written atomically
+2025-12-15T16:17:04.921Z [DEBUG] Auto-updating 1 installed marketplaces in background
+2025-12-15T16:17:04.921Z [DEBUG] Auto-updating marketplace "superpowers-marketplace"
+2025-12-15T16:17:04.921Z [DEBUG] getPluginSkills: Processing 1 enabled plugins
+2025-12-15T16:17:04.921Z [DEBUG] Checking plugin superpowers: skillsPath=exists, skillsPaths=0 paths
+2025-12-15T16:17:04.921Z [DEBUG] Attempting to load skills from plugin superpowers default skillsPath: /Users/jschuss/.claude/plugins/cache/superpowers-marketplace/superpowers/3.6.2/skills
+2025-12-15T16:17:04.935Z [DEBUG] Loading hooks from plugin: superpowers
+2025-12-15T16:17:04.936Z [DEBUG] Registered 1 hooks from 1 plugins
+2025-12-15T16:17:04.955Z [DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, duplicates removed: 0)
+2025-12-15T16:17:04.955Z [DEBUG] Loaded 20 skills from plugin superpowers default directory
+2025-12-15T16:17:04.955Z [DEBUG] Total plugin skills loaded: 20
+2025-12-15T16:17:04.955Z [DEBUG] Loaded 3 commands from plugin superpowers default directory
+2025-12-15T16:17:04.955Z [DEBUG] Total plugin commands loaded: 3
+2025-12-15T16:17:04.958Z [DEBUG] getSkills returning: 0 skill dir commands, 20 plugin skills
+2025-12-15T16:17:04.962Z [DEBUG] Loaded 1 agents from plugin superpowers default directory
+2025-12-15T16:17:04.962Z [DEBUG] Total plugin agents loaded: 1
+2025-12-15T16:17:05.036Z [DEBUG] [SLOW OPERATION DETECTED] fs.statSync (38.2ms)
+2025-12-15T16:17:05.064Z [DEBUG] [SLOW OPERATION DETECTED] fs.statSync (15.9ms)
+2025-12-15T16:17:05.078Z [DEBUG] [SLOW OPERATION DETECTED] fs.statSync (6.0ms)
+2025-12-15T16:17:05.125Z [DEBUG] [SLOW OPERATION DETECTED] fs.statSync (24.7ms)
+2025-12-15T16:17:05.138Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.1ms)
+2025-12-15T16:17:05.167Z [DEBUG] Git remote URL: https://github.com/hellobrightline/reef.git
+2025-12-15T16:17:05.167Z [DEBUG] Parsed repository: hellobrightline/reef from https://github.com/hellobrightline/reef.git
+2025-12-15T16:17:05.167Z [DEBUG] Parsed repository: hellobrightline/reef from URL: https://github.com/hellobrightline/reef.git
+2025-12-15T16:17:05.167Z [DEBUG] Path /Users/jschuss/Brightline/reef already tracked for repo hellobrightline/reef
+2025-12-15T16:17:05.238Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (33.9ms)
+2025-12-15T16:17:05.240Z [DEBUG] Stats cache saved successfully (lastComputedDate: 2025-12-14)
+2025-12-15T16:17:05.240Z [DEBUG] Stats cache updated with 2 new sessions
+2025-12-15T16:17:05.262Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765815425262
+2025-12-15T16:17:05.262Z [DEBUG] Preserving file permissions: 100644
+2025-12-15T16:17:05.266Z [DEBUG] Temp file written successfully, size: 58788 bytes
+2025-12-15T16:17:05.267Z [DEBUG] Applied original permissions to temp file
+2025-12-15T16:17:05.267Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765815425262 to /Users/jschuss/.claude.json
+2025-12-15T16:17:05.271Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-15T16:17:05.316Z [DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg)
+2025-12-15T16:17:05.325Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765815425325
+2025-12-15T16:17:05.325Z [DEBUG] Preserving file permissions: 100644
+2025-12-15T16:17:05.330Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.2ms)
+2025-12-15T16:17:05.330Z [DEBUG] Temp file written successfully, size: 58788 bytes
+2025-12-15T16:17:05.331Z [DEBUG] Applied original permissions to temp file
+2025-12-15T16:17:05.331Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765815425325 to /Users/jschuss/.claude.json
+2025-12-15T16:17:05.338Z [DEBUG] [SLOW OPERATION DETECTED] fs.renameSync (6.9ms)
+2025-12-15T16:17:05.338Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-15T16:17:05.381Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765815425381
+2025-12-15T16:17:05.381Z [DEBUG] Preserving file permissions: 100644
+2025-12-15T16:17:05.388Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.3ms)
+2025-12-15T16:17:05.388Z [DEBUG] Temp file written successfully, size: 58818 bytes
+2025-12-15T16:17:05.389Z [DEBUG] Applied original permissions to temp file
+2025-12-15T16:17:05.389Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765815425381 to /Users/jschuss/.claude.json
+2025-12-15T16:17:05.389Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-15T16:17:05.428Z [ERROR] AxiosError: AxiosError: Request failed with status code 401
+    at vj (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:56:1137)
+    at IncomingMessage.<anonymous> (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:57:9852)
+    at IncomingMessage.emit (node:events:530:35)
+    at IncomingMessage.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at FKA.request (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:59:2130)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async qsB (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:1646:3619)
+2025-12-15T16:17:05.521Z [DEBUG] Failed to fetch and cache passes eligibility
+2025-12-15T16:17:05.521Z [ERROR] AxiosError: AxiosError: Request failed with status code 401
+    at vj (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:56:1137)
+    at IncomingMessage.<anonymous> (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:57:9852)
+    at IncomingMessage.emit (node:events:530:35)
+    at IncomingMessage.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at FKA.request (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:59:2130)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async j85 (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2620:9004)
+    at async file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2620:9897
+2025-12-15T16:17:05.628Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (7.4ms)
+2025-12-15T16:17:05.628Z [DEBUG] Successfully refreshed marketplace: superpowers-marketplace
+2025-12-15T16:17:05.628Z [DEBUG] Successfully auto-updated marketplace "superpowers-marketplace"
+2025-12-15T16:17:05.667Z [DEBUG] Failed to fetch Grove notice config: AxiosError: Request failed with status code 401
+2025-12-15T16:17:05.702Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (34.5ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:17:05.704Z [DEBUG] Passes: Cache stale, returning cached data and refreshing in background
+2025-12-15T16:17:05.724Z [DEBUG] MCP server "playwright": Starting connection with timeout of 30000ms
+2025-12-15T16:17:05.726Z [DEBUG] MCP server "figma-desktop": Initializing HTTP transport to http://127.0.0.1:3845/mcp
+2025-12-15T16:17:05.726Z [DEBUG] MCP server "figma-desktop": Node version: v22.14.0, Platform: darwin
+2025-12-15T16:17:05.726Z [DEBUG] MCP server "figma-desktop": Environment: {"NODE_OPTIONS":"not set","UV_THREADPOOL_SIZE":"default","HTTP_PROXY":"not set","HTTPS_PROXY":"not set","NO_PROXY":"not set"}
+2025-12-15T16:17:05.729Z [DEBUG] All plugins already exist, skipping migration
+2025-12-15T16:17:05.733Z [DEBUG] Initialized versioned plugins system with 1 plugins
+2025-12-15T16:17:05.734Z [DEBUG] MCP server "figma-desktop": Proxy options: default
+2025-12-15T16:17:05.734Z [DEBUG] MCP server "figma-desktop": HTTP transport options: {"url":"http://127.0.0.1:3845/mcp","headers":{"User-Agent":"claude-code/2.0.69"},"hasAuthProvider":true,"timeoutMs":60000}
+2025-12-15T16:17:05.734Z [DEBUG] MCP server "figma-desktop": HTTP transport created successfully
+2025-12-15T16:17:05.737Z [DEBUG] MCP server "figma-desktop": Client created, setting up request handler
+2025-12-15T16:17:05.737Z [DEBUG] MCP server "figma-desktop": Starting connection with timeout of 30000ms
+2025-12-15T16:17:05.737Z [DEBUG] MCP server "figma-desktop": Testing basic HTTP connectivity to http://127.0.0.1:3845/mcp
+2025-12-15T16:17:05.737Z [DEBUG] MCP server "figma-desktop": Parsed URL: host=127.0.0.1, port=3845, protocol=http:
+2025-12-15T16:17:05.737Z [DEBUG] MCP server "figma-desktop": Using loopback address: 127.0.0.1
+2025-12-15T16:17:05.740Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765815425740
+2025-12-15T16:17:05.740Z [DEBUG] Preserving file permissions: 100644
+2025-12-15T16:17:05.746Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.3ms)
+2025-12-15T16:17:05.746Z [DEBUG] Temp file written successfully, size: 58818 bytes
+2025-12-15T16:17:05.746Z [DEBUG] Applied original permissions to temp file
+2025-12-15T16:17:05.746Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765815425740 to /Users/jschuss/.claude.json
+2025-12-15T16:17:05.748Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-15T16:17:05.753Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2025-12-15T16:17:05.753Z [DEBUG] Found 1 hook matchers in settings
+2025-12-15T16:17:05.754Z [DEBUG] Matched 1 unique hooks for query "startup" (1 before deduplication)
+2025-12-15T16:17:05.799Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (44.4ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:17:05.799Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T16:17:05.812Z [DEBUG] Getting matching hook commands for SubagentStart with query: Explore
+2025-12-15T16:17:05.812Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T16:17:05.812Z [DEBUG] Matched 0 unique hooks for query "Explore" (0 before deduplication)
+2025-12-15T16:17:05.818Z [DEBUG] Getting matching hook commands for SubagentStart with query: Plan
+2025-12-15T16:17:05.818Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T16:17:05.818Z [DEBUG] Matched 0 unique hooks for query "Plan" (0 before deduplication)
+2025-12-15T16:17:05.886Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (54.6ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:17:05.886Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T16:17:05.889Z [DEBUG] Summarizing all 12 messages (~1053 tokens)
+2025-12-15T16:17:05.947Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (53.6ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:17:05.969Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (12.3ms)
+2025-12-15T16:17:06.011Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (41.3ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:17:06.054Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (40.4ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:17:06.054Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T16:17:06.054Z [DEBUG] MCP server "figma-desktop": Successfully connected to http server in 328ms
+2025-12-15T16:17:06.054Z [DEBUG] MCP server "figma-desktop": Connection established with capabilities: {"hasTools":true,"hasPrompts":true,"hasResources":true,"serverVersion":{"name":"Figma Dev Mode MCP Server","version":"1.0.0"}}
+2025-12-15T16:17:06.098Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (43.2ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:17:06.098Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T16:17:06.155Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (56.3ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:17:06.155Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T16:17:06.202Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (46.6ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:17:06.202Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T16:17:06.205Z [DEBUG] Failed to fetch and cache passes eligibility
+2025-12-15T16:17:06.205Z [ERROR] AxiosError: AxiosError: Request failed with status code 401
+    at vj (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:56:1137)
+    at IncomingMessage.<anonymous> (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:57:9852)
+    at IncomingMessage.emit (node:events:530:35)
+    at IncomingMessage.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at FKA.request (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:59:2130)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async j85 (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2620:9004)
+    at async file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2620:9897
+2025-12-15T16:17:06.227Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (16.8ms)
+2025-12-15T16:17:06.284Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (45.7ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:17:06.326Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (40.4ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:17:06.346Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765815426346
+2025-12-15T16:17:06.346Z [DEBUG] Preserving file permissions: 100644
+2025-12-15T16:17:06.354Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (8.0ms)
+2025-12-15T16:17:06.354Z [DEBUG] Temp file written successfully, size: 58818 bytes
+2025-12-15T16:17:06.354Z [DEBUG] Applied original permissions to temp file
+2025-12-15T16:17:06.354Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765815426346 to /Users/jschuss/.claude.json
+2025-12-15T16:17:06.359Z [DEBUG] [SLOW OPERATION DETECTED] fs.renameSync (5.6ms)
+2025-12-15T16:17:06.359Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-15T16:17:06.391Z [DEBUG] Shell snapshot created successfully (67724 bytes)
+2025-12-15T16:17:06.830Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765815426830
+2025-12-15T16:17:06.830Z [DEBUG] Preserving file permissions: 100644
+2025-12-15T16:17:06.835Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.0ms)
+2025-12-15T16:17:06.835Z [DEBUG] Temp file written successfully, size: 58745 bytes
+2025-12-15T16:17:06.835Z [DEBUG] Applied original permissions to temp file
+2025-12-15T16:17:06.835Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765815426830 to /Users/jschuss/.claude.json
+2025-12-15T16:17:06.837Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-15T16:17:06.848Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765815426848
+2025-12-15T16:17:06.848Z [DEBUG] Preserving file permissions: 100644
+2025-12-15T16:17:06.855Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.4ms)
+2025-12-15T16:17:06.855Z [DEBUG] Temp file written successfully, size: 58745 bytes
+2025-12-15T16:17:06.855Z [DEBUG] Applied original permissions to temp file
+2025-12-15T16:17:06.855Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765815426848 to /Users/jschuss/.claude.json
+2025-12-15T16:17:06.855Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-15T16:17:06.860Z [DEBUG] performStartupChecks called
+2025-12-15T16:17:06.867Z [DEBUG] [SLOW OPERATION DETECTED] fs.readFileSync (6.7ms)
+2025-12-15T16:17:06.867Z [DEBUG] Starting background plugin installations
+2025-12-15T16:17:06.868Z [DEBUG] performBackgroundPluginInstallations called
+2025-12-15T16:17:06.873Z [DEBUG] [SLOW OPERATION DETECTED] fs.readFileSync (5.3ms)
+2025-12-15T16:17:06.892Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765815426892
+2025-12-15T16:17:06.892Z [DEBUG] Preserving file permissions: 100644
+2025-12-15T16:17:06.896Z [DEBUG] Temp file written successfully, size: 58818 bytes
+2025-12-15T16:17:06.896Z [DEBUG] Applied original permissions to temp file
+2025-12-15T16:17:06.896Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765815426892 to /Users/jschuss/.claude.json
+2025-12-15T16:17:06.897Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-15T16:17:06.899Z [DEBUG] Found 1 enabled plugins
+2025-12-15T16:17:06.899Z [DEBUG] All plugins already exist, skipping migration
+2025-12-15T16:17:06.899Z [DEBUG] Found 1 installed plugins (V2 format)
+2025-12-15T16:17:06.900Z [DEBUG] Loaded plugins - Enabled: 1, Disabled: 0, Commands: 3, Agents: 1, Errors: 0
+2025-12-15T16:17:06.900Z [DEBUG] Found 0 missing plugins (not installed):
+2025-12-15T16:17:06.900Z [DEBUG] Setting installation status: 0 marketplaces, 0 installable plugins, 0 uninstallable plugins
+2025-12-15T16:17:06.914Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765815426914
+2025-12-15T16:17:06.914Z [DEBUG] Preserving file permissions: 100644
+2025-12-15T16:17:06.919Z [DEBUG] Temp file written successfully, size: 58818 bytes
+2025-12-15T16:17:06.919Z [DEBUG] Applied original permissions to temp file
+2025-12-15T16:17:06.919Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765815426914 to /Users/jschuss/.claude.json
+2025-12-15T16:17:06.921Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-15T16:17:06.964Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (41.9ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:17:07.008Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (43.4ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:17:07.092Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (36.3ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:17:07.100Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765815427100
+2025-12-15T16:17:07.100Z [DEBUG] Preserving file permissions: 100644
+2025-12-15T16:17:07.109Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (8.9ms)
+2025-12-15T16:17:07.109Z [DEBUG] Temp file written successfully, size: 58818 bytes
+2025-12-15T16:17:07.109Z [DEBUG] Applied original permissions to temp file
+2025-12-15T16:17:07.109Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765815427100 to /Users/jschuss/.claude.json
+2025-12-15T16:17:07.109Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-15T16:17:07.113Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765815427113
+2025-12-15T16:17:07.113Z [DEBUG] Preserving file permissions: 100644
+2025-12-15T16:17:07.118Z [DEBUG] Temp file written successfully, size: 58818 bytes
+2025-12-15T16:17:07.118Z [DEBUG] Applied original permissions to temp file
+2025-12-15T16:17:07.118Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765815427113 to /Users/jschuss/.claude.json
+2025-12-15T16:17:07.118Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-15T16:17:07.272Z [DEBUG] AutoUpdaterWrapper: Installation type: npm-global
+2025-12-15T16:17:07.826Z [DEBUG] MCP server "playwright": Successfully connected to stdio server in 2115ms
+2025-12-15T16:17:07.826Z [DEBUG] MCP server "playwright": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"Playwright","version":"0.0.52"}}
+2025-12-15T16:17:08.138Z [DEBUG] Stream started - received first chunk
+2025-12-15T16:17:08.454Z [DEBUG] Stream started - received first chunk
+2025-12-15T16:17:08.859Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-12-15T16:17:08.859Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-12-15T16:17:08.859Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-12-15T16:17:08.859Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-12-15T16:17:08.859Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-12-15T16:17:08.860Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-12-15T16:17:08.860Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-12-15T16:17:08.860Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-12-15T16:17:10.672Z [DEBUG] Stream started - received first chunk
+2025-12-15T16:17:11.430Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2025-12-15T16:17:11.430Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T16:17:11.430Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-15T16:17:11.504Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2025-12-15T16:17:11.504Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T16:17:11.504Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-15T16:22:06.916Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 300s uptime
+2025-12-15T16:22:06.916Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T16:22:07.995Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (74.7ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:22:07.995Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T16:27:09.322Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 603s uptime
+2025-12-15T16:27:09.322Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T16:27:10.431Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (104.8ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:27:10.432Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T16:32:11.818Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 905s uptime
+2025-12-15T16:32:11.818Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T16:32:12.908Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (85.4ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:32:12.908Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T16:37:14.108Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 1208s uptime
+2025-12-15T16:37:14.108Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T16:37:15.216Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (101.0ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:37:15.216Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T16:42:16.405Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 1510s uptime
+2025-12-15T16:42:16.405Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T16:42:17.505Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (92.7ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:42:17.505Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T16:47:18.915Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 1812s uptime
+2025-12-15T16:47:18.916Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T16:47:20.027Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (105.9ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:47:20.027Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T16:52:21.419Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 2115s uptime
+2025-12-15T16:52:21.419Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T16:52:22.514Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (91.0ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:52:22.514Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T16:57:23.850Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 2417s uptime
+2025-12-15T16:57:23.850Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T16:57:24.939Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (85.2ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T16:57:24.939Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T17:02:26.055Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 2720s uptime
+2025-12-15T17:02:26.055Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T17:02:27.153Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (93.2ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T17:02:27.153Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T17:07:28.204Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 3022s uptime
+2025-12-15T17:07:28.204Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T17:07:29.306Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (98.6ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T17:07:29.306Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T17:12:30.251Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 3324s uptime
+2025-12-15T17:12:30.251Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T17:12:31.336Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (81.9ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T17:12:31.336Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T17:17:32.773Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 3626s uptime
+2025-12-15T17:17:32.773Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T17:17:33.885Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (108.3ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T17:17:33.885Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T17:22:35.173Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 3929s uptime
+2025-12-15T17:22:35.173Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T17:22:36.274Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (95.8ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T17:22:36.274Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T17:27:37.313Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 4231s uptime
+2025-12-15T17:27:37.313Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T17:27:38.412Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (95.8ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T17:27:38.412Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T17:32:39.431Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 4533s uptime
+2025-12-15T17:32:39.431Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T17:32:40.536Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (103.0ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T17:32:40.536Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T17:37:41.504Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 4835s uptime
+2025-12-15T17:37:41.504Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T17:37:42.584Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (78.2ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T17:37:42.584Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T17:42:43.614Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 5137s uptime
+2025-12-15T17:42:43.614Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T17:42:44.691Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (75.6ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T17:42:44.691Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T17:47:45.716Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 5439s uptime
+2025-12-15T17:47:45.716Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T17:47:46.809Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (91.0ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T17:47:46.810Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T17:52:47.902Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 5741s uptime
+2025-12-15T17:52:47.902Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T17:52:49.009Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (104.5ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T17:52:49.009Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T17:57:50.245Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 6044s uptime
+2025-12-15T17:57:50.245Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T17:57:51.324Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (76.4ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T17:57:51.324Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T18:02:52.361Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 6346s uptime
+2025-12-15T18:02:52.361Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T18:02:53.420Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (54.6ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T18:02:53.420Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T18:07:54.517Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 6648s uptime
+2025-12-15T18:07:54.517Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T18:07:55.621Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (94.6ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T18:07:55.621Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T18:12:56.682Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 6950s uptime
+2025-12-15T18:12:56.683Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T18:12:57.773Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (88.4ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T18:12:57.773Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T18:17:58.815Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 7252s uptime
+2025-12-15T18:17:58.815Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T18:17:59.884Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (67.0ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T18:17:59.884Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T18:23:01.157Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 7555s uptime
+2025-12-15T18:23:01.157Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T18:23:02.246Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (85.5ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T18:23:02.246Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T18:28:03.552Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 7857s uptime
+2025-12-15T18:28:03.553Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T18:28:04.645Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (86.9ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T18:28:04.645Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T18:33:05.981Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 8159s uptime
+2025-12-15T18:33:05.981Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T18:33:07.053Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (68.6ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T18:33:07.053Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T18:38:08.359Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 8462s uptime
+2025-12-15T18:38:08.360Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T18:38:09.465Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (100.0ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T18:38:09.465Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T18:43:10.760Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 8764s uptime
+2025-12-15T18:43:10.760Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T18:43:11.868Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (102.0ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T18:43:11.868Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T18:48:13.188Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 9067s uptime
+2025-12-15T18:48:13.188Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T18:48:14.287Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (94.6ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T18:48:14.288Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T18:53:15.579Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 9369s uptime
+2025-12-15T18:53:15.579Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T18:53:16.681Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (98.4ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T18:53:16.681Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T18:58:17.997Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 9671s uptime
+2025-12-15T18:58:17.997Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T18:58:19.095Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (95.0ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T18:58:19.096Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T19:03:20.508Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 9974s uptime
+2025-12-15T19:03:20.508Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T19:03:21.613Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (99.0ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T19:03:21.613Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T19:08:22.936Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 10276s uptime
+2025-12-15T19:08:22.937Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T19:08:24.054Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (109.5ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T19:08:24.054Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T19:13:25.400Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 10579s uptime
+2025-12-15T19:13:25.400Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T19:13:26.492Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (87.7ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T19:13:26.492Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T19:18:27.833Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 10881s uptime
+2025-12-15T19:18:27.833Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T19:18:28.907Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (71.9ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T19:18:28.907Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T19:23:30.240Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 11184s uptime
+2025-12-15T19:23:30.241Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T19:23:31.335Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (90.6ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T19:23:31.335Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T19:28:32.587Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 11486s uptime
+2025-12-15T19:28:32.587Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T19:28:33.691Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (94.7ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T19:28:33.691Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T19:33:35.039Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 11788s uptime
+2025-12-15T19:33:35.039Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T19:33:36.145Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (100.7ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T19:33:36.145Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T19:38:37.464Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 12091s uptime
+2025-12-15T19:38:37.464Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T19:38:38.571Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (97.8ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T19:38:38.572Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T19:43:40.006Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 12393s uptime
+2025-12-15T19:43:40.006Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T19:43:41.129Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (112.2ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T19:43:41.129Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T19:47:57.059Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-15T19:47:57.059Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-15T19:47:57.059Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-15T19:47:57.059Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-15T19:47:57.083Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-12-15T19:47:57.083Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T19:47:57.083Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-15T19:47:57.085Z [DEBUG] FileHistory: Added snapshot for 05d3f9b7-e8b7-481c-b1ab-1a26b0a307da, tracking 0 files
+2025-12-15T19:47:57.103Z [DEBUG] Total plugin output styles loaded: 0
+2025-12-15T19:47:58.300Z [DEBUG] Stream started - received first chunk
+2025-12-15T19:48:00.648Z [DEBUG] Stream started - received first chunk
+2025-12-15T19:48:02.933Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-15T19:48:02.938Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-15T19:48:02.938Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T19:48:02.938Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T19:48:02.954Z [DEBUG] tree-sitter: WASM files not found
+2025-12-15T19:48:02.984Z [DEBUG] No session environment scripts found
+2025-12-15T19:48:03.177Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-15T19:48:03.177Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T19:48:03.177Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T19:48:03.186Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-15T19:48:03.186Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-15T19:48:03.186Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-15T19:48:03.186Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-15T19:48:05.166Z [DEBUG] Stream started - received first chunk
+2025-12-15T19:48:06.036Z [DEBUG] Stream started - received first chunk
+2025-12-15T19:48:07.831Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-12-15T19:48:07.831Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T19:48:07.831Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-15T19:48:08.193Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (359.1ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-15T19:48:08.335Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (138.5ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-15T19:48:08.345Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765828088345
+2025-12-15T19:48:08.345Z [DEBUG] Preserving file permissions: 100644
+2025-12-15T19:48:08.351Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.6ms)
+2025-12-15T19:48:08.351Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-15T19:48:08.351Z [DEBUG] Applied original permissions to temp file
+2025-12-15T19:48:08.351Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765828088345 to /Users/jschuss/.claude.json
+2025-12-15T19:48:08.352Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-15T19:48:08.356Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765828088356
+2025-12-15T19:48:08.356Z [DEBUG] Preserving file permissions: 100644
+2025-12-15T19:48:08.362Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.5ms)
+2025-12-15T19:48:08.362Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-15T19:48:08.362Z [DEBUG] Applied original permissions to temp file
+2025-12-15T19:48:08.362Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765828088356 to /Users/jschuss/.claude.json
+2025-12-15T19:48:08.363Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-15T19:48:42.869Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 12696s uptime
+2025-12-15T19:48:42.869Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T19:48:43.950Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (77.7ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T19:48:43.951Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T19:49:08.345Z [DEBUG] Getting matching hook commands for Notification with query: idle_prompt
+2025-12-15T19:49:08.345Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T19:49:08.345Z [DEBUG] Matched 0 unique hooks for query "idle_prompt" (0 before deduplication)
+2025-12-15T19:53:45.105Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 12999s uptime
+2025-12-15T19:53:45.105Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T19:53:46.211Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (77.0ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T19:53:46.211Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T19:58:47.386Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 13301s uptime
+2025-12-15T19:58:47.386Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T19:58:48.492Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (102.6ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T19:58:48.492Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T20:03:49.634Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 13603s uptime
+2025-12-15T20:03:49.634Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T20:03:50.714Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (74.2ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T20:03:50.714Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T20:08:52.016Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 13905s uptime
+2025-12-15T20:08:52.016Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T20:08:53.124Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (99.8ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T20:08:53.124Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T20:13:54.703Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 14208s uptime
+2025-12-15T20:13:54.703Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T20:13:55.801Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (88.9ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T20:13:55.801Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T20:18:56.992Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 14510s uptime
+2025-12-15T20:18:56.992Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T20:18:58.002Z [DEBUG] [SLOW OPERATION DETECTED] fs.appendFileSync (6.5ms)
+2025-12-15T20:18:58.081Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (78.8ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T20:18:58.081Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T20:23:59.235Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 14813s uptime
+2025-12-15T20:23:59.235Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T20:24:00.328Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (89.5ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T20:24:00.328Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T20:29:01.536Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 15115s uptime
+2025-12-15T20:29:01.537Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T20:29:02.629Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (83.7ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T20:29:02.629Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T20:34:03.790Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 15417s uptime
+2025-12-15T20:34:03.790Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T20:34:04.880Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (87.3ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T20:34:04.880Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T20:39:06.296Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 15720s uptime
+2025-12-15T20:39:06.296Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T20:39:07.381Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (81.2ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T20:39:07.381Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T20:44:08.754Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 16022s uptime
+2025-12-15T20:44:08.754Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T20:44:09.842Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (85.7ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T20:44:09.842Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T20:49:11.022Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 16324s uptime
+2025-12-15T20:49:11.022Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T20:49:12.113Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (87.4ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T20:49:12.113Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T20:54:13.346Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 16627s uptime
+2025-12-15T20:54:13.346Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T20:54:14.452Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (99.3ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T20:54:14.452Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T20:59:15.548Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 16929s uptime
+2025-12-15T20:59:15.549Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T20:59:16.641Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (89.4ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T20:59:16.641Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T21:04:17.784Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 17231s uptime
+2025-12-15T21:04:17.784Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T21:04:18.880Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (90.7ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T21:04:18.880Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T21:09:19.991Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 17533s uptime
+2025-12-15T21:09:19.991Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T21:09:21.086Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (89.7ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T21:09:21.086Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T21:14:22.273Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 17836s uptime
+2025-12-15T21:14:22.273Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T21:14:23.363Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (80.8ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T21:14:23.363Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T21:18:14.777Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (8.2ms)
+2025-12-15T21:18:17.863Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-15T21:18:17.863Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-15T21:18:17.863Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-15T21:18:17.863Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-15T21:18:17.878Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-12-15T21:18:17.878Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:17.878Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-15T21:18:17.879Z [DEBUG] FileHistory: Making snapshot for message 659b062c-4ca1-4518-b7c3-0105465ec58f
+2025-12-15T21:18:17.879Z [DEBUG] FileHistory: Added snapshot for 659b062c-4ca1-4518-b7c3-0105465ec58f, tracking 0 files
+2025-12-15T21:18:19.084Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:18:20.852Z [DEBUG] Applying permission update: Setting mode to 'acceptEdits'
+2025-12-15T21:18:20.971Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:18:21.216Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765833501216
+2025-12-15T21:18:21.216Z [DEBUG] Preserving file permissions: 100644
+2025-12-15T21:18:21.227Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (11.5ms)
+2025-12-15T21:18:21.227Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-15T21:18:21.228Z [DEBUG] Applied original permissions to temp file
+2025-12-15T21:18:21.228Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765833501216 to /Users/jschuss/.claude.json
+2025-12-15T21:18:21.228Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-15T21:18:21.229Z [DEBUG] Applying permission update: Setting mode to 'plan'
+2025-12-15T21:18:21.602Z [DEBUG] Applying permission update: Setting mode to 'default'
+2025-12-15T21:18:25.939Z [DEBUG] executePreToolHooks called for tool: Task
+2025-12-15T21:18:25.943Z [DEBUG] Getting matching hook commands for PreToolUse with query: Task
+2025-12-15T21:18:25.943Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:25.943Z [DEBUG] Matched 0 unique hooks for query "Task" (0 before deduplication)
+2025-12-15T21:18:25.975Z [DEBUG] Getting matching hook commands for SubagentStart with query: Explore
+2025-12-15T21:18:25.975Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:25.975Z [DEBUG] Matched 0 unique hooks for query "Explore" (0 before deduplication)
+2025-12-15T21:18:27.792Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:18:29.022Z [DEBUG] executePreToolHooks called for tool: Glob
+2025-12-15T21:18:29.022Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-15T21:18:29.023Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-15T21:18:29.026Z [DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+2025-12-15T21:18:29.026Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:29.026Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-15T21:18:29.026Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-15T21:18:29.026Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:29.026Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-15T21:18:29.026Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-15T21:18:29.026Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:29.026Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-15T21:18:29.084Z [DEBUG] rg error (signal=null, code=2, stderr: rg: unrecognized file type: rb
+), 0 results
+2025-12-15T21:18:29.092Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-15T21:18:29.092Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:29.092Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-15T21:18:29.094Z [DEBUG] rg error (signal=null, code=2, stderr: rg: unrecognized file type: rb
+), 0 results
+2025-12-15T21:18:29.103Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-15T21:18:29.103Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:29.103Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-15T21:18:32.043Z [DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+2025-12-15T21:18:32.043Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:32.043Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-15T21:18:33.276Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:18:34.744Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-15T21:18:34.744Z [DEBUG] executePreToolHooks called for tool: Glob
+2025-12-15T21:18:34.744Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-15T21:18:34.749Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-15T21:18:34.749Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:34.749Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-15T21:18:34.749Z [DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+2025-12-15T21:18:34.749Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:34.749Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-15T21:18:34.749Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-15T21:18:34.749Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:34.749Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-15T21:18:34.786Z [DEBUG] rg error (signal=null, code=2, stderr: rg: unrecognized file type: rb
+), 0 results
+2025-12-15T21:18:34.792Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-15T21:18:34.792Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:34.792Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-15T21:18:34.794Z [DEBUG] rg error (signal=null, code=2, stderr: rg: unrecognized file type: rb
+), 0 results
+2025-12-15T21:18:34.803Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-15T21:18:34.803Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:34.803Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-15T21:18:36.158Z [DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+2025-12-15T21:18:36.158Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:36.158Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-15T21:18:38.010Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:18:39.300Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-15T21:18:39.300Z [DEBUG] executePreToolHooks called for tool: Glob
+2025-12-15T21:18:39.305Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-15T21:18:39.305Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:39.305Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-15T21:18:39.305Z [DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+2025-12-15T21:18:39.305Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:39.305Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-15T21:18:39.555Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-15T21:18:39.555Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:39.555Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-15T21:18:41.191Z [DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+2025-12-15T21:18:41.191Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:41.191Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-15T21:18:43.067Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:18:43.129Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (6.0ms)
+2025-12-15T21:18:44.020Z [DEBUG] executePreToolHooks called for tool: Glob
+2025-12-15T21:18:44.020Z [DEBUG] executePreToolHooks called for tool: Glob
+2025-12-15T21:18:44.021Z [DEBUG] executePreToolHooks called for tool: Glob
+2025-12-15T21:18:44.027Z [DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+2025-12-15T21:18:44.027Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:44.027Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-15T21:18:44.027Z [DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+2025-12-15T21:18:44.027Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:44.027Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-15T21:18:44.027Z [DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+2025-12-15T21:18:44.027Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:44.027Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-15T21:18:46.174Z [DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+2025-12-15T21:18:46.174Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:46.174Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-15T21:18:46.189Z [DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+2025-12-15T21:18:46.189Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:46.189Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-15T21:18:46.189Z [DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+2025-12-15T21:18:46.189Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:46.189Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-12-15T21:18:47.899Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:18:48.865Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-15T21:18:48.866Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-15T21:18:48.866Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-15T21:18:48.871Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-15T21:18:48.871Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:48.871Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:18:48.871Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-15T21:18:48.871Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:48.871Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:18:48.871Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-15T21:18:48.871Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:48.871Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:18:48.907Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-15T21:18:48.907Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:48.907Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:18:48.907Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-15T21:18:48.907Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:48.907Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:18:48.907Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-15T21:18:48.907Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:48.907Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:18:50.894Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:18:52.789Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-15T21:18:52.802Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-15T21:18:52.802Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:52.802Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-15T21:18:52.802Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-15T21:18:52.803Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-15T21:18:52.809Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-15T21:18:52.809Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:52.809Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:18:52.809Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-15T21:18:52.809Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:52.809Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:18:52.853Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-15T21:18:52.853Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:52.853Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:18:52.853Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-15T21:18:52.853Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:52.853Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:18:52.856Z [DEBUG] rg error (signal=null, code=2, stderr: rg: unrecognized file type: rb
+), 0 results
+2025-12-15T21:18:52.871Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-15T21:18:52.871Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:52.871Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-15T21:18:54.595Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:18:56.315Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-15T21:18:56.316Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-15T21:18:56.326Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-15T21:18:56.326Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:56.326Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-15T21:18:56.326Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-15T21:18:56.326Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:56.326Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-15T21:18:56.326Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-15T21:18:56.333Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-15T21:18:56.333Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:56.333Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:18:56.366Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-15T21:18:56.366Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:56.366Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:18:56.369Z [DEBUG] rg error (signal=null, code=2, stderr: rg: unrecognized file type: rb
+), 0 results
+2025-12-15T21:18:56.375Z [DEBUG] rg error (signal=null, code=2, stderr: rg: unrecognized file type: rb
+), 0 results
+2025-12-15T21:18:56.381Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-15T21:18:56.381Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:56.381Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-15T21:18:56.386Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-15T21:18:56.386Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:18:56.386Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-15T21:18:58.775Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:18:59.951Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (6.4ms)
+2025-12-15T21:19:00.153Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-15T21:19:00.153Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-12-15T21:19:00.158Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-15T21:19:00.158Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:00.158Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:00.158Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-12-15T21:19:00.158Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:00.158Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-15T21:19:08.089Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-12-15T21:19:08.089Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:08.089Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-12-15T21:19:09.487Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-15T21:19:09.487Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:09.487Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:10.352Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:11.282Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:12.245Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-15T21:19:12.245Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-15T21:19:12.252Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-15T21:19:12.252Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:12.252Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:19:12.252Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-15T21:19:12.252Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:12.252Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:19:12.283Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-15T21:19:12.283Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:12.283Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:19:12.283Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-15T21:19:12.283Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:12.283Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:19:13.935Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:15.462Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-15T21:19:15.462Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-15T21:19:15.471Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-15T21:19:15.471Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:15.471Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:19:15.471Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-15T21:19:15.471Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:15.471Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:19:15.513Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-15T21:19:15.513Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:15.513Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:19:15.514Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-15T21:19:15.514Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:15.514Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:19:18.021Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:20.124Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-15T21:19:20.131Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-15T21:19:20.131Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:20.131Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:19:20.175Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-15T21:19:20.175Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:20.175Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:19:20.200Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-15T21:19:20.206Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-15T21:19:20.206Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:20.206Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:20.951Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-15T21:19:20.951Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:20.951Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:20.968Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-15T21:19:20.977Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-15T21:19:20.977Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:20.977Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:21.404Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:21.888Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-15T21:19:21.888Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:21.888Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:22.704Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:23.732Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.7ms)
+2025-12-15T21:19:24.561Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 18138s uptime
+2025-12-15T21:19:24.561Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T21:19:24.673Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:25.641Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (78.9ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T21:19:25.642Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T21:19:26.328Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-15T21:19:26.328Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-15T21:19:26.336Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-15T21:19:26.336Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:26.336Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:26.336Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-15T21:19:26.336Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:26.336Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:26.461Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-15T21:19:26.461Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:26.461Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:27.111Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-15T21:19:27.111Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:27.111Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:27.209Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:27.687Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:28.767Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:30.252Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-15T21:19:30.258Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-15T21:19:30.258Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:30.258Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:30.258Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-15T21:19:30.263Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-15T21:19:30.263Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:30.263Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:19:30.293Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-15T21:19:30.293Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:30.293Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:19:31.103Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-15T21:19:31.103Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:31.103Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:31.930Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:32.918Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:34.865Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-15T21:19:34.866Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-15T21:19:34.874Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-15T21:19:34.874Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:34.874Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:34.874Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-15T21:19:34.874Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:34.874Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:34.977Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-15T21:19:34.977Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:34.977Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:34.994Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-15T21:19:34.994Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:34.994Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:35.606Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:35.816Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:38.438Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:39.491Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-15T21:19:39.497Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-15T21:19:39.497Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:39.497Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:39.575Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-15T21:19:39.575Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:39.575Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:40.537Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:41.417Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:42.677Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-15T21:19:42.684Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-15T21:19:42.684Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:42.684Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:42.863Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-15T21:19:42.863Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:42.863Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:43.838Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:44.983Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:46.007Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-15T21:19:46.017Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-15T21:19:46.017Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:46.017Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:46.894Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-15T21:19:46.894Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:46.894Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:48.147Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:48.872Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:49.749Z [DEBUG] executePreToolHooks called for tool: Read
+2025-12-15T21:19:49.753Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-12-15T21:19:49.753Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:49.753Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:19:49.778Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-12-15T21:19:49.778Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:49.778Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-12-15T21:19:51.143Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:52.322Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-15T21:19:52.326Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-15T21:19:52.326Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:52.326Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:52.401Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-15T21:19:52.401Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:19:52.401Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:19:52.913Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:54.508Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:19:57.200Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765833597200
+2025-12-15T21:19:57.200Z [DEBUG] Preserving file permissions: 100644
+2025-12-15T21:19:57.206Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.6ms)
+2025-12-15T21:19:57.206Z [DEBUG] Temp file written successfully, size: 58770 bytes
+2025-12-15T21:19:57.206Z [DEBUG] Applied original permissions to temp file
+2025-12-15T21:19:57.206Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765833597200 to /Users/jschuss/.claude.json
+2025-12-15T21:19:57.207Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-15T21:19:57.213Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765833597213
+2025-12-15T21:19:57.213Z [DEBUG] Preserving file permissions: 100644
+2025-12-15T21:19:57.221Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (7.9ms)
+2025-12-15T21:19:57.221Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-15T21:19:57.222Z [DEBUG] Applied original permissions to temp file
+2025-12-15T21:19:57.222Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765833597213 to /Users/jschuss/.claude.json
+2025-12-15T21:19:57.224Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-15T21:20:00.715Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765833600715
+2025-12-15T21:20:00.715Z [DEBUG] Preserving file permissions: 100644
+2025-12-15T21:20:00.722Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.6ms)
+2025-12-15T21:20:00.722Z [DEBUG] Temp file written successfully, size: 58770 bytes
+2025-12-15T21:20:00.722Z [DEBUG] Applied original permissions to temp file
+2025-12-15T21:20:00.722Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765833600715 to /Users/jschuss/.claude.json
+2025-12-15T21:20:00.722Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-15T21:20:00.732Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765833600732
+2025-12-15T21:20:00.732Z [DEBUG] Preserving file permissions: 100644
+2025-12-15T21:20:00.737Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.5ms)
+2025-12-15T21:20:00.737Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-15T21:20:00.737Z [DEBUG] Applied original permissions to temp file
+2025-12-15T21:20:00.737Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765833600732 to /Users/jschuss/.claude.json
+2025-12-15T21:20:00.738Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-15T21:20:01.210Z [DEBUG] AutoUpdaterWrapper: Installation type: npm-global
+2025-12-15T21:20:08.644Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2025-12-15T21:20:08.644Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:20:08.644Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-15T21:20:08.655Z [DEBUG] Getting matching hook commands for PostToolUse with query: Task
+2025-12-15T21:20:08.655Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:20:08.655Z [DEBUG] Matched 0 unique hooks for query "Task" (0 before deduplication)
+2025-12-15T21:20:08.662Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-15T21:20:08.663Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-15T21:20:08.663Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-15T21:20:08.663Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-15T21:20:11.239Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:20:18.025Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-12-15T21:20:18.025Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:20:18.025Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-15T21:20:18.203Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (174.1ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-15T21:20:18.398Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (192.7ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-15T21:20:18.406Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765833618406
+2025-12-15T21:20:18.406Z [DEBUG] Preserving file permissions: 100644
+2025-12-15T21:20:18.413Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.3ms)
+2025-12-15T21:20:18.413Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-15T21:20:18.413Z [DEBUG] Applied original permissions to temp file
+2025-12-15T21:20:18.413Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765833618406 to /Users/jschuss/.claude.json
+2025-12-15T21:20:18.413Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-15T21:20:50.905Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-15T21:20:50.905Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-15T21:20:50.905Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-15T21:20:50.905Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-15T21:20:50.920Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-12-15T21:20:50.920Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:20:50.920Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-15T21:20:50.921Z [DEBUG] FileHistory: Making snapshot for message 1b4fa7f5-b358-48ee-9d5a-18b3ca924eb7
+2025-12-15T21:20:50.921Z [DEBUG] FileHistory: Added snapshot for 1b4fa7f5-b358-48ee-9d5a-18b3ca924eb7, tracking 0 files
+2025-12-15T21:20:52.095Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:20:54.172Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:20:55.553Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (7.0ms)
+2025-12-15T21:20:56.685Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-12-15T21:20:56.689Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-12-15T21:20:56.689Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:20:56.689Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:21:04.914Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-12-15T21:21:04.914Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:21:04.914Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-12-15T21:21:04.931Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-15T21:21:04.931Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-15T21:21:04.931Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-15T21:21:04.931Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-15T21:21:05.750Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:21:07.830Z [DEBUG] Stream started - received first chunk
+2025-12-15T21:21:09.739Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-12-15T21:21:09.739Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:21:09.739Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-15T21:21:09.925Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (182.7ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-15T21:21:10.091Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (163.7ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-15T21:22:10.097Z [DEBUG] Getting matching hook commands for Notification with query: idle_prompt
+2025-12-15T21:22:10.097Z [DEBUG] Found 0 hook matchers in settings
+2025-12-15T21:22:10.097Z [DEBUG] Matched 0 unique hooks for query "idle_prompt" (0 before deduplication)
+2025-12-15T21:24:26.766Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 18440s uptime
+2025-12-15T21:24:26.766Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T21:24:27.874Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (100.1ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T21:24:27.874Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-15T21:59:20.502Z [DEBUG] npm view failed with code 1
+2025-12-15T21:59:20.502Z [DEBUG] npm stderr: (empty)
+2025-12-15T23:29:08.317Z [DEBUG] npm view failed with code 1
+2025-12-15T23:29:08.317Z [DEBUG] npm stderr: (empty)
+2025-12-15T23:29:23.306Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 25937s uptime
+2025-12-15T23:29:23.306Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-15T23:29:24.413Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (101.7ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-15T23:29:24.413Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-16T00:00:42.504Z [DEBUG] AutoUpdater: Detected installation type: npm-global
+2025-12-16T00:00:42.504Z [DEBUG] AutoUpdater: Using global update method
+2025-12-16T00:00:48.842Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765843248842
+2025-12-16T00:00:48.842Z [DEBUG] Preserving file permissions: 100644
+2025-12-16T00:00:48.851Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (9.4ms)
+2025-12-16T00:00:48.851Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-16T00:00:48.852Z [DEBUG] Applied original permissions to temp file
+2025-12-16T00:00:48.852Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765843248842 to /Users/jschuss/.claude.json
+2025-12-16T00:00:48.852Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-16T01:24:09.295Z [DEBUG] AutoUpdater: Detected installation type: npm-global
+2025-12-16T01:24:09.295Z [DEBUG] AutoUpdater: Using global update method
+2025-12-16T02:18:09.357Z [ERROR] J71: J71: Failed to install new version of claude: 
+changed 3 packages in 1s
+
+2 packages are looking for funding
+  run `npm fund` for details Reshimming asdf nodejs...
+    at bOA (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:4369:493)
+    at async Object.current (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2297:10983)
+2025-12-16T02:18:09.438Z [DEBUG] [SLOW OPERATION DETECTED] fs.unlinkSync (81.2ms)
+2025-12-16T02:18:10.926Z [DEBUG] AutoUpdater: Detected installation type: npm-global
+2025-12-16T02:18:10.926Z [DEBUG] AutoUpdater: Using global update method
+2025-12-16T02:18:18.029Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765851498029
+2025-12-16T02:18:18.029Z [DEBUG] Preserving file permissions: 100644
+2025-12-16T02:18:18.034Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-16T02:18:18.034Z [DEBUG] Applied original permissions to temp file
+2025-12-16T02:18:18.034Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765851498029 to /Users/jschuss/.claude.json
+2025-12-16T02:18:18.035Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-16T03:12:12.854Z [DEBUG] AutoUpdater: Detected installation type: npm-global
+2025-12-16T03:12:12.854Z [DEBUG] AutoUpdater: Using global update method
+2025-12-16T03:12:18.024Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765854738024
+2025-12-16T03:12:18.024Z [DEBUG] Preserving file permissions: 100644
+2025-12-16T03:12:18.033Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (9.3ms)
+2025-12-16T03:12:18.033Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-16T03:12:18.033Z [DEBUG] Applied original permissions to temp file
+2025-12-16T03:12:18.033Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765854738024 to /Users/jschuss/.claude.json
+2025-12-16T03:12:18.034Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-16T04:23:57.195Z [DEBUG] AutoUpdater: Detected installation type: npm-global
+2025-12-16T04:23:57.195Z [DEBUG] AutoUpdater: Using global update method
+2025-12-16T04:24:03.808Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765859043808
+2025-12-16T04:24:03.808Z [DEBUG] Preserving file permissions: 100644
+2025-12-16T04:24:03.816Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (7.8ms)
+2025-12-16T04:24:03.816Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-16T04:24:03.816Z [DEBUG] Applied original permissions to temp file
+2025-12-16T04:24:03.816Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765859043808 to /Users/jschuss/.claude.json
+2025-12-16T04:24:03.817Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-16T05:18:00.300Z [DEBUG] AutoUpdater: Detected installation type: npm-global
+2025-12-16T05:18:00.300Z [DEBUG] AutoUpdater: Using global update method
+2025-12-16T05:18:07.993Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765862287993
+2025-12-16T05:18:07.993Z [DEBUG] Preserving file permissions: 100644
+2025-12-16T05:18:07.999Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.0ms)
+2025-12-16T05:18:07.999Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-16T05:18:07.999Z [DEBUG] Applied original permissions to temp file
+2025-12-16T05:18:07.999Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765862287993 to /Users/jschuss/.claude.json
+2025-12-16T05:18:08.000Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-16T06:12:02.811Z [DEBUG] AutoUpdater: Detected installation type: npm-global
+2025-12-16T06:12:02.811Z [DEBUG] AutoUpdater: Using global update method
+2025-12-16T06:12:10.320Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765865530320
+2025-12-16T06:12:10.320Z [DEBUG] Preserving file permissions: 100644
+2025-12-16T06:12:10.329Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (8.9ms)
+2025-12-16T06:12:10.329Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-16T06:12:10.329Z [DEBUG] Applied original permissions to temp file
+2025-12-16T06:12:10.329Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765865530320 to /Users/jschuss/.claude.json
+2025-12-16T06:12:10.329Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-16T07:06:04.876Z [DEBUG] AutoUpdater: Detected installation type: npm-global
+2025-12-16T07:06:04.876Z [DEBUG] AutoUpdater: Using global update method
+2025-12-16T07:06:12.202Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765868772202
+2025-12-16T07:06:12.202Z [DEBUG] Preserving file permissions: 100644
+2025-12-16T07:06:12.210Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (8.2ms)
+2025-12-16T07:06:12.210Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-16T07:06:12.210Z [DEBUG] Applied original permissions to temp file
+2025-12-16T07:06:12.210Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765868772202 to /Users/jschuss/.claude.json
+2025-12-16T07:06:12.211Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-16T08:00:08.964Z [DEBUG] AutoUpdater: Detected installation type: npm-global
+2025-12-16T08:00:08.964Z [DEBUG] AutoUpdater: Using global update method
+2025-12-16T08:00:15.554Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765872015554
+2025-12-16T08:00:15.554Z [DEBUG] Preserving file permissions: 100644
+2025-12-16T08:00:15.565Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (10.8ms)
+2025-12-16T08:00:15.565Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-16T08:00:15.565Z [DEBUG] Applied original permissions to temp file
+2025-12-16T08:00:15.565Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765872015554 to /Users/jschuss/.claude.json
+2025-12-16T08:00:15.566Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-16T09:11:06.232Z [DEBUG] AutoUpdater: Detected installation type: npm-global
+2025-12-16T09:11:06.232Z [DEBUG] AutoUpdater: Using global update method
+2025-12-16T09:11:16.309Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765876276309
+2025-12-16T09:11:16.309Z [DEBUG] Preserving file permissions: 100644
+2025-12-16T09:11:16.314Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-16T09:11:16.314Z [DEBUG] Applied original permissions to temp file
+2025-12-16T09:11:16.314Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765876276309 to /Users/jschuss/.claude.json
+2025-12-16T09:11:16.314Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-16T10:05:08.237Z [DEBUG] AutoUpdater: Detected installation type: npm-global
+2025-12-16T10:05:08.237Z [DEBUG] AutoUpdater: Using global update method
+2025-12-16T10:05:16.555Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765879516555
+2025-12-16T10:05:16.555Z [DEBUG] Preserving file permissions: 100644
+2025-12-16T10:05:16.561Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.2ms)
+2025-12-16T10:05:16.561Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-16T10:05:16.562Z [DEBUG] Applied original permissions to temp file
+2025-12-16T10:05:16.562Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765879516555 to /Users/jschuss/.claude.json
+2025-12-16T10:05:16.562Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-16T11:12:04.866Z [DEBUG] AutoUpdater: Detected installation type: npm-global
+2025-12-16T11:12:04.866Z [DEBUG] AutoUpdater: Using global update method
+2025-12-16T11:12:10.934Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765883530934
+2025-12-16T11:12:10.934Z [DEBUG] Preserving file permissions: 100644
+2025-12-16T11:12:10.939Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.8ms)
+2025-12-16T11:12:10.939Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-16T11:12:10.939Z [DEBUG] Applied original permissions to temp file
+2025-12-16T11:12:10.939Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765883530934 to /Users/jschuss/.claude.json
+2025-12-16T11:12:10.943Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-16T12:13:06.849Z [DEBUG] AutoUpdater: Detected installation type: npm-global
+2025-12-16T12:13:06.849Z [DEBUG] AutoUpdater: Using global update method
+2025-12-16T12:13:13.432Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765887193432
+2025-12-16T12:13:13.432Z [DEBUG] Preserving file permissions: 100644
+2025-12-16T12:13:13.446Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (13.6ms)
+2025-12-16T12:13:13.446Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-16T12:13:13.446Z [DEBUG] Applied original permissions to temp file
+2025-12-16T12:13:13.446Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765887193432 to /Users/jschuss/.claude.json
+2025-12-16T12:13:13.447Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-16T13:14:06.182Z [DEBUG] AutoUpdater: Detected installation type: npm-global
+2025-12-16T13:14:06.182Z [DEBUG] AutoUpdater: Using global update method
+2025-12-16T13:14:13.892Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765890853892
+2025-12-16T13:14:13.892Z [DEBUG] Preserving file permissions: 100644
+2025-12-16T13:14:13.898Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.8ms)
+2025-12-16T13:14:13.898Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-16T13:14:13.898Z [DEBUG] Applied original permissions to temp file
+2025-12-16T13:14:13.898Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765890853892 to /Users/jschuss/.claude.json
+2025-12-16T13:14:13.900Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-16T13:14:23.699Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 75437s uptime
+2025-12-16T13:14:23.700Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-12-16T13:14:25.028Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (325.0ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-16T13:14:25.029Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-16T13:14:26.050Z [DEBUG] [SLOW OPERATION DETECTED] fs.appendFileSync (12.6ms)
+2025-12-16T14:14:02.509Z [DEBUG] AutoUpdater: Detected installation type: npm-global
+2025-12-16T14:14:02.509Z [DEBUG] AutoUpdater: Using global update method
+2025-12-16T14:14:10.068Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765894450068
+2025-12-16T14:14:10.068Z [DEBUG] Preserving file permissions: 100644
+2025-12-16T14:14:10.073Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.4ms)
+2025-12-16T14:14:10.073Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-16T14:14:10.073Z [DEBUG] Applied original permissions to temp file
+2025-12-16T14:14:10.073Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765894450068 to /Users/jschuss/.claude.json
+2025-12-16T14:14:10.074Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-16T15:15:06.171Z [DEBUG] AutoUpdater: Detected installation type: npm-global
+2025-12-16T15:15:06.171Z [DEBUG] AutoUpdater: Using global update method
+2025-12-16T15:15:13.790Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765898113790
+2025-12-16T15:15:13.790Z [DEBUG] Preserving file permissions: 100644
+2025-12-16T15:15:13.798Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (8.4ms)
+2025-12-16T15:15:13.798Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-16T15:15:13.798Z [DEBUG] Applied original permissions to temp file
+2025-12-16T15:15:13.798Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765898113790 to /Users/jschuss/.claude.json
+2025-12-16T15:15:13.800Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-16T16:16:11.605Z [DEBUG] AutoUpdater: Detected installation type: npm-global
+2025-12-16T16:16:11.605Z [DEBUG] AutoUpdater: Using global update method
+2025-12-16T16:16:17.419Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765901777419
+2025-12-16T16:16:17.419Z [DEBUG] Preserving file permissions: 100644
+2025-12-16T16:16:17.423Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-16T16:16:17.423Z [DEBUG] Applied original permissions to temp file
+2025-12-16T16:16:17.423Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765901777419 to /Users/jschuss/.claude.json
+2025-12-16T16:16:17.424Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-16T16:29:42.918Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-12-16T16:29:42.918Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-12-16T16:29:42.918Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-12-16T16:29:42.918Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-12-16T16:29:42.930Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-12-16T16:29:42.930Z [DEBUG] Found 0 hook matchers in settings
+2025-12-16T16:29:42.930Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-16T16:29:42.931Z [DEBUG] FileHistory: Making snapshot for message fb46ba1b-2b13-4c0c-b999-85a2593e8a2b
+2025-12-16T16:29:42.932Z [DEBUG] FileHistory: Added snapshot for fb46ba1b-2b13-4c0c-b999-85a2593e8a2b, tracking 0 files
+2025-12-16T16:29:43.178Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (237.2ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-16T16:29:43.224Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (34.5ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-16T16:29:43.267Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (31.6ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-16T16:29:43.620Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.69957.1765902583620
+2025-12-16T16:29:43.620Z [DEBUG] Preserving file permissions: 100644
+2025-12-16T16:29:43.627Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (7.1ms)
+2025-12-16T16:29:43.627Z [DEBUG] Temp file written successfully, size: 58843 bytes
+2025-12-16T16:29:43.627Z [DEBUG] Applied original permissions to temp file
+2025-12-16T16:29:43.627Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.69957.1765902583620 to /Users/jschuss/.claude.json
+2025-12-16T16:29:43.627Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-12-16T16:29:43.665Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (36.7ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-16T16:29:43.725Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (59.8ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-16T16:29:43.800Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (27.3ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-16T16:29:44.148Z [DEBUG] Getting matching hook commands for SessionEnd with query: prompt_input_exit
+2025-12-16T16:29:44.148Z [DEBUG] Found 0 hook matchers in settings
+2025-12-16T16:29:44.148Z [DEBUG] Matched 0 unique hooks for query "prompt_input_exit" (0 before deduplication)
+2025-12-16T16:29:44.153Z [DEBUG] MCP server "figma-desktop": HTTP transport closed/disconnected, attempting automatic reconnection
+2025-12-16T16:29:44.156Z [DEBUG] Cleaned up session snapshot: /Users/jschuss/.claude/shell-snapshots/snapshot-zsh-1765815424882-uhaw0e.sh
+2025-12-16T16:29:44.157Z [DEBUG] MCP server "playwright": Sending SIGINT to MCP server process
+2025-12-16T16:29:44.157Z [DEBUG] LSP server manager shut down successfully
+2025-12-16T16:29:44.158Z [DEBUG] MCP server "figma-desktop": Initializing HTTP transport to http://127.0.0.1:3845/mcp
+2025-12-16T16:29:44.158Z [DEBUG] MCP server "figma-desktop": Node version: v22.14.0, Platform: darwin
+2025-12-16T16:29:44.158Z [DEBUG] MCP server "figma-desktop": Environment: {"NODE_OPTIONS":"not set","UV_THREADPOOL_SIZE":"default","HTTP_PROXY":"not set","HTTPS_PROXY":"not set","NO_PROXY":"not set"}
+2025-12-16T16:29:44.158Z [DEBUG] MCP server "figma-desktop": Proxy options: default
+2025-12-16T16:29:44.158Z [DEBUG] MCP server "figma-desktop": HTTP transport options: {"url":"http://127.0.0.1:3845/mcp","headers":{"User-Agent":"claude-code/2.0.69"},"hasAuthProvider":true,"timeoutMs":60000}
+2025-12-16T16:29:44.158Z [DEBUG] MCP server "figma-desktop": HTTP transport created successfully
+2025-12-16T16:29:44.160Z [DEBUG] MCP server "figma-desktop": Client created, setting up request handler
+2025-12-16T16:29:44.160Z [DEBUG] MCP server "figma-desktop": Starting connection with timeout of 30000ms
+2025-12-16T16:29:44.160Z [DEBUG] MCP server "figma-desktop": Testing basic HTTP connectivity to http://127.0.0.1:3845/mcp
+2025-12-16T16:29:44.160Z [DEBUG] MCP server "figma-desktop": Parsed URL: host=127.0.0.1, port=3845, protocol=http:
+2025-12-16T16:29:44.160Z [DEBUG] MCP server "figma-desktop": Using loopback address: 127.0.0.1
+2025-12-16T16:29:44.160Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 87158s uptime
+2025-12-16T16:29:44.160Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: AbortError: This operation was aborted
+2025-12-16T16:29:44.230Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (69.7ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-16T16:29:44.230Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-16T16:29:44.290Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (48.3ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-16T16:29:44.290Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-16T16:29:44.291Z [DEBUG] MCP server "playwright": SIGINT failed, sending SIGTERM to MCP server process
+2025-12-16T16:29:44.293Z [DEBUG] Stream started - received first chunk
+2025-12-16T16:29:44.346Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (51.4ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-16T16:29:44.346Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-16T16:29:44.346Z [DEBUG] MCP server "figma-desktop": Successfully connected to http server in 188ms
+2025-12-16T16:29:44.346Z [DEBUG] MCP server "figma-desktop": Connection established with capabilities: {"hasTools":true,"hasPrompts":true,"hasResources":true,"serverVersion":{"name":"Figma Dev Mode MCP Server","version":"1.0.0"}}
+2025-12-16T16:29:44.381Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (34.3ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-16T16:29:44.381Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-16T16:29:44.416Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (35.6ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-16T16:29:44.416Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-16T16:29:44.455Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (39.0ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2025-12-16T16:29:44.456Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-12-16T16:29:44.508Z [DEBUG] MCP server "playwright": MCP server process exited cleanly
+2025-12-16T16:29:44.762Z [DEBUG] MCP server "figma-desktop": HTTP reconnection successful after 608ms (attempt 1)

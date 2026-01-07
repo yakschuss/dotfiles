@@ -1,0 +1,12 @@
+[
+  {
+    "content": "Wrap destroy/create operations in a transaction",
+    "status": "completed",
+    "id": "1"
+  },
+  {
+    "content": "Rename supervisor_trainee_relationship to supervisor_relationship",
+    "status": "completed",
+    "id": "2"
+  }
+]

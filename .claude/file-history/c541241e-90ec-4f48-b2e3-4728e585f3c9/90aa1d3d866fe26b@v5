@@ -1,0 +1,78 @@
+<% conversation = Chat::MemberSupportConversation.opened_for_channel(sendbird_chat_channel) %>
+
+<div id="chat_actions_header_contents" data-turbo="true">
+  <div class="row mb-lg-3">
+    <%= render partial: "chat_status", locals: {conversation: conversation} %>
+  </div>
+
+  <div class="row">
+
+    <div class="col">
+      <div class="flex gap-2 items-center">
+        <%= render Prism::Button.new(
+              url: account_member_chat_unread_messages_path(current_account, current_member, sendbird_chat_channel, sendbird_user_id: sendbird_user),
+              variation: :secondary,
+              size: :sm,
+              format: :button,
+              id: "messages-unread-button"
+            ) do %>
+          Mark as unread
+        <% end %>
+
+        <% if ChatMarkerPolicy.new(current_staffer).create? %>
+          <%= render Prism::Button.new(
+                url: coach_workflows_sendbird_chat_channel_membership_path(sendbird_chat_channel_membership),
+                variation: :secondary,
+                size: :sm,
+                format: :button,
+                method: :patch,
+                params: { sendbird_chat_channel_membership: { starred: !sendbird_chat_channel_membership.starred? } }
+              ) do %>
+            <span class="flex items-center gap-2">
+              <%= inline_svg_tag("icons/streamline/star.svg", class: "size-4 fill-current") %>
+              <%= sendbird_chat_channel_membership.starred? ? "Remove star" : "Add star" %>
+            </span>
+          <% end %>
+
+          <%= render Prism::Button.new(
+                url: account_member_chat_flag_path(current_account.id, current_member.id, sendbird_chat_channel.id, sendbird_user_id: sendbird_user.id),
+                variation: :secondary,
+                size: :sm,
+                format: :button,
+                method: safety_flag.present? ? :delete : :post,
+                classes: safety_flag.present? ? "" : "!text-red-800"
+              ) do %>
+            <%= safety_flag.present? ? "Flagged as safety risk" : "Flag as safety risk" %>
+          <% end %>
+        <% end %>
+
+        <% if SupplementalChatCoachPolicy.new(current_staffer).create? %>
+          <div data-controller="modals events">
+            <%= turbo_frame_tag :supplemental_coach_form do %>
+              <%= render Staffers::Accounts::Chats::SupplementalCoachFormComponent.new(
+                    account: current_account,
+                    member: current_member,
+                    chat_type: sendbird_chat_channel.chat_type
+                  ) %>
+            <% end %>
+          </div>
+        <% end %>
+
+        <% if sendbird_chat_channel.chat_type_member_support? %>
+          <% if conversation&.open? && conversation&.claimed_by?(current_staffer) %>
+            <%= render Prism::Button.new(
+                  url: member_support_read_conversations_path(sendbird_chat_channel_id: sendbird_chat_channel.id),
+                  variation: :secondary_danger,
+                  size: :sm,
+                  format: :button,
+                  data: {turbo_frame: "_top"},
+                  id: "close-conversation-button"
+                ) do %>
+              Mark as closed
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

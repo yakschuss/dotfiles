@@ -1,0 +1,32 @@
+<% content_for(:title) do %>
+  <%= member.first_name %> - <%= Chat::ChannelName.new(sendbird_chat_channel, sendbird_user) %>
+<% end %>
+<%= render(Prism::Layouts::Columns.new(classes: "space-x-8")) do |columns| %>
+  <% columns.with_column(col_span: "12", classes: "h-full") do %>
+    <div class="prism-text-xl!">
+      <%= member.full_name %> (<%= account_member.account_relationship.capitalize %>)
+    </div>
+    <div id="coaches_list">
+      <%= render Staffers::Accounts::Chats::CoachesListComponent.new(account: account, member: member, chat_type: sendbird_chat_channel.chat_type) %>
+    </div>
+    <div class="mb-4">
+      <%= render(Staffers::Accounts::Members::MemberTabsComponent.new(account: account, member: member, staffer: staffer, tab: tab)) %>
+    </div>
+    <%= turbo_frame_tag :chat_actions_header do %>
+      <%= render partial: "chat_actions_header", locals: {sendbird_chat_channel: sendbird_chat_channel, sendbird_user: sendbird_user, sendbird_chat_channel_membership: sendbird_chat_channel_membership, safety_flag: safety_flag} %>
+    <% end %>
+    <%= react_component "SendbirdChatApp", {
+          sendbirdChannelUrl: sendbird_channel_info.url,
+          currentChatParticipant: sendbird_channel_info.current_participant,
+          env: {
+            sendbird: {
+              appID: Settings.sendbird.app_id,
+              logLevel: Settings.sendbird.log_level
+            }
+          }
+        } %>
+  <% end %>
+  <% content_for(:sidebar) do %>
+    <%= render(Staffers::Accounts::Members::SidebarComponent.new(current_account: account, current_member: member, current_staffer: staffer)) %>
+  <% end %>
+<% end %>

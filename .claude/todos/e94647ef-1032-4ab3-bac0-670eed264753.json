@@ -1,0 +1,20 @@
+[
+  {
+    "content": "Review sessions context and error handling",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Update login component to handle errors properly",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Ensure consistent styling with sessions views",
+    "status": "completed",
+    "priority": "medium",
+    "id": "3"
+  }
+]

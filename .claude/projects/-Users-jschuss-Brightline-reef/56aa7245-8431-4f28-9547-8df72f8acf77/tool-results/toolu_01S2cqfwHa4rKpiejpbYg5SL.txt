@@ -1,0 +1,455 @@
+     1→# Slot Recapture Refactor — PoC Scope
+     2→
+     3→## Context
+     4→
+     5→After domain discovery with Alicia (principal engineer) and Erica (ops), the original spec has several flawed assumptions. This document captures what needs to change for a valid PoC.
+     6→
+     7→---
+     8→
+     9→## Key Discoveries
+    10→
+    11→| Original Assumption | Reality | Impact |
+    12→|---------------------|---------|--------|
+    13→| `slot_enabled` = "worth recapturing" | `slot_enabled` = UI dropdown filter for slot release reasons | **EligibilityFilter is filtering on wrong signal** |
+    14→| One use case (cancelled appointment → fill from waitlist) | Three distinct use cases with different logic | **Need to scope PoC to ONE use case** |
+    15→| Waitlist = people waiting for a specific time slot | Waitlist = gate to entering care (capacity signal) | **Matcher weights optimize for wrong thing** |
+    16→| Listen to `AppointmentCanceledEvent` | For ongoing slots, should listen to `AppointmentSlotReleasedEvent` (has NO subscribers) | **Missing Scenario 2 entirely** |
+    17→| Matching: provider (40%), clinic (25%), type (15%), priority (10%), wait_time (10%) | Erica's criteria: state, credential, clinic, appointment type. 80% LIFO / 20% FIFO for ordering. | **Weights are arbitrary** |
+    18→| 24hr lead time threshold | No basis for this number | **Need ops input on actual threshold** |
+    19→| `WaitList::Entry` all types queryable | Only `therapy_initial_session` returns `true` from `eligible?` | **May be querying ineligible entries** |
+    20→
+    21→---
+    22→
+    23→## Alicia's Three Use Cases
+    24→
+    25→### Scenario 1: Cancelled DE/Intake Appointment
+    26→- **Trigger:** `AppointmentCanceledEvent` where `root_appointment_type.for_intake == true`
+    27→- **Waitlist:** DE waitlist (exists)
+    28→- **Match logic:** Same provider/time match possible
+    29→- **Status:** PoC SCOPE ✓
+    30→
+    31→### Scenario 2: Cancelled Ongoing Slot / Discharge
+    32→- **Trigger:** `AppointmentSlotReleasedEvent` OR `CareCaseDischargedEvent`
+    33→- **Waitlist:** Ongoing waitlist (doesn't exist yet, Q1) OR DE waitlist (capacity signal)
+    34→- **Match logic:** NOT time-slot matching. "Provider has capacity" → room for someone to enter care
+    35→- **Status:** FUTURE SCOPE (needs ongoing waitlist)
+    36→
+    37→### Scenario 3: Cancelled Individual Ongoing Appointment
+    38→- **Trigger:** `AppointmentCanceledEvent` where `root_appointment_type.for_intake == false`
+    39→- **Waitlist:** NOT current waitlist concept. Needs "sooner appointment" seekers or ad-hoc needs.
+    40→- **Match logic:** Different — people who booked 3 weeks out but want sooner, or testing appointments with longer waits
+    41→- **Status:** FUTURE SCOPE (needs new data model — no "wants earlier" flag exists)
+    42→
+    43→---
+    44→
+    45→## PoC Scope: Scenario 1 Only (Cancelled DE/Intake)
+    46→
+    47→### EligibilityFilter Changes
+    48→
+    49→**REMOVE:**
+    50→```ruby
+    51→# DELETE THIS - slot_enabled is wrong signal
+    52→def slot_enabled_reason?(cancelation_reason)
+    53→  CancelationReason.find(cancelation_reason)&.slot_enabled
+    54→end
+    55→```
+    56→
+    57→**REPLACE WITH:**
+    58→```ruby
+    59→# app/models/slot_recapture/eligibility_filter.rb
+    60→module SlotRecapture
+    61→  class EligibilityFilter
+    62→    Result = Struct.new(:eligible, :reason, keyword_init: true) do
+    63→      alias_method :eligible?, :eligible
+    64→    end
+    65→
+    66→    def initialize(config: Configuration.current.data)
+    67→      @config = config
+    68→    end
+    69→
+    70→    def check(appointment:, appointment_cancelation:)
+    71→      # 1. Must be intake/DE appointment
+    72→      unless intake_appointment?(appointment)
+    73→        return Result.new(eligible: false, reason: "Not an intake/DE appointment type")
+    74→      end
+    75→
+    76→      # 2. Must have sufficient lead time
+    77→      lead_time_hours = hours_until(appointment.start_time)
+    78→      if lead_time_hours < @config.lead_time_hours_minimum
+    79→        return Result.new(eligible: false, reason: "Lead time #{lead_time_hours}h < minimum #{@config.lead_time_hours_minimum}h")
+    80→      end
+    81→
+    82→      # 3. Appointment not already rebooked/filled
+    83→      # (future: check if another appointment exists in same slot)
+    84→
+    85→      Result.new(eligible: true, reason: nil)
+    86→    end
+    87→
+    88→    private
+    89→
+    90→    def intake_appointment?(appointment)
+    91→      appointment.root_appointment_type&.for_intake == true
+    92→    end
+    93→
+    94→    def hours_until(time)
+    95→      ((time - Time.current) / 1.hour).round
+    96→    end
+    97→  end
+    98→end
+    99→```
+   100→
+   101→**Rationale:** Filter on `for_intake: true` which is the actual domain signal for DE/intake appointments. Drop `slot_enabled` entirely.
+   102→
+   103→---
+   104→
+   105→### Matcher Changes
+   106→
+   107→**Current weights (arbitrary):**
+   108→```ruby
+   109→weight_same_provider: 0.4
+   110→weight_clinic_match: 0.25
+   111→weight_exact_type: 0.15
+   112→weight_priority: 0.1
+   113→weight_wait_time: 0.1
+   114→```
+   115→
+   116→**Erica's actual criteria:**
+   117→1. State/region (hard filter, not weight)
+   118→2. Credential/capability (hard filter via `root_appointment_type.required_capability_id`)
+   119→3. Clinic (preference, not hard filter unless `clinic_mismatch_excludes: true`)
+   120→4. Appointment type (must match root type)
+   121→5. Ordering: 80% LIFO, 20% FIFO
+   122→
+   123→**ADD: Modality filter**
+   124→- In-person opportunity → only match entries with clinic preference OR virtual-flexible
+   125→- Virtual opportunity → can match any entry
+   126→
+   127→**REFACTORED APPROACH:**
+   128→
+   129→```ruby
+   130→# app/models/slot_recapture/matcher.rb
+   131→module SlotRecapture
+   132→  class Matcher
+   133→    def initialize(config: Configuration.current.data)
+   134→      @config = config
+   135→    end
+   136→
+   137→    def matches_for(opportunity)
+   138→      entries = base_query(opportunity)
+   139→      entries = apply_hard_filters(entries, opportunity)
+   140→      entries = apply_ordering(entries)
+   141→      entries = entries.limit(@config.matches_per_opportunity)
+   142→      
+   143→      entries.map { |entry| build_match(entry, opportunity) }
+   144→    end
+   145→
+   146→    private
+   147→
+   148→    def base_query(opportunity)
+   149→      WaitList::Entry
+   150→        .active
+   151→        .with_root_appointment_type_id(opportunity.root_appointment_type_id)
+   152→    end
+   153→
+   154→    def apply_hard_filters(entries, opportunity)
+   155→      # Region must match
+   156→      entries = entries.with_region(opportunity.region_id)
+   157→      
+   158→      # Modality filter
+   159→      if opportunity.in_person?
+   160→        # In-person: entry must have matching clinic OR be flexible
+   161→        entries = entries.where(
+   162→          "clinic_ids && ARRAY[?]::uuid[] OR clinic_ids = '{}'",
+   163→          [opportunity.clinic_id]
+   164→        )
+   165→      end
+   166→      # Virtual: no additional filter needed
+   167→      
+   168→      entries
+   169→    end
+   170→
+   171→    def apply_ordering(entries)
+   172→      # 80% LIFO (most recent first), 20% FIFO (oldest first)
+   173→      # For PoC: just use LIFO, ops can manually pick older entries
+   174→      entries.order(added_at: :desc)
+   175→    end
+   176→
+   177→    def build_match(entry, opportunity)
+   178→      Match.new(
+   179→        entry: entry,
+   180→        opportunity: opportunity,
+   181→        score: calculate_score(entry, opportunity),
+   182→        breakdown: calculate_breakdown(entry, opportunity)
+   183→      )
+   184→    end
+   185→
+   186→    def calculate_score(entry, opportunity)
+   187→      score = 0.0
+   188→      
+   189→      # Same provider bonus
+   190→      if entry.care_case&.primary_staffer_id == opportunity.staffer_id
+   191→        score += @config.weight_same_provider
+   192→      end
+   193→      
+   194→      # Clinic match bonus
+   195→      if entry.clinic_ids.include?(opportunity.clinic_id)
+   196→        score += @config.weight_clinic_match
+   197→      end
+   198→      
+   199→      # Exact type match bonus
+   200→      if entry.appointment_type_id == opportunity.appointment_type_id
+   201→        score += @config.weight_exact_type
+   202→      end
+   203→      
+   204→      # Priority bonus
+   205→      if entry.priority?
+   206→        score += @config.weight_priority
+   207→      end
+   208→      
+   209→      # Wait time bonus (capped)
+   210→      wait_days = [(Time.current - entry.added_at) / 1.day, @config.wait_time_cap_days].min
+   211→      score += @config.weight_wait_time * (wait_days / @config.wait_time_cap_days.to_f)
+   212→      
+   213→      score
+   214→    end
+   215→
+   216→    def calculate_breakdown(entry, opportunity)
+   217→      {
+   218→        same_provider: entry.care_case&.primary_staffer_id == opportunity.staffer_id,
+   219→        clinic_match: entry.clinic_ids.include?(opportunity.clinic_id),
+   220→        exact_type: entry.appointment_type_id == opportunity.appointment_type_id,
+   221→        priority: entry.priority?,
+   222→        wait_days: ((Time.current - entry.added_at) / 1.day).round
+   223→      }
+   224→    end
+   225→  end
+   226→end
+   227→```
+   228→
+   229→---
+   230→
+   231→### Opportunity Model Changes
+   232→
+   233→**ADD modality tracking:**
+   234→
+   235→```ruby
+   236→# Migration addition
+   237→add_column :slot_recapture_opportunities, :modality, :string, null: false
+   238→# Values: 'in_person', 'video', 'phone'
+   239→```
+   240→
+   241→```ruby
+   242→# app/models/slot_recapture/opportunity.rb
+   243→def in_person?
+   244→  modality == 'in_person'
+   245→end
+   246→
+   247→def virtual?
+   248→  modality.in?(%w[video phone])
+   249→end
+   250→```
+   251→
+   252→**OpportunityCreator change:**
+   253→```ruby
+   254→def build_opportunity(appointment)
+   255→  Opportunity.new(
+   256→    # ... existing fields ...
+   257→    modality: appointment.appointment_type.mode  # ADD THIS
+   258→  )
+   259→end
+   260→```
+   261→
+   262→---
+   263→
+   264→### ConfigurationData Changes
+   265→
+   266→**UPDATE defaults to match Erica's criteria:**
+   267→
+   268→```ruby
+   269→# app/models/slot_recapture/configuration_data.rb
+   270→
+   271→# Weights (tentative — get ops input)
+   272→attribute :weight_same_provider, :float, default: 0.3
+   273→attribute :weight_clinic_match, :float, default: 0.2
+   274→attribute :weight_exact_type, :float, default: 0.2
+   275→attribute :weight_priority, :float, default: 0.2
+   276→attribute :weight_wait_time, :float, default: 0.1
+   277→
+   278→# Thresholds — GET OPS INPUT ON THESE
+   279→attribute :lead_time_hours_minimum, :integer, default: 24  # Is this right?
+   280→```
+   281→
+   282→---
+   283→
+   284→### CancellationHandler Changes
+   285→
+   286→**REMOVE `slot_enabled` check:**
+   287→
+   288→```ruby
+   289→# app/models/slot_recapture/cancellation_handler.rb
+   290→module SlotRecapture
+   291→  class CancellationHandler
+   292→    include EventSystem::Listener
+   293→
+   294→    on(AppointmentCanceledEvent) do |event|
+   295→      new.handle(event)
+   296→    end
+   297→
+   298→    def handle(event)
+   299→      return unless Flipper.enabled?(:slot_recapture_enabled)
+   300→      
+   301→      # PoC: Only handle intake/DE appointments (Scenario 1)
+   302→      return unless event.appointment.root_appointment_type&.for_intake
+   303→      
+   304→      filter = EligibilityFilter.new
+   305→      result = filter.check(
+   306→        appointment: event.appointment,
+   307→        appointment_cancelation: event.appointment_cancelation
+   308→      )
+   309→      
+   310→      return unless result.eligible?
+   311→      
+   312→      OpportunityCreator.new.create(appointment: event.appointment)
+   313→    end
+   314→  end
+   315→end
+   316→```
+   317→
+   318→---
+   319→
+   320→### Test Updates
+   321→
+   322→**EligibilityFilter spec — remove `slot_enabled` tests:**
+   323→
+   324→```ruby
+   325→# spec/models/slot_recapture/eligibility_filter_spec.rb
+   326→RSpec.describe SlotRecapture::EligibilityFilter do
+   327→  describe "#check" do
+   328→    it "returns eligible for intake appointments with sufficient lead time" do
+   329→      root_type = FactoryBot.build(:root_appointment_type, for_intake: true)
+   330→      appointment_type = FactoryBot.build(:appointment_type, root_appointment_type: root_type)
+   331→      appointment = FactoryBot.build(:appointment, 
+   332→        start_time: 48.hours.from_now,
+   333→        appointment_type: appointment_type
+   334→      )
+   335→      cancelation = FactoryBot.build(:appointment_cancelation)
+   336→
+   337→      result = described_class.new.check(appointment: appointment, appointment_cancelation: cancelation)
+   338→
+   339→      expect(result.eligible?).to eq(true)
+   340→    end
+   341→
+   342→    it "returns ineligible for non-intake appointments" do
+   343→      root_type = FactoryBot.build(:root_appointment_type, for_intake: false)
+   344→      appointment_type = FactoryBot.build(:appointment_type, root_appointment_type: root_type)
+   345→      appointment = FactoryBot.build(:appointment, 
+   346→        start_time: 48.hours.from_now,
+   347→        appointment_type: appointment_type
+   348→      )
+   349→      cancelation = FactoryBot.build(:appointment_cancelation)
+   350→
+   351→      result = described_class.new.check(appointment: appointment, appointment_cancelation: cancelation)
+   352→
+   353→      expect(result.eligible?).to eq(false)
+   354→      expect(result.reason).to include("Not an intake/DE")
+   355→    end
+   356→
+   357→    it "returns ineligible for insufficient lead time" do
+   358→      root_type = FactoryBot.build(:root_appointment_type, for_intake: true)
+   359→      appointment_type = FactoryBot.build(:appointment_type, root_appointment_type: root_type)
+   360→      appointment = FactoryBot.build(:appointment, 
+   361→        start_time: 12.hours.from_now,
+   362→        appointment_type: appointment_type
+   363→      )
+   364→      cancelation = FactoryBot.build(:appointment_cancelation)
+   365→
+   366→      result = described_class.new.check(appointment: appointment, appointment_cancelation: cancelation)
+   367→
+   368→      expect(result.eligible?).to eq(false)
+   369→      expect(result.reason).to include("Lead time")
+   370→    end
+   371→
+   372→    # REMOVED: slot_enabled tests — no longer relevant
+   373→  end
+   374→end
+   375→```
+   376→
+   377→---
+   378→
+   379→## Open Questions for Wednesday (Danielle/Hailey)
+   380→
+   381→### Eligibility
+   382→1. **Lead time threshold:** We have 24hr as default. Is that right? Should it vary by appointment type?
+   383→2. **Which intake types matter?** Therapy DE, Psych Testing DE, Psychiatry DE, Coaching Goal Setting — all of them? Or prioritize?
+   384→
+   385→### Matching
+   386→3. **Modality:** If an in-person slot opens, do we only offer to people who want in-person? Or can we offer virtual as alternative?
+   387→4. **Same provider:** How much does this matter for intakes? (They haven't started care yet)
+   388→5. **Ordering:** 80% LIFO / 20% FIFO — is this what you want? Or pure LIFO for PoC?
+   389→
+   390→### Process
+   391→6. **What do you see today?** Walk me through what happens when a DE cancels right now.
+   392→7. **What would help?** If I showed you a list of "DE cancelled at 2pm Tuesday, here are 5 waitlist matches" — is that useful?
+   393→
+   394→---
+   395→
+   396→## Future Scope (NOT in PoC)
+   397→
+   398→### Scenario 2: Listen to `AppointmentSlotReleasedEvent`
+   399→```ruby
+   400→# FUTURE: Add subscriber for ongoing slot releases
+   401→module SlotRecapture
+   402→  class SlotReleaseHandler
+   403→    include EventSystem::Listener
+   404→
+   405→    on(AppointmentSlotReleasedEvent) do |event|
+   406→      # Different logic — this is capacity signal, not time-slot matching
+   407→      # Notify ops that provider has ongoing capacity available
+   408→    end
+   409→  end
+   410→end
+   411→```
+   412→
+   413→### Scenario 3: "Wants Earlier Appointment"
+   414→- Needs new field on `WaitList::Entry` or `CareCase`
+   415→- Different matching logic
+   416→- Good for testing appointments (longer waits)
+   417→
+   418→### Expand `WaitList::Api.eligible?`
+   419→- Currently only `therapy_initial_session` returns true
+   420→- May need to expand for other intake types
+   421→
+   422→---
+   423→
+   424→## Migration Checklist
+   425→
+   426→### Add to existing migrations:
+   427→- [ ] Add `modality` column to `slot_recapture_opportunities`
+   428→
+   429→### Code changes:
+   430→- [ ] `EligibilityFilter` — remove `slot_enabled`, add `for_intake` check
+   431→- [ ] `Matcher` — add modality filter, update ordering
+   432→- [ ] `OpportunityCreator` — populate `modality` field
+   433→- [ ] `CancellationHandler` — add `for_intake` guard
+   434→- [ ] `ConfigurationData` — review default weights
+   435→
+   436→### Tests:
+   437→- [ ] Update `EligibilityFilter` spec — remove `slot_enabled` tests
+   438→- [ ] Update `Matcher` spec — add modality scenarios
+   439→- [ ] Update `CancellationHandler` spec — add `for_intake` scenarios
+   440→
+   441→---
+   442→
+   443→## Success Criteria for PoC
+   444→
+   445→1. **Cancelled DE shows up in ops dashboard** within 1 minute
+   446→2. **Matched waitlist entries** appear ranked by relevance
+   447→3. **Ops can initiate outreach** from the dashboard
+   448→4. **Filled detection works** — when appointment books, opportunity marked filled
+   449→
+   450→**Validation:** Show to Danielle, get feedback. Does this match how she'd want to work?
+   451→
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

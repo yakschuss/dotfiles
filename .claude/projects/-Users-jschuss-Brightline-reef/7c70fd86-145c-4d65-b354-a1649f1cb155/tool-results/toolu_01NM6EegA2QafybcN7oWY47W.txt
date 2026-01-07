@@ -1,0 +1,61 @@
+     1→# frozen_string_literal: true
+     2→
+     3→class CancelationReason < Struct.new(:id, :text, :context, :roles, :enabled, :slot_enabled, :late_fee, :automated_reminders, :category_id, keyword_init: true)
+     4→  include YamlModel
+     5→  include YamlModel::Associations
+     6→
+     7→  has_id_based_finders
+     8→  has_predicates
+     9→  feature_flag :text, :roles, :enabled
+    10→
+    11→  belongs_to_yaml_model :category, optional: true, class_name: "CancelationReasonCategory"
+    12→
+    13→  alias_method :enabled?, :enabled
+    14→  alias_method :late_fee?, :late_fee
+    15→  alias_method :slot_enabled?, :slot_enabled
+    16→
+    17→  def self.enabled
+    18→    all.select(&:enabled)
+    19→  end
+    20→
+    21→  def self.for_category(category)
+    22→    enabled.select { it.for_category?(category) }
+    23→  end
+    24→
+    25→  def self.for_context(context_name)
+    26→    enabled.select { it.for_context?(context_name) }
+    27→  end
+    28→
+    29→  def self.for_role(role_name)
+    30→    enabled.select { it.for_role?(role_name) }
+    31→  end
+    32→
+    33→  def initialize(id:, text:, context:, roles:, enabled:, automated_reminders: {}, category_id: nil, slot_enabled: false, late_fee: false)
+    34→    super
+    35→  end
+    36→
+    37→  def for_category?(category)
+    38→    id = category.try(:id) || category
+    39→    id.to_s == category_id.to_s
+    40→  end
+    41→
+    42→  def for_role?(role_name)
+    43→    roles.include?(role_name.to_s)
+    44→  end
+    45→
+    46→  def for_context?(context_name)
+    47→    context == "all" || context == context_name.to_s
+    48→  end
+    49→
+    50→  def automated_reminder_type_ids(late: false)
+    51→    reminder_type_ids = Array.wrap(automated_reminders[:reminder_types])
+    52→    reminder_type_ids += Array.wrap(automated_reminders[:late_reminder_types]) if late
+    53→
+    54→    reminder_type_ids.compact
+    55→  end
+    56→end
+    57→
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

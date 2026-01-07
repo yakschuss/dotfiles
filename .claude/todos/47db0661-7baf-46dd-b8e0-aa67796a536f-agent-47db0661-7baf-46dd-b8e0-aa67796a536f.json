@@ -1,0 +1,92 @@
+[
+  {
+    "content": "Run config status to see differences between local and remote",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Review current local dotfiles to understand what needs to be synced",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Remove .oh-my-zsh directory from remote repository",
+    "status": "completed",
+    "priority": "medium",
+    "id": "3"
+  },
+  {
+    "content": "Update remote repository with current local dotfiles",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  },
+  {
+    "content": "Set up automatic syncing for future updates",
+    "status": "pending",
+    "priority": "low",
+    "id": "5"
+  },
+  {
+    "content": "Review all dotfiles to identify what's worth keeping vs unused",
+    "status": "in_progress",
+    "priority": "high",
+    "id": "6"
+  },
+  {
+    "content": "Investigate Bash tool issues and find alternative approach",
+    "status": "completed",
+    "priority": "high",
+    "id": "7"
+  },
+  {
+    "content": "Analyze config status output to identify what files are actually needed",
+    "status": "completed",
+    "priority": "high",
+    "id": "8"
+  },
+  {
+    "content": "Understand why git shows files as deleted when they exist locally",
+    "status": "completed",
+    "priority": "high",
+    "id": "9"
+  },
+  {
+    "content": "Fix typechange issues with .bin/ scripts",
+    "status": "completed",
+    "priority": "high",
+    "id": "10"
+  },
+  {
+    "content": "Add modified dotfiles and commit changes",
+    "status": "completed",
+    "priority": "high",
+    "id": "11"
+  },
+  {
+    "content": "Fix git autocomplete hanging issue",
+    "status": "pending",
+    "priority": "high",
+    "id": "12"
+  },
+  {
+    "content": "Analyze remote dotfiles repo to identify outdated files",
+    "status": "pending",
+    "priority": "high",
+    "id": "13"
+  },
+  {
+    "content": "Create installation script for clean dotfiles setup",
+    "status": "pending",
+    "priority": "high",
+    "id": "14"
+  },
+  {
+    "content": "Clean up outdated files from dotfiles repo",
+    "status": "pending",
+    "priority": "high",
+    "id": "15"
+  }
+]

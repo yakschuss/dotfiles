@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Search for digital content models and controllers",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Investigate staffer permission system",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Find digital content assignment/viewing flows",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Analyze permission checks in digital content code",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  }
+]

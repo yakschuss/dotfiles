@@ -1,0 +1,32 @@
+# frozen_string_literal: true
+
+module Staffers
+  module CareCases::Chats
+    class TabsComponent < ViewComponent::Base
+      include TabHelpers
+
+      attr_reader :care_case, :tab
+
+      def initialize(care_case:, tab:, channels:)
+        @care_case = care_case
+        @tab = tab
+        @channels = channels
+      end
+
+      def member_select_options
+        {
+          caregiver: ["#{care_case.caregiver.first_name} (caregiver)", chat_url("caregiver")],
+          teen: ["#{care_case.patient_preferred_name} (teen)", chat_url("teen")]
+        }.reject { |k, _| @channels[k].blank? }.map { |_, v| v }
+      end
+
+      def channels
+        @channels[tab.to_sym]
+      end
+
+      def chat_url(tab)
+        care_case_chats_path(care_case, tab: tab)
+      end
+    end
+  end
+end

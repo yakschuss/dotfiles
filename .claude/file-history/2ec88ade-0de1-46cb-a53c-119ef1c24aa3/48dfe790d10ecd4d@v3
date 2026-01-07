@@ -1,0 +1,24 @@
+import { Controller } from "@hotwired/stimulus";
+
+export default class extends Controller {
+  static targets = ["select", "turboFrame"];
+  static values = { turbo: { type: Boolean, default: true } };
+
+  navigate(event) {
+    const url = event.target.value || this.selectTarget.value;
+
+    if (url) {
+      this.visitUrl(url);
+    }
+  }
+
+  visitUrl(url) {
+    if (this.hasTurboFrameTarget) {
+      this.turboFrameTarget.src = url;
+    } else if (this.turboValue) {
+      Turbo.visit(url);
+    } else {
+      window.location.href = url;
+    }
+  }
+}

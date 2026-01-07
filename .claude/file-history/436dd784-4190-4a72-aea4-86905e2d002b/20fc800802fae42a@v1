@@ -1,0 +1,261 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe WaitList::Entry, type: :model do
+  describe "validations" do
+    describe ".active" do
+      it "returns active waitlist entries" do
+        active_entry = FactoryBot.create(:wait_list_entry, :with_care_case, :active)
+        FactoryBot.create(:wait_list_entry, :with_care_case, :scheduled)
+
+        expect(WaitList::Entry.active).to eq([active_entry])
+      end
+    end
+
+    describe ".inactive" do
+      it "returns inactive waitlist entries" do
+        FactoryBot.create(:wait_list_entry, :with_care_case, :active)
+        inactive_entry = FactoryBot.create(:wait_list_entry, :with_care_case, :scheduled)
+
+        expect(WaitList::Entry.inactive).to eq([inactive_entry])
+      end
+    end
+  end
+
+  describe ".with_status" do
+    context "when status is all_active" do
+      it "returns all active waitlist entries" do
+        active_entry = FactoryBot.create(:wait_list_entry, :with_care_case, :active)
+        outreach_entry = FactoryBot.create(:wait_list_entry, :with_care_case, :active)
+        FactoryBot.create(:wait_list_outreach_attempt, entry: outreach_entry)
+        FactoryBot.create(:wait_list_entry, :with_care_case, :scheduled)
+
+        expect(WaitList::Entry.with_status(:all_active)).to match_array([active_entry, outreach_entry])
+      end
+    end
+
+    context "when status is removed" do
+      it "returns all removed waitlist entries" do
+        removed_entry = FactoryBot.create(:wait_list_entry, :with_care_case, :scheduled)
+        FactoryBot.create(:wait_list_entry, :with_care_case, :active)
+        expect(WaitList::Entry.with_status(:removed)).to match_array([removed_entry])
+      end
+    end
+
+    context "when status is attempting_to_reach" do
+      it "returns the right entries" do
+        FactoryBot.create(:wait_list_entry, :with_care_case, :active)
+        expired_entry = FactoryBot.create(:wait_list_entry, :with_care_case, :active)
+        FactoryBot.create(:wait_list_outreach_attempt, entry: expired_entry, expires_at: 2.days.ago)
+        outreach_entry = FactoryBot.create(:wait_list_entry, :with_care_case, :active)
+        FactoryBot.create(:wait_list_outreach_attempt, entry: outreach_entry)
+        removed = FactoryBot.create(:wait_list_entry, :with_care_case, :scheduled)
+        FactoryBot.create(:wait_list_outreach_attempt, entry: removed)
+
+        expect(WaitList::Entry.with_status(:attempting_to_reach)).to match_array([outreach_entry])
+      end
+    end
+
+    context "when status is waiting_for_opening" do
+      it "returns the right entries" do
+        active_entry = FactoryBot.create(:wait_list_entry, :with_care_case, :active)
+        expired_entry = FactoryBot.create(:wait_list_entry, :with_care_case, :active)
+        FactoryBot.create(:wait_list_outreach_attempt, entry: expired_entry, expires_at: 2.days.ago)
+        outreach_entry = FactoryBot.create(:wait_list_entry, :with_care_case, :active)
+        FactoryBot.create(:wait_list_outreach_attempt, entry: outreach_entry)
+        removed = FactoryBot.create(:wait_list_entry, :with_care_case, :scheduled)
+        FactoryBot.create(:wait_list_outreach_attempt, entry: removed)
+
+        expect(WaitList::Entry.with_status(:waiting_for_opening)).to match_array([active_entry, expired_entry])
+      end
+    end
+  end
+
+  describe ".with_payer_id" do
+    it "returns waitlist entries with care cases with active coverage with given payer" do
+      account = FactoryBot.create(:account)
+      care_case_1 = FactoryBot.create(:care_case, account: account)
+      care_case_2 = FactoryBot.create(:care_case, account: account)
+      care_case_3 = FactoryBot.create(:care_case, account: account)
+
+      payer = FactoryBot.create(:payer)
+      contract = FactoryBot.create(:contract, payer: payer)
+      inactive_covered_entity = FactoryBot.create(:covered_entity, :with_inactive_coverage, contract: contract, account: account)
+      active_covered_entity = FactoryBot.create(:covered_entity, :with_active_coverage, contract: contract, account: account)
+
+      FactoryBot.create(:care_case_covered_entity, care_case: care_case_1, covered_entity: inactive_covered_entity)
+      FactoryBot.create(:care_case_covered_entity, care_case: care_case_2, covered_entity: active_covered_entity)
+
+      FactoryBot.create(:wait_list_entry, care_case: care_case_1)
+      entry_2 = FactoryBot.create(:wait_list_entry, care_case: care_case_2) # Has active coverage
+      FactoryBot.create(:wait_list_entry, care_case: care_case_3)
+
+      expect(WaitList::Entry.with_payer_id(payer.id)).to eq([entry_2])
+    end
+
+    it "returns DTC waitlist entries when payer_id is for DTC contract" do
+      seed_direct_to_consumer_contract
+      account = FactoryBot.create(:account)
+      care_case_1 = FactoryBot.create(:care_case, account: account)
+      care_case_2 = FactoryBot.create(:care_case, account: account)
+      care_case_3 = FactoryBot.create(:care_case, account: account)
+
+      payer = FactoryBot.create(:payer)
+      contract = FactoryBot.create(:contract, payer: payer)
+      inactive_covered_entity = FactoryBot.create(:covered_entity, :with_inactive_coverage, contract: contract, account: account)
+      active_covered_entity = FactoryBot.create(:covered_entity, :with_active_coverage, contract: contract, account: account)
+
+      FactoryBot.create(:care_case_covered_entity, care_case: care_case_1, covered_entity: inactive_covered_entity)
+      FactoryBot.create(:care_case_covered_entity, care_case: care_case_2, covered_entity: active_covered_entity)
+
+      entry_1 = FactoryBot.create(:wait_list_entry, care_case: care_case_1)
+      _entry_2 = FactoryBot.create(:wait_list_entry, care_case: care_case_2) # Has active coverage
+      entry_3 = FactoryBot.create(:wait_list_entry, care_case: care_case_3)
+
+      expect(WaitList::Entry.with_payer_id(Contracts::Special.direct_to_consumer.payer.id)).to match_array([entry_1, entry_3])
+    end
+
+    context "with multiple payer_ids" do
+      it "returns waitlist entries with care cases with active coverage for any of the given payers" do
+        account = FactoryBot.create(:account)
+        care_case_1 = FactoryBot.create(:care_case, account: account)
+        care_case_2 = FactoryBot.create(:care_case, account: account)
+        care_case_3 = FactoryBot.create(:care_case, account: account)
+        care_case_4 = FactoryBot.create(:care_case, account: account)
+
+        payer_1 = FactoryBot.create(:payer)
+        payer_2 = FactoryBot.create(:payer)
+        contract_1 = FactoryBot.create(:contract, payer: payer_1)
+        contract_2 = FactoryBot.create(:contract, payer: payer_2)
+
+        active_covered_entity_1 = FactoryBot.create(:covered_entity, :with_active_coverage, contract: contract_1, account: account)
+        active_covered_entity_2 = FactoryBot.create(:covered_entity, :with_active_coverage, contract: contract_2, account: account)
+
+        FactoryBot.create(:care_case_covered_entity, care_case: care_case_1, covered_entity: active_covered_entity_1)
+        FactoryBot.create(:care_case_covered_entity, care_case: care_case_2, covered_entity: active_covered_entity_2)
+
+        entry_1 = FactoryBot.create(:wait_list_entry, care_case: care_case_1) # Has active coverage with payer_1
+        entry_2 = FactoryBot.create(:wait_list_entry, care_case: care_case_2) # Has active coverage with payer_2
+        FactoryBot.create(:wait_list_entry, care_case: care_case_3) # No coverage
+        FactoryBot.create(:wait_list_entry, care_case: care_case_4) # No coverage
+
+        expect(WaitList::Entry.with_payer_id([payer_1.id, payer_2.id])).to match_array([entry_1, entry_2])
+      end
+
+      it "returns DTC and regular payer entries when both DTC and non-DTC payers are included" do
+        seed_direct_to_consumer_contract
+        account = FactoryBot.create(:account)
+        care_case_1 = FactoryBot.create(:care_case, account: account) # DTC case (no coverage)
+        care_case_2 = FactoryBot.create(:care_case, account: account) # Regular payer case
+        care_case_3 = FactoryBot.create(:care_case, account: account) # Different payer case
+        care_case_4 = FactoryBot.create(:care_case, account: account) # DTC case (no coverage)
+
+        regular_payer = FactoryBot.create(:payer)
+        other_payer = FactoryBot.create(:payer)
+        regular_contract = FactoryBot.create(:contract, payer: regular_payer)
+        other_contract = FactoryBot.create(:contract, payer: other_payer)
+
+        active_covered_entity_regular = FactoryBot.create(:covered_entity, :with_active_coverage, contract: regular_contract, account: account)
+        active_covered_entity_other = FactoryBot.create(:covered_entity, :with_active_coverage, contract: other_contract, account: account)
+
+        FactoryBot.create(:care_case_covered_entity, care_case: care_case_2, covered_entity: active_covered_entity_regular)
+        FactoryBot.create(:care_case_covered_entity, care_case: care_case_3, covered_entity: active_covered_entity_other)
+
+        entry_1 = FactoryBot.create(:wait_list_entry, care_case: care_case_1) # DTC (no coverage)
+        entry_2 = FactoryBot.create(:wait_list_entry, care_case: care_case_2) # Regular payer
+        FactoryBot.create(:wait_list_entry, care_case: care_case_3) # Other payer (should not be included)
+        entry_4 = FactoryBot.create(:wait_list_entry, care_case: care_case_4) # DTC (no coverage)
+
+        # Request both DTC and the regular payer
+        payer_ids = [Contracts::Special.direct_to_consumer.payer.id, regular_payer.id]
+        expect(WaitList::Entry.with_payer_id(payer_ids)).to match_array([entry_1, entry_2, entry_4])
+      end
+
+      it "handles empty arrays and nil values gracefully" do
+        entry = FactoryBot.create(:wait_list_entry, :with_care_case)
+
+        expect(WaitList::Entry.with_payer_id([])).to include(entry)
+        expect(WaitList::Entry.with_payer_id([nil])).to include(entry)
+        expect(WaitList::Entry.with_payer_id([nil, ""])).to include(entry)
+      end
+    end
+  end
+
+  describe ".with_clinic_id" do
+    it "returns waitlist entries with the given clinic" do
+      clinic = FactoryBot.create(:clinic)
+      entry_1 = FactoryBot.create(:wait_list_entry, :with_care_case, clinic_ids: [clinic.id])
+      _entry_2 = FactoryBot.create(:wait_list_entry, :with_care_case)
+      expect(WaitList::Entry.with_clinic_id(clinic.id)).to eq([entry_1])
+    end
+
+    it "returns waitlist entries with any of the given clinics" do
+      clinic_1 = FactoryBot.create(:clinic)
+      clinic_2 = FactoryBot.create(:clinic)
+      clinic_3 = FactoryBot.create(:clinic)
+
+      entry_1 = FactoryBot.create(:wait_list_entry, :with_care_case, clinic_ids: [clinic_1.id])
+      entry_2 = FactoryBot.create(:wait_list_entry, :with_care_case, clinic_ids: [clinic_2.id])
+      entry_3 = FactoryBot.create(:wait_list_entry, :with_care_case, clinic_ids: [clinic_1.id, clinic_3.id])
+      _entry_4 = FactoryBot.create(:wait_list_entry, :with_care_case, clinic_ids: [clinic_3.id])
+      _entry_5 = FactoryBot.create(:wait_list_entry, :with_care_case)
+
+      # Should return entries that have clinic_1 OR clinic_2
+      result = WaitList::Entry.with_clinic_id([clinic_1.id, clinic_2.id])
+      expect(result).to match_array([entry_1, entry_2, entry_3])
+    end
+  end
+
+  describe ".with_care_case_brightline_id" do
+    it "returns entries matching the care case brightline_id" do
+      care_case_1 = FactoryBot.create(:care_case, :with_patient)
+      care_case_2 = FactoryBot.create(:care_case, :with_patient)
+
+      entry_1 = FactoryBot.create(:wait_list_entry, care_case: care_case_1)
+      FactoryBot.create(:wait_list_entry, care_case: care_case_2)
+
+      expect(WaitList::Entry.with_care_case_brightline_id(care_case_1.brightline_id)).to eq([entry_1])
+    end
+
+    it "supports partial matching" do
+      care_case = FactoryBot.create(:care_case, :with_patient)
+      entry = FactoryBot.create(:wait_list_entry, care_case: care_case)
+
+      # Match by prefix
+      expect(WaitList::Entry.with_care_case_brightline_id("BC-")).to include(entry)
+
+      # Match by suffix (last 4 characters)
+      partial = care_case.brightline_id[-4..]
+      expect(WaitList::Entry.with_care_case_brightline_id(partial)).to include(entry)
+    end
+
+    it "returns all entries when brightline_id is blank" do
+      entry_1 = FactoryBot.create(:wait_list_entry, :with_care_case)
+      entry_2 = FactoryBot.create(:wait_list_entry, :with_care_case)
+
+      expect(WaitList::Entry.with_care_case_brightline_id(nil)).to match_array([entry_1, entry_2])
+      expect(WaitList::Entry.with_care_case_brightline_id("")).to match_array([entry_1, entry_2])
+    end
+
+    it "is case-insensitive" do
+      care_case = FactoryBot.create(:care_case, :with_patient)
+      entry = FactoryBot.create(:wait_list_entry, care_case: care_case)
+
+      lowercase_id = care_case.brightline_id.downcase
+      expect(WaitList::Entry.with_care_case_brightline_id(lowercase_id)).to include(entry)
+    end
+  end
+
+  describe "#remove!" do
+    it "removes the care case from the waitlist" do
+      freeze_time
+
+      entry = FactoryBot.create(:wait_list_entry, :with_care_case, :active)
+      entry.remove!(removed_reason: WaitList::Entry::RemovedReason.scheduled, removed_by: FactoryBot.create(:staffer))
+      expect(entry.status).to eq(WaitList::Entry::Status.removed)
+      expect(entry.removed_at).to eq(Time.current)
+      expect(entry.removed_reason).to eq(WaitList::Entry::RemovedReason.scheduled)
+    end
+  end
+end

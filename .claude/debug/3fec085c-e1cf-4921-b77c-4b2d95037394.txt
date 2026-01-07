@@ -1,0 +1,674 @@
+2025-11-25T16:45:54.510Z [DEBUG] Watching for changes in setting files /Users/jschuss/.claude/settings.json, /Users/jschuss/Brightline/reef/.claude/settings.local.json...
+2025-11-25T16:45:54.599Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2025-11-25T16:45:54.599Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2025-11-25T16:45:54.599Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2025-11-25T16:45:54.599Z [DEBUG] [LSP SERVER MANAGER] initialize() called
+2025-11-25T16:45:54.600Z [DEBUG] [LSP SERVER MANAGER] Calling getAllLspServers()
+2025-11-25T16:45:54.614Z [DEBUG] Applying permission update: Adding 64 allow rule(s) to destination 'localSettings': ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)","Bash(gh pr list:*)","mcp__playwright__browser_navigate","mcp__playwright__browser_hover","mcp__playwright__browser_take_screenshot","Skill(superpowers:systematic-debugging)","mcp__playwright__browser_snapshot","mcp__playwright__browser_click","mcp__playwright__browser_tabs","mcp__playwright__browser_console_messages","mcp__playwright__browser_evaluate","mcp__playwright__browser_wait_for","Bash(curl:*)","Bash(tr:*)","mcp__playwright__browser_type","mcp__playwright__browser_select_option","mcp__playwright__browser_fill_form","mcp__figma-desktop__get_screenshot","Bash(spec/components/staffers/phone_desk/scheduling/validation_error_banner_spec.rb)","Skill(superpowers:brainstorming)","Bash(git pull:*)","Bash(git add:*)","Bash(.env)"]
+2025-11-25T16:45:54.621Z [DEBUG] Loading plugin superpowers from source: {"source":"url","url":"https://github.com/obra/superpowers.git"}
+2025-11-25T16:45:54.621Z [DEBUG] Using cached plugin superpowers from /Users/jschuss/.claude/plugins/cache/superpowers
+2025-11-25T16:45:54.623Z [DEBUG] Loaded hooks from standard location for plugin superpowers: /Users/jschuss/.claude/plugins/cache/superpowers/hooks/hooks.json
+2025-11-25T16:45:54.623Z [DEBUG] Found 1 plugins (1 enabled, 0 disabled)
+2025-11-25T16:45:54.634Z [DEBUG] Loading skills from directories: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/jschuss/.claude/skills, project=/Users/jschuss/Brightline/reef/.claude/skills
+2025-11-25T16:45:54.634Z [DEBUG] >>>>> getPluginSkills CALLED <<<<<
+2025-11-25T16:45:54.634Z [DEBUG] Passes: Cache stale, returning cached data and refreshing in background
+2025-11-25T16:45:54.879Z [DEBUG] Creating shell snapshot for zsh (/bin/zsh)
+2025-11-25T16:45:54.880Z [DEBUG] Looking for shell config file: /Users/jschuss/.zshrc
+2025-11-25T16:45:54.880Z [DEBUG] Snapshots directory: /Users/jschuss/.claude/shell-snapshots
+2025-11-25T16:45:54.881Z [DEBUG] Creating snapshot at: /Users/jschuss/.claude/shell-snapshots/snapshot-zsh-1764089154880-tc3jny.sh
+2025-11-25T16:45:54.881Z [DEBUG] Shell binary exists: true
+2025-11-25T16:45:54.881Z [DEBUG] Execution timeout: 10000ms
+2025-11-25T16:45:54.882Z [DEBUG] Writing to temp file: /Users/jschuss/.claude/todos/3fec085c-e1cf-4921-b77c-4b2d95037394-agent-3fec085c-e1cf-4921-b77c-4b2d95037394.json.tmp.91959.1764089154882
+2025-11-25T16:45:54.887Z [DEBUG] Temp file written successfully, size: 2 bytes
+2025-11-25T16:45:54.887Z [DEBUG] Renaming /Users/jschuss/.claude/todos/3fec085c-e1cf-4921-b77c-4b2d95037394-agent-3fec085c-e1cf-4921-b77c-4b2d95037394.json.tmp.91959.1764089154882 to /Users/jschuss/.claude/todos/3fec085c-e1cf-4921-b77c-4b2d95037394-agent-3fec085c-e1cf-4921-b77c-4b2d95037394.json
+2025-11-25T16:45:54.887Z [DEBUG] File /Users/jschuss/.claude/todos/3fec085c-e1cf-4921-b77c-4b2d95037394-agent-3fec085c-e1cf-4921-b77c-4b2d95037394.json written atomically
+2025-11-25T16:45:54.890Z [DEBUG] getPluginSkills: Processing 1 enabled plugins
+2025-11-25T16:45:54.890Z [DEBUG] Checking plugin superpowers: skillsPath=exists, skillsPaths=0 paths
+2025-11-25T16:45:54.890Z [DEBUG] Attempting to load skills from plugin superpowers default skillsPath: /Users/jschuss/.claude/plugins/cache/superpowers/skills
+2025-11-25T16:45:54.896Z [DEBUG] Loading hooks from plugin: superpowers
+2025-11-25T16:45:54.896Z [DEBUG] Registered 1 hooks from 1 plugins
+2025-11-25T16:45:54.899Z [DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, duplicates removed: 0)
+2025-11-25T16:45:54.899Z [DEBUG] Loaded 20 skills from plugin superpowers default directory
+2025-11-25T16:45:54.899Z [DEBUG] Total plugin skills loaded: 20
+2025-11-25T16:45:54.899Z [DEBUG] Loaded 3 commands from plugin superpowers default directory
+2025-11-25T16:45:54.899Z [DEBUG] Total plugin commands loaded: 3
+2025-11-25T16:45:54.900Z [DEBUG] getSkills returning: 0 skill dir commands, 20 plugin skills
+2025-11-25T16:45:54.901Z [DEBUG] Loaded 1 agents from plugin superpowers default directory
+2025-11-25T16:45:54.901Z [DEBUG] Total plugin agents loaded: 1
+2025-11-25T16:45:54.948Z [DEBUG] Total LSP servers loaded: 0
+2025-11-25T16:45:54.948Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2025-11-25T16:45:54.948Z [DEBUG] LSP manager initialized with 0 servers
+2025-11-25T16:45:54.948Z [DEBUG] LSP server manager initialized successfully
+2025-11-25T16:45:54.948Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2025-11-25T16:45:54.951Z [DEBUG] Git remote URL: https://github.com/hellobrightline/reef.git
+2025-11-25T16:45:54.951Z [DEBUG] Parsed repository: hellobrightline/reef from https://github.com/hellobrightline/reef.git
+2025-11-25T16:45:54.951Z [DEBUG] Parsed repository: hellobrightline/reef from URL: https://github.com/hellobrightline/reef.git
+2025-11-25T16:45:54.951Z [DEBUG] Path /Users/jschuss/Brightline/reef already tracked for repo hellobrightline/reef
+2025-11-25T16:45:55.002Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.91959.1764089155002
+2025-11-25T16:45:55.002Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T16:45:55.007Z [DEBUG] Temp file written successfully, size: 49949 bytes
+2025-11-25T16:45:55.007Z [DEBUG] Applied original permissions to temp file
+2025-11-25T16:45:55.007Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.91959.1764089155002 to /Users/jschuss/.claude.json
+2025-11-25T16:45:55.009Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-25T16:45:55.037Z [ERROR] AxiosError: AxiosError: Request failed with status code 401
+    at Ej (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:24:1137)
+    at IncomingMessage.<anonymous> (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:29:9828)
+    at IncomingMessage.emit (node:events:530:35)
+    at IncomingMessage.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at mFA.request (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:31:2130)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async nR2 (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:2081:5282)
+2025-11-25T16:45:55.050Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.91959.1764089155050
+2025-11-25T16:45:55.050Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T16:45:55.056Z [DEBUG] Temp file written successfully, size: 49949 bytes
+2025-11-25T16:45:55.056Z [DEBUG] Applied original permissions to temp file
+2025-11-25T16:45:55.056Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.91959.1764089155050 to /Users/jschuss/.claude.json
+2025-11-25T16:45:55.057Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-25T16:45:55.061Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.91959.1764089155061
+2025-11-25T16:45:55.061Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T16:45:55.067Z [DEBUG] Temp file written successfully, size: 49949 bytes
+2025-11-25T16:45:55.067Z [DEBUG] Applied original permissions to temp file
+2025-11-25T16:45:55.067Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.91959.1764089155061 to /Users/jschuss/.claude.json
+2025-11-25T16:45:55.068Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-25T16:45:55.110Z [DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg)
+2025-11-25T16:45:55.259Z [DEBUG] Failed to fetch and cache passes eligibility
+2025-11-25T16:45:55.259Z [ERROR] AxiosError: AxiosError: Request failed with status code 401
+    at Ej (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:24:1137)
+    at IncomingMessage.<anonymous> (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:29:9828)
+    at IncomingMessage.emit (node:events:530:35)
+    at IncomingMessage.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at mFA.request (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:31:2130)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async qO3 (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:3471:2192)
+    at async file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:3471:2742
+2025-11-25T16:45:55.260Z [DEBUG] Failed to fetch Grove notice config: AxiosError: Request failed with status code 401
+2025-11-25T16:45:55.302Z [DEBUG] Passes: Cache stale, returning cached data and refreshing in background
+2025-11-25T16:45:55.326Z [DEBUG] MCP server "playwright": Starting connection with timeout of 30000ms
+2025-11-25T16:45:55.328Z [DEBUG] MCP server "figma-desktop": Initializing HTTP transport to http://127.0.0.1:3845/mcp
+2025-11-25T16:45:55.329Z [DEBUG] MCP server "figma-desktop": Node version: v22.14.0, Platform: darwin
+2025-11-25T16:45:55.329Z [DEBUG] MCP server "figma-desktop": Environment: {"NODE_OPTIONS":"not set","UV_THREADPOOL_SIZE":"default","HTTP_PROXY":"not set","HTTPS_PROXY":"not set","NO_PROXY":"not set"}
+2025-11-25T16:45:55.334Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.91959.1764089155334
+2025-11-25T16:45:55.334Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T16:45:55.340Z [DEBUG] Temp file written successfully, size: 49949 bytes
+2025-11-25T16:45:55.340Z [DEBUG] Applied original permissions to temp file
+2025-11-25T16:45:55.340Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.91959.1764089155334 to /Users/jschuss/.claude.json
+2025-11-25T16:45:55.340Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-25T16:45:55.348Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2025-11-25T16:45:55.348Z [DEBUG] Found 1 hook matchers in settings
+2025-11-25T16:45:55.348Z [DEBUG] Matched 1 unique hooks for query "startup" (1 before deduplication)
+2025-11-25T16:45:55.349Z [DEBUG] MCP server "figma-desktop": Proxy options: default
+2025-11-25T16:45:55.349Z [DEBUG] MCP server "figma-desktop": HTTP transport options: {"url":"http://127.0.0.1:3845/mcp","headers":{"User-Agent":"claude-code/2.0.53"},"hasAuthProvider":true,"timeoutMs":60000}
+2025-11-25T16:45:55.350Z [DEBUG] MCP server "figma-desktop": HTTP transport created successfully
+2025-11-25T16:45:55.353Z [DEBUG] MCP server "figma-desktop": Client created, setting up request handler
+2025-11-25T16:45:55.353Z [DEBUG] MCP server "figma-desktop": Starting connection with timeout of 30000ms
+2025-11-25T16:45:55.354Z [DEBUG] MCP server "figma-desktop": Testing basic HTTP connectivity to http://127.0.0.1:3845/mcp
+2025-11-25T16:45:55.354Z [DEBUG] MCP server "figma-desktop": Parsed URL: host=127.0.0.1, port=3845, protocol=http:
+2025-11-25T16:45:55.355Z [DEBUG] MCP server "figma-desktop": Using loopback address: 127.0.0.1
+2025-11-25T16:45:55.395Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T16:45:55.415Z [DEBUG] Summarizing all 36 messages (~8242 tokens)
+2025-11-25T16:45:55.525Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T16:45:55.648Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.91959.1764089155648
+2025-11-25T16:45:55.648Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T16:45:55.654Z [DEBUG] Temp file written successfully, size: 49844 bytes
+2025-11-25T16:45:55.654Z [DEBUG] Applied original permissions to temp file
+2025-11-25T16:45:55.654Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.91959.1764089155648 to /Users/jschuss/.claude.json
+2025-11-25T16:45:55.655Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-25T16:45:55.658Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.91959.1764089155658
+2025-11-25T16:45:55.658Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T16:45:55.664Z [DEBUG] Temp file written successfully, size: 49844 bytes
+2025-11-25T16:45:55.664Z [DEBUG] Applied original permissions to temp file
+2025-11-25T16:45:55.664Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.91959.1764089155658 to /Users/jschuss/.claude.json
+2025-11-25T16:45:55.664Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-25T16:45:55.671Z [DEBUG] performStartupChecks called
+2025-11-25T16:45:55.671Z [DEBUG] Starting background plugin installations
+2025-11-25T16:45:55.671Z [DEBUG] performBackgroundPluginInstallations called
+2025-11-25T16:45:55.682Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.91959.1764089155682
+2025-11-25T16:45:55.682Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T16:45:55.689Z [DEBUG] Temp file written successfully, size: 49949 bytes
+2025-11-25T16:45:55.689Z [DEBUG] Applied original permissions to temp file
+2025-11-25T16:45:55.689Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.91959.1764089155682 to /Users/jschuss/.claude.json
+2025-11-25T16:45:55.690Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-25T16:45:55.694Z [DEBUG] Found 1 enabled plugins
+2025-11-25T16:45:55.694Z [DEBUG] Schema version mismatch (current: 0, expected: 1), syncing installed_plugins.json
+2025-11-25T16:45:55.695Z [DEBUG] Loaded 1 installed plugins from /Users/jschuss/.claude/plugins/installed_plugins.json (schema version 1)
+2025-11-25T16:45:55.695Z [DEBUG] Plugin superpowers@superpowers-marketplace already in installed_plugins.json, skipping
+2025-11-25T16:45:55.700Z [DEBUG] Saved 1 installed plugins to /Users/jschuss/.claude/plugins/installed_plugins.json (schema version 1)
+2025-11-25T16:45:55.700Z [DEBUG] Updated installed_plugins.json to schema version 1 (0 plugins added, 1 skipped)
+2025-11-25T16:45:55.700Z [DEBUG] Found 1 installed plugins
+2025-11-25T16:45:55.704Z [DEBUG] Loaded plugins - Enabled: 1, Disabled: 0, Commands: 3, Agents: 1, Errors: 0
+2025-11-25T16:45:55.704Z [DEBUG] Found 0 missing plugins (not installed):
+2025-11-25T16:45:55.704Z [DEBUG] Setting installation status: 0 marketplaces, 0 installable plugins, 0 uninstallable plugins
+2025-11-25T16:45:55.759Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T16:45:55.760Z [DEBUG] MCP server "figma-desktop": Successfully connected to http server in 432ms
+2025-11-25T16:45:55.761Z [DEBUG] MCP server "figma-desktop": Connection established with capabilities: {"hasTools":true,"hasPrompts":true,"hasResources":true,"serverVersion":{"name":"Figma Dev Mode MCP Server","version":"1.0.0"}}
+2025-11-25T16:45:55.810Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T16:45:55.862Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T16:45:55.925Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T16:45:55.930Z [DEBUG] Failed to fetch and cache passes eligibility
+2025-11-25T16:45:55.930Z [ERROR] AxiosError: AxiosError: Request failed with status code 401
+    at Ej (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:24:1137)
+    at IncomingMessage.<anonymous> (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:29:9828)
+    at IncomingMessage.emit (node:events:530:35)
+    at IncomingMessage.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at mFA.request (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:31:2130)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async qO3 (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:3471:2192)
+    at async file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:3471:2742
+2025-11-25T16:45:55.930Z [DEBUG] Getting matching hook commands for SubagentStart with query: Explore
+2025-11-25T16:45:55.930Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:45:55.930Z [DEBUG] Matched 0 unique hooks for query "Explore" (0 before deduplication)
+2025-11-25T16:45:55.931Z [DEBUG] Getting matching hook commands for SubagentStart with query: Plan
+2025-11-25T16:45:55.931Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:45:55.931Z [DEBUG] Matched 0 unique hooks for query "Plan" (0 before deduplication)
+2025-11-25T16:45:56.075Z [ERROR] MCP server "figma-desktop" Failed to fetch tools: [
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "tools"
+    ],
+    "message": "Required"
+  }
+]
+2025-11-25T16:45:56.077Z [ERROR] MCP server "figma-desktop" Failed to fetch commands: MCP error -32603: No Figma window open
+2025-11-25T16:45:56.078Z [ERROR] MCP server "figma-desktop" Failed to fetch resources: MCP error -32603: No Figma window open
+2025-11-25T16:45:56.097Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.91959.1764089156097
+2025-11-25T16:45:56.097Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T16:45:56.104Z [DEBUG] Temp file written successfully, size: 49949 bytes
+2025-11-25T16:45:56.104Z [DEBUG] Applied original permissions to temp file
+2025-11-25T16:45:56.104Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.91959.1764089156097 to /Users/jschuss/.claude.json
+2025-11-25T16:45:56.105Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-25T16:45:56.157Z [DEBUG] AutoUpdaterWrapper: Installation type: npm-global
+2025-11-25T16:45:56.313Z [DEBUG] Shell snapshot created successfully (67724 bytes)
+2025-11-25T16:45:56.607Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.91959.1764089156607
+2025-11-25T16:45:56.607Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T16:45:56.614Z [DEBUG] Temp file written successfully, size: 49949 bytes
+2025-11-25T16:45:56.615Z [DEBUG] Applied original permissions to temp file
+2025-11-25T16:45:56.615Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.91959.1764089156607 to /Users/jschuss/.claude.json
+2025-11-25T16:45:56.615Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-25T16:45:57.109Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.91959.1764089157109
+2025-11-25T16:45:57.109Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T16:45:57.117Z [DEBUG] Temp file written successfully, size: 49949 bytes
+2025-11-25T16:45:57.117Z [DEBUG] Applied original permissions to temp file
+2025-11-25T16:45:57.117Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.91959.1764089157109 to /Users/jschuss/.claude.json
+2025-11-25T16:45:57.118Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-25T16:45:57.185Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.91959.1764089157185
+2025-11-25T16:45:57.185Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T16:45:57.190Z [DEBUG] Temp file written successfully, size: 49984 bytes
+2025-11-25T16:45:57.190Z [DEBUG] Applied original permissions to temp file
+2025-11-25T16:45:57.190Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.91959.1764089157185 to /Users/jschuss/.claude.json
+2025-11-25T16:45:57.190Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-25T16:45:57.366Z [DEBUG] MCP server "playwright": Successfully connected to stdio server in 2054ms
+2025-11-25T16:45:57.366Z [DEBUG] MCP server "playwright": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"Playwright","version":"0.0.48"}}
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-25T16:45:57.919Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-25T16:45:57.919Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-25T16:45:57.920Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-25T16:45:57.920Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-25T16:45:57.920Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-25T16:45:57.920Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-25T16:45:57.920Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-25T16:45:58.539Z [DEBUG] Stream started - received first chunk
+2025-11-25T16:45:58.842Z [DEBUG] Stream started - received first chunk
+2025-11-25T16:45:59.735Z [DEBUG] Stream started - received first chunk
+2025-11-25T16:46:00.437Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2025-11-25T16:46:00.437Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:46:00.437Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-25T16:46:00.850Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2025-11-25T16:46:00.850Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:46:00.850Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-25T16:46:10.793Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-25T16:46:10.793Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-25T16:46:10.839Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-25T16:46:10.839Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-25T16:46:10.971Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-11-25T16:46:10.971Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:46:10.971Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-25T16:46:10.973Z [DEBUG] FileHistory: Added snapshot for a384a677-c358-4054-801e-7e8d695cefcb, tracking 0 files
+2025-11-25T16:46:11.013Z [DEBUG] Total plugin output styles loaded: 0
+2025-11-25T16:46:11.583Z [DEBUG] Stream started - received first chunk
+2025-11-25T16:46:13.284Z [DEBUG] Stream started - received first chunk
+2025-11-25T16:46:16.943Z [DEBUG] executePreToolHooks called for tool: Read
+2025-11-25T16:46:16.946Z [DEBUG] executePreToolHooks called for tool: Read
+2025-11-25T16:46:16.950Z [DEBUG] executePreToolHooks called for tool: Read
+2025-11-25T16:46:16.954Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-11-25T16:46:16.954Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:46:16.954Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-25T16:46:16.954Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-11-25T16:46:16.954Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:46:16.954Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-25T16:46:16.954Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-11-25T16:46:16.954Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:46:16.954Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-25T16:46:17.026Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-11-25T16:46:17.026Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:46:17.026Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-25T16:46:17.027Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-11-25T16:46:17.027Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:46:17.027Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-25T16:46:17.028Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-11-25T16:46:17.028Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:46:17.028Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-25T16:46:17.090Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-25T16:46:17.090Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-25T16:46:17.095Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-25T16:46:17.095Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-25T16:46:19.608Z [DEBUG] Stream started - received first chunk
+2025-11-25T16:46:22.554Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-11-25T16:46:22.558Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-11-25T16:46:22.562Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-11-25T16:46:22.562Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:46:22.562Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-25T16:46:22.562Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-11-25T16:46:22.562Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:46:22.562Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-25T16:46:23.427Z [DEBUG] Writing to temp file: /Users/jschuss/.claude/settings.json.tmp.91959.1764089183427
+2025-11-25T16:46:23.427Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T16:46:23.432Z [DEBUG] Temp file written successfully, size: 250 bytes
+2025-11-25T16:46:23.432Z [DEBUG] Applied original permissions to temp file
+2025-11-25T16:46:23.432Z [DEBUG] Renaming /Users/jschuss/.claude/settings.json.tmp.91959.1764089183427 to /Users/jschuss/.claude/settings.json
+2025-11-25T16:46:23.432Z [DEBUG] File /Users/jschuss/.claude/settings.json written atomically
+2025-11-25T16:46:23.471Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-11-25T16:46:23.471Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:46:23.471Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-25T16:46:23.492Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-11-25T16:46:23.492Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:46:23.492Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-25T16:46:23.515Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-25T16:46:23.515Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-25T16:46:23.521Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-25T16:46:23.521Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-25T16:46:23.844Z [DEBUG] Writing to temp file: /Users/jschuss/.claude/settings.json.tmp.91959.1764089183844
+2025-11-25T16:46:23.844Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T16:46:23.850Z [DEBUG] Temp file written successfully, size: 249 bytes
+2025-11-25T16:46:23.850Z [DEBUG] Applied original permissions to temp file
+2025-11-25T16:46:23.850Z [DEBUG] Renaming /Users/jschuss/.claude/settings.json.tmp.91959.1764089183844 to /Users/jschuss/.claude/settings.json
+2025-11-25T16:46:23.850Z [DEBUG] File /Users/jschuss/.claude/settings.json written atomically
+2025-11-25T16:46:26.230Z [DEBUG] Stream started - received first chunk
+2025-11-25T16:46:34.216Z [DEBUG] executePreToolHooks called for tool: Read
+2025-11-25T16:46:34.221Z [DEBUG] executePreToolHooks called for tool: Read
+2025-11-25T16:46:34.225Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-11-25T16:46:34.225Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:46:34.225Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-25T16:46:34.225Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-11-25T16:46:34.225Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:46:34.225Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-25T16:46:34.269Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-11-25T16:46:34.269Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:46:34.269Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-25T16:46:34.269Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-11-25T16:46:34.269Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:46:34.269Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-25T16:46:34.305Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-25T16:46:34.305Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-25T16:46:34.311Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-25T16:46:34.311Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-25T16:46:36.736Z [DEBUG] Stream started - received first chunk
+2025-11-25T16:46:52.280Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-11-25T16:46:52.280Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:46:52.280Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-25T16:46:52.289Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.91959.1764089212289
+2025-11-25T16:46:52.289Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T16:46:52.295Z [DEBUG] Temp file written successfully, size: 50406 bytes
+2025-11-25T16:46:52.295Z [DEBUG] Applied original permissions to temp file
+2025-11-25T16:46:52.295Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.91959.1764089212289 to /Users/jschuss/.claude.json
+2025-11-25T16:46:52.296Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-25T16:46:52.299Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.91959.1764089212299
+2025-11-25T16:46:52.299Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T16:46:52.303Z [DEBUG] Temp file written successfully, size: 50406 bytes
+2025-11-25T16:46:52.303Z [DEBUG] Applied original permissions to temp file
+2025-11-25T16:46:52.303Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.91959.1764089212299 to /Users/jschuss/.claude.json
+2025-11-25T16:46:52.304Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-25T16:47:52.305Z [DEBUG] Getting matching hook commands for Notification with query: idle_prompt
+2025-11-25T16:47:52.306Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:47:52.306Z [DEBUG] Matched 0 unique hooks for query "idle_prompt" (0 before deduplication)
+2025-11-25T16:48:50.384Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-25T16:48:50.384Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-25T16:48:50.389Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-25T16:48:50.389Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-25T16:48:50.406Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-11-25T16:48:50.406Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:48:50.406Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-25T16:48:50.409Z [DEBUG] FileHistory: Making snapshot for message ec80aec1-868f-47bd-935f-c7c0b2412054
+2025-11-25T16:48:50.409Z [DEBUG] FileHistory: Added snapshot for ec80aec1-868f-47bd-935f-c7c0b2412054, tracking 0 files
+2025-11-25T16:48:51.240Z [DEBUG] Stream started - received first chunk
+2025-11-25T16:48:54.542Z [DEBUG] Stream started - received first chunk
+2025-11-25T16:48:56.124Z [DEBUG] executePreToolHooks called for tool: Read
+2025-11-25T16:48:56.129Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-11-25T16:48:56.129Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:48:56.129Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-25T16:48:56.153Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-11-25T16:48:56.153Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:48:56.153Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-25T16:48:56.176Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-25T16:48:56.176Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-25T16:48:56.182Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-25T16:48:56.182Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-25T16:48:58.580Z [DEBUG] Stream started - received first chunk
+2025-11-25T16:49:05.296Z [DEBUG] executePreToolHooks called for tool: Edit
+2025-11-25T16:49:05.300Z [DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+2025-11-25T16:49:05.300Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:49:05.300Z [DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+2025-11-25T16:49:05.312Z [DEBUG] Permission suggestions for Edit: [
+  {
+    "type": "setMode",
+    "mode": "acceptEdits",
+    "destination": "session"
+  }
+]
+2025-11-25T16:49:05.347Z [DEBUG] executePermissionRequestHooks called for tool: Edit
+2025-11-25T16:49:05.355Z [DEBUG] Getting matching hook commands for PermissionRequest with query: Edit
+2025-11-25T16:49:05.355Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:49:05.355Z [DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+2025-11-25T16:49:11.341Z [DEBUG] Getting matching hook commands for Notification with query: permission_prompt
+2025-11-25T16:49:11.341Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T16:49:11.341Z [DEBUG] Matched 0 unique hooks for query "permission_prompt" (0 before deduplication)
+2025-11-25T16:50:57.462Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 301s uptime
+2025-11-25T16:50:57.467Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T16:50:58.785Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T16:56:00.017Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 604s uptime
+2025-11-25T16:56:00.020Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T16:56:01.098Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T17:01:02.784Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 907s uptime
+2025-11-25T17:01:02.787Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T17:01:03.920Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T17:06:05.523Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 1209s uptime
+2025-11-25T17:06:05.529Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T17:06:06.627Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T17:11:08.295Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 1512s uptime
+2025-11-25T17:11:08.301Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T17:11:09.453Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T17:16:11.064Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 1815s uptime
+2025-11-25T17:16:11.067Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T17:16:12.171Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T17:19:28.446Z [DEBUG] Applying permission update: Setting mode to 'acceptEdits'
+2025-11-25T17:19:28.466Z [DEBUG] FileHistory: Tracked file modification for /Users/jschuss/Brightline/reef/lib/acuity/api/client.rb
+2025-11-25T17:19:28.469Z [DEBUG] Writing to temp file: /Users/jschuss/Brightline/reef/lib/acuity/api/client.rb.tmp.91959.1764091168469
+2025-11-25T17:19:28.469Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T17:19:28.474Z [DEBUG] Temp file written successfully, size: 3646 bytes
+2025-11-25T17:19:28.474Z [DEBUG] Applied original permissions to temp file
+2025-11-25T17:19:28.474Z [DEBUG] Renaming /Users/jschuss/Brightline/reef/lib/acuity/api/client.rb.tmp.91959.1764091168469 to /Users/jschuss/Brightline/reef/lib/acuity/api/client.rb
+2025-11-25T17:19:28.476Z [DEBUG] File /Users/jschuss/Brightline/reef/lib/acuity/api/client.rb written atomically
+2025-11-25T17:19:28.492Z [DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+2025-11-25T17:19:28.492Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:19:28.492Z [DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+2025-11-25T17:19:28.551Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-25T17:19:28.551Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-25T17:19:28.558Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-25T17:19:28.558Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-25T17:19:28.999Z [DEBUG] AutoUpdaterWrapper: Installation type: npm-global
+2025-11-25T17:19:31.799Z [DEBUG] Stream started - received first chunk
+2025-11-25T17:19:33.944Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-11-25T17:19:33.948Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-11-25T17:19:33.948Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:19:33.948Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-25T17:19:33.971Z [DEBUG] No session environment scripts found
+2025-11-25T17:19:34.307Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-11-25T17:19:34.307Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:19:34.307Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-25T17:19:34.329Z [DEBUG] executePreToolHooks called for tool: Glob
+2025-11-25T17:19:34.333Z [DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+2025-11-25T17:19:34.333Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:19:34.333Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-11-25T17:19:35.532Z [DEBUG] Stream started - received first chunk
+2025-11-25T17:19:35.950Z [DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+2025-11-25T17:19:35.950Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:19:35.950Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2025-11-25T17:19:35.975Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-25T17:19:35.975Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-25T17:19:35.980Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-25T17:19:35.980Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-25T17:19:38.561Z [DEBUG] Stream started - received first chunk
+2025-11-25T17:19:40.245Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-11-25T17:19:40.251Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-11-25T17:19:40.251Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:19:40.251Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-25T17:19:52.453Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-11-25T17:19:52.453Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:19:52.453Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-25T17:19:52.486Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-25T17:19:52.486Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-25T17:19:52.493Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-25T17:19:52.493Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-25T17:19:53.311Z [DEBUG] Stream started - received first chunk
+2025-11-25T17:19:55.018Z [DEBUG] Stream started - received first chunk
+2025-11-25T17:20:00.459Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-11-25T17:20:00.459Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:20:00.459Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-25T17:20:00.471Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.91959.1764091200471
+2025-11-25T17:20:00.471Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T17:20:00.476Z [DEBUG] Temp file written successfully, size: 50406 bytes
+2025-11-25T17:20:00.476Z [DEBUG] Applied original permissions to temp file
+2025-11-25T17:20:00.476Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.91959.1764091200471 to /Users/jschuss/.claude.json
+2025-11-25T17:20:00.477Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-25T17:20:00.481Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.91959.1764091200481
+2025-11-25T17:20:00.481Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T17:20:00.486Z [DEBUG] Temp file written successfully, size: 50406 bytes
+2025-11-25T17:20:00.486Z [DEBUG] Applied original permissions to temp file
+2025-11-25T17:20:00.486Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.91959.1764091200481 to /Users/jschuss/.claude.json
+2025-11-25T17:20:00.487Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-25T17:21:00.472Z [DEBUG] Getting matching hook commands for Notification with query: idle_prompt
+2025-11-25T17:21:00.472Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:21:00.472Z [DEBUG] Matched 0 unique hooks for query "idle_prompt" (0 before deduplication)
+2025-11-25T17:21:13.663Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 2117s uptime
+2025-11-25T17:21:13.665Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T17:21:14.766Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T17:22:02.079Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-25T17:22:02.079Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-25T17:22:02.088Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-25T17:22:02.088Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-25T17:22:02.111Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-11-25T17:22:02.111Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:22:02.111Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-25T17:22:02.113Z [DEBUG] FileHistory: Making snapshot for message 6581c745-a5ca-4329-82b4-27151f134c60
+2025-11-25T17:22:02.121Z [DEBUG] FileHistory: Added snapshot for 6581c745-a5ca-4329-82b4-27151f134c60, tracking 1 files
+2025-11-25T17:22:04.105Z [DEBUG] Stream started - received first chunk
+2025-11-25T17:22:04.564Z [DEBUG] Stream started - received first chunk
+2025-11-25T17:22:07.740Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-11-25T17:22:07.745Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-11-25T17:22:07.745Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:22:07.745Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-25T17:22:21.605Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-11-25T17:22:21.605Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:22:21.605Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-25T17:22:21.635Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-25T17:22:21.635Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-25T17:22:21.642Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-25T17:22:21.642Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-25T17:22:22.335Z [DEBUG] Stream started - received first chunk
+2025-11-25T17:22:24.396Z [DEBUG] Stream started - received first chunk
+2025-11-25T17:22:25.157Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-11-25T17:22:25.157Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:22:25.157Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-25T17:22:25.163Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.91959.1764091345163
+2025-11-25T17:22:25.163Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T17:22:25.168Z [DEBUG] Temp file written successfully, size: 50406 bytes
+2025-11-25T17:22:25.169Z [DEBUG] Applied original permissions to temp file
+2025-11-25T17:22:25.169Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.91959.1764091345163 to /Users/jschuss/.claude.json
+2025-11-25T17:22:25.169Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-25T17:22:25.172Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.91959.1764091345172
+2025-11-25T17:22:25.172Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T17:22:25.176Z [DEBUG] Temp file written successfully, size: 50406 bytes
+2025-11-25T17:22:25.176Z [DEBUG] Applied original permissions to temp file
+2025-11-25T17:22:25.176Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.91959.1764091345172 to /Users/jschuss/.claude.json
+2025-11-25T17:22:25.177Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-25T17:23:25.180Z [DEBUG] Getting matching hook commands for Notification with query: idle_prompt
+2025-11-25T17:23:25.180Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:23:25.180Z [DEBUG] Matched 0 unique hooks for query "idle_prompt" (0 before deduplication)
+2025-11-25T17:25:00.489Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-25T17:25:00.489Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-25T17:25:00.497Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-25T17:25:00.497Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-25T17:25:00.521Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-11-25T17:25:00.521Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:25:00.521Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-25T17:25:00.523Z [DEBUG] FileHistory: Making snapshot for message 0c700805-375c-456f-9aec-5923cecc7d5d
+2025-11-25T17:25:00.524Z [DEBUG] FileHistory: Added snapshot for 0c700805-375c-456f-9aec-5923cecc7d5d, tracking 1 files
+2025-11-25T17:25:01.442Z [DEBUG] Stream started - received first chunk
+2025-11-25T17:25:02.881Z [DEBUG] Stream started - received first chunk
+2025-11-25T17:25:04.597Z [DEBUG] executePreToolHooks called for tool: Read
+2025-11-25T17:25:04.602Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-11-25T17:25:04.602Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:25:04.602Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-25T17:25:04.627Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-11-25T17:25:04.627Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:25:04.627Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-25T17:25:04.647Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-25T17:25:04.647Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-25T17:25:04.652Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-25T17:25:04.652Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-25T17:25:08.086Z [DEBUG] Stream started - received first chunk
+2025-11-25T17:25:21.690Z [DEBUG] executePreToolHooks called for tool: Edit
+2025-11-25T17:25:21.698Z [DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+2025-11-25T17:25:21.698Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:25:21.698Z [DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+2025-11-25T17:25:21.726Z [DEBUG] FileHistory: Tracked file modification for /Users/jschuss/Brightline/reef/spec/lib/acuity/api/client_spec.rb
+2025-11-25T17:25:21.730Z [DEBUG] Writing to temp file: /Users/jschuss/Brightline/reef/spec/lib/acuity/api/client_spec.rb.tmp.91959.1764091521730
+2025-11-25T17:25:21.730Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T17:25:21.734Z [DEBUG] Temp file written successfully, size: 3398 bytes
+2025-11-25T17:25:21.734Z [DEBUG] Applied original permissions to temp file
+2025-11-25T17:25:21.734Z [DEBUG] Renaming /Users/jschuss/Brightline/reef/spec/lib/acuity/api/client_spec.rb.tmp.91959.1764091521730 to /Users/jschuss/Brightline/reef/spec/lib/acuity/api/client_spec.rb
+2025-11-25T17:25:21.735Z [DEBUG] File /Users/jschuss/Brightline/reef/spec/lib/acuity/api/client_spec.rb written atomically
+2025-11-25T17:25:21.748Z [DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+2025-11-25T17:25:21.748Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:25:21.748Z [DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+2025-11-25T17:25:21.792Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-25T17:25:21.792Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-25T17:25:21.798Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-25T17:25:21.798Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-25T17:25:24.070Z [DEBUG] Stream started - received first chunk
+2025-11-25T17:25:25.505Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-11-25T17:25:25.509Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-11-25T17:25:25.509Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:25:25.509Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-25T17:25:40.172Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-11-25T17:25:40.172Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:25:40.172Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-25T17:25:40.203Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-25T17:25:40.203Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-25T17:25:40.210Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-25T17:25:40.210Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-25T17:25:41.777Z [DEBUG] Stream started - received first chunk
+2025-11-25T17:25:42.356Z [DEBUG] Stream started - received first chunk
+2025-11-25T17:25:45.428Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-11-25T17:25:45.428Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:25:45.428Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-25T17:25:45.434Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.91959.1764091545434
+2025-11-25T17:25:45.434Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T17:25:45.441Z [DEBUG] Temp file written successfully, size: 49984 bytes
+2025-11-25T17:25:45.441Z [DEBUG] Applied original permissions to temp file
+2025-11-25T17:25:45.441Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.91959.1764091545434 to /Users/jschuss/.claude.json
+2025-11-25T17:25:45.441Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-25T17:25:45.444Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.91959.1764091545444
+2025-11-25T17:25:45.444Z [DEBUG] Preserving file permissions: 100644
+2025-11-25T17:25:45.447Z [DEBUG] Temp file written successfully, size: 49984 bytes
+2025-11-25T17:25:45.447Z [DEBUG] Applied original permissions to temp file
+2025-11-25T17:25:45.447Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.91959.1764091545444 to /Users/jschuss/.claude.json
+2025-11-25T17:25:45.447Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-25T17:26:15.897Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 2420s uptime
+2025-11-25T17:26:15.899Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T17:26:16.963Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T17:26:45.437Z [DEBUG] Getting matching hook commands for Notification with query: idle_prompt
+2025-11-25T17:26:45.437Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T17:26:45.437Z [DEBUG] Matched 0 unique hooks for query "idle_prompt" (0 before deduplication)
+2025-11-25T17:31:18.232Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 2722s uptime
+2025-11-25T17:31:18.234Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T17:31:19.298Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T17:36:20.475Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 3024s uptime
+2025-11-25T17:36:20.481Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T17:36:21.553Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T17:41:22.766Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 3327s uptime
+2025-11-25T17:41:22.771Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T17:41:23.858Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T17:46:25.054Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 3629s uptime
+2025-11-25T17:46:25.059Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T17:46:26.150Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T17:51:27.372Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 3931s uptime
+2025-11-25T17:51:27.377Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T17:51:28.469Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T17:56:29.710Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 4233s uptime
+2025-11-25T17:56:29.712Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T17:56:30.803Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T18:01:31.889Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 4536s uptime
+2025-11-25T18:01:31.890Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T18:01:32.957Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T18:06:34.071Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 4838s uptime
+2025-11-25T18:06:34.073Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T18:06:35.200Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T18:11:36.314Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 5140s uptime
+2025-11-25T18:11:36.318Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T18:11:37.391Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T18:16:38.374Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 5442s uptime
+2025-11-25T18:16:38.376Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T18:16:39.466Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T18:21:40.725Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 5744s uptime
+2025-11-25T18:21:40.742Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T18:21:41.823Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T18:26:43.441Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 6047s uptime
+2025-11-25T18:26:43.450Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T18:26:44.534Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T18:31:46.012Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 6350s uptime
+2025-11-25T18:31:46.016Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T18:31:47.115Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T18:36:48.283Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 6652s uptime
+2025-11-25T18:36:48.292Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T18:36:49.379Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T18:41:50.735Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 6954s uptime
+2025-11-25T18:41:50.740Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T18:41:51.818Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T18:46:53.054Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 7257s uptime
+2025-11-25T18:46:53.056Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T18:46:54.174Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T18:51:55.405Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 7559s uptime
+2025-11-25T18:51:55.415Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T18:51:56.548Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T18:56:57.909Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 7862s uptime
+2025-11-25T18:56:57.921Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T18:56:58.979Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T19:02:00.173Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 8164s uptime
+2025-11-25T19:02:00.176Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-25T19:02:01.262Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-25T19:04:27.548Z [DEBUG] Getting matching hook commands for SessionEnd with query: prompt_input_exit
+2025-11-25T19:04:27.548Z [DEBUG] Found 0 hook matchers in settings
+2025-11-25T19:04:27.548Z [DEBUG] Matched 0 unique hooks for query "prompt_input_exit" (0 before deduplication)

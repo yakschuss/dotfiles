@@ -1,0 +1,7 @@
+# frozen_string_literal: true
+
+class ValidateSlotRecaptureOpportunityForeignKey < ActiveRecord::Migration[8.0]
+  def change
+    validate_foreign_key :wait_list_outreach_attempts, :slot_recapture_opportunities
+  end
+end

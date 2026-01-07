@@ -1,0 +1,184 @@
+# This file defines the notification schedule for appointment events
+#
+# File Structure:
+# - defaults: Global settings applied to all notifications unless overridden
+# - common_configs: Reusable configuration blocks using YAML anchors (&) and aliases (*)
+#   - sms_reminder_schedule: Common SMS reminder configurations shared across events
+#   - email_reminder_schedule: Common email reminder configurations shared across events
+# - notifications: Configurations grouped by event type (e.g., AppointmentScheduledEvent)
+#   - immediate: Notifications sent immediately when the event occurs
+#     - email: Email notifications with their notification classes and recipients
+#     - sms: SMS notifications with their notification classes and recipients
+#   - scheduled: Notifications sent at specific times relative to the appointment
+#     - email: Scheduled email notifications (uses email_reminder_schedule alias)
+#     - sms: Scheduled SMS notifications (uses sms_reminder_schedule alias)
+#
+# Each notification entry can include the following options:
+# - notification_class: The Ruby class that implements the notification
+# - recipients: Who should receive the notification (e.g., ["caregiver", "appointment"])
+# - conditions: Optional conditions that must be met to send the notification
+# - time_before: For scheduled notifications, how long before the appointment to send
+# - special_time: For notifications with special timing logic (e.g., night_before_appointment_time)
+# - consolidate: Whether to consolidate this notification with others (boolean, overrides default)
+# - enabled: Whether this notification is enabled (boolean, overrides default)
+# - respect_textable_hours: Whether to respect textable hours for SMS notifications (boolean)
+
+defaults:
+  consolidate: false           # TODO: Implement consolidated notifications in future PR
+  enabled: true                # Whether notifications are enabled by default
+  respect_textable_hours: true # Whether notifications should respect textable hours
+
+common_configs:
+  sms_reminder_schedule: &sms_reminder_schedule
+    # Regular appointment reminders SMS
+    reminder_6h_sms:
+      notification_class: "AppointmentReminder6HoursSms"
+      recipients: ["appointment"]
+      time_before: "6 hours"
+    reminder_incomplete_paperwork_24h_sms:
+      notification_class: "IncompletePaperworkReminderSms"
+      recipients: ["appointment"]
+      time_before: "24 hours"
+    reminder_72h_sms:
+      notification_class: "AppointmentReminder72HoursSms"
+      recipients: ["appointment"]
+      time_before: "72 hours"
+    # Legacy notification types - disabled but included for cancellation during reschedule/cancel.
+    # These were created by the legacy notification system before configurable_appointment_notifications
+    # was enabled. They must remain here so existing reminders are properly cancelled.
+    legacy_reminder_15m_sms:
+      notification_class: "AppointmentReminder15MinutesSms"
+      recipients: ["caregiver"]
+      time_before: "15 minutes"
+      enabled: false
+    legacy_reminder_36h_sms:
+      notification_class: "AppointmentReminder36HoursSms"
+      recipients: ["caregiver"]
+      time_before: "36 hours"
+      enabled: false
+    legacy_reminder_1h_preintake_sms:
+      notification_class: "AppointmentReminder1HourPreintakeSms"
+      recipients: ["caregiver"]
+      time_before: "1 hour"
+      enabled: false
+    legacy_reminder_1w_preintake_sms:
+      notification_class: "AppointmentReminder1WeekPreintakeSms"
+      recipients: ["caregiver"]
+      time_before: "1 week"
+      enabled: false
+    legacy_reminder_36h_preintake_sms:
+      notification_class: "AppointmentReminder36HoursPreintakeSms"
+      recipients: ["caregiver"]
+      time_before: "36 hours"
+      enabled: false
+    legacy_reminder_night_before_sms:
+      notification_class: "AppointmentReminderNightBeforePreintakeSms"
+      recipients: ["caregiver"]
+      special_time: "night_before_appointment_time"
+      enabled: false
+
+  email_reminder_schedule: &email_reminder_schedule
+    # Regular appointment reminders emails
+    reminder_6h_email:
+      notification_class: "AppointmentReminderEmail"
+      recipients: ["appointment"]
+      time_before: "6 hours"
+    reminder_incomplete_paperwork_24h_email:
+      notification_class: "IncompletePaperworkReminderEmail"
+      recipients: ["appointment"]
+      time_before: "24 hours"
+    reminder_72h_email:
+      notification_class: "AppointmentReminderEmail"
+      recipients: ["appointment"]
+      time_before: "72 hours"
+    # Contractor reminders
+    contractor_48h_email:
+      notification_class: "Staffer::AppointmentReminderContractor48HourEmail"
+      recipients: ["staffer"]
+      time_before: "48 hours"
+      conditions: ["contract_therapist"]
+    contractor_personal_48h_email:
+      notification_class: "Staffer::AppointmentReminderContractor48HourPersonalEmail"
+      recipients: ["staffer"]
+      time_before: "48 hours"
+      conditions: ["contract_therapist"]
+
+notifications:
+  AppointmentScheduledEvent:
+    immediate:
+      email:
+        appointment_email:
+          notification_class: "AppointmentScheduledEmail"
+          recipients: ["appointment"]
+          consolidate: true
+        contractor_email:
+          notification_class: "AppointmentScheduledContractorEmail"
+          recipients: ["staffer"]
+          conditions: ["contract_therapist"]
+        contractor_personal_email:
+          notification_class: "AppointmentScheduledContractorPersonalEmail"
+          recipients: ["staffer"]
+          conditions: ["contract_therapist"]
+        staffer_email:
+          notification_class: "AppointmentScheduledStafferEmail"
+          recipients: ["staffer"]
+          conditions: ["not_contract_therapist", "clinic_psychiatrist_or_non_clinic"]
+      sms:
+        appointment_sms:
+          notification_class: "AppointmentScheduledSms"
+          recipients: ["appointment"]
+          consolidate: true
+    scheduled:
+      email: *email_reminder_schedule
+      sms: *sms_reminder_schedule
+
+  AppointmentRescheduledEvent:
+    immediate:
+      email:
+        appointment_email:
+          notification_class: "AppointmentRescheduledEmail"
+          recipients: ["appointment"]
+          consolidate: true
+        staffer_email:
+          notification_class: "AppointmentRescheduledStafferEmail"
+          recipients: ["staffer"]
+      sms:
+        appointment_sms:
+          notification_class: "AppointmentScheduledSms"
+          recipients: ["appointment"]
+          consolidate: true
+    scheduled:
+      email: *email_reminder_schedule
+      sms: *sms_reminder_schedule
+
+  AppointmentCanceledEvent:
+    immediate:
+      email:
+        appointment_email:
+          notification_class: "AppointmentCanceledEmail"
+          recipients: ["appointment"]
+          consolidate: true
+        staffer_email:
+          notification_class: "AppointmentCanceledStafferEmail"
+          recipients: ["staffer"]
+        intake_email:
+          notification_class: "IntakeAppointmentCanceledJourney"
+          recipients: ["caregiver"]
+          conditions: ["preintake"]
+      # TODO: Add SMS in future PR
+
+  Contractors::AppointmentAcceptanceReinitiatedEvent:
+    immediate:
+      email:
+        appointment_email:
+          notification_class: "AppointmentCanceledEmail"
+          recipients: ["appointment"]
+          conditions: ["contract_therapist"]
+        contractor_email:
+          notification_class: "AppointmentScheduledContractorEmail"
+          recipients: ["staffer"]
+          conditions: ["contract_therapist"]
+        contractor_personal_email:
+          notification_class: "AppointmentScheduledContractorPersonalEmail"
+          recipients: ["staffer"]
+          conditions: ["contract_therapist"]

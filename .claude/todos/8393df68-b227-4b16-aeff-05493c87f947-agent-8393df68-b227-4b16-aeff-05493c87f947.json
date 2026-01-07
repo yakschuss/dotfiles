@@ -1,0 +1,22 @@
+[
+  {
+    "content": "Investigate the YAML structure to understand why dig(label) returns String instead of Hash",
+    "status": "completed",
+    "id": "1"
+  },
+  {
+    "content": "Fix the immediate TypeError in translate_keys_in_value method",
+    "status": "completed",
+    "id": "2"
+  },
+  {
+    "content": "Add resilient error handling to prevent similar issues",
+    "status": "completed",
+    "id": "3"
+  },
+  {
+    "content": "Consider design improvements for the class",
+    "status": "completed",
+    "id": "4"
+  }
+]

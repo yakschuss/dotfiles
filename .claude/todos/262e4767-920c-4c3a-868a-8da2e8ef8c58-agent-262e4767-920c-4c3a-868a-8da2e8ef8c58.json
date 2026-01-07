@@ -1,0 +1,22 @@
+[
+  {
+    "content": "Investigate when covered entities are created/assigned to care cases",
+    "status": "completed",
+    "id": "1"
+  },
+  {
+    "content": "Check the registration flow to understand timing of paperwork assignment vs coverage setup",
+    "status": "completed",
+    "id": "2"
+  },
+  {
+    "content": "Find where BLK coverage is established in the system",
+    "status": "completed",
+    "id": "3"
+  },
+  {
+    "content": "Determine proper fix for the timing issue",
+    "status": "in_progress",
+    "id": "4"
+  }
+]

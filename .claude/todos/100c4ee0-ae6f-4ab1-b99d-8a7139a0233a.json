@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Add MCP route to Rails routes",
+    "status": "in_progress",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Create MCP controller with SSE streaming",
+    "status": "pending",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Implement MCP protocol handler",
+    "status": "pending",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Define MCP tools for database/model access",
+    "status": "pending",
+    "priority": "medium",
+    "id": "4"
+  },
+  {
+    "content": "Test MCP integration with Claude Code",
+    "status": "pending",
+    "priority": "medium",
+    "id": "5"
+  }
+]

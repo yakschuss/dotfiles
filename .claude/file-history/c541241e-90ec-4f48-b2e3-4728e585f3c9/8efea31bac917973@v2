@@ -1,0 +1,127 @@
+# frozen_string_literal: true
+
+# Find the Kenny McCormick care case
+care_case = CareCase.find_by(id: 'eab467ca-c0c8-453e-9869-33abadfefbca')
+
+unless care_case
+  puts 'Care case not found!'
+  exit
+end
+
+puts "Setting up comprehensive test data for Care Case: #{care_case.id}"
+puts "Caregiver: #{care_case.caregiver&.full_name}"
+puts "Patient: #{care_case.patient&.full_name}"
+puts ''
+
+account = care_case.account
+caregiver = care_case.caregiver
+patient = care_case.patient
+
+# Find or create staffers for different roles
+coach_staffer = Staffer.find_or_create_by!(email: 'test-coach@hellobrightline.com') do |s|
+  s.first_name = 'Test'
+  s.last_name = 'Coach'
+  s.timezone = 'Eastern Time (US & Canada)'
+end
+
+therapist_staffer = Staffer.find_or_create_by!(email: 'test-therapist@hellobrightline.com') do |s|
+  s.first_name = 'Test'
+  s.last_name = 'Therapist'
+  s.timezone = 'Eastern Time (US & Canada)'
+end
+
+prescriber_staffer = Staffer.find_or_create_by!(email: 'test-prescriber@hellobrightline.com') do |s|
+  s.first_name = 'Test'
+  s.last_name = 'Prescriber'
+  s.timezone = 'Eastern Time (US & Canada)'
+end
+
+care_guide_staffer = Staffer.find_or_create_by!(email: 'test-care-guide@hellobrightline.com') do |s|
+  s.first_name = 'Test'
+  s.last_name = 'Care Guide'
+  s.timezone = 'Eastern Time (US & Canada)'
+end
+
+member_support_staffer = Staffer.find_or_create_by!(email: 'test-member-support@hellobrightline.com') do |s|
+  s.first_name = 'Test'
+  s.last_name = 'Member Support'
+  s.timezone = 'Eastern Time (US & Canada)'
+end
+
+puts "Created/found test staffers:"
+puts "  Coach: #{coach_staffer.full_name}"
+puts "  Therapist: #{therapist_staffer.full_name}"
+puts "  Prescriber: #{prescriber_staffer.full_name}"
+puts "  Care Guide: #{care_guide_staffer.full_name}"
+puts "  Member Support: #{member_support_staffer.full_name}"
+puts ''
+
+# Create chat channels for each type
+chat_configs = [
+  { type: Chat::Type.coach, staffer: coach_staffer, member: caregiver },
+  { type: Chat::Type.therapist, staffer: therapist_staffer, member: caregiver },
+  { type: Chat::Type.prescriber, staffer: prescriber_staffer, member: caregiver },
+  { type: Chat::Type.care_guide, staffer: care_guide_staffer, member: caregiver },
+  { type: Chat::Type.member_support, staffer: member_support_staffer, member: caregiver },
+]
+
+# Add teen channels if applicable
+if patient
+  chat_configs += [
+    { type: Chat::Type.coach, staffer: coach_staffer, member: patient },
+    { type: Chat::Type.therapist, staffer: therapist_staffer, member: patient },
+  ]
+end
+
+puts "Creating/updating chat channels:"
+chat_configs.each do |config|
+  # Find or create the channel
+  channel = SendbirdChatChannel.find_or_create_by!(
+    account: account,
+    care_case: care_case,
+    chat_type: config[:type]
+  )
+
+  puts "  #{config[:type]} chat for #{config[:member].full_name}"
+
+  # Ensure staffer has a sendbird user
+  staffer_sendbird_user = config[:staffer].sendbird_users.first_or_create! do |su|
+    su.nickname = config[:staffer].full_name
+    su.sendbird_user_id = "staffer_#{config[:staffer].id}_#{SecureRandom.hex(4)}"
+  end
+
+  # Ensure member has a sendbird user
+  member_sendbird_user = config[:member].sendbird_user
+  unless member_sendbird_user
+    member_sendbird_user = config[:member].create_sendbird_user!(
+      nickname: config[:member].full_name,
+      sendbird_user_id: "member_#{config[:member].id}_#{SecureRandom.hex(4)}"
+    )
+  end
+
+  # Create memberships if they don't exist
+  staffer_membership = SendbirdChatChannelMembership.find_or_create_by!(
+    sendbird_chat_channel: channel,
+    sendbird_user: staffer_sendbird_user
+  )
+
+  member_membership = SendbirdChatChannelMembership.find_or_create_by!(
+    sendbird_chat_channel: channel,
+    sendbird_user: member_sendbird_user
+  )
+
+  # Update with message timestamps
+  staffer_membership.update!(last_message_sent_at: 2.hours.ago)
+  member_membership.update!(last_message_sent_at: 1.hour.ago)
+
+  puts "    Created memberships with timestamps"
+end
+
+puts ''
+puts 'Test data created successfully!'
+puts ''
+puts "Visit: http://reef.dev-hellobrightline.com:3000/care_cases/#{care_case.id}/chats"
+puts ''
+puts "You should now see dropdowns with:"
+puts "  - Chat with: Carol (caregiver) and potentially Kenny (teen)"
+puts "  - Staffer: Test Coach, Test Therapist, Test Prescriber, Test Care Guide, Test Member Support"

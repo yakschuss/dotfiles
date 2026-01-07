@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Search for feature specs that test paperwork flow",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Look for specs that test interstitial pages specifically",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Check for specs that test the 'next' action behavior",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Review any affected specs and update them",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "content": "Create RegionUpdateFormModalComponent with proper modal patterns",
+    "status": "completed",
+    "priority": "high",
+    "id": "region-modal-1"
+  },
+  {
+    "content": "Add region_id to permitted params in accounts controller",
+    "status": "completed",
+    "priority": "high",
+    "id": "region-modal-2"
+  },
+  {
+    "content": "Create controller to handle region update synchronization between Account and CareCase",
+    "status": "completed",
+    "priority": "high",
+    "id": "region-modal-3"
+  },
+  {
+    "content": "Update phone desk accounts controller to render modal after account region updates",
+    "status": "in_progress",
+    "priority": "high",
+    "id": "region-modal-4"
+  },
+  {
+    "content": "Update care case controller to render modal after care case region updates",
+    "status": "pending",
+    "priority": "high",
+    "id": "region-modal-5"
+  },
+  {
+    "content": "Add logic to detect region mismatches and determine which models need syncing",
+    "status": "pending",
+    "priority": "medium",
+    "id": "region-modal-6"
+  }
+]

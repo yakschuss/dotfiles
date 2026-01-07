@@ -1,0 +1,21 @@
+# frozen_string_literal: true
+
+module Prism
+  class Select < ViewComponent::Base
+    attr_reader :title, :options, :selected_option, :classes, :change_action, :data_params, :form_field, :form, :include_blank
+
+    delegate :styles, to: :helpers
+
+    def initialize(title:, options:, selected_option:, classes: "", change_action: nil, data_params: {}, form_field: nil, form: nil, include_blank: false)
+      @title = title
+      @options = options
+      @selected_option = selected_option
+      @classes = classes
+      @change_action = change_action
+      @data_params = data_params
+      @form_field = form_field
+      @form = form
+      @include_blank = include_blank
+    end
+  end
+end

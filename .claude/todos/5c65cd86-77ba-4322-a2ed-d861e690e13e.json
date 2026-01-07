@@ -1,0 +1,44 @@
+[
+  {
+    "content": "Add feature flags for reminders sort and care guide sidebar access",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Implement reminders sort functionality in SortedCareCases",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Update CaseloadSidebarComponent for care guide access and reminders sort",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Add active_care_guides scope to Staffer model if needed",
+    "status": "completed",
+    "priority": "medium",
+    "id": "4"
+  },
+  {
+    "content": "Write comprehensive specs for SortedCareCases reminders functionality",
+    "status": "completed",
+    "priority": "high",
+    "id": "5"
+  },
+  {
+    "content": "Write specs for CaseloadSidebarComponent updates",
+    "status": "completed",
+    "priority": "high",
+    "id": "6"
+  },
+  {
+    "content": "Run tests and ensure everything works",
+    "status": "completed",
+    "priority": "high",
+    "id": "7"
+  }
+]

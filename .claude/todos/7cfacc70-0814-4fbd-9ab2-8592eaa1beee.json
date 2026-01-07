@@ -1,0 +1,38 @@
+[
+  {
+    "content": "Revise agent to use existing Appointment and CareCase models",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Integrate with existing Calendaring::AvailableAppointments service",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Update tools to use existing Acuity API integration",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Align data models with existing appointment/care case structure",
+    "status": "completed",
+    "priority": "high",
+    "id": "4"
+  },
+  {
+    "content": "Update validators to use existing business rules and care capabilities",
+    "status": "pending",
+    "priority": "medium",
+    "id": "5"
+  },
+  {
+    "content": "Integrate with existing event system for appointment lifecycle",
+    "status": "pending",
+    "priority": "medium",
+    "id": "6"
+  }
+]

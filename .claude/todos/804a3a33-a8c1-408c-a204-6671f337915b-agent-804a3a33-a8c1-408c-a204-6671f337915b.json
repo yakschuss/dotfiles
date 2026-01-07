@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Read relevant coding rules for Ruby/Rails refactoring",
+    "status": "completed",
+    "id": "1"
+  },
+  {
+    "content": "Refactor ReminderProcessor to delegate trainee reminders to SupervisorReminderProcessor",
+    "status": "completed",
+    "id": "2"
+  },
+  {
+    "content": "Update SupervisorReminderProcessor to focus solely on creating and assigning supervisor reminders",
+    "status": "completed",
+    "id": "3"
+  },
+  {
+    "content": "Remove duplicate methods and ensure clean separation of concerns",
+    "status": "completed",
+    "id": "4"
+  },
+  {
+    "content": "Run tests to verify the refactoring works correctly",
+    "status": "completed",
+    "id": "5"
+  },
+  {
+    "content": "Update SupervisorReminderProcessor specs to match new logic using signing_trainee",
+    "status": "completed",
+    "id": "6"
+  }
+]

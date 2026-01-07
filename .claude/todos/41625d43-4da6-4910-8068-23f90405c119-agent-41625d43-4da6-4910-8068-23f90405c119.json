@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Refactor FormAnswerGroup#process to conditionally process based on staffer type",
+    "status": "completed",
+    "id": "1"
+  },
+  {
+    "content": "Extract supervisor reminder logic from ReminderProcessor",
+    "status": "completed",
+    "id": "2"
+  },
+  {
+    "content": "Update ReminderProcessor to remove supervisor reminder creation",
+    "status": "completed",
+    "id": "3"
+  },
+  {
+    "content": "Test the changes to ensure reminders work correctly for trainees",
+    "status": "completed",
+    "id": "4"
+  },
+  {
+    "content": "Fix reminder processor spec",
+    "status": "completed",
+    "id": "5"
+  },
+  {
+    "content": "Run all tests to verify changes",
+    "status": "completed",
+    "id": "6"
+  }
+]

@@ -1,0 +1,210 @@
+# frozen_string_literal: true
+
+class Staffers::Calendaring::TemplateFormComponent < ApplicationComponent
+  START_HOUR = 7
+  END_HOUR = 23
+  TIME_INTERVALS = ["00", "30"].freeze
+
+  def initialize(form:, template: nil)
+    @form = form
+    @template = template
+  end
+
+  private
+
+  attr_reader :form, :template
+
+  def staffer
+    form.staffer
+  end
+
+  def url
+    template.present? ? helpers.template_path(template) : helpers.templates_path
+  end
+
+  def page_title
+    template.present? ? "Edit template" : "Create a template"
+  end
+
+  def show_starter_template_dropdown?
+    template.blank?  # Only show for new templates
+  end
+
+  def days_of_week
+    # Using Date::DAYNAMES for standard day names/indexes
+    # Start from Monday (1) to Saturday (6), skipping Sunday (0)
+    (1..6).map do |day_num|
+      [day_num, Date::DAYNAMES[day_num].pluralize]
+    end
+  end
+
+  def time_options
+    @time_options ||= begin
+      options = []
+      (START_HOUR..END_HOUR).each do |hour|
+        TIME_INTERVALS.each do |minute|
+          next if hour == END_HOUR && minute == "30" # Stop at 10:00 PM
+
+          # Simple 12-hour format
+          display_hour = (hour > 12) ? hour - 12 : hour
+          period = (hour < 12) ? "AM" : "PM"
+          time_12h = "#{display_hour}:#{minute} #{period}"
+
+          # 24-hour format
+          time_24h = "#{hour.to_s.rjust(2, "0")}:#{minute}"
+
+          options << [time_12h, time_24h]
+        end
+      end
+      options
+    end
+  end
+
+  def clinic_options
+    @clinic_options ||= begin
+      options = []
+      if staffer.clinic.present?
+        options << [staffer.clinic.short_name, staffer.clinic.id]
+      end
+      options << ["Virtual only", ""]
+      options
+    end
+  end
+
+  def staffer_options
+    [["Blank", "blank"]] + form.available_staffers.map { |s| [s.full_name, s.id] }
+  end
+
+  def template_options_for_staffer
+    form.available_templates_for_staffer(form.copy_from_staffer_id).group_by(&:status).map do |status, templates|
+      [status, templates.map { |t| [t.name, t.id] }]
+    end.sort_by { %w[published draft archived].find_index(it.first) }
+  end
+
+  erb_template <<~ERB
+    <%= turbo_frame_tag "template-form" do %>
+      <h2 class="text-xl font-semibold text-gray-900 mt-2 mb-6"><%= page_title %></h2>
+
+      <%= helpers.wave_form_with model: form, url: url, 
+            scope: :calendaring_new_template_form,
+            method: template.present? ? :patch : :post,
+            data: { 
+              controller: "forms",
+              forms_target: "submittable",
+              turbo: true
+            }, 
+            class: "space-y-6" do |f| %>
+      
+      <%= helpers.hidden_field_tag :staffer_id, staffer.id %>
+      
+      <!-- Template Overview Section -->
+      <div>
+        <%= render Staffers::SectionHeaderComponent.new(title: "Template overview") %>
+        
+        <div class="px-3 py-2 space-y-4">
+          <% if show_starter_template_dropdown? %>
+            <!-- Staffer and template dropdowns (horizontal layout) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Copy from staffer dropdown -->
+              <%= f.field :styled_select, :copy_from_staffer_id,
+                    label: "Start with",
+                    options: staffer_options,
+                    selected: form.copy_from_staffer_id || "blank",
+                    data: { 
+                        action: "change->forms#requestSubmit"
+                      }
+                    %>
+                    
+              <!-- Template dropdown (conditional) -->
+              <% if form.copy_from_staffer.present? %>
+                <%= f.field :styled_select, :starter_template_id,
+                      label: "Template",
+                      options: template_options_for_staffer,
+                      data: { 
+                        action: "change->forms#requestSubmit"
+                      } %>
+              <% else %>
+                <!-- Empty div to maintain grid layout when template dropdown is not shown -->
+                <div></div>
+              <% end %>
+            </div>
+          <% end %>
+
+          <!-- Name field -->
+          <%= f.field :text, :name, 
+                value: form.name,
+                label: "Template name" %>
+
+          <!-- Date fields -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <%= f.field :date, :starts_on, 
+                  value: form.starts_on,
+                  label: "Start date" %>
+                  
+            <%= f.field :text, :ends_on,
+                    value: form.ends_on,
+                    label: "End date (optional)",
+                    placeholder: "None",
+                    data: {
+                      controller: "date-placeholder",
+                      date_placeholder_target: "input",
+                      action: "focus->date-placeholder#showDatePicker blur->date-placeholder#handleBlur"
+                    } %>
+          </div>
+        </div>
+      </div>
+
+      <!-- Working Hours Section -->
+      <div>
+        <%= render Staffers::SectionHeaderComponent.new(title: "Working hours") %>
+        
+        <div class="px-3 py-2">
+          <% days_of_week.each do |day_num, day_name| %>
+            <div class="mb-2" data-controller="checkbox-toggle">
+              <div class="flex items-center mb-2">
+                <%= f.field :check_box, "working_hours_\#{day_num}_enabled",
+                      label: day_name,
+                      checked: form.day_enabled?(day_num),
+                      data: { 
+                        checkbox_toggle_target: "state",
+                        action: "change->checkbox-toggle#updateBlockVisibility" 
+                      } %>
+              </div>
+              
+              <div class="ml-6 grid grid-cols-1 md:grid-cols-3 gap-4" 
+                   data-checkbox-toggle-target="block">
+                
+                <!-- Start time -->
+                <%= f.field :select, "working_hours_\#{day_num}_start_time",
+                      label: "Start time",
+                      options: time_options,
+                      prompt: "Select start time" %>
+                
+                <!-- End time -->
+                <%= f.field :select, "working_hours_\#{day_num}_end_time",
+                      label: "End time", 
+                      options: time_options,
+                      prompt: "Select end time" %>
+                
+                <!-- Location -->
+                <%= f.field :select, "working_hours_\#{day_num}_location_clinic_id",
+                      label: "Location",
+                      options: clinic_options,
+                      prompt: "Select location" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Display form errors -->
+      <%= f.base_errors %>
+      
+      <!-- Save button -->
+      <div class="flex justify-start">
+        <%= f.submit "Save", class: "prism-button-primary" %>
+      </div>
+      <% end %>
+    <% end %>
+  ERB
+end

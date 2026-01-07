@@ -1,0 +1,2227 @@
+---
+access_policies:
+  account:
+    scoped_roles:
+    - id: coaching
+      controller_actions:
+      - index
+      - show
+    - id: contract_therapy
+      controller_actions:
+      - index
+      - show
+    - id: therapy
+      controller_actions:
+      - index
+      - show
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - index
+      - show
+      - update
+      - destroy
+    - id: billing
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: care_guide
+      controller_actions:
+      - index
+      - show
+    - id: care_guide_chat_only
+      controller_actions:
+      - index
+      - show
+    - id: care_ops
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: manager
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: medication_management
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: member_support
+      controller_actions:
+      - destroy
+      - index
+      - show
+      - update
+    - id: revenue_cycle_management
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: front_desk
+      controller_actions:
+      - destroy
+      - index
+      - show
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - destroy
+      - index
+      - show
+      - update
+  account_lead:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - index
+      - show
+    - id: front_desk
+      controller_actions:
+      - index
+      - show
+    - id: engagement_specialist
+      controller_actions:
+      - index
+      - show
+    - id: member_support
+      controller_actions:
+      - index
+      - show
+  account_member:
+    scoped_roles:
+    - id: coaching
+      controller_actions:
+      - show
+      - update
+    - id: contract_therapy
+      controller_actions:
+      - show
+      - update
+    - id: therapy
+      controller_actions:
+      - show
+      - update
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - show
+      - update
+      special_actions:
+      - impersonate
+      - reset_mfa_enrollment
+    - id: billing
+      controller_actions:
+      - show
+      - update
+    - id: care_guide
+      controller_actions:
+      - show
+      - update
+    - id: care_guide_chat_only
+      controller_actions:
+      - show
+      - update
+    - id: care_ops
+      controller_actions:
+      - show
+      - update
+    - id: manager
+      controller_actions:
+      - show
+      - update
+    - id: medication_management
+      controller_actions:
+      - show
+      - update
+    - id: member_support
+      controller_actions:
+      - show
+      - update
+      special_actions:
+      - impersonate
+      - reset_mfa_enrollment
+    - id: front_desk
+      controller_actions:
+      - show
+      - update
+      special_actions:
+      - impersonate
+      - reset_mfa_enrollment
+    - id: engagement_specialist
+      controller_actions:
+      - show
+      - update
+      special_actions:
+      - impersonate
+      - reset_mfa_enrollment
+    - id: revenue_cycle_management
+      controller_actions:
+      - show
+      - update
+  account_tag:
+    scoped_roles:
+    - id: care_guide
+      controller_actions:
+      - update
+    - id: care_guide_chat_only
+      controller_actions:
+      - update
+    - id: coaching
+      controller_actions:
+      - update
+    - id: contract_therapy
+      controller_actions:
+      - update
+    - id: therapy
+      controller_actions:
+      - update
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - update
+    - id: billing
+      controller_actions:
+      - update
+    - id: care_ops
+      controller_actions:
+      - update
+    - id: front_desk
+      controller_actions:
+      - update
+    - id: enagement_specialist
+      controller_actions:
+      - update
+    - id: manager
+      controller_actions:
+      - update
+    - id: medication_management
+      controller_actions:
+      - update
+    - id: member_support
+      controller_actions:
+      - update
+    - id: revenue_cycle_management
+      controller_actions:
+      - update
+  account_team:
+    scoped_roles:
+    - id: care_guide
+      controller_actions:
+      - create
+      - destroy
+    - id: care_guide_chat_only
+      controller_actions:
+      - create
+      - destroy
+    - id: coaching
+      controller_actions:
+      - create
+      - destroy
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+    - id: billing
+      controller_actions:
+      - create
+      - destroy
+    - id: care_ops
+      controller_actions:
+      - create
+      - destroy
+    - id: front_desk
+      controller_actions:
+      - create
+      - destroy
+    - id: engagement_specialist
+      controller_actions:
+      - create
+      - destroy
+    - id: manager
+      controller_actions:
+      - create
+      - destroy
+    - id: medication_management
+      controller_actions:
+      - create
+      - destroy
+    - id: member_support
+      controller_actions:
+      - create
+      - destroy
+    - id: revenue_cycle_management
+      controller_actions:
+      - create
+      - destroy
+  app_version:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+  appointment:
+    scoped_roles:
+    - id: care_guide
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: care_guide_chat_only
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: coaching
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: contract_therapy
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: therapy
+      controller_actions:
+      - index
+      - show
+      - update
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - destroy
+      - index
+      - show
+      - update
+      special_actions:
+      - edit_status
+      - manage_in_acuity
+      - manage_in_healthie
+      - manage_in_mirah
+    - id: billing
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: care_ops
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: front_desk
+      controller_actions:
+      - destroy
+      - index
+      - show
+      - update
+      special_actions:
+      - edit_status
+      - manage_in_healthie
+    - id: engagement_specialist
+      controller_actions:
+      - destroy
+      - index
+      - show
+      - update
+      special_actions:
+      - edit_status
+      - manage_in_healthie
+    - id: manager
+      controller_actions:
+      - index
+      - show
+      - update
+      special_actions:
+      - manage_in_mirah
+    - id: medication_management
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: member_support
+      controller_actions:
+      - destroy
+      - index
+      - show
+      - update
+      special_actions:
+      - edit_status
+      - manage_in_healthie
+    - id: revenue_cycle_management
+      controller_actions:
+      - index
+      - show
+      - update
+  appointment_manual_scheduling:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+    - id: contract_therapy
+      controller_actions:
+      - create
+    - id: front_desk
+      controller_actions:
+      - create
+    - id: engagement_specialist
+      controller_actions:
+      - create
+    - id: manager
+      controller_actions:
+      - create
+    - id: member_support
+      controller_actions:
+      - create
+  appointment_slot_reservation:
+    scoped_roles:
+    - id: care_guide
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: care_guide_chat_only
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: coaching
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: contract_therapy
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: therapy
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: billing
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: care_ops
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+    - id: front_desk
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: manager
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: medication_management
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: member_support
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: revenue_cycle_management
+      controller_actions:
+      - index
+      - show
+      - update
+  assigned_exercise:
+    scoped_roles:
+    - id: care_guide
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: care_guide_chat_only
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: coaching
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: contract_therapy
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: medication_management
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: therapy
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: front_desk
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: manager
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: member_support
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+  billing:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - index
+    - id: billing
+      controller_actions:
+      - index
+    - id: revenue_cycle_management
+      controller_actions:
+      - index
+    - id: front_desk
+      controller_actions:
+      - index
+    - id: engagement_specialist
+      controller_actions:
+      - index
+  candid_patient:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - update
+    - id: revenue_cycle_management
+      controller_actions:
+      - create
+      - update
+    - id: front_desk
+      controller_actions:
+      - create
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - create
+      - update
+  calendaring_template:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - index
+      - show
+      - create
+      - update
+      - destroy
+    - id: care_ops
+      controller_actions:
+      - index
+      - show
+      - create
+      - update
+      - destroy
+  care_case:
+    scoped_roles:
+    - id: coaching
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: contract_therapy
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: therapy
+      controller_actions:
+      - index
+      - show
+      - update
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - destroy
+      - index
+      - show
+      - update
+    - id: billing
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: care_guide
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: care_guide_chat_only
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: care_ops
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: front_desk
+      controller_actions:
+      - destroy
+      - index
+      - show
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - destroy
+      - index
+      - show
+      - update
+    - id: manager
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: medication_management
+      controller_actions:
+      - index
+      - show
+      - update
+    - id: member_support
+      controller_actions:
+      - destroy
+      - index
+      - show
+      - update
+    - id: revenue_cycle_management
+      controller_actions:
+      - index
+      - show
+      - update
+  care_document:
+    scoped_roles:
+    - id: care_guide
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+    - id: care_guide_chat_only
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+    - id: coaching
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+    - id: contract_therapy
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+    - id: therapy
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: manager
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+  care_guide_assignment:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+    - id: engagement_specialist
+      controller_actions:
+      - create
+    - id: manager
+      controller_actions:
+      - create
+    - id: member_support
+      controller_actions:
+      - create
+  care_guide_task:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - index
+      special_actions:
+      - expire
+    - id: billing
+      controller_actions:
+      - index
+    - id: care_guide
+      controller_actions:
+      - create
+      - index
+      special_actions:
+      - claim
+    - id: care_guide_chat_only
+      controller_actions:
+      - create
+      - index
+      special_actions:
+      - claim
+    - id: care_ops
+      controller_actions:
+      - index
+    - id: manager
+      controller_actions:
+      - create
+      - index
+      special_actions:
+      - expire
+    - id: medication_management
+      controller_actions:
+      - index
+    - id: member_support
+      controller_actions:
+      - index
+    - id: revenue_cycle_management
+      controller_actions:
+      - index
+  care_journey_activity_record:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - index
+  care_navigation_algorithm:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - index
+      - update
+  care_navigation_resets:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+    - id: manager
+      controller_actions:
+      - create
+  case_role:
+    scoped_roles:
+    - id: care_guide
+      controller_actions:
+      - create
+      - show
+      - update
+    - id: care_guide_chat_only
+      controller_actions:
+      - create
+      - show
+      - update
+    - id: coaching
+      controller_actions:
+      - create
+      - show
+      - update
+    - id: contract_therapy
+      controller_actions:
+      - create
+      - show
+      - update
+    - id: therapy
+      controller_actions:
+      - create
+      - show
+      - update
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+      - show
+      - update
+    - id: front_desk
+      controller_actions:
+      - create
+      - destroy
+      - show
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - create
+      - destroy
+      - show
+      - update
+    - id: manager
+      controller_actions:
+      - create
+      - show
+      - update
+    - id: member_support
+      controller_actions:
+      - create
+      - destroy
+      - show
+      - update
+  caseload:
+    scoped_roles:
+    - id: coaching
+      controller_actions:
+      - index
+      - show
+    - id: therapy
+      controller_actions:
+      - index
+      - show
+    - id: care_guide
+      controller_actions:
+      - index
+      - show
+    - id: care_guide_chat_only
+      controller_actions:
+      - index
+      - show
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - index
+      - show
+    - id: care_ops
+      controller_actions:
+      - index
+      - show
+    - id: front_desk
+      controller_actions:
+      - index
+      - show
+    - id: engagement_specialist
+      controller_actions:
+      - index
+      - show
+    - id: manager
+      controller_actions:
+      - index
+      - show
+    - id: member_support
+      controller_actions:
+      - index
+      - show
+  chat:
+    scoped_roles:
+    - id: care_guide
+      controller_actions:
+      - index
+      - show
+    - id: care_guide_chat_only
+      controller_actions:
+      - index
+      - show
+    - id: coaching
+      controller_actions:
+      - index
+      - show
+    - id: contract_therapy
+      controller_actions:
+      - index
+      - show
+    - id: therapy
+      controller_actions:
+      - index
+      - show
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - index
+      - show
+    - id: billing
+      controller_actions:
+      - index
+      - show
+    - id: care_ops
+      controller_actions:
+      - index
+      - show
+    - id: front_desk
+      controller_actions:
+      - index
+      - show
+    - id: engagement_specialist
+      controller_actions:
+      - index
+      - show
+    - id: manager
+      controller_actions:
+      - index
+      - show
+    - id: medication_management
+      controller_actions:
+      - index
+      - show
+    - id: member_support
+      controller_actions:
+      - index
+      - show
+    - id: revenue_cycle_management
+      controller_actions:
+      - index
+      - show
+  chat_marker:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+    - id: coaching
+      controller_actions:
+      - create
+      - destroy
+  claim_request:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+    - id: revenue_cycle_management
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+    - id: front_desk
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+  clinic:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: front_desk
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: revenue_cycle_management
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+  clinical_referral:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - show
+    - id: coaching
+      controller_actions:
+      - show
+    - id: front_desk
+      controller_actions:
+      - show
+    - id: engagement_specialist
+      controller_actions:
+      - show
+    - id: manager
+      controller_actions:
+      - show
+    - id: medication_management
+      controller_actions:
+      - show
+    - id: member_support
+      controller_actions:
+      - show
+    - id: therapy
+      controller_actions:
+      - show
+  clinical_role:
+    scoped_roles:
+    - id: care_guide
+      controller_actions:
+      - show
+    - id: care_guide_chat_only
+      controller_actions:
+      - show
+    - id: coaching
+      controller_actions:
+      - show
+    - id: contract_therapy
+      controller_actions:
+      - show
+    - id: therapy
+      controller_actions:
+      - show
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+      - show
+      - update
+    - id: front_desk
+      controller_actions:
+      - create
+      - destroy
+      - show
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - create
+      - destroy
+      - show
+      - update
+    - id: manager
+      controller_actions:
+      - create
+      - destroy
+      - show
+      - update
+    - id: member_support
+      controller_actions:
+      - create
+      - destroy
+      - show
+      - update
+  covered_entity:
+    scoped_roles:
+    - id: care_guide
+      controller_actions:
+      - index
+      - show
+    - id: care_guide_chat_only
+      controller_actions:
+      - index
+      - show
+    - id: coaching
+      controller_actions:
+      - index
+      - show
+    - id: contract_therapy
+      controller_actions:
+      - index
+      - show
+    - id: therapy
+      controller_actions:
+      - index
+      - show
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: billing
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: front_desk
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: manager
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: member_support
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: revenue_cycle_management
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+  dev_tools:
+    scoped_roles: []
+    unscoped_roles:
+    - id: can_use_devtools
+      controller_actions:
+      - index
+    - id: developer
+      controller_actions:
+      - index
+  eligibility_request:
+    scoped_roles:
+    - id: care_guide
+      controller_actions:
+      - create
+    - id: coaching
+      controller_actions:
+      - create
+    - id: therapy
+      controller_actions:
+      - create
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+    - id: billing
+      controller_actions:
+      - create
+    - id: front_desk
+      controller_actions:
+      - create
+    - id: engagement_specialist
+      controller_actions:
+      - create
+    - id: manager
+      controller_actions:
+      - create
+    - id: member_support
+      controller_actions:
+      - create
+    - id: revenue_cycle_management
+      controller_actions:
+      - create
+  eligibility_verification:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+    - id: revenue_cycle_management
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+    - id: front_desk
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+  goal:
+    scoped_roles:
+    - id: care_guide
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: care_guide_chat_only
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: coaching
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: contract_therapy
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: therapy
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: billing
+      controller_actions:
+      - index
+      - show
+    - id: care_ops
+      controller_actions:
+      - index
+      - show
+    - id: front_desk
+      controller_actions:
+      - index
+      - show
+    - id: engagement_specialist
+      controller_actions:
+      - index
+      - show
+    - id: manager
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: medication_management
+      controller_actions:
+      - index
+      - show
+    - id: member_support
+      controller_actions:
+      - index
+      - show
+    - id: revenue_cycle_management
+      controller_actions:
+      - index
+      - show
+  healthie_note:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - index
+      special_actions:
+      - manage_notes
+    - id: front_desk
+      controller_actions:
+      - index
+      special_actions:
+      - manage_notes
+    - id: engagement_specialist
+      controller_actions:
+      - index
+      special_actions:
+      - manage_notes
+    - id: member_support
+      controller_actions:
+      - index
+      special_actions:
+      - manage_notes
+  invoice:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: billing
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: front_desk
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: manager
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: member_support
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+  lead_sources:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: manager
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: developer
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+  marketing_address_verification:
+    scoped_roles: []
+    unscoped_roles:
+    - id: marketing_admin
+      controller_actions:
+      - create
+      - index
+      - show
+  marketing_direct_mailer_series:
+    scoped_roles: []
+    unscoped_roles:
+    - id: marketing_admin
+      controller_actions:
+      - create
+      - index
+  marketing_direct_mailer_template:
+    scoped_roles: []
+    unscoped_roles:
+    - id: marketing_admin
+      controller_actions:
+      - create
+      - index
+      - update
+  marketing_direct_mailer_template_group:
+    scoped_roles: []
+    unscoped_roles:
+    - id: marketing_admin
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+  marketing_iterable_import:
+    scoped_roles: []
+    unscoped_roles:
+    - id: marketing_admin
+      controller_actions:
+      - create
+      - index
+      - show
+  marketing_journey_configuration:
+    scoped_roles: []
+    unscoped_roles:
+    - id: marketing_admin
+      controller_actions:
+      - create
+      - index
+      - update
+  marketing_merge_file_process:
+    scoped_roles: []
+    unscoped_roles:
+    - id: marketing_admin
+      controller_actions:
+      - create
+      - index
+      - show
+  marketing_processes:
+    scoped_roles: []
+    unscoped_roles:
+    - id: marketing_admin
+      controller_actions:
+      - index
+  marketing_split_file_adapter:
+    scoped_roles: []
+    unscoped_roles:
+    - id: marketing_admin
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+  marketing_split_file_process:
+    scoped_roles: []
+    unscoped_roles:
+    - id: marketing_admin
+      controller_actions:
+      - create
+      - index
+      - show
+  medical_history:
+    scoped_roles:
+    - id: care_guide
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: care_guide_chat_only
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: coaching
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: contract_therapy
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: therapy
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: front_desk
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: manager
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: medication_management
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: member_support
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+  member_name:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - update
+    - id: care_guide
+      controller_actions:
+      - update
+    - id: front_desk
+      controller_actions:
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - update
+    - id: member_support
+      controller_actions:
+      - update
+  member_outreach:
+    scoped_roles:
+    - id: care_guide
+      controller_actions:
+      - show
+    - id: coaching
+      controller_actions:
+      - show
+    - id: contract_therapy
+      controller_actions:
+      - show
+    - id: therapy
+      controller_actions:
+      - show
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - show
+    - id: billing
+      controller_actions:
+      - show
+    - id: care_ops
+      controller_actions:
+      - show
+    - id: front_desk
+      controller_actions:
+      - show
+    - id: engagement_specialist
+      controller_actions:
+      - show
+    - id: manager
+      controller_actions:
+      - show
+    - id: medication_management
+      controller_actions:
+      - show
+    - id: member_support
+      controller_actions:
+      - show
+    - id: revenue_cycle_management
+      controller_actions:
+      - show
+  member_support_conversation:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+    - id: member_support
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+  note:
+    scoped_roles:
+    - id: care_guide
+      controller_actions:
+      - create
+      - update
+    - id: care_guide_chat_only
+      controller_actions:
+      - create
+      - update
+    - id: coaching
+      controller_actions:
+      - create
+      - update
+    - id: contract_therapy
+      controller_actions:
+      - create
+      - update
+    - id: therapy
+      controller_actions:
+      - create
+      - update
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - update
+    - id: care_ops
+      controller_actions:
+      - create
+      - update
+    - id: front_desk
+      controller_actions:
+      - create
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - create
+      - update
+    - id: manager
+      controller_actions:
+      - create
+      - update
+    - id: medication_management
+      controller_actions:
+      - create
+      - update
+    - id: member_support
+      controller_actions:
+      - create
+      - update
+  ongoing_care_recommendation:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - index
+      - update
+    - id: manager
+      controller_actions:
+      - index
+      - update
+  out_of_office_block:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - update
+    - id: manager
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - update
+  paperwork_assignment:
+    scoped_roles:
+    - id: care_guide
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: care_guide_chat_only
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: coaching
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: contract_therapy
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: therapy
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: billing
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: care_ops
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: front_desk
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: manager
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: medication_management
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: member_support
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+  phone_desk_accounts:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+    - id: front_desk
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+    - id: member_support
+      controller_actions:
+      - create
+      - index
+      - show
+      - update
+  prior_authorization_record:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: revenue_cycle_management
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: front_desk
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: enagagement_specialist
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+  promotion:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: billing
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: front_desk
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: member_support
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+  reminder:
+    scoped_roles:
+    - id: care_guide
+      controller_actions:
+      - index
+      - update
+    - id: care_guide_chat_only
+      controller_actions:
+      - index
+      - update
+    - id: coaching
+      controller_actions:
+      - index
+      - update
+    - id: contract_therapy
+      controller_actions:
+      - index
+      - update
+    - id: therapy
+      controller_actions:
+      - index
+      - update
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - destroy
+      - index
+      - update
+      special_actions:
+      - filter_by_clinic
+    - id: billing
+      controller_actions:
+      - destroy
+      - index
+      - update
+      special_actions:
+      - filter_by_clinic
+    - id: care_ops
+      controller_actions:
+      - destroy
+      - index
+      - update
+    - id: front_desk
+      controller_actions:
+      - destroy
+      - index
+      - update
+      special_actions:
+      - filter_by_clinic
+    - id: engagement_specialist
+      controller_actions:
+      - destroy
+      - index
+      - update
+    - id: manager
+      controller_actions:
+      - index
+      - update
+    - id: medication_management
+      controller_actions:
+      - destroy
+      - index
+      - update
+    - id: member_support
+      controller_actions:
+      - destroy
+      - index
+      - update
+      special_actions:
+      - filter_by_clinic
+    - id: revenue_cycle_management
+      controller_actions:
+      - destroy
+      - index
+      - update
+  scheduled_notification:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - index
+      - update
+    - id: developer
+      controller_actions:
+      - index
+      - update
+  service_line_enrollment:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - index
+    - id: member_support
+      controller_actions:
+      - index
+  square_payment:
+    scoped_roles:
+    - id: care_guide
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: care_guide_chat_only
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: coaching
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: contract_therapy
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: therapy
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: billing
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: front_desk
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: manager
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: member_support
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+  staffer:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - show
+      - update
+    - id: manager
+      controller_actions:
+      - index
+      - show
+  supervisor_trainee_relationship:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+    - id: care_ops
+      controller_actions:
+      - create
+      - destroy
+    - id: manager
+      controller_actions:
+      - create
+      - destroy
+  supplemental_chat_coach:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+    - id: care_ops
+      controller_actions:
+      - create
+      - destroy
+    - id: manager
+      controller_actions:
+      - create
+      - destroy
+  wait_list_entries:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - update
+    - id: billing
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - update
+    - id: care_ops
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - update
+    - id: front_desk
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - update
+    - id: engagement_specialist
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - update
+    - id: member_support
+      controller_actions:
+      - create
+      - destroy
+      - index
+      - update
+  slot_recapture_opportunities:
+    scoped_roles: []
+    unscoped_roles:
+    - id: admin
+      controller_actions:
+      - index
+      - show
+      special_actions:
+      - filled
+      - expired
+    - id: care_guide
+      controller_actions:
+      - index
+      - show
+      special_actions:
+      - filled
+      - expired
+    - id: care_ops
+      controller_actions:
+      - index
+      - show
+      special_actions:
+      - filled
+      - expired
+    - id: front_desk
+      controller_actions:
+      - index
+      - show
+      special_actions:
+      - filled
+      - expired
+    - id: member_support
+      controller_actions:
+      - index
+      - show
+      special_actions:
+      - filled
+      - expired

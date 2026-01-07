@@ -1,0 +1,42 @@
+# frozen_string_literal: true
+
+module Staffers
+  module SlotRecapture
+    class PhoneCallOutreachModal < ApplicationComponent
+      def initialize(opportunity:, entry:)
+        @opportunity = opportunity
+        @entry = entry
+      end
+
+      erb_template <<~ERB
+        <%= turbo_frame_tag :modal do %>
+          <%= render(Staffers::Modal.new(body_classes: "overflow-y-auto")) do |modal| %>
+            <% modal.with_header do %>
+              Log phone call
+            <% end %>
+            <% modal.with_body do %>
+              <div class="mb-4">
+                <p class="text-sm text-gray-600">Contacting family for slot:</p>
+                <p class="font-semibold"><%= @opportunity.staffer.full_name %></p>
+                <p class="text-sm"><%= @opportunity.start_time.strftime("%B %d, %Y at %l:%M %p") %></p>
+              </div>
+
+              <div class="mb-4 p-3 bg-gray-50 rounded">
+                <p class="text-sm text-gray-600">Patient</p>
+                <p class="font-semibold"><%= @entry.care_case.patient_full_name.presence || @entry.care_case.brightline_id %></p>
+              </div>
+
+              <%= form_with scope: :outreach_event, url: slot_recapture_opportunity_outreach_attempts_path(@opportunity, wait_list_entry_id: @entry.id), builder: WaveFormBuilder do |f| %>
+                <%= hidden_field_tag :mode, WaitList::OutreachAttempt::Mode.phone_call %>
+                <%= f.field :select, :event_name, label: "Call outcome", required: true, prompt: "Select an outcome",
+                      options: WaitList::OutreachAttempt::Event::EventName.phone_call_options.invert %>
+
+                <%= f.actions "Save call" %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      ERB
+    end
+  end
+end

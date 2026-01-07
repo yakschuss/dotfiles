@@ -1,0 +1,43 @@
+# frozen_string_literal: true
+
+module SlotRecapture
+  class OpportunitiesController < BaseController
+    layout "application_strapless"
+    navbar_collapsed
+
+    before_action :ensure_feature_enabled
+    before_action :set_opportunity, only: %i[show filled expired]
+
+    def index
+      authorize Opportunity, policy_class: OpportunityPolicy
+      @opportunities = Opportunity.actionable.by_start_time.includes(:staffer, :clinic, :cancelled_appointment)
+    end
+
+    def show
+      @matches = Matcher.new.find_matches(@opportunity)
+    end
+
+    def filled
+      @opportunity.filled!
+      flash[:success] = "Opportunity marked as filled"
+      redirect_to slot_recapture_opportunities_path
+    end
+
+    def expired
+      @opportunity.expired!
+      flash[:success] = "Opportunity marked as expired"
+      redirect_to slot_recapture_opportunities_path
+    end
+
+    private
+
+    def ensure_feature_enabled
+      raise ActiveRecord::RecordNotFound unless Flipper.enabled?(:slot_recapture_enabled)
+    end
+
+    def set_opportunity
+      @opportunity = Opportunity.find(params[:id])
+      authorize @opportunity, policy_class: OpportunityPolicy
+    end
+  end
+end

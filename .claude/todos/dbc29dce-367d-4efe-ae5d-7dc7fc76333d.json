@@ -1,0 +1,32 @@
+[
+  {
+    "content": "Discover and read applicable rules from .rules/ directory",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Create the Rails generator directory structure",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Create the generator class with template logic",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Create the markdown template file",
+    "status": "completed",
+    "priority": "high",
+    "id": "4"
+  },
+  {
+    "content": "Test the generator to ensure it works correctly",
+    "status": "in_progress",
+    "priority": "medium",
+    "id": "5"
+  }
+]

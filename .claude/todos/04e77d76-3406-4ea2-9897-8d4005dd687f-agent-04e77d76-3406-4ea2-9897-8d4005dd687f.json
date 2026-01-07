@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Review Redis-dependent components and identify issues",
+    "status": "completed",
+    "priority": "high",
+    "id": "review_redis_usage"
+  },
+  {
+    "content": "Analyze digest manager and storage pattern",
+    "status": "completed",
+    "priority": "high",
+    "id": "analyze_digest_manager"
+  },
+  {
+    "content": "Identify architectural issues with current implementation",
+    "status": "completed",
+    "priority": "high",
+    "id": "identify_issues"
+  },
+  {
+    "content": "Propose database-backed notification digest solution",
+    "status": "completed",
+    "priority": "high",
+    "id": "propose_solution"
+  }
+]

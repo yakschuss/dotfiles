@@ -1,0 +1,79 @@
+# frozen_string_literal: true
+
+module SlotRecapture
+  class CancellationHandler
+    include EventSystem::Listener
+
+    on(AppointmentCanceledEvent) do |event|
+      next unless Flipper.enabled?(:slot_recapture_enabled)
+
+      new.handle(event)
+    end
+
+    def initialize(eligibility_filter: EligibilityFilter.new, opportunity_creator: OpportunityCreator.new)
+      @eligibility_filter = eligibility_filter
+      @opportunity_creator = opportunity_creator
+    end
+
+    def handle(event)
+      appointment = event.appointment
+      appointment_cancelation = event.appointment_cancelation
+
+      eligibility = @eligibility_filter.check(
+        appointment: appointment,
+        appointment_cancelation: appointment_cancelation
+      )
+
+      unless eligibility.eligible?
+        Rails.logger.info("[SlotRecapture] Skipping ineligible cancellation: #{eligibility.reason}")
+        return
+      end
+
+      result = @opportunity_creator.call(
+        appointment: appointment,
+        appointment_cancelation: appointment_cancelation
+      )
+
+      if result.success?
+        VerifyAvailabilityJob.perform_later(result.opportunity.id)
+      else
+        Rails.logger.error("[SlotRecapture] Failed to create opportunity: #{result.errors.join(", ")}")
+      end
+    end
+
+    class VerifyAvailabilityJob < ApplicationJob
+      sidekiq_options queue: :low, retry: 2
+
+      def perform(opportunity_id)
+        opportunity = Opportunity.find_by(id: opportunity_id)
+        return unless opportunity&.pending_verification?
+
+        available = check_acuity_availability(opportunity)
+
+        if available
+          opportunity.open!
+          opportunity.update!(slot_verified_at: Time.current)
+        else
+          opportunity.ineligible!
+        end
+      end
+
+      private
+
+      def check_acuity_availability(opportunity)
+        result = Acuity::Api::Availability::CheckTimes.for(
+          candidate_times: [{
+            datetime: opportunity.start_time,
+            appointment_type_id: AppointmentType.find(opportunity.appointment_type_id).acuity_id,
+            calendar_id: opportunity.staffer.acuity_calendar_id
+          }]
+        )
+
+        result.first&.dig(:valid) == true
+      rescue => e
+        Rails.logger.error("[SlotRecapture] Acuity availability check failed: #{e.message}")
+        false
+      end
+    end
+  end
+end

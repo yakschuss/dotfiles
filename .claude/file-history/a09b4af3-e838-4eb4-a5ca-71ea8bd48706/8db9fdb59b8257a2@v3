@@ -1,0 +1,22 @@
+# frozen_string_literal: true
+
+module Chat
+  class StafferChannelList
+    include Enumerable
+
+    delegate :length, :size, :empty?, to: :@channels
+
+    def initialize(channels)
+      @channels = channels
+    end
+
+    def each(&block)
+      @channels.each(&block)
+    end
+
+    def for_care_case(care_case_id)
+      filtered = @channels.select { |channel| channel.care_case_id == care_case_id }
+      self.class.new(filtered)
+    end
+  end
+end

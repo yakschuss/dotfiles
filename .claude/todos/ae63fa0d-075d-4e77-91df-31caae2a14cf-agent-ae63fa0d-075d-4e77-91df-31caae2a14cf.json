@@ -1,0 +1,20 @@
+[
+  {
+    "content": "Fix error display in clinic verification template",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Update controller spec mock to return a clinic",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Run tests to verify fixes",
+    "status": "completed",
+    "priority": "medium",
+    "id": "3"
+  }
+]

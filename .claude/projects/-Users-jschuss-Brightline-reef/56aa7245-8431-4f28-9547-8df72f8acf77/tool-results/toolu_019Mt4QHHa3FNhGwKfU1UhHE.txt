@@ -1,0 +1,1605 @@
+     1→# Slot Recapture Implementation Spec
+     2→
+     3→## Overview
+     4→
+     5→When appointments are cancelled with sufficient lead time, surface the freed slot to ops with ranked waitlist matches. Ops initiates outreach manually. All matching logic is configurable via UI so ops can tune weights and thresholds without engineering involvement.
+     6→
+     7→**Goal**: Increase completed recapture rate from 13.66% to 20-25%.
+     8→
+     9→**Scope**: Ops-facing tool only. Member-facing automated offers are future scope.
+    10→
+    11→**Feature Flag**: `slot_recapture_enabled` (Flipper)
+    12→
+    13→---
+    14→
+    15→## Codebase Conventions (MUST FOLLOW)
+    16→
+    17→### Testing
+    18→- RSpec + FactoryBot
+    19→- NO `let`/`let!` — use explicit `FactoryBot.create` inline
+    20→- Use traits for variants: `:active`, `:scheduled`, `:with_care_case`
+    21→- `context` for scenarios, `describe` for methods
+    22→
+    23→### State Management
+    24→- Use custom `StateMachine` concern (NOT AASM)
+    25→- Pattern: `include StateMachine` + `state_machine :status do` block
+    26→- Define `Status = Enum.new(%w[...])` and `enum :status, Status.as_string_map`
+    27→
+    28→### Event Listeners
+    29→- `include EventSystem::Listener`
+    30→- `on(EventClass) do |event|` block
+    31→- Listeners are classes under domain namespace in `app/models/`
+    32→- Nest related jobs inside the listener class
+    33→
+    34→### Jobs
+    35→- Inherit from `ApplicationJob`
+    36→- Use `sidekiq_options queue: :low, retry: 2`
+    37→- Enqueue with `perform_later`
+    38→
+    39→### Services/POROs
+    40→- Live in `app/models/` under domain namespace (no `app/services/`)
+    41→- Use `Struct`-based results: `Result = Struct.new(:data, :failed, :errors, keyword_init: true)`
+    42→
+    43→### Controllers
+    44→- Inherit from namespace base controller (`Staffers::BaseController`)
+    45→- `authorize` at start of action (Pundit)
+    46→- `filter_params` as private method
+    47→- Use `pagy` for pagination
+    48→
+    49→### Views
+    50→- ViewComponent in `app/components/`
+    51→- Tailwind CSS
+    52→- `prism-button-primary`, `prism-button-secondary` for buttons
+    53→- `bootstrap_form_with` or `wave_form_with` for forms
+    54→
+    55→### Authorization
+    56→- Pundit policies
+    57→- Capabilities defined in `config/models/capabilities.yml`
+    58→- Access policies in `config/models/access_policies.yml`
+    59→- Gate with `current_staffer.has_capability?(Capability.admin)`
+    60→
+    61→### Configuration Storage
+    62→- Versioned rows with JSONB `data` column
+    63→- `ActiveModel::Attributes` for nested config structure
+    64→- `self.current` class method returns latest or new instance
+    65→
+    66→### Flash Messages
+    67→- `flash[:success]`, `flash[:error]`
+    68→- `flash.now[:error]` for render (not redirect)
+    69→
+    70→---
+    71→
+    72→## Data Model
+    73→
+    74→### Migration 1: SlotRecapture::Opportunity
+    75→
+    76→```ruby
+    77→# db/migrate/XXXXXX_create_slot_recapture_opportunities.rb
+    78→class CreateSlotRecaptureOpportunities < ActiveRecord::Migration[7.0]
+    79→  def change
+    80→    create_table :slot_recapture_opportunities, id: :uuid do |t|
+    81→      t.references :cancelled_appointment, type: :uuid, null: false, foreign_key: { to_table: :appointments }, index: { unique: true }
+    82→      t.references :staffer, type: :uuid, null: false, foreign_key: true
+    83→      t.string :appointment_type_id, null: false
+    84→      t.string :root_appointment_type_id, null: false
+    85→      t.references :clinic, type: :uuid, null: false, foreign_key: true
+    86→      t.string :region_id, null: false
+    87→      t.datetime :start_time, null: false
+    88→      t.integer :lead_time_hours, null: false
+    89→      t.string :status, null: false, default: 'pending_verification'
+    90→      t.datetime :slot_verified_at
+    91→      t.timestamps
+    92→    end
+    93→
+    94→    add_index :slot_recapture_opportunities, :status
+    95→    add_index :slot_recapture_opportunities, :start_time
+    96→  end
+    97→end
+    98→```
+    99→
+   100→### Migration 2: Extend OutreachAttempt
+   101→
+   102→```ruby
+   103→# db/migrate/XXXXXX_add_slot_offer_fields_to_outreach_attempts.rb
+   104→class AddSlotOfferFieldsToOutreachAttempts < ActiveRecord::Migration[7.0]
+   105→  def change
+   106→    add_column :wait_list_outreach_attempts, :slot_recapture_opportunity_id, :uuid
+   107→    add_column :wait_list_outreach_attempts, :offer_type, :string, default: 'general', null: false
+   108→    add_foreign_key :wait_list_outreach_attempts, :slot_recapture_opportunities, column: :slot_recapture_opportunity_id
+   109→    add_index :wait_list_outreach_attempts, :slot_recapture_opportunity_id
+   110→  end
+   111→end
+   112→```
+   113→
+   114→### Migration 3: Configuration Table
+   115→
+   116→```ruby
+   117→# db/migrate/XXXXXX_create_slot_recapture_configurations.rb
+   118→class CreateSlotRecaptureConfigurations < ActiveRecord::Migration[7.0]
+   119→  def change
+   120→    create_table :slot_recapture_configurations, id: :uuid do |t|
+   121→      t.jsonb :data, null: false, default: {}
+   122→      t.references :created_by, type: :uuid, foreign_key: { to_table: :staffers }
+   123→      t.datetime :created_at, null: false
+   124→    end
+   125→  end
+   126→end
+   127→```
+   128→
+   129→---
+   130→
+   131→## Models
+   132→
+   133→### SlotRecapture::Opportunity
+   134→
+   135→```ruby
+   136→# app/models/slot_recapture/opportunity.rb
+   137→module SlotRecapture
+   138→  class Opportunity < ApplicationRecord
+   139→    include StateMachine
+   140→
+   141→    self.table_name = 'slot_recapture_opportunities'
+   142→
+   143→    belongs_to :cancelled_appointment, class_name: 'Appointment'
+   144→    belongs_to :staffer
+   145→    belongs_to :clinic
+   146→    has_many :outreach_attempts, class_name: 'WaitList::OutreachAttempt', foreign_key: :slot_recapture_opportunity_id
+   147→
+   148→    Status = Enum.new(%w[pending_verification open offered filled expired ineligible])
+   149→
+   150→    enum :status, Status.as_string_map, default: Status.pending_verification
+   151→
+   152→    state_machine :status do
+   153→      from Status.pending_verification, to: [Status.open, Status.ineligible]
+   154→      from Status.open, to: [Status.offered, Status.expired]
+   155→      from Status.offered, to: [Status.filled, Status.open, Status.expired]
+   156→    end
+   157→
+   158→    scope :actionable, -> { where(status: [Status.open, Status.offered]) }
+   159→    scope :pending, -> { where(status: Status.pending_verification) }
+   160→    scope :by_start_time, -> { order(:start_time) }
+   161→
+   162→    validates :cancelled_appointment_id, uniqueness: true
+   163→
+   164→    def hours_until_start
+   165→      ((start_time - Time.current) / 1.hour).round
+   166→    end
+   167→
+   168→    def active_outreach_attempt
+   169→      outreach_attempts.active.first
+   170→    end
+   171→  end
+   172→end
+   173→```
+   174→
+   175→### SlotRecapture::Configuration
+   176→
+   177→```ruby
+   178→# app/models/slot_recapture/configuration.rb
+   179→module SlotRecapture
+   180→  class Configuration < ApplicationRecord
+   181→    self.table_name = 'slot_recapture_configurations'
+   182→
+   183→    attribute :data, AttributeTypes::JsonModel.new(SlotRecapture::ConfigurationData)
+   184→
+   185→    belongs_to :created_by, class_name: 'Staffer', optional: true
+   186→
+   187→    def self.current
+   188→      order(:created_at).last || new(data: ConfigurationData.new)
+   189→    end
+   190→  end
+   191→end
+   192→```
+   193→
+   194→### SlotRecapture::ConfigurationData
+   195→
+   196→```ruby
+   197→# app/models/slot_recapture/configuration_data.rb
+   198→module SlotRecapture
+   199→  class ConfigurationData
+   200→    include ActiveModel::API
+   201→    include ActiveModel::Attributes
+   202→
+   203→    # Weights (should sum to 1.0)
+   204→    attribute :weight_same_provider, :float, default: 0.4
+   205→    attribute :weight_clinic_match, :float, default: 0.25
+   206→    attribute :weight_exact_type, :float, default: 0.15
+   207→    attribute :weight_priority, :float, default: 0.1
+   208→    attribute :weight_wait_time, :float, default: 0.1
+   209→
+   210→    # Thresholds
+   211→    attribute :lead_time_hours_minimum, :integer, default: 24
+   212→    attribute :wait_time_cap_days, :integer, default: 90
+   213→    attribute :matches_per_opportunity, :integer, default: 5
+   214→
+   215→    # Matching rules
+   216→    attribute :empty_clinic_ids_means_any, :boolean, default: true
+   217→    attribute :clinic_mismatch_excludes, :boolean, default: false
+   218→    attribute :same_provider_check, :string, default: 'primary_only' # or 'all_staffers'
+   219→
+   220→    # Behavior
+   221→    attribute :auto_detect_filled, :boolean, default: true
+   222→    attribute :allow_reopen_after_outreach_expires, :boolean, default: true
+   223→
+   224→    def weights
+   225→      {
+   226→        same_provider: weight_same_provider,
+   227→        clinic_match: weight_clinic_match,
+   228→        exact_type: weight_exact_type,
+   229→        priority: weight_priority,
+   230→        wait_time: weight_wait_time
+   231→      }
+   232→    end
+   233→
+   234→    def weights_valid?
+   235→      weights.values.sum.between?(0.99, 1.01)
+   236→    end
+   237→  end
+   238→end
+   239→```
+   240→
+   241→### SlotRecapture::Match (Value Object)
+   242→
+   243→```ruby
+   244→# app/models/slot_recapture/match.rb
+   245→module SlotRecapture
+   246→  class Match
+   247→    attr_reader :entry, :opportunity, :score, :breakdown
+   248→
+   249→    def initialize(entry:, opportunity:, score:, breakdown:)
+   250→      @entry = entry
+   251→      @opportunity = opportunity
+   252→      @score = score
+   253→      @breakdown = breakdown
+   254→    end
+   255→
+   256→    def same_provider?
+   257→      breakdown[:same_provider] > 0
+   258→    end
+   259→
+   260→    def clinic_match?
+   261→      breakdown[:clinic_match] > 0
+   262→    end
+   263→
+   264→    def quality
+   265→      return :strong if score >= 0.7
+   266→      return :partial if score >= 0.4
+   267→      :weak
+   268→    end
+   269→
+   270→    # Delegate to entry for convenience
+   271→    def care_case
+   272→      entry.care_case
+   273→    end
+   274→
+   275→    def patient
+   276→      care_case.patient
+   277→    end
+   278→
+   279→    def caregivers
+   280→      care_case.caregivers
+   281→    end
+   282→
+   283→    def contact_email
+   284→      care_case.account.owner&.email || patient&.email
+   285→    end
+   286→
+   287→    def contact_phone
+   288→      care_case.account.owner&.phone_number || patient&.phone_number
+   289→    end
+   290→  end
+   291→end
+   292→```
+   293→
+   294→### Extend WaitList::OutreachAttempt
+   295→
+   296→```ruby
+   297→# Add to existing app/models/wait_list/outreach_attempt.rb
+   298→
+   299→# Add these lines to the existing model:
+   300→
+   301→belongs_to :slot_recapture_opportunity, 
+   302→           class_name: 'SlotRecapture::Opportunity', 
+   303→           optional: true
+   304→
+   305→OfferType = Enum.new(%w[general slot_offer])
+   306→enum :offer_type, OfferType.as_string_map, default: OfferType.general
+   307→
+   308→scope :slot_offers, -> { where(offer_type: OfferType.slot_offer) }
+   309→```
+   310→
+   311→---
+   312→
+   313→## Services
+   314→
+   315→### SlotRecapture::EligibilityFilter
+   316→
+   317→```ruby
+   318→# app/models/slot_recapture/eligibility_filter.rb
+   319→module SlotRecapture
+   320→  class EligibilityFilter
+   321→    Result = Struct.new(:eligible, :reason, keyword_init: true) do
+   322→      def eligible?
+   323→        eligible
+   324→      end
+   325→    end
+   326→
+   327→    def initialize(config: Configuration.current.data)
+   328→      @config = config
+   329→    end
+   330→
+   331→    def check(appointment:, appointment_cancelation:)
+   332→      # Check lead time
+   333→      lead_time_hours = ((appointment.start_time - Time.current) / 1.hour).to_i
+   334→      if lead_time_hours < @config.lead_time_hours_minimum
+   335→        return Result.new(eligible: false, reason: "Lead time #{lead_time_hours}h < minimum #{@config.lead_time_hours_minimum}h")
+   336→      end
+   337→
+   338→      # Check cancellation reason allows slot reuse
+   339→      if appointment_cancelation&.reason.present?
+   340→        cancelation_reason = CancelationReason.find_by_id(appointment_cancelation.reason)
+   341→        if cancelation_reason && !cancelation_reason.slot_enabled?
+   342→          return Result.new(eligible: false, reason: "Cancellation reason '#{appointment_cancelation.reason}' not slot-enabled")
+   343→        end
+   344→      end
+   345→
+   346→      # Check appointment type is waitlistable
+   347→      root_type = appointment.appointment_type&.root_appointment_type_id
+   348→      unless WaitList::Entry.root_appointment_types.include?(root_type)
+   349→        return Result.new(eligible: false, reason: "Appointment type '#{root_type}' not waitlistable")
+   350→      end
+   351→
+   352→      Result.new(eligible: true, reason: nil)
+   353→    end
+   354→  end
+   355→end
+   356→```
+   357→
+   358→### SlotRecapture::Matcher
+   359→
+   360→```ruby
+   361→# app/models/slot_recapture/matcher.rb
+   362→module SlotRecapture
+   363→  class Matcher
+   364→    def initialize(config: Configuration.current.data)
+   365→      @config = config
+   366→    end
+   367→
+   368→    def matches_for(opportunity)
+   369→      entries = base_query(opportunity)
+   370→      entries = apply_clinic_filter(entries, opportunity)
+   371→      
+   372→      entries
+   373→        .map { |entry| build_match(entry, opportunity) }
+   374→        .sort_by { |m| -m.score }
+   375→        .first(@config.matches_per_opportunity)
+   376→    end
+   377→
+   378→    private
+   379→
+   380→    def base_query(opportunity)
+   381→      WaitList::Entry
+   382→        .active
+   383→        .with_root_appointment_type_id(opportunity.root_appointment_type_id)
+   384→        .with_region(opportunity.region_id)
+   385→        .includes(care_case: [:patient, :caregivers, :account, :clinical_roles])
+   386→    end
+   387→
+   388→    def apply_clinic_filter(entries, opportunity)
+   389→      return entries unless @config.clinic_mismatch_excludes
+   390→
+   391→      entries.select do |entry|
+   392→        entry.clinic_ids.blank? || entry.clinic_ids.include?(opportunity.clinic_id)
+   393→      end
+   394→    end
+   395→
+   396→    def build_match(entry, opportunity)
+   397→      breakdown = calculate_breakdown(entry, opportunity)
+   398→      score = breakdown.values.sum
+   399→
+   400→      Match.new(
+   401→        entry: entry,
+   402→        opportunity: opportunity,
+   403→        score: score,
+   404→        breakdown: breakdown
+   405→      )
+   406→    end
+   407→
+   408→    def calculate_breakdown(entry, opportunity)
+   409→      weights = @config.weights
+   410→
+   411→      {
+   412→        same_provider: same_provider_score(entry, opportunity) * weights[:same_provider],
+   413→        clinic_match: clinic_match_score(entry, opportunity) * weights[:clinic_match],
+   414→        exact_type: exact_type_score(entry, opportunity) * weights[:exact_type],
+   415→        priority: priority_score(entry) * weights[:priority],
+   416→        wait_time: wait_time_score(entry) * weights[:wait_time]
+   417→      }
+   418→    end
+   419→
+   420→    def same_provider_score(entry, opportunity)
+   421→      provider_ids = if @config.same_provider_check == 'all_staffers'
+   422→                       entry.care_case.staffers.pluck(:id)
+   423→                     else
+   424→                       [entry.care_case.primary_staffer&.id].compact
+   425→                     end
+   426→
+   427→      provider_ids.include?(opportunity.staffer_id) ? 1.0 : 0.0
+   428→    end
+   429→
+   430→    def clinic_match_score(entry, opportunity)
+   431→      return 1.0 if entry.clinic_ids.blank? && @config.empty_clinic_ids_means_any
+   432→      return 1.0 if entry.clinic_ids.include?(opportunity.clinic_id)
+   433→      0.0
+   434→    end
+   435→
+   436→    def exact_type_score(entry, opportunity)
+   437→      return 1.0 if entry.appointment_type_id == opportunity.appointment_type_id
+   438→      0.0
+   439→    end
+   440→
+   441→    def priority_score(entry)
+   442→      entry.priority? ? 1.0 : 0.0
+   443→    end
+   444→
+   445→    def wait_time_score(entry)
+   446→      days_waiting = (Time.current.to_date - entry.added_at.to_date).to_i
+   447→      capped_days = [days_waiting, @config.wait_time_cap_days].min
+   448→      capped_days.to_f / @config.wait_time_cap_days
+   449→    end
+   450→  end
+   451→end
+   452→```
+   453→
+   454→### SlotRecapture::OpportunityCreator
+   455→
+   456→```ruby
+   457→# app/models/slot_recapture/opportunity_creator.rb
+   458→module SlotRecapture
+   459→  class OpportunityCreator
+   460→    Result = Struct.new(:opportunity, :failed, :errors, keyword_init: true) do
+   461→      def success?
+   462→        !failed
+   463→      end
+   464→    end
+   465→
+   466→    def call(appointment:, appointment_cancelation:)
+   467→      lead_time_hours = ((appointment.start_time - Time.current) / 1.hour).to_i
+   468→
+   469→      opportunity = Opportunity.create(
+   470→        cancelled_appointment: appointment,
+   471→        staffer_id: appointment.staffer_id,
+   472→        appointment_type_id: appointment.appointment_type_id,
+   473→        root_appointment_type_id: appointment.appointment_type.root_appointment_type_id,
+   474→        clinic_id: appointment.clinic_id,
+   475→        region_id: appointment.region_id,
+   476→        start_time: appointment.start_time,
+   477→        lead_time_hours: lead_time_hours,
+   478→        status: Opportunity::Status.pending_verification
+   479→      )
+   480→
+   481→      if opportunity.persisted?
+   482→        Result.new(opportunity: opportunity, failed: false, errors: [])
+   483→      else
+   484→        Result.new(opportunity: nil, failed: true, errors: opportunity.errors.full_messages)
+   485→      end
+   486→    end
+   487→  end
+   488→end
+   489→```
+   490→
+   491→---
+   492→
+   493→## Event Listener
+   494→
+   495→### SlotRecapture::CancellationHandler
+   496→
+   497→```ruby
+   498→# app/models/slot_recapture/cancellation_handler.rb
+   499→module SlotRecapture
+   500→  class CancellationHandler
+   501→    include EventSystem::Listener
+   502→
+   503→    on(AppointmentCanceledEvent) do |event|
+   504→      return unless Flipper.enabled?(:slot_recapture_enabled)
+   505→
+   506→      new.handle(event)
+   507→    end
+   508→
+   509→    def handle(event)
+   510→      appointment = event.appointment
+   511→      appointment_cancelation = event.appointment_cancelation
+   512→
+   513→      # Check eligibility
+   514→      eligibility = EligibilityFilter.new.check(
+   515→        appointment: appointment,
+   516→        appointment_cancelation: appointment_cancelation
+   517→      )
+   518→
+   519→      unless eligibility.eligible?
+   520→        Rails.logger.info("[SlotRecapture] Skipping ineligible cancellation: #{eligibility.reason}")
+   521→        return
+   522→      end
+   523→
+   524→      # Create opportunity
+   525→      result = OpportunityCreator.new.call(
+   526→        appointment: appointment,
+   527→        appointment_cancelation: appointment_cancelation
+   528→      )
+   529→
+   530→      if result.success?
+   531→        VerifyAvailabilityJob.perform_later(result.opportunity.id)
+   532→      else
+   533→        Rails.logger.error("[SlotRecapture] Failed to create opportunity: #{result.errors.join(', ')}")
+   534→      end
+   535→    end
+   536→
+   537→    class VerifyAvailabilityJob < ApplicationJob
+   538→      sidekiq_options queue: :low, retry: 2
+   539→
+   540→      def perform(opportunity_id)
+   541→        opportunity = Opportunity.find_by(id: opportunity_id)
+   542→        return unless opportunity&.pending_verification?
+   543→
+   544→        available = check_acuity_availability(opportunity)
+   545→
+   546→        if available
+   547→          opportunity.open!
+   548→          opportunity.update!(slot_verified_at: Time.current)
+   549→        else
+   550→          opportunity.ineligible!
+   551→        end
+   552→      end
+   553→
+   554→      private
+   555→
+   556→      def check_acuity_availability(opportunity)
+   557→        result = Acuity::Api::Availability::CheckTimes.for(
+   558→          candidate_times: [{
+   559→            datetime: opportunity.start_time,
+   560→            appointment_type_id: AppointmentType.find(opportunity.appointment_type_id).acuity_id,
+   561→            calendar_id: opportunity.staffer.acuity_calendar_id
+   562→          }]
+   563→        )
+   564→
+   565→        result.first&.dig(:valid) == true
+   566→      rescue StandardError => e
+   567→        Rails.logger.error("[SlotRecapture] Acuity availability check failed: #{e.message}")
+   568→        false
+   569→      end
+   570→    end
+   571→  end
+   572→end
+   573→```
+   574→
+   575→### SlotRecapture::FilledDetector (Auto-detect when slot is booked)
+   576→
+   577→```ruby
+   578→# app/models/slot_recapture/filled_detector.rb
+   579→module SlotRecapture
+   580→  class FilledDetector
+   581→    include EventSystem::Listener
+   582→
+   583→    on(AppointmentScheduledEvent) do |event|
+   584→      return unless Flipper.enabled?(:slot_recapture_enabled)
+   585→      return unless Configuration.current.data.auto_detect_filled
+   586→
+   587→      new.handle(event)
+   588→    end
+   589→
+   590→    def handle(event)
+   591→      appointment = event.appointment
+   592→
+   593→      # Find matching opportunity by staffer + start_time (within 1 minute tolerance)
+   594→      opportunity = Opportunity
+   595→        .where(status: [Opportunity::Status.open, Opportunity::Status.offered])
+   596→        .where(staffer_id: appointment.staffer_id)
+   597→        .where(start_time: (appointment.start_time - 1.minute)..(appointment.start_time + 1.minute))
+   598→        .first
+   599→
+   600→      return unless opportunity
+   601→
+   602→      opportunity.filled!
+   603→      Rails.logger.info("[SlotRecapture] Opportunity #{opportunity.id} marked as filled")
+   604→    end
+   605→  end
+   606→end
+   607→```
+   608→
+   609→---
+   610→
+   611→## Background Job: Expire Opportunities
+   612→
+   613→```ruby
+   614→# app/jobs/slot_recapture/expire_opportunities_job.rb
+   615→module SlotRecapture
+   616→  class ExpireOpportunitiesJob < ApplicationJob
+   617→    sidekiq_options queue: :low, retry: 0
+   618→
+   619→    def perform
+   620→      return unless Flipper.enabled?(:slot_recapture_enabled)
+   621→
+   622→      # Expire open opportunities past their start_time
+   623→      Opportunity
+   624→        .where(status: [Opportunity::Status.open, Opportunity::Status.offered])
+   625→        .where('start_time < ?', Time.current)
+   626→        .find_each do |opportunity|
+   627→          opportunity.expired!
+   628→          Rails.logger.info("[SlotRecapture] Expired opportunity #{opportunity.id}")
+   629→        end
+   630→    end
+   631→  end
+   632→end
+   633→
+   634→# Add to config/schedule.rb (if using whenever) or Sidekiq-Cron:
+   635→# Run every hour
+   636→# SlotRecapture::ExpireOpportunitiesJob.perform_later
+   637→```
+   638→
+   639→---
+   640→
+   641→## Controllers
+   642→
+   643→### SlotRecapture::OpportunitiesController
+   644→
+   645→```ruby
+   646→# app/controllers/staffers/slot_recapture/opportunities_controller.rb
+   647→module Staffers
+   648→  module SlotRecapture
+   649→    class OpportunitiesController < Staffers::BaseController
+   650→      before_action :authorize_access
+   651→      before_action :set_opportunity, only: [:show, :mark_filled, :mark_expired, :reopen]
+   652→
+   653→      def index
+   654→        @pagy, @opportunities = pagy(
+   655→          ::SlotRecapture::Opportunity.actionable.by_start_time,
+   656→          items: 25
+   657→        )
+   658→      end
+   659→
+   660→      def show
+   661→        @matches = ::SlotRecapture::Matcher.new.matches_for(@opportunity)
+   662→      end
+   663→
+   664→      def mark_filled
+   665→        @opportunity.filled!
+   666→        flash[:success] = "Opportunity marked as filled"
+   667→        redirect_to staffers_slot_recapture_opportunities_path
+   668→      end
+   669→
+   670→      def mark_expired
+   671→        @opportunity.expired!
+   672→        flash[:success] = "Opportunity marked as expired"
+   673→        redirect_to staffers_slot_recapture_opportunities_path
+   674→      end
+   675→
+   676→      def reopen
+   677→        if @opportunity.can_transition_to?(::SlotRecapture::Opportunity::Status.open)
+   678→          @opportunity.open!
+   679→          flash[:success] = "Opportunity reopened"
+   680→        else
+   681→          flash[:error] = "Cannot reopen this opportunity"
+   682→        end
+   683→        redirect_to staffers_slot_recapture_opportunity_path(@opportunity)
+   684→      end
+   685→
+   686→      private
+   687→
+   688→      def authorize_access
+   689→        unless current_staffer.has_capability?(Capability.admin, Capability.member_support, Capability.care_ops)
+   690→          flash[:error] = "You do not have access to slot recapture"
+   691→          redirect_to root_path
+   692→        end
+   693→      end
+   694→
+   695→      def set_opportunity
+   696→        @opportunity = ::SlotRecapture::Opportunity.find(params[:id])
+   697→      end
+   698→    end
+   699→  end
+   700→end
+   701→```
+   702→
+   703→### SlotRecapture::ConfigurationsController
+   704→
+   705→```ruby
+   706→# app/controllers/staffers/slot_recapture/configurations_controller.rb
+   707→module Staffers
+   708→  module SlotRecapture
+   709→    class ConfigurationsController < Staffers::BaseController
+   710→      before_action :authorize_admin
+   711→
+   712→      def show
+   713→        @configuration = ::SlotRecapture::Configuration.current
+   714→      end
+   715→
+   716→      def update
+   717→        @configuration = ::SlotRecapture::Configuration.current.dup
+   718→        @configuration.assign_attributes(
+   719→          data: configuration_data_params,
+   720→          created_by: current_staffer
+   721→        )
+   722→
+   723→        if @configuration.data.weights_valid? && @configuration.save
+   724→          flash[:success] = "Configuration updated"
+   725→          redirect_to staffers_slot_recapture_configuration_path
+   726→        else
+   727→          flash.now[:error] = @configuration.data.weights_valid? ? "Error saving configuration" : "Weights must sum to 1.0"
+   728→          render :show
+   729→        end
+   730→      end
+   731→
+   732→      private
+   733→
+   734→      def authorize_admin
+   735→        unless current_staffer.has_capability?(Capability.admin)
+   736→          flash[:error] = "Admin access required"
+   737→          redirect_to staffers_slot_recapture_opportunities_path
+   738→        end
+   739→      end
+   740→
+   741→      def configuration_data_params
+   742→        params.require(:configuration).require(:data).permit(
+   743→          :weight_same_provider,
+   744→          :weight_clinic_match,
+   745→          :weight_exact_type,
+   746→          :weight_priority,
+   747→          :weight_wait_time,
+   748→          :lead_time_hours_minimum,
+   749→          :wait_time_cap_days,
+   750→          :matches_per_opportunity,
+   751→          :empty_clinic_ids_means_any,
+   752→          :clinic_mismatch_excludes,
+   753→          :same_provider_check,
+   754→          :auto_detect_filled,
+   755→          :allow_reopen_after_outreach_expires
+   756→        )
+   757→      end
+   758→    end
+   759→  end
+   760→end
+   761→```
+   762→
+   763→### SlotRecapture::OutreachAttemptsController
+   764→
+   765→```ruby
+   766→# app/controllers/staffers/slot_recapture/outreach_attempts_controller.rb
+   767→module Staffers
+   768→  module SlotRecapture
+   769→    class OutreachAttemptsController < Staffers::BaseController
+   770→      before_action :authorize_access
+   771→      before_action :set_opportunity
+   772→
+   773→      def create
+   774→        entry = WaitList::Entry.find(params[:wait_list_entry_id])
+   775→
+   776→        outreach_attempt = entry.outreach_attempts.create!(
+   777→          mode: WaitList::OutreachAttempt::Mode.phone_call,
+   778→          initiated_at: Time.current,
+   779→          slot_recapture_opportunity: @opportunity,
+   780→          offer_type: WaitList::OutreachAttempt::OfferType.slot_offer
+   781→        )
+   782→
+   783→        @opportunity.offered! if @opportunity.open?
+   784→
+   785→        flash[:success] = "Outreach initiated for #{entry.care_case.patient.full_name}"
+   786→        redirect_to staffers_slot_recapture_opportunity_path(@opportunity)
+   787→      end
+   788→
+   789→      private
+   790→
+   791→      def authorize_access
+   792→        unless current_staffer.has_capability?(Capability.admin, Capability.member_support, Capability.care_ops)
+   793→          flash[:error] = "You do not have access to slot recapture"
+   794→          redirect_to root_path
+   795→        end
+   796→      end
+   797→
+   798→      def set_opportunity
+   799→        @opportunity = ::SlotRecapture::Opportunity.find(params[:opportunity_id])
+   800→      end
+   801→    end
+   802→  end
+   803→end
+   804→```
+   805→
+   806→---
+   807→
+   808→## Routes
+   809→
+   810→```ruby
+   811→# Add to config/routes.rb inside the staffers namespace
+   812→
+   813→namespace :staffers do
+   814→  namespace :slot_recapture do
+   815→    resources :opportunities, only: [:index, :show] do
+   816→      member do
+   817→        post :mark_filled
+   818→        post :mark_expired
+   819→        post :reopen
+   820→      end
+   821→      resources :outreach_attempts, only: [:create]
+   822→    end
+   823→    resource :configuration, only: [:show, :update]
+   824→  end
+   825→end
+   826→```
+   827→
+   828→---
+   829→
+   830→## Views (ViewComponents)
+   831→
+   832→### Opportunities Index Component
+   833→
+   834→```ruby
+   835→# app/components/staffers/slot_recapture/opportunities_index.rb
+   836→module Staffers
+   837→  module SlotRecapture
+   838→    class OpportunitiesIndex < ApplicationComponent
+   839→      def initialize(opportunities:, pagy:, current_staffer:)
+   840→        @opportunities = opportunities
+   841→        @pagy = pagy
+   842→        @current_staffer = current_staffer
+   843→      end
+   844→
+   845→      erb_template <<~ERB
+   846→        <div class="p-6">
+   847→          <div class="flex justify-between items-center mb-6">
+   848→            <h1 class="text-2xl font-semibold">Slot Recapture</h1>
+   849→            <% if @current_staffer.has_capability?(Capability.admin) %>
+   850→              <%= link_to "Configure", staffers_slot_recapture_configuration_path, class: "prism-button-secondary" %>
+   851→            <% end %>
+   852→          </div>
+   853→
+   854→          <% if @opportunities.empty? %>
+   855→            <p class="text-gray-500">No open opportunities at this time.</p>
+   856→          <% else %>
+   857→            <div class="space-y-4">
+   858→              <% @opportunities.each do |opportunity| %>
+   859→                <%= render Staffers::SlotRecapture::OpportunityCard.new(opportunity: opportunity) %>
+   860→              <% end %>
+   861→            </div>
+   862→            
+   863→            <div class="mt-6">
+   864→              <%== pagy_nav(@pagy) %>
+   865→            </div>
+   866→          <% end %>
+   867→        </div>
+   868→      ERB
+   869→    end
+   870→  end
+   871→end
+   872→```
+   873→
+   874→### Opportunity Card Component
+   875→
+   876→```ruby
+   877→# app/components/staffers/slot_recapture/opportunity_card.rb
+   878→module Staffers
+   879→  module SlotRecapture
+   880→    class OpportunityCard < ApplicationComponent
+   881→      def initialize(opportunity:)
+   882→        @opportunity = opportunity
+   883→      end
+   884→
+   885→      erb_template <<~ERB
+   886→        <%= link_to staffers_slot_recapture_opportunity_path(@opportunity), class: "block p-4 border rounded-lg hover:bg-gray-50" do %>
+   887→          <div class="flex justify-between items-start">
+   888→            <div>
+   889→              <div class="font-medium">
+   890→                <%= @opportunity.start_time.strftime("%A, %B %d at %l:%M %p") %>
+   891→              </div>
+   892→              <div class="text-sm text-gray-600">
+   893→                <%= @opportunity.staffer.full_name %> · <%= @opportunity.clinic.name %>
+   894→              </div>
+   895→              <div class="text-sm text-gray-600">
+   896→                <%= @opportunity.root_appointment_type_id.humanize %>
+   897→              </div>
+   898→            </div>
+   899→            <div class="text-right">
+   900→              <span class="<%= status_badge_class %>">
+   901→                <%= @opportunity.status.humanize %>
+   902→              </span>
+   903→              <div class="text-sm text-gray-500 mt-1">
+   904→                <%= @opportunity.hours_until_start %>h until start
+   905→              </div>
+   906→            </div>
+   907→          </div>
+   908→        <% end %>
+   909→      ERB
+   910→
+   911→      def status_badge_class
+   912→        case @opportunity.status
+   913→        when 'open' then 'px-2 py-1 text-xs rounded bg-green-100 text-green-800'
+   914→        when 'offered' then 'px-2 py-1 text-xs rounded bg-yellow-100 text-yellow-800'
+   915→        else 'px-2 py-1 text-xs rounded bg-gray-100 text-gray-800'
+   916→        end
+   917→      end
+   918→    end
+   919→  end
+   920→end
+   921→```
+   922→
+   923→### Opportunity Show Component
+   924→
+   925→```ruby
+   926→# app/components/staffers/slot_recapture/opportunity_show.rb
+   927→module Staffers
+   928→  module SlotRecapture
+   929→    class OpportunityShow < ApplicationComponent
+   930→      def initialize(opportunity:, matches:)
+   931→        @opportunity = opportunity
+   932→        @matches = matches
+   933→      end
+   934→
+   935→      erb_template <<~ERB
+   936→        <div class="p-6">
+   937→          <%= link_to "← Back to Opportunities", staffers_slot_recapture_opportunities_path, class: "text-blue-600 hover:underline" %>
+   938→
+   939→          <div class="mt-4 p-4 border rounded-lg bg-gray-50">
+   940→            <h2 class="text-xl font-semibold mb-2">Slot Details</h2>
+   941→            <dl class="grid grid-cols-2 gap-4">
+   942→              <div>
+   943→                <dt class="text-sm text-gray-500">Date & Time</dt>
+   944→                <dd class="font-medium"><%= @opportunity.start_time.strftime("%A, %B %d at %l:%M %p") %></dd>
+   945→              </div>
+   946→              <div>
+   947→                <dt class="text-sm text-gray-500">Provider</dt>
+   948→                <dd class="font-medium"><%= @opportunity.staffer.full_name %></dd>
+   949→              </div>
+   950→              <div>
+   951→                <dt class="text-sm text-gray-500">Clinic</dt>
+   952→                <dd class="font-medium"><%= @opportunity.clinic.name %></dd>
+   953→              </div>
+   954→              <div>
+   955→                <dt class="text-sm text-gray-500">Appointment Type</dt>
+   956→                <dd class="font-medium"><%= @opportunity.root_appointment_type_id.humanize %></dd>
+   957→              </div>
+   958→              <div>
+   959→                <dt class="text-sm text-gray-500">Status</dt>
+   960→                <dd class="font-medium"><%= @opportunity.status.humanize %></dd>
+   961→              </div>
+   962→              <div>
+   963→                <dt class="text-sm text-gray-500">Time Until Start</dt>
+   964→                <dd class="font-medium"><%= @opportunity.hours_until_start %> hours</dd>
+   965→              </div>
+   966→            </dl>
+   967→
+   968→            <div class="mt-4 flex gap-2">
+   969→              <% if @opportunity.open? || @opportunity.offered? %>
+   970→                <%= button_to "Mark as Filled", mark_filled_staffers_slot_recapture_opportunity_path(@opportunity), method: :post, class: "prism-button-primary" %>
+   971→                <%= button_to "Mark as Expired", mark_expired_staffers_slot_recapture_opportunity_path(@opportunity), method: :post, class: "prism-button-secondary" %>
+   972→              <% end %>
+   973→              <% if @opportunity.offered? %>
+   974→                <%= button_to "Reopen", reopen_staffers_slot_recapture_opportunity_path(@opportunity), method: :post, class: "prism-button-secondary" %>
+   975→              <% end %>
+   976→            </div>
+   977→          </div>
+   978→
+   979→          <div class="mt-6">
+   980→            <h2 class="text-xl font-semibold mb-4">Matched Waitlist Entries (<%= @matches.size %>)</h2>
+   981→            
+   982→            <% if @matches.empty? %>
+   983→              <p class="text-gray-500">No matching waitlist entries found.</p>
+   984→            <% else %>
+   985→              <div class="space-y-4">
+   986→                <% @matches.each_with_index do |match, index| %>
+   987→                  <%= render Staffers::SlotRecapture::MatchCard.new(match: match, rank: index + 1, opportunity: @opportunity) %>
+   988→                <% end %>
+   989→              </div>
+   990→            <% end %>
+   991→          </div>
+   992→        </div>
+   993→      ERB
+   994→    end
+   995→  end
+   996→end
+   997→```
+   998→
+   999→### Match Card Component
+  1000→
+  1001→```ruby
+  1002→# app/components/staffers/slot_recapture/match_card.rb
+  1003→module Staffers
+  1004→  module SlotRecapture
+  1005→    class MatchCard < ApplicationComponent
+  1006→      def initialize(match:, rank:, opportunity:)
+  1007→        @match = match
+  1008→        @rank = rank
+  1009→        @opportunity = opportunity
+  1010→      end
+  1011→
+  1012→      erb_template <<~ERB
+  1013→        <div class="p-4 border rounded-lg <%= quality_border_class %>">
+  1014→          <div class="flex justify-between items-start">
+  1015→            <div>
+  1016→              <div class="flex items-center gap-2">
+  1017→                <span class="text-lg font-medium">#<%= @rank %></span>
+  1018→                <span class="font-medium"><%= @match.patient&.full_name || 'Unknown Patient' %></span>
+  1019→                <% if @match.same_provider? %>
+  1020→                  <span class="px-2 py-0.5 text-xs rounded bg-purple-100 text-purple-800">Same Provider</span>
+  1021→                <% end %>
+  1022→                <% if @match.entry.priority? %>
+  1023→                  <span class="px-2 py-0.5 text-xs rounded bg-red-100 text-red-800">Priority</span>
+  1024→                <% end %>
+  1025→              </div>
+  1026→              
+  1027→              <div class="text-sm text-gray-600 mt-1">
+  1028→                On waitlist since <%= @match.entry.added_at.strftime("%B %d, %Y") %>
+  1029→                (<%= days_waiting %> days)
+  1030→              </div>
+  1031→
+  1032→              <div class="text-sm mt-2">
+  1033→                <strong>Contact:</strong>
+  1034→                <%= @match.contact_email || 'No email' %>
+  1035→                · <%= @match.contact_phone || 'No phone' %>
+  1036→              </div>
+  1037→
+  1038→              <div class="mt-2 text-sm">
+  1039→                <strong>Score Breakdown:</strong>
+  1040→                <ul class="list-disc list-inside text-gray-600">
+  1041→                  <% @match.breakdown.each do |factor, score| %>
+  1042→                    <li><%= factor.to_s.humanize %>: <%= (score * 100).round %>%</li>
+  1043→                  <% end %>
+  1044→                </ul>
+  1045→              </div>
+  1046→            </div>
+  1047→
+  1048→            <div class="flex flex-col gap-2">
+  1049→              <div class="text-right">
+  1050→                <span class="text-2xl font-bold <%= quality_text_class %>">
+  1051→                  <%= (@match.score * 100).round %>%
+  1052→                </span>
+  1053→                <div class="text-xs text-gray-500"><%= @match.quality.to_s.humanize %> match</div>
+  1054→              </div>
+  1055→
+  1056→              <%= button_to "Initiate Outreach",
+  1057→                    staffers_slot_recapture_opportunity_outreach_attempts_path(@opportunity, wait_list_entry_id: @match.entry.id),
+  1058→                    method: :post,
+  1059→                    class: "prism-button-primary text-sm" %>
+  1060→            </div>
+  1061→          </div>
+  1062→        </div>
+  1063→      ERB
+  1064→
+  1065→      def days_waiting
+  1066→        (Time.current.to_date - @match.entry.added_at.to_date).to_i
+  1067→      end
+  1068→
+  1069→      def quality_border_class
+  1070→        case @match.quality
+  1071→        when :strong then 'border-green-300 bg-green-50'
+  1072→        when :partial then 'border-yellow-300 bg-yellow-50'
+  1073→        else 'border-gray-300'
+  1074→        end
+  1075→      end
+  1076→
+  1077→      def quality_text_class
+  1078→        case @match.quality
+  1079→        when :strong then 'text-green-600'
+  1080→        when :partial then 'text-yellow-600'
+  1081→        else 'text-gray-600'
+  1082→        end
+  1083→      end
+  1084→    end
+  1085→  end
+  1086→end
+  1087→```
+  1088→
+  1089→### Configuration Form Component
+  1090→
+  1091→```ruby
+  1092→# app/components/staffers/slot_recapture/configuration_form.rb
+  1093→module Staffers
+  1094→  module SlotRecapture
+  1095→    class ConfigurationForm < ApplicationComponent
+  1096→      def initialize(configuration:)
+  1097→        @configuration = configuration
+  1098→        @data = configuration.data
+  1099→      end
+  1100→
+  1101→      erb_template <<~ERB
+  1102→        <div class="p-6">
+  1103→          <%= link_to "← Back to Opportunities", staffers_slot_recapture_opportunities_path, class: "text-blue-600 hover:underline" %>
+  1104→
+  1105→          <h1 class="text-2xl font-semibold mt-4 mb-6">Slot Recapture Configuration</h1>
+  1106→
+  1107→          <%= bootstrap_form_with(model: @configuration, url: staffers_slot_recapture_configuration_path, method: :patch, local: true) do |f| %>
+  1108→            <%= f.fields_for :data, @data do |data_form| %>
+  1109→              
+  1110→              <div class="mb-8">
+  1111→                <h2 class="text-lg font-medium mb-4">Match Scoring Weights</h2>
+  1112→                <p class="text-sm text-gray-600 mb-4">Weights must sum to 1.0 (100%)</p>
+  1113→                
+  1114→                <div class="grid grid-cols-2 gap-4">
+  1115→                  <%= data_form.number_field :weight_same_provider, label: "Same Provider Weight", step: 0.05, min: 0, max: 1, class: "form-control" %>
+  1116→                  <%= data_form.number_field :weight_clinic_match, label: "Clinic Match Weight", step: 0.05, min: 0, max: 1, class: "form-control" %>
+  1117→                  <%= data_form.number_field :weight_exact_type, label: "Exact Type Weight", step: 0.05, min: 0, max: 1, class: "form-control" %>
+  1118→                  <%= data_form.number_field :weight_priority, label: "Priority Weight", step: 0.05, min: 0, max: 1, class: "form-control" %>
+  1119→                  <%= data_form.number_field :weight_wait_time, label: "Wait Time Weight", step: 0.05, min: 0, max: 1, class: "form-control" %>
+  1120→                </div>
+  1121→              </div>
+  1122→
+  1123→              <div class="mb-8">
+  1124→                <h2 class="text-lg font-medium mb-4">Thresholds</h2>
+  1125→                
+  1126→                <div class="grid grid-cols-2 gap-4">
+  1127→                  <%= data_form.number_field :lead_time_hours_minimum, label: "Minimum Lead Time (hours)", min: 1, class: "form-control", help: "Cancellations with less lead time won't create opportunities" %>
+  1128→                  <%= data_form.number_field :wait_time_cap_days, label: "Wait Time Cap (days)", min: 1, class: "form-control", help: "Max days for wait time scoring (longer = same score)" %>
+  1129→                  <%= data_form.number_field :matches_per_opportunity, label: "Matches Per Opportunity", min: 1, max: 20, class: "form-control", help: "How many matches to show for each slot" %>
+  1130→                </div>
+  1131→              </div>
+  1132→
+  1133→              <div class="mb-8">
+  1134→                <h2 class="text-lg font-medium mb-4">Matching Rules</h2>
+  1135→                
+  1136→                <div class="space-y-4">
+  1137→                  <%= data_form.check_box :empty_clinic_ids_means_any, label: "Empty clinic preference = any clinic is fine" %>
+  1138→                  <%= data_form.check_box :clinic_mismatch_excludes, label: "Exclude entries where clinic doesn't match (vs. scoring lower)" %>
+  1139→                  
+  1140→                  <%= data_form.select :same_provider_check, 
+  1141→                        [["Primary staffer only", "primary_only"], ["All assigned staffers", "all_staffers"]], 
+  1142→                        label: "Same Provider Check", class: "form-control" %>
+  1143→                </div>
+  1144→              </div>
+  1145→
+  1146→              <div class="mb-8">
+  1147→                <h2 class="text-lg font-medium mb-4">Behavior</h2>
+  1148→                
+  1149→                <div class="space-y-4">
+  1150→                  <%= data_form.check_box :auto_detect_filled, label: "Auto-detect when slot is filled (via AppointmentScheduledEvent)" %>
+  1151→                  <%= data_form.check_box :allow_reopen_after_outreach_expires, label: "Allow reopening opportunity after outreach expires" %>
+  1152→                </div>
+  1153→              </div>
+  1154→
+  1155→            <% end %>
+  1156→
+  1157→            <%= f.submit "Save Configuration", class: "prism-button-primary" %>
+  1158→          <% end %>
+  1159→        </div>
+  1160→      ERB
+  1161→    end
+  1162→  end
+  1163→end
+  1164→```
+  1165→
+  1166→---
+  1167→
+  1168→## Views (ERB Templates)
+  1169→
+  1170→### Opportunities Index
+  1171→
+  1172→```erb
+  1173→<%# app/views/staffers/slot_recapture/opportunities/index.html.erb %>
+  1174→<%= render Staffers::SlotRecapture::OpportunitiesIndex.new(
+  1175→      opportunities: @opportunities,
+  1176→      pagy: @pagy,
+  1177→      current_staffer: current_staffer
+  1178→    ) %>
+  1179→```
+  1180→
+  1181→### Opportunity Show
+  1182→
+  1183→```erb
+  1184→<%# app/views/staffers/slot_recapture/opportunities/show.html.erb %>
+  1185→<%= render Staffers::SlotRecapture::OpportunityShow.new(
+  1186→      opportunity: @opportunity,
+  1187→      matches: @matches
+  1188→    ) %>
+  1189→```
+  1190→
+  1191→### Configuration Show
+  1192→
+  1193→```erb
+  1194→<%# app/views/staffers/slot_recapture/configurations/show.html.erb %>
+  1195→<%= render Staffers::SlotRecapture::ConfigurationForm.new(
+  1196→      configuration: @configuration
+  1197→    ) %>
+  1198→```
+  1199→
+  1200→---
+  1201→
+  1202→## Navigation
+  1203→
+  1204→Add to `app/components/staffers/navbar_strapless.rb` in `admin_group_nav_item`:
+  1205→
+  1206→```ruby
+  1207→ItemActiveLink.new(
+  1208→  title: "Slot Recapture",
+  1209→  path: staffers_slot_recapture_opportunities_path,
+  1210→  enabled: current_staffer.has_capability?(Capability.admin, Capability.member_support, Capability.care_ops)
+  1211→)
+  1212→```
+  1213→
+  1214→---
+  1215→
+  1216→## Tests
+  1217→
+  1218→### Opportunity Model Spec
+  1219→
+  1220→```ruby
+  1221→# spec/models/slot_recapture/opportunity_spec.rb
+  1222→RSpec.describe SlotRecapture::Opportunity, type: :model do
+  1223→  describe "state machine" do
+  1224→    it "transitions from pending_verification to open" do
+  1225→      opportunity = FactoryBot.create(:slot_recapture_opportunity, status: 'pending_verification')
+  1226→      
+  1227→      expect(opportunity.can_transition_to?(:open)).to eq(true)
+  1228→      opportunity.open!
+  1229→      expect(opportunity.status).to eq('open')
+  1230→    end
+  1231→
+  1232→    it "transitions from pending_verification to ineligible" do
+  1233→      opportunity = FactoryBot.create(:slot_recapture_opportunity, status: 'pending_verification')
+  1234→      
+  1235→      opportunity.ineligible!
+  1236→      expect(opportunity.status).to eq('ineligible')
+  1237→    end
+  1238→
+  1239→    it "transitions from open to offered" do
+  1240→      opportunity = FactoryBot.create(:slot_recapture_opportunity, status: 'open')
+  1241→      
+  1242→      opportunity.offered!
+  1243→      expect(opportunity.status).to eq('offered')
+  1244→    end
+  1245→
+  1246→    it "transitions from offered back to open" do
+  1247→      opportunity = FactoryBot.create(:slot_recapture_opportunity, status: 'offered')
+  1248→      
+  1249→      opportunity.open!
+  1250→      expect(opportunity.status).to eq('open')
+  1251→    end
+  1252→
+  1253→    it "transitions from offered to filled" do
+  1254→      opportunity = FactoryBot.create(:slot_recapture_opportunity, status: 'offered')
+  1255→      
+  1256→      opportunity.filled!
+  1257→      expect(opportunity.status).to eq('filled')
+  1258→    end
+  1259→  end
+  1260→
+  1261→  describe ".actionable" do
+  1262→    it "returns open and offered opportunities" do
+  1263→      open_opp = FactoryBot.create(:slot_recapture_opportunity, status: 'open')
+  1264→      offered_opp = FactoryBot.create(:slot_recapture_opportunity, status: 'offered')
+  1265→      FactoryBot.create(:slot_recapture_opportunity, status: 'filled')
+  1266→      FactoryBot.create(:slot_recapture_opportunity, status: 'expired')
+  1267→
+  1268→      expect(SlotRecapture::Opportunity.actionable).to match_array([open_opp, offered_opp])
+  1269→    end
+  1270→  end
+  1271→
+  1272→  describe "#hours_until_start" do
+  1273→    it "calculates hours until appointment start" do
+  1274→      opportunity = FactoryBot.build(:slot_recapture_opportunity, start_time: 48.hours.from_now)
+  1275→      
+  1276→      expect(opportunity.hours_until_start).to eq(48)
+  1277→    end
+  1278→  end
+  1279→end
+  1280→```
+  1281→
+  1282→### Matcher Spec
+  1283→
+  1284→```ruby
+  1285→# spec/models/slot_recapture/matcher_spec.rb
+  1286→RSpec.describe SlotRecapture::Matcher, type: :model do
+  1287→  describe "#matches_for" do
+  1288→    it "returns entries matching region and root_appointment_type" do
+  1289→      opportunity = FactoryBot.create(:slot_recapture_opportunity,
+  1290→        region_id: 'CA',
+  1291→        root_appointment_type_id: 'therapy_session'
+  1292→      )
+  1293→      
+  1294→      matching_entry = FactoryBot.create(:wait_list_entry, :active,
+  1295→        care_case: FactoryBot.create(:care_case, region_id: 'CA'),
+  1296→        root_appointment_type_id: 'therapy_session'
+  1297→      )
+  1298→      
+  1299→      non_matching_entry = FactoryBot.create(:wait_list_entry, :active,
+  1300→        care_case: FactoryBot.create(:care_case, region_id: 'NY'),
+  1301→        root_appointment_type_id: 'therapy_session'
+  1302→      )
+  1303→
+  1304→      matcher = described_class.new
+  1305→      matches = matcher.matches_for(opportunity)
+  1306→
+  1307→      expect(matches.map(&:entry)).to include(matching_entry)
+  1308→      expect(matches.map(&:entry)).not_to include(non_matching_entry)
+  1309→    end
+  1310→
+  1311→    it "scores same provider matches higher" do
+  1312→      staffer = FactoryBot.create(:staffer)
+  1313→      care_case_with_provider = FactoryBot.create(:care_case, region_id: 'CA')
+  1314→      FactoryBot.create(:clinical_role, care_case: care_case_with_provider, staffer: staffer, primary: true)
+  1315→      
+  1316→      care_case_without_provider = FactoryBot.create(:care_case, region_id: 'CA')
+  1317→
+  1318→      opportunity = FactoryBot.create(:slot_recapture_opportunity,
+  1319→        staffer: staffer,
+  1320→        region_id: 'CA',
+  1321→        root_appointment_type_id: 'therapy_session'
+  1322→      )
+  1323→
+  1324→      entry_same_provider = FactoryBot.create(:wait_list_entry, :active,
+  1325→        care_case: care_case_with_provider,
+  1326→        root_appointment_type_id: 'therapy_session'
+  1327→      )
+  1328→
+  1329→      entry_different_provider = FactoryBot.create(:wait_list_entry, :active,
+  1330→        care_case: care_case_without_provider,
+  1331→        root_appointment_type_id: 'therapy_session'
+  1332→      )
+  1333→
+  1334→      matcher = described_class.new
+  1335→      matches = matcher.matches_for(opportunity)
+  1336→
+  1337→      same_provider_match = matches.find { |m| m.entry == entry_same_provider }
+  1338→      different_provider_match = matches.find { |m| m.entry == entry_different_provider }
+  1339→
+  1340→      expect(same_provider_match.score).to be > different_provider_match.score
+  1341→    end
+  1342→
+  1343→    it "limits results to configured matches_per_opportunity" do
+  1344→      opportunity = FactoryBot.create(:slot_recapture_opportunity,
+  1345→        region_id: 'CA',
+  1346→        root_appointment_type_id: 'therapy_session'
+  1347→      )
+  1348→
+  1349→      10.times do
+  1350→        FactoryBot.create(:wait_list_entry, :active,
+  1351→          care_case: FactoryBot.create(:care_case, region_id: 'CA'),
+  1352→          root_appointment_type_id: 'therapy_session'
+  1353→        )
+  1354→      end
+  1355→
+  1356→      config_data = SlotRecapture::ConfigurationData.new(matches_per_opportunity: 3)
+  1357→      matcher = described_class.new(config: config_data)
+  1358→      matches = matcher.matches_for(opportunity)
+  1359→
+  1360→      expect(matches.size).to eq(3)
+  1361→    end
+  1362→  end
+  1363→end
+  1364→```
+  1365→
+  1366→### EligibilityFilter Spec
+  1367→
+  1368→```ruby
+  1369→# spec/models/slot_recapture/eligibility_filter_spec.rb
+  1370→RSpec.describe SlotRecapture::EligibilityFilter, type: :model do
+  1371→  describe "#check" do
+  1372→    it "returns eligible for appointments with sufficient lead time" do
+  1373→      appointment = FactoryBot.build(:appointment, start_time: 48.hours.from_now)
+  1374→      cancelation = FactoryBot.build(:appointment_cancelation, reason: 'member_discharged')
+  1375→
+  1376→      filter = described_class.new
+  1377→      result = filter.check(appointment: appointment, appointment_cancelation: cancelation)
+  1378→
+  1379→      expect(result.eligible?).to eq(true)
+  1380→    end
+  1381→
+  1382→    it "returns ineligible for appointments with insufficient lead time" do
+  1383→      appointment = FactoryBot.build(:appointment, start_time: 12.hours.from_now)
+  1384→      cancelation = FactoryBot.build(:appointment_cancelation, reason: 'member_discharged')
+  1385→
+  1386→      filter = described_class.new
+  1387→      result = filter.check(appointment: appointment, appointment_cancelation: cancelation)
+  1388→
+  1389→      expect(result.eligible?).to eq(false)
+  1390→      expect(result.reason).to include("Lead time")
+  1391→    end
+  1392→
+  1393→    it "returns ineligible for cancellation reasons with slot_enabled: false" do
+  1394→      appointment = FactoryBot.build(:appointment, start_time: 48.hours.from_now)
+  1395→      cancelation = FactoryBot.build(:appointment_cancelation, reason: 'provider_at_capacity')
+  1396→
+  1397→      filter = described_class.new
+  1398→      result = filter.check(appointment: appointment, appointment_cancelation: cancelation)
+  1399→
+  1400→      expect(result.eligible?).to eq(false)
+  1401→      expect(result.reason).to include("not slot-enabled")
+  1402→    end
+  1403→  end
+  1404→end
+  1405→```
+  1406→
+  1407→### CancellationHandler Spec
+  1408→
+  1409→```ruby
+  1410→# spec/models/slot_recapture/cancellation_handler_spec.rb
+  1411→RSpec.describe SlotRecapture::CancellationHandler, type: :model do
+  1412→  describe "on AppointmentCanceledEvent" do
+  1413→    before do
+  1414→      Flipper.enable(:slot_recapture_enabled)
+  1415→    end
+  1416→
+  1417→    it "creates an opportunity for eligible cancellations" do
+  1418→      appointment = FactoryBot.create(:appointment, start_time: 48.hours.from_now)
+  1419→      cancelation = FactoryBot.create(:appointment_cancelation, reason: 'member_discharged')
+  1420→      event = AppointmentCanceledEvent.new(
+  1421→        appointment: appointment,
+  1422→        care_case: appointment.care_case,
+  1423→        appointment_cancelation: cancelation,
+  1424→        source: :reef
+  1425→      )
+  1426→
+  1427→      expect {
+  1428→        described_class.new.handle(event)
+  1429→      }.to change(SlotRecapture::Opportunity, :count).by(1)
+  1430→    end
+  1431→
+  1432→    it "enqueues availability verification job" do
+  1433→      appointment = FactoryBot.create(:appointment, start_time: 48.hours.from_now)
+  1434→      cancelation = FactoryBot.create(:appointment_cancelation, reason: 'member_discharged')
+  1435→      event = AppointmentCanceledEvent.new(
+  1436→        appointment: appointment,
+  1437→        care_case: appointment.care_case,
+  1438→        appointment_cancelation: cancelation,
+  1439→        source: :reef
+  1440→      )
+  1441→
+  1442→      expect {
+  1443→        described_class.new.handle(event)
+  1444→      }.to have_enqueued_job(SlotRecapture::CancellationHandler::VerifyAvailabilityJob)
+  1445→    end
+  1446→
+  1447→    it "does not create opportunity when feature flag is disabled" do
+  1448→      Flipper.disable(:slot_recapture_enabled)
+  1449→      
+  1450→      appointment = FactoryBot.create(:appointment, start_time: 48.hours.from_now)
+  1451→      event = AppointmentCanceledEvent.new(
+  1452→        appointment: appointment,
+  1453→        care_case: appointment.care_case,
+  1454→        source: :reef
+  1455→      )
+  1456→
+  1457→      expect {
+  1458→        # Event system would not call handler, but testing the guard
+  1459→      }.not_to change(SlotRecapture::Opportunity, :count)
+  1460→    end
+  1461→  end
+  1462→end
+  1463→```
+  1464→
+  1465→---
+  1466→
+  1467→## Factories
+  1468→
+  1469→```ruby
+  1470→# spec/factories/slot_recapture/opportunities.rb
+  1471→FactoryBot.define do
+  1472→  factory :slot_recapture_opportunity, class: 'SlotRecapture::Opportunity' do
+  1473→    association :cancelled_appointment, factory: :appointment
+  1474→    association :staffer
+  1475→    association :clinic
+  1476→    appointment_type_id { 'therapy_session' }
+  1477→    root_appointment_type_id { 'therapy_session' }
+  1478→    region_id { 'CA' }
+  1479→    start_time { 48.hours.from_now }
+  1480→    lead_time_hours { 48 }
+  1481→    status { 'pending_verification' }
+  1482→
+  1483→    trait :open do
+  1484→      status { 'open' }
+  1485→      slot_verified_at { Time.current }
+  1486→    end
+  1487→
+  1488→    trait :offered do
+  1489→      status { 'offered' }
+  1490→      slot_verified_at { Time.current }
+  1491→    end
+  1492→
+  1493→    trait :filled do
+  1494→      status { 'filled' }
+  1495→      slot_verified_at { Time.current }
+  1496→    end
+  1497→
+  1498→    trait :expired do
+  1499→      status { 'expired' }
+  1500→    end
+  1501→
+  1502→    trait :ineligible do
+  1503→      status { 'ineligible' }
+  1504→    end
+  1505→  end
+  1506→end
+  1507→
+  1508→# spec/factories/slot_recapture/configurations.rb
+  1509→FactoryBot.define do
+  1510→  factory :slot_recapture_configuration, class: 'SlotRecapture::Configuration' do
+  1511→    data { SlotRecapture::ConfigurationData.new }
+  1512→    association :created_by, factory: :staffer
+  1513→  end
+  1514→end
+  1515→```
+  1516→
+  1517→---
+  1518→
+  1519→## File Checklist
+  1520→
+  1521→### Migrations
+  1522→- [ ] `db/migrate/XXXXXX_create_slot_recapture_opportunities.rb`
+  1523→- [ ] `db/migrate/XXXXXX_add_slot_offer_fields_to_outreach_attempts.rb`
+  1524→- [ ] `db/migrate/XXXXXX_create_slot_recapture_configurations.rb`
+  1525→
+  1526→### Models
+  1527→- [ ] `app/models/slot_recapture/opportunity.rb`
+  1528→- [ ] `app/models/slot_recapture/configuration.rb`
+  1529→- [ ] `app/models/slot_recapture/configuration_data.rb`
+  1530→- [ ] `app/models/slot_recapture/match.rb`
+  1531→- [ ] `app/models/slot_recapture/eligibility_filter.rb`
+  1532→- [ ] `app/models/slot_recapture/matcher.rb`
+  1533→- [ ] `app/models/slot_recapture/opportunity_creator.rb`
+  1534→- [ ] `app/models/slot_recapture/cancellation_handler.rb`
+  1535→- [ ] `app/models/slot_recapture/filled_detector.rb`
+  1536→- [ ] Update `app/models/wait_list/outreach_attempt.rb`
+  1537→
+  1538→### Jobs
+  1539→- [ ] `app/jobs/slot_recapture/expire_opportunities_job.rb`
+  1540→
+  1541→### Controllers
+  1542→- [ ] `app/controllers/staffers/slot_recapture/opportunities_controller.rb`
+  1543→- [ ] `app/controllers/staffers/slot_recapture/configurations_controller.rb`
+  1544→- [ ] `app/controllers/staffers/slot_recapture/outreach_attempts_controller.rb`
+  1545→
+  1546→### Components
+  1547→- [ ] `app/components/staffers/slot_recapture/opportunities_index.rb`
+  1548→- [ ] `app/components/staffers/slot_recapture/opportunity_card.rb`
+  1549→- [ ] `app/components/staffers/slot_recapture/opportunity_show.rb`
+  1550→- [ ] `app/components/staffers/slot_recapture/match_card.rb`
+  1551→- [ ] `app/components/staffers/slot_recapture/configuration_form.rb`
+  1552→
+  1553→### Views
+  1554→- [ ] `app/views/staffers/slot_recapture/opportunities/index.html.erb`
+  1555→- [ ] `app/views/staffers/slot_recapture/opportunities/show.html.erb`
+  1556→- [ ] `app/views/staffers/slot_recapture/configurations/show.html.erb`
+  1557→
+  1558→### Routes
+  1559→- [ ] Update `config/routes.rb`
+  1560→
+  1561→### Navigation
+  1562→- [ ] Update `app/components/staffers/navbar_strapless.rb`
+  1563→
+  1564→### Tests
+  1565→- [ ] `spec/models/slot_recapture/opportunity_spec.rb`
+  1566→- [ ] `spec/models/slot_recapture/matcher_spec.rb`
+  1567→- [ ] `spec/models/slot_recapture/eligibility_filter_spec.rb`
+  1568→- [ ] `spec/models/slot_recapture/cancellation_handler_spec.rb`
+  1569→
+  1570→### Factories
+  1571→- [ ] `spec/factories/slot_recapture/opportunities.rb`
+  1572→- [ ] `spec/factories/slot_recapture/configurations.rb`
+  1573→
+  1574→---
+  1575→
+  1576→## Implementation Order
+  1577→
+  1578→1. **Migrations** — Run all three
+  1579→2. **Models** — Opportunity, Configuration, ConfigurationData, Match (value object)
+  1580→3. **Services** — EligibilityFilter, Matcher, OpportunityCreator
+  1581→4. **Event Listeners** — CancellationHandler with VerifyAvailabilityJob, FilledDetector
+  1582→5. **Jobs** — ExpireOpportunitiesJob
+  1583→6. **Controllers** — Opportunities, Configurations, OutreachAttempts
+  1584→7. **Components** — All ViewComponents
+  1585→8. **Views** — ERB wrappers
+  1586→9. **Routes** — Add namespace
+  1587→10. **Navigation** — Add to navbar
+  1588→11. **Tests** — Specs and factories
+  1589→12. **Feature Flag** — Create `slot_recapture_enabled` in Flipper (default off)
+  1590→
+  1591→---
+  1592→
+  1593→## Post-Implementation
+  1594→
+  1595→1. Enable feature flag for admin users only
+  1596→2. Demo to Danielle
+  1597→3. Gather feedback on weights/thresholds
+  1598→4. Iterate on configuration
+  1599→5. Expand feature flag to ops team
+  1600→6. Monitor recapture rate metrics
+  1601→
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

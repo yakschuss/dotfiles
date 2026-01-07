@@ -1,0 +1,445 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe PhoneDesk::Scheduling::AvailabilityForm do
+  describe "#available_staffers" do
+    context "when multi_provider_availability_phone_desk flag is disabled" do
+      before(:each) do
+        Flipper.disable(:multi_provider_availability_phone_desk)
+      end
+
+      it "returns single staffer when staffer_id provided" do
+        care_case = FactoryBot.create(:care_case, region: Region.new_york)
+        clinic = FactoryBot.create(:clinic, address_state: "NY")
+        therapist = FactoryBot.create(:staffer, :therapist, region: care_case.region, clinic:)
+        Generators::Template.new(therapist).complex
+        appointment_bundle = PhoneDesk::Scheduling::AppointmentBundle.therapy_intake
+
+        form = described_class.new(
+          care_case_id: care_case.id,
+          appointment_bundle_id: appointment_bundle.id,
+          staffer_id: therapist.id
+        )
+
+        expect(form.available_staffers).to eq([therapist])
+      end
+
+      it "returns first staffer when no staffer_id provided" do
+        care_case = FactoryBot.create(:care_case, region: Region.new_york)
+        clinic = FactoryBot.create(:clinic, address_state: "NY")
+        therapist = FactoryBot.create(:staffer, :therapist, region: care_case.region, clinic:)
+        Generators::Template.new(therapist).complex
+        appointment_bundle = PhoneDesk::Scheduling::AppointmentBundle.therapy_intake
+
+        form = described_class.new(
+          care_case_id: care_case.id,
+          appointment_bundle_id: appointment_bundle.id
+        )
+
+        expect(form.available_staffers).to eq([form.staffer_options.first])
+      end
+    end
+
+    context "when multi_provider_availability_phone_desk flag is enabled" do
+      before(:each) do
+        Flipper.enable(:multi_provider_availability_phone_desk)
+      end
+
+      it "returns all capable staffers by default" do
+        setup_availability_test_data => {care_case:, therapist1:, therapist2:, appointment_bundle:}
+
+        form = described_class.new(
+          care_case_id: care_case.id,
+          appointment_bundle_id: appointment_bundle.id
+        )
+
+        expect(form.available_staffers).to match_array([therapist1, therapist2])
+      end
+
+      it "returns specific staffer when staffer_id is provided" do
+        setup_availability_test_data => {care_case:, therapist1:, appointment_bundle:}
+
+        form = described_class.new(
+          care_case_id: care_case.id,
+          appointment_bundle_id: appointment_bundle.id,
+          staffer_id: therapist1.id
+        )
+
+        expect(form.available_staffers).to eq([therapist1])
+      end
+
+      it "returns empty array when staffer_id is provided but staffer not capable" do
+        setup_availability_test_data => {care_case:, appointment_bundle:}
+        incapable_staffer = FactoryBot.create(:staffer, :therapist, region: Region.california, therapy_regions: [Region.california])
+
+        form = described_class.new(
+          care_case_id: care_case.id,
+          appointment_bundle_id: appointment_bundle.id,
+          staffer_id: incapable_staffer.id
+        )
+
+        expect(form.available_staffers).to eq([])
+      end
+
+      context "with existing selections" do
+        it "filters to staffers from previous selection when appointment_index > 0" do
+          setup_availability_test_data => {care_case:, therapist1:, appointment_bundle:}
+          selection = build_selection_with_staffers([therapist1.id])
+
+          form = described_class.new(
+            care_case_id: care_case.id,
+            appointment_bundle_id: appointment_bundle.id,
+            existing_selections: {"0" => selection},
+            appointment_index: 1
+          )
+
+          expect(form.available_staffers).to match_array([therapist1])
+        end
+
+        it "returns all staffers when appointment_index is 0" do
+          setup_availability_test_data => {care_case:, therapist1:, therapist2:, appointment_bundle:}
+          selection = build_selection_with_staffers([therapist1.id, therapist2.id])
+
+          form = described_class.new(
+            care_case_id: care_case.id,
+            appointment_bundle_id: appointment_bundle.id,
+            existing_selections: {"0" => selection},
+            appointment_index: 0
+          )
+
+          expect(form.available_staffers).to match_array([therapist1, therapist2])
+        end
+
+        it "returns empty array when previous selection is blank" do
+          setup_availability_test_data => {care_case:, appointment_bundle:}
+
+          form = described_class.new(
+            care_case_id: care_case.id,
+            appointment_bundle_id: appointment_bundle.id,
+            existing_selections: {"0" => nil},
+            appointment_index: 1
+          )
+
+          expect(form.available_staffers).to eq([])
+        end
+
+        it "returns empty array when no staffer_appointment_type_pairs in selection" do
+          setup_availability_test_data => {care_case:, appointment_bundle:}
+          selection_without_pairs = build_selection_without_pairs
+
+          form = described_class.new(
+            care_case_id: care_case.id,
+            appointment_bundle_id: appointment_bundle.id,
+            existing_selections: {"0" => selection_without_pairs},
+            appointment_index: 1
+          )
+
+          expect(form.available_staffers).to eq([])
+        end
+
+        it "returns empty array when staffer_appointment_type_pairs is empty" do
+          setup_availability_test_data => {care_case:, appointment_bundle:}
+          empty_pairs_selection = build_selection_with_staffers([])
+
+          form = described_class.new(
+            care_case_id: care_case.id,
+            appointment_bundle_id: appointment_bundle.id,
+            existing_selections: {"0" => empty_pairs_selection},
+            appointment_index: 1
+          )
+
+          expect(form.available_staffers).to eq([])
+        end
+
+        it "filters correctly when no matching staffers in staffer_options" do
+          setup_availability_test_data => {care_case:, appointment_bundle:}
+          selection_with_unknown_staffers = build_selection_with_staffers(["unknown_staffer_1", "unknown_staffer_2"])
+
+          form = described_class.new(
+            care_case_id: care_case.id,
+            appointment_bundle_id: appointment_bundle.id,
+            existing_selections: {"0" => selection_with_unknown_staffers},
+            appointment_index: 1
+          )
+
+          expect(form.available_staffers).to eq([])
+        end
+
+        it "respects staffer_id when both staffer_id and existing selections are present" do
+          setup_availability_test_data => {care_case:, therapist1:, appointment_bundle:}
+          selection = build_selection_with_staffers([therapist1.id])
+
+          form = described_class.new(
+            care_case_id: care_case.id,
+            appointment_bundle_id: appointment_bundle.id,
+            existing_selections: {"0" => selection},
+            appointment_index: 1,
+            staffer_id: therapist1.id
+          )
+
+          expect(form.available_staffers).to eq([therapist1])
+        end
+
+        it "returns empty array when staffer_id conflicts with previous selection filtering" do
+          setup_availability_test_data => {care_case:, therapist1:, therapist2:, appointment_bundle:}
+          selection = build_selection_with_staffers([therapist1.id])
+
+          form = described_class.new(
+            care_case_id: care_case.id,
+            appointment_bundle_id: appointment_bundle.id,
+            existing_selections: {"0" => selection},
+            appointment_index: 1,
+            staffer_id: therapist2.id
+          )
+
+          expect(form.available_staffers).to eq([])
+        end
+      end
+    end
+  end
+
+  describe "#start_date_for" do
+    it "returns explicit start date when provided" do
+      setup_availability_test_data => {care_case:, appointment_bundle:}
+      explicit_date = Date.parse("2025-12-15")
+      root_type = appointment_bundle.root_appointment_types.first
+
+      form = described_class.new(
+        care_case_id: care_case.id,
+        appointment_bundle_id: appointment_bundle.id,
+        start_dates: {"1" => explicit_date}
+      )
+
+      expect(form.start_date_for(root_type, 1)).to eq(explicit_date)
+    end
+
+    it "returns first available date beginning of week for index 0" do
+      setup_availability_test_data => {care_case:, appointment_bundle:}
+      root_type = appointment_bundle.root_appointment_types.first
+
+      form = described_class.new(
+        care_case_id: care_case.id,
+        appointment_bundle_id: appointment_bundle.id
+      )
+
+      wednesday = Date.parse("2025-12-17")
+      allow(form).to receive(:first_available_date_for).and_return(wednesday)
+
+      result = form.start_date_for(root_type, 0)
+      expected_monday = Date.parse("2025-12-15")
+
+      expect(result).to eq(expected_monday)
+    end
+
+    context "when multi_step_pd_scheduling_flow flag is disabled" do
+      before do
+        Flipper.disable(:multi_step_pd_scheduling_flow)
+      end
+
+      it "applies a buffer for subsequent appointments" do
+        setup_availability_test_data => {care_case:, appointment_bundle:}
+        root_types = appointment_bundle.root_appointment_types
+
+        form = described_class.new(
+          care_case_id: care_case.id,
+          appointment_bundle_id: appointment_bundle.id
+        )
+
+        first_available = Date.parse("2025-12-03")
+        allow(form).to receive(:first_available_date_for).and_return(first_available)
+
+        result = form.start_date_for(root_types.first, 2)
+
+        expected_date = Date.parse("2025-12-15")
+
+        expect(result).to eq(expected_date)
+      end
+
+      it "returns first available date when it exceeds buffer constraint" do
+        setup_availability_test_data => {care_case:, appointment_bundle:}
+
+        form = described_class.new(
+          care_case_id: care_case.id,
+          appointment_bundle_id: appointment_bundle.id
+        )
+
+        first_available_date = Date.parse("2026-06-26")
+
+        allow(form).to receive(:first_available_date_for).and_return(
+          Date.parse("2026-01-01"),
+          first_available_date
+        )
+
+        result = form.start_date_for(appointment_bundle.root_appointment_types[1], 1)
+
+        expected_date = (first_available_date + 1.week).beginning_of_week
+        expect(result).to eq(expected_date)
+      end
+    end
+
+    context "when multi_step_pd_scheduling_flow flag is enabled" do
+      before do
+        Flipper.enable(:multi_step_pd_scheduling_flow)
+      end
+
+      it "uses buffer from appointment configuration" do
+        setup_availability_test_data(
+          appointment_bundle: PhoneDesk::Scheduling::AppointmentBundle.therapy_intake_60
+        ) => {care_case:, therapist1:, appointment_bundle:}
+        root_type = appointment_bundle.root_appointment_types.first
+        previous_selection_date = Time.zone.parse("2025-12-05T10:00:00")
+
+        existing_selections = {"0" => build_selection_with_staffers(
+          [therapist1.id],
+          datetime: previous_selection_date
+        )}
+
+        form = described_class.new(
+          care_case_id: care_case.id,
+          appointment_bundle_id: appointment_bundle.id,
+          existing_selections: existing_selections
+        )
+
+        first_available = Date.parse("2025-12-01")
+        allow(form).to receive(:first_available_date_for).and_return(first_available)
+
+        result = form.start_date_for(root_type, 1)
+        expected_date = (previous_selection_date + 1.day).beginning_of_week
+
+        expect(result).to eq(expected_date)
+      end
+
+      it "respects first available date when it's later than buffer constraint" do
+        setup_availability_test_data => {care_case:, therapist1:, appointment_bundle:}
+        root_type = appointment_bundle.root_appointment_types.first
+        previous_selection_date = Time.zone.parse("2025-12-05T10:00:00")
+
+        existing_selections = {"0" => build_selection_with_staffers(
+          [therapist1.id],
+          datetime: previous_selection_date
+        )}
+
+        form = described_class.new(
+          care_case_id: care_case.id,
+          appointment_bundle_id: appointment_bundle.id,
+          existing_selections: existing_selections
+        )
+
+        first_available = Date.parse("2026-01-15")
+        allow(form).to receive(:first_available_date_for).and_return(first_available)
+
+        result = form.start_date_for(root_type, 1)
+        expected_date = first_available.beginning_of_week
+
+        expect(result).to eq(expected_date)
+      end
+    end
+  end
+
+  describe "#calendar_params" do
+    context "when multi_provider_availability_phone_desk flag is disabled" do
+      before(:each) do
+        Flipper.disable(:multi_provider_availability_phone_desk)
+      end
+
+      it "returns params with singular staffer_id and clinic_id" do
+        care_case = FactoryBot.create(:care_case, region: Region.new_york)
+        clinic = FactoryBot.create(:clinic, address_state: "NY")
+        therapist = FactoryBot.create(:staffer, :therapist, region: care_case.region, clinic:)
+        Generators::Template.new(therapist).complex
+        appointment_bundle = PhoneDesk::Scheduling::AppointmentBundle.therapy_intake
+        root_appointment_type = appointment_bundle.root_appointment_types.first
+
+        form = described_class.new(
+          care_case_id: care_case.id,
+          appointment_bundle_id: appointment_bundle.id,
+          staffer_id: therapist.id,
+          clinic_id: clinic.id
+        )
+
+        params = form.calendar_params(root_appointment_type, 0)
+
+        expect(params[:staffer_id]).to eq(therapist.id)
+        expect(params[:clinic_id]).to eq(clinic.id)
+        expect(params[:staffer_ids]).to be_nil
+        expect(params[:clinic_ids]).to be_nil
+      end
+    end
+
+    context "when multi_provider_availability_phone_desk flag is enabled" do
+      before(:each) do
+        Flipper.enable(:multi_provider_availability_phone_desk)
+      end
+
+      it "returns params with plural staffer_ids and clinic_ids" do
+        care_case = FactoryBot.create(:care_case, region: Region.new_york)
+        clinic = FactoryBot.create(:clinic, address_state: "NY")
+        therapist1 = FactoryBot.create(:staffer, :therapist, region: care_case.region, clinic:)
+        therapist2 = FactoryBot.create(:staffer, :therapist, region: care_case.region, clinic:)
+        Generators::Template.new(therapist1).complex
+        Generators::Template.new(therapist2).complex
+        appointment_bundle = PhoneDesk::Scheduling::AppointmentBundle.therapy_intake
+        root_appointment_type = appointment_bundle.root_appointment_types.first
+
+        form = described_class.new(
+          care_case_id: care_case.id,
+          appointment_bundle_id: appointment_bundle.id,
+          clinic_ids: [clinic.id]
+        )
+
+        params = form.calendar_params(root_appointment_type, 0)
+
+        expect(params[:staffer_ids]).to match_array([therapist1.id, therapist2.id])
+        expect(params[:clinic_ids]).to eq([clinic.id])
+        expect(params[:staffer_id]).to be_nil
+        expect(params[:clinic_id]).to be_nil
+      end
+    end
+  end
+
+  def setup_availability_test_data(appointment_bundle: PhoneDesk::Scheduling::AppointmentBundle.therapy_intake)
+    care_case = FactoryBot.create(:care_case, region: Region.new_york)
+    clinic = FactoryBot.create(:clinic, address_state: "NY")
+    therapist1 = FactoryBot.create(:staffer, :therapist, region: care_case.region, clinic:)
+    therapist2 = FactoryBot.create(:staffer, :therapist, region: care_case.region, clinic:)
+    Generators::Template.new(therapist1).complex
+    Generators::Template.new(therapist2).complex
+
+    {
+      care_case:,
+      clinic:,
+      therapist1:,
+      therapist2:,
+      appointment_bundle:
+    }
+  end
+
+  def build_selection_with_staffers(staffer_ids, datetime: nil)
+    appointment_type = AppointmentType.therapy_diagnostic_evaluation_in_person
+    datetime ||= Time.zone.parse("2025-11-20T11:30:00.000-08:00")
+
+    staffer_appointment_type_pairs = staffer_ids.map do |staffer_id|
+      {"staffer_id" => staffer_id, "appointment_type_id" => appointment_type.id}
+    end
+
+    PhoneDesk::Scheduling::Selection.new(
+      appointment_type: appointment_type,
+      datetime: datetime,
+      staffer_id: staffer_ids.first,
+      staffer_appointment_type_pairs: staffer_appointment_type_pairs
+    )
+  end
+
+  def build_selection_without_pairs
+    appointment_type = AppointmentType.therapy_diagnostic_evaluation_in_person
+    datetime = Time.zone.parse("2025-11-20T11:30:00.000-08:00")
+
+    PhoneDesk::Scheduling::Selection.new(
+      appointment_type: appointment_type,
+      datetime: datetime,
+      staffer_id: nil,
+      staffer_appointment_type_pairs: nil
+    )
+  end
+end

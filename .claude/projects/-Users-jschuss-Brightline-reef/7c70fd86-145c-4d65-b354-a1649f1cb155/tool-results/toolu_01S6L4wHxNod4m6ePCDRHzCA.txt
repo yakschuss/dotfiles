@@ -1,0 +1,96 @@
+     1→# frozen_string_literal: true
+     2→
+     3→# TODO: We are still figuring out the patterns for query methods in top-level APIs.
+     4→# Not sure if `eligible?` and `reason` really belong here yet.
+     5→module WaitList
+     6→  class Api
+     7→    # @param appointment_type [AppointmentType]
+     8→    # @return [Boolean]
+     9→    def self.eligible?(appointment_type)
+    10→      appointment_type == AppointmentType.therapy_initial_session
+    11→    end
+    12→
+    13→    # @param care_case [CareCase]
+    14→    # @return [WaitList::Reason]
+    15→    def self.reason(care_case)
+    16→      # TODO: The only code path that calls this is currently off. We will need to revisit if that gets resurrected.  The old logic
+    17→      # would also not be right anymore.
+    18→      ::WaitList::Reason.all_providers_off
+    19→    end
+    20→
+    21→    def self.appointment_types
+    22→      # It this is updated, make sure the program logic in outreach_attempts_controller is updated as well
+    23→      [
+    24→        AppointmentType.therapy_initial_session,
+    25→        AppointmentType.therapy_telehealth,
+    26→        AppointmentType.coaching_goal_setting,
+    27→        AppointmentType.coaching_session
+    28→      ]
+    29→    end
+    30→
+    31→    def self.root_appointment_types
+    32→      [
+    33→        RootAppointmentType.therapy_initial_session,
+    34→        RootAppointmentType.therapy_session_legacy,
+    35→        RootAppointmentType.coaching_goal_setting,
+    36→        RootAppointmentType.coaching_session,
+    37→        RootAppointmentType.therapy_diagnostic_evaluation,
+    38→        RootAppointmentType.therapy_session,
+    39→        RootAppointmentType.psychological_testing_diagnostic_evaluation,
+    40→        RootAppointmentType.psychological_testing,
+    41→        RootAppointmentType.psychological_testing_consultation,
+    42→        RootAppointmentType.psychiatry_diagnostic_evaluation,
+    43→        RootAppointmentType.psychiatry_session,
+    44→        RootAppointmentType.psychiatry_consultation
+    45→      ]
+    46→    end
+    47→
+    48→    def self.root_appointment_types_for(care_model)
+    49→      root_appointment_types.select { |root_appointment_type| root_appointment_type.care_models.include?(care_model.to_s) }
+    50→    end
+    51→
+    52→    # @param care_case [CareCase]
+    53→    # @param reason [WaitList::Reason]
+    54→    # @param appointment_type [AppointmentType]
+    55→    # @param root_appointment_type [RootAppointmentType]
+    56→    # @param added_at [Time] Currently only used for backfilling data. Should this be removed later?
+    57→    # @param priority [Boolean]
+    58→    # @return [Boolean]
+    59→    def self.join(care_case, reason:, appointment_type: nil, root_appointment_type: nil, added_at: Time.current, notes: nil, clinic_ids: [], priority: false)
+    60→      return true if ::WaitList::Entry.active.exists?(care_case_id: care_case.id)
+    61→      # Maybe if they're not joining the waitlist we want a separate method / API?
+    62→      if reason == ::WaitList::Reason.no_provider_availability
+    63→        ::WaitList::Reminder.create(care_case, variant: reason, clinic_ids:)
+    64→      else
+    65→        root_appointment_type ||= appointment_type.root_appointment_type
+    66→        ::WaitList::Entry.create!(care_case:, appointment_type:, root_appointment_type:, added_at:, notes:, clinic_ids:, priority:)
+    67→      end
+    68→      # Add Tag
+    69→      ::WaitList::Tag.add(care_case, reason: reason)
+    70→      # Broadcast Event (will be used to trigger email!)
+    71→      EventSystem::Publisher.broadcast_later(WaitListJoinedEvent.new(care_case: care_case, reason: reason))
+    72→      true
+    73→    end
+    74→
+    75→    # @param entry [WaitList::Entry]
+    76→    # @param reason [WaitList::Entry::RemovedReason]
+    77→    # @param removed_by [Staffer | Member]
+    78→    # @return [Boolean]
+    79→    def self.remove(entry, removed_reason:, removed_by: nil, removed_reason_text: nil)
+    80→      entry.remove!(removed_reason:, removed_by:, removed_reason_text:)
+    81→      if removed_by&.is_a?(Member)
+    82→        ::WaitList::Reminder.create(entry.care_case, variant: ::WaitList::Reminder::Variant.member_opted_out)
+    83→      end
+    84→    end
+    85→
+    86→    def self.track_outreach_event(outreach_attempt:, event_name:)
+    87→      return unless outreach_attempt.present?
+    88→      ::WaitList::OutreachAttempt::EventJob.perform_async(outreach_attempt.id, event_name, Time.zone.now.iso8601)
+    89→    end
+    90→  end
+    91→end
+    92→
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

@@ -1,0 +1,39 @@
+# frozen_string_literal: true
+
+module Staffers
+  module Accounts
+    module Chats
+      class ChatFrameComponent < ApplicationComponent
+        def initialize(sendbird_chat_channel:, sendbird_user:, sendbird_chat_channel_membership:, safety_flag:, account:, member:, staffer:)
+          @sendbird_chat_channel = sendbird_chat_channel
+          @sendbird_user = sendbird_user
+          @sendbird_chat_channel_membership = sendbird_chat_channel_membership
+          @safety_flag = safety_flag
+          @account = account
+          @member = member
+          @staffer = staffer
+        end
+
+        private
+
+        attr_reader :sendbird_chat_channel, :sendbird_user, :sendbird_chat_channel_membership, :safety_flag, :account, :member, :staffer
+
+        def sendbird_channel_info
+          @sendbird_channel_info ||= Chat::SendbirdChannelInfo.new(channel: sendbird_chat_channel, user: sendbird_user)
+        end
+
+        def current_account
+          account
+        end
+
+        def current_member
+          member
+        end
+
+        def current_staffer
+          staffer
+        end
+      end
+    end
+  end
+end

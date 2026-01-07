@@ -1,0 +1,44 @@
+[
+  {
+    "content": "Examine PaymentMethodsController authentication and recent changes",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Check routes configuration for payment methods endpoints",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Investigate middleware and additional authentication checks",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Examine payment form modal component and request flow",
+    "status": "pending",
+    "priority": "medium",
+    "id": "4"
+  },
+  {
+    "content": "Check recent commits for authentication-related changes",
+    "status": "completed",
+    "priority": "medium",
+    "id": "5"
+  },
+  {
+    "content": "Test actual request flow to identify redirect trigger",
+    "status": "completed",
+    "priority": "high",
+    "id": "6"
+  },
+  {
+    "content": "Fix the conditional skip_before_action in LimitedPaperworkSession",
+    "status": "in_progress",
+    "priority": "high",
+    "id": "7"
+  }
+]

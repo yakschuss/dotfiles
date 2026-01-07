@@ -1,0 +1,17 @@
+# frozen_string_literal: true
+
+class AddCoachingOngoingCapabilities < ActiveRecord::Migration[8.0]
+  def up
+    CareCapability.where(capability_id: "coaching").find_each do |capability|
+      CareCapability.find_or_create_by(
+        staffer_id: capability.staffer_id,
+        capability_id: "coaching_ongoing",
+        region_id: capability.region_id
+      )
+    end
+  end
+
+  def down
+    raise ActiveRecord::IrreversibleMigration
+  end
+end

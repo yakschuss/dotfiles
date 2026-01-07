@@ -1,0 +1,38 @@
+[
+  {
+    "content": "Analyze SortedCareCases database performance issues",
+    "status": "completed",
+    "priority": "high",
+    "id": "analyze_performance"
+  },
+  {
+    "content": "Identify comprehensive optimization solutions",
+    "status": "completed",
+    "priority": "high",
+    "id": "identify_solutions"
+  },
+  {
+    "content": "Create database indexes to optimize queries",
+    "status": "completed",
+    "priority": "high",
+    "id": "create_indexes"
+  },
+  {
+    "content": "Implement caching strategies for sorted care cases",
+    "status": "completed",
+    "priority": "medium",
+    "id": "implement_caching"
+  },
+  {
+    "content": "Add pagination to reduce initial load size",
+    "status": "completed",
+    "priority": "medium",
+    "id": "add_pagination"
+  },
+  {
+    "content": "Refactor complex SQL queries for better performance",
+    "status": "completed",
+    "priority": "high",
+    "id": "optimize_queries"
+  }
+]

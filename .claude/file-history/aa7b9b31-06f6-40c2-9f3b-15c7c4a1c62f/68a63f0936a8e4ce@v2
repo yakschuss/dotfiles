@@ -1,0 +1,134 @@
+# Migrate Care Case Scheduling to clinic_show Interface
+
+## Summary
+Migrate Care Case Scheduling to use the `clinic_show` interface for ALL care cases, removing the legacy view distinction. Add Language filter support for interpretation scheduling (BLK only).
+
+## Background
+- "Legacy" care model has no regions mapped to it (`legacy: []`)
+- No code checks `care_model.legacy?`
+- The old `show` view is only for edge cases that shouldn't exist
+- We can simplify by always using `clinic_show`
+
+## Requirements
+- Always use `clinic_show` view (remove `show_clinic_view?` check)
+- Dynamically show appointment types based on care model (BLK vs clinic)
+- Hide Clinic filter for BLK care cases
+- Show Language (interpretation) filter only for BLK care cases
+- Pass interpretation language through to the calendar and booking flow
+
+## Files to Modify
+
+### 1. Controller: `app/controllers/staffers/care_cases/availabilities_controller.rb`
+**Changes:**
+- Remove `show_clinic_view?` method
+- Remove the legacy view code path (member variables, etc.)
+- Simplify `show` to just set up form and render (Rails will find `show.html.erb`)
+- Update `clinic_availability_filter_params` to permit `:interpretation_language_id`
+- Remove `show_clinic_view: true` from any URL helpers
+
+```ruby
+def show
+  @form = Calendaring::AvailabilityForm.new(**clinic_availability_filter_params.reverse_merge(care_case_id: @current_care_case.id, account_id: @current_care_case.account.id))
+  @form.track_request
+  # Rails will render show.html.erb automatically with application_strapless layout
+end
+```
+
+### 2. Form Model: `app/models/calendaring/availability_form.rb`
+**Changes:**
+- Add `attribute :interpretation_language_id, :string`
+- Update `calendar_params` to include `language_id: interpretation_language_id`
+- Update `availability_filters` to include `communication_assistance` when interpretation language is selected
+- Add helper methods:
+  - `interpretation_language` - returns the Language object
+  - `care_model` - returns the CareModel for the care case
+  - `show_clinic_filter?` - returns `care_model.clinic?`
+  - `show_language_filter?` - returns `care_model.brightlife_kids?`
+
+### 3. View: Rename `clinic_show.html.erb` → `show.html.erb`
+**File operations:**
+- Rename `app/views/staffers/care_cases/availabilities/clinic_show.html.erb` to `show.html.erb`
+- Delete old `show.html.erb` (the legacy view)
+- Delete `_form.html.erb` (used by legacy view only)
+
+**Changes to new `show.html.erb`:**
+- Replace hardcoded `RootAppointmentType.for_care_model(:clinic)` with dynamic care model:
+```erb
+RootAppointmentType.for_care_model(@form.care_model.id)
+```
+- Remove `show_clinic_view: true` from form URL (use `care_case_availability_path`)
+- Wrap Clinic filter in conditional: `<% if @form.show_clinic_filter? %>`
+- Add Language filter (shown only for BLK):
+```erb
+<% if @form.show_language_filter? %>
+  <%= f.collection :select, :interpretation_language_id,
+        Language.interpretation_enabled, :id, :name,
+        label: "Language", include_blank: "None",
+        html_options: {data: {action: "change->forms#requestSubmit"}} %>
+<% end %>
+```
+
+### 4. Calendar Controller: `app/controllers/staffers/care_cases/availabilities/calendars_controller.rb`
+**Status:** Already supports `language_id` parameter (line 27) - no changes needed
+
+### 5. Bookings Controller: `app/controllers/staffers/care_cases/bookings_controller.rb`
+**Status:** Already handles `language_id` in booking params (line 76, 108) - no changes needed
+
+## Implementation Steps
+
+1. **Update AvailabilityForm** (`app/models/calendaring/availability_form.rb`)
+   - Add `interpretation_language_id` attribute
+   - Add `care_model` method returning `CareModel.new(care_case: care_case)`
+   - Add `show_clinic_filter?` and `show_language_filter?` helper methods
+   - Update `availability_filters` to include communication_assistance
+   - Update `calendar_params` to include `language_id`
+
+2. **Update AvailabilitiesController** (`app/controllers/staffers/care_cases/availabilities_controller.rb`)
+   - Simplify `show` method - just set up form (Rails renders show.html.erb)
+   - Remove `show_clinic_view?` method
+   - Remove legacy view code path (member variables, etc.)
+   - Add `:interpretation_language_id` to permitted params
+   - Set layout to `application_strapless`
+
+3. **Rename and update view**
+   - Delete old `show.html.erb` and `_form.html.erb`
+   - Rename `clinic_show.html.erb` → `show.html.erb`
+   - Update `show.html.erb`:
+     - Make appointment types dynamic based on care model
+     - Conditionally show Clinic filter (clinic model only)
+     - Add Language filter (BLK model only)
+     - Remove `show_clinic_view: true` from form URL
+
+4. **Search and update any references**
+   - Find any usage of `show_clinic_view: true` in code and remove
+   - Update any links that point to the old show view
+
+5. **Test the changes**
+   - Verify BLK care cases use the new unified view
+   - Verify clinic care cases still work correctly
+   - Verify Language filter appears only for BLK
+   - Verify Clinic filter appears only for clinic
+   - Verify interpretation language flows through to booking
+
+## Data Flow
+
+```
+User selects interpretation language
+    ↓
+AvailabilityForm.interpretation_language_id
+    ↓
+AvailabilityForm.calendar_params includes language_id
+    ↓
+CalendarsController receives language_id
+    ↓
+PhoneDesk::Scheduling::CalendarData uses language_id for slot filtering
+    ↓
+BookingsController receives language_id
+    ↓
+Appointment created with interpretation_language
+```
+
+## Notes
+- The calendar infrastructure already supports `language_id` parameter
+- The booking flow already handles `interpretation_language`
+- This migration leverages existing patterns from the appointment_slots interface

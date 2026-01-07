@@ -1,0 +1,280 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+# ATTENTION: In addition to testing, this spec is being used to generate the
+# OpenAPI schema for this endpoint. If you make a change you will need to
+# regenerate the schema and ask the OpSec team to update the API gateway.
+
+RSpec.describe Api::Mobile::Accounts::CareCases::Appointments::ReschedulationsController, type: :request, scope: :api do
+  include TestDoubles::Auth0
+  include TestDoubles::Acuity
+
+  describe "POST /mobile/accounts/{account_id}/care_cases/{care_case_id}/appointments/{appointment_id}/reschedulations" do
+    it_behaves_like "an api key consumer", method: :POST, url: "/mobile/accounts/lorem/care_cases/lorem/appointments/appointment_id/reschedulations"
+    it_behaves_like "a jwt consumer", method: :POST, url: "/mobile/accounts/lorem/care_cases/lorem/appointments/appointment_id/reschedulations"
+    it_behaves_like "an account consumer", method: :POST, url: "/mobile/accounts/{account_id}/care_cases/lorem/appointments/appointment_id/reschedulations"
+    it_behaves_like "a care case consumer", method: :POST, url: "/mobile/accounts/{account_id}/care_cases/{care_case_id}/appointments/appointment_id/reschedulations"
+
+    context "appointment is within reschedule window" do
+      it "rescheduling appointment is allowed" do
+        data = Generators::NewAccount.in_therapy
+        start_time = 1.week.from_now
+        new_start_time = start_time + 1.day
+        appointment = create_upcoming_appointment(
+          care_case: data.care_case,
+          start_time: start_time
+        )
+
+        expect_acuity_appointment_to_be_rescheduled(
+          for_id: appointment.acuity_appointment_id,
+          start_time: new_start_time.iso8601.to_datetime
+        )
+
+        post api_mobile_account_care_case_appointment_reschedulations_path(data.account, data.care_case, appointment, {start_time: new_start_time.iso8601}), as: :json, headers: auth_headers_for(data.caregiver)
+
+        expect(response).to have_http_status(:no_content)
+      end
+    end
+
+    context "appointment is outside reschedule window" do
+      it "rescheduling a pending appointment is not allowed" do
+        data = Generators::NewAccount.in_therapy
+        start_time = 3.hours.from_now
+        new_start_time = start_time + 1.day
+        appointment = create_upcoming_appointment(
+          care_case: data.care_case,
+          start_time: start_time
+        )
+
+        post(
+          api_mobile_account_care_case_appointment_reschedulations_path(
+            data.account,
+            data.care_case,
+            appointment,
+            {start_time: new_start_time.iso8601}
+          ),
+          as: :json,
+          headers: auth_headers_for(data.caregiver)
+        )
+
+        expect(response).to have_http_status(:forbidden)
+      end
+
+      it "rescheduling a canceled appointment is allowed" do
+        data = Generators::NewAccount.in_therapy
+        start_time = 3.hours.from_now
+        new_start_time = start_time + 1.day
+        appointment = create_upcoming_appointment(
+          care_case: data.care_case,
+          start_time: start_time
+        )
+
+        appointment_cancelation = FactoryBot.build(:appointment_cancelation, appointment: appointment)
+        Calendaring::Cancelation.create(
+          appointment: appointment,
+          appointment_cancelation: appointment_cancelation,
+          source: Calendaring::EventSource.reef
+        )
+
+        expect_acuity_appointment_to_be_created(
+          calendar_id: appointment.staffer.acuity_calendar_id,
+          datetime: new_start_time.iso8601.to_datetime,
+          with_id: 1234
+        )
+
+        post(
+          api_mobile_account_care_case_appointment_reschedulations_path(
+            data.account,
+            data.care_case,
+            appointment,
+            {start_time: new_start_time.iso8601}
+          ),
+          as: :json,
+          headers: auth_headers_for(data.caregiver)
+        )
+
+        expect(response).to have_http_status(:no_content)
+      end
+    end
+
+    context "appointment time is taken" do
+      it "rescheduling appointment is not allowed" do
+        data = Generators::NewAccount.in_therapy
+        start_time = 3.days.from_now
+        new_start_time = start_time + 1.day
+        appointment = create_upcoming_appointment(
+          care_case: data.care_case,
+          start_time: start_time
+        )
+        acuity_response = OpenStruct.new(
+          body: {
+            error: 400,
+            status_code: 400,
+            message: "appointment time not available"
+          }.to_json
+        )
+
+        expect_acuity_appointment_reschedulation_to_raise_error(Acuity::Api::Client::ApiError.new(acuity_response))
+
+        post api_mobile_account_care_case_appointment_reschedulations_path(data.account, data.care_case, appointment, {start_time: new_start_time.iso8601}), as: :json, headers: auth_headers_for(data.caregiver)
+
+        expect(response).to have_http_status(:internal_server_error)
+      end
+    end
+  end
+
+  describe "GET /mobile/accounts/{account_id}/care_cases/{care_case_id}/appointments/{appointment_id}/reschedulations/availabilities" do
+    it_behaves_like "an api key consumer", method: :GET, url: "/mobile/accounts/lorem/care_cases/lorem/appointments/appointment_id/reschedulations/availabilities"
+    it_behaves_like "a jwt consumer", method: :GET, url: "/mobile/accounts/lorem/care_cases/lorem/appointments/appointment_id/reschedulations/availabilities"
+    it_behaves_like "an account consumer", method: :GET, url: "/mobile/accounts/{account_id}/care_cases/lorem/appointments/appointment_id/reschedulations/availabilities"
+    it_behaves_like "a care case consumer", method: :GET, url: "/mobile/accounts/{account_id}/care_cases/{care_case_id}/appointments/appointment_id/reschedulations/availabilities"
+
+    context "appointment is within reschedule window" do
+      def build_slot_collection(times:, staffer:, appointment_type:)
+        slots = times.map { |time| Calendaring::AvailableTimes::Slot.new(time, staffer, appointment_type) }
+        Calendaring::AvailableTimes::Slot::Collection.new(slots)
+      end
+
+      context "when date is missing in params" do
+        it "returns availabilities for the same appointment date and generates group_id" do
+          data = Generators::NewAccount.in_therapy
+          start_time = 1.week.from_now
+          appointment = create_upcoming_appointment(
+            care_case: data.care_case,
+            start_time: start_time
+          )
+          available_times = [
+            start_time + 1.hour,
+            start_time + 2.hours
+          ]
+
+          expect(Calendaring::Api::Availability).to receive(:times).with(
+            root_appointment_type: appointment.appointment_type.root_appointment_type,
+            date_range: appointment.start_time.to_date..appointment.start_time.to_date,
+            timezone: data.caregiver.timezone,
+            filters: hash_including(:appointment_type, :staffers, :region)
+          ).and_return(build_slot_collection(times: available_times, staffer: appointment.staffer, appointment_type: appointment.appointment_type))
+
+          get availabilities_api_mobile_account_care_case_appointment_reschedulations_path(data.account, data.care_case, appointment), headers: auth_headers_for(data.caregiver)
+
+          parsed_body = JSON.parse(response.body)
+
+          expect(response).to have_http_status(:ok)
+          expect(parsed_body["availabilities"]).to match_array(available_times.map { |t| t.iso8601.in_time_zone(data.caregiver.timezone) })
+          expect(parsed_body["group_id"].present?).to be_truthy
+        end
+      end
+
+      context "when date is present in params" do
+        it "returns availabilities for the date" do
+          data = Generators::NewAccount.in_therapy
+          start_time = 1.week.from_now
+          new_appointment_date = start_time.to_date + 2.days
+          appointment = create_upcoming_appointment(
+            care_case: data.care_case,
+            start_time: start_time
+          )
+          available_times = [
+            new_appointment_date + 1.hour,
+            new_appointment_date + 2.hours
+          ]
+
+          expect(Calendaring::Api::Availability).to receive(:times).with(
+            root_appointment_type: appointment.appointment_type.root_appointment_type,
+            date_range: new_appointment_date..new_appointment_date,
+            timezone: data.caregiver.timezone,
+            filters: hash_including(:appointment_type, :staffers, :region)
+          ).and_return(build_slot_collection(times: available_times, staffer: appointment.staffer, appointment_type: appointment.appointment_type))
+
+          get availabilities_api_mobile_account_care_case_appointment_reschedulations_path(data.account, data.care_case, appointment, {date: new_appointment_date.iso8601}), headers: auth_headers_for(data.caregiver)
+
+          parsed_body = JSON.parse(response.body)
+
+          expect(response).to have_http_status(:ok)
+          expect(parsed_body["availabilities"]).to match_array(available_times.map { |t| t.iso8601.in_time_zone(data.caregiver.timezone) })
+          expect(parsed_body["group_id"].present?).to be_truthy
+        end
+      end
+
+      context "when group_id is present in params" do
+        it "uses the group_id in response" do
+          data = Generators::NewAccount.in_therapy
+          start_time = 1.week.from_now
+          appointment = create_upcoming_appointment(
+            care_case: data.care_case,
+            start_time: start_time
+          )
+          available_times = [
+            start_time + 1.hour,
+            start_time + 2.hours
+          ]
+          group_id = SecureRandom.alphanumeric
+
+          expect(Calendaring::Api::Availability).to receive(:times).with(
+            root_appointment_type: appointment.appointment_type.root_appointment_type,
+            date_range: appointment.start_time.to_date..appointment.start_time.to_date,
+            timezone: data.caregiver.timezone,
+            filters: hash_including(:appointment_type, :staffers, :region)
+          ).and_return(build_slot_collection(times: available_times, staffer: appointment.staffer, appointment_type: appointment.appointment_type))
+
+          get availabilities_api_mobile_account_care_case_appointment_reschedulations_path(data.account, data.care_case, appointment, {group_id: group_id}), headers: auth_headers_for(data.caregiver)
+
+          parsed_body = JSON.parse(response.body)
+
+          expect(response).to have_http_status(:ok)
+          expect(parsed_body["availabilities"]).to match_array(available_times.map { |t| t.iso8601.in_time_zone(data.caregiver.timezone) })
+          expect(parsed_body["group_id"]).to eq(group_id)
+        end
+      end
+
+      context "when there are no available times" do
+        it "returns empty availabilities" do
+          data = Generators::NewAccount.in_therapy
+          start_time = 1.week.from_now
+          new_appointment_date = start_time.to_date + 2.days
+          appointment = create_upcoming_appointment(
+            care_case: data.care_case,
+            start_time: start_time
+          )
+
+          allow(Calendaring::Api::Availability).to receive(:times)
+            .and_return(build_slot_collection(times: [], staffer: appointment.staffer, appointment_type: appointment.appointment_type))
+
+          get availabilities_api_mobile_account_care_case_appointment_reschedulations_path(data.account, data.care_case, appointment, {date: new_appointment_date.iso8601}), headers: auth_headers_for(data.caregiver)
+
+          parsed_body = JSON.parse(response.body)
+
+          expect(response).to have_http_status(:ok)
+          expect(parsed_body["availabilities"]).to match_array([])
+          expect(parsed_body["group_id"].present?).to be_truthy
+        end
+      end
+    end
+
+    context "wrong appointment id" do
+      it "returns 404" do
+        data = Generators::NewAccount.in_therapy
+
+        get availabilities_api_mobile_account_care_case_appointment_reschedulations_path(data.account, data.care_case, "foo"), headers: auth_headers_for(data.caregiver)
+
+        expect(response).to have_http_status(:not_found)
+      end
+    end
+
+    context "appointment is outside reschedule window" do
+      it "rescheduling appointment is not allowed" do
+        data = Generators::NewAccount.in_therapy
+        start_time = 3.hours.from_now
+        appointment = create_upcoming_appointment(
+          care_case: data.care_case,
+          start_time: start_time
+        )
+
+        get availabilities_api_mobile_account_care_case_appointment_reschedulations_path(data.account, data.care_case, appointment), headers: auth_headers_for(data.caregiver)
+
+        expect(response).to have_http_status(:forbidden)
+      end
+    end
+  end
+end

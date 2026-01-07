@@ -1,0 +1,290 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe WaitList::EntriesController, type: :request do
+  describe "GET /index" do
+    it "applies region filter" do
+      log_in_as_admin
+
+      FactoryBot.create_list(:wait_list_entry, 2, care_case: FactoryBot.create(:care_case, :with_patient, region: Region.new_york))
+      FactoryBot.create(:wait_list_entry, care_case: FactoryBot.create(:care_case, :with_patient, region: Region.massachusetts))
+
+      get wait_list_entries_path(filters: {region_id: [Region.new_york.id]})
+      expect(response).to be_successful
+      expect(response.body).to have_selector("tbody tr", count: 2)
+
+      get wait_list_entries_path(filters: {region_id: [Region.massachusetts.id]})
+      expect(response).to be_successful
+      expect(response.body).to have_selector("tbody tr", count: 1)
+    end
+
+    it "applies sort filter for total outreach" do
+      log_in_as_admin
+
+      care_case1 = FactoryBot.create(:care_case, :with_patient)
+      care_case2 = FactoryBot.create(:care_case, :with_patient)
+      entry1 = FactoryBot.create(:wait_list_entry, care_case: care_case1)
+      entry2 = FactoryBot.create(:wait_list_entry, care_case: care_case2)
+      FactoryBot.create_list(:wait_list_outreach_attempt, 3, entry: entry1)
+      FactoryBot.create_list(:wait_list_outreach_attempt, 1, entry: entry2)
+
+      get wait_list_entries_path(sort: {sort_field: :outreaches, sort_order: :desc})
+      expect(response).to be_successful
+      rows = Nokogiri::HTML(response.body).css("tbody tr")
+      expect(rows[0].text).to include(care_case1.brightline_id)
+      expect(rows[1].text).to include(care_case2.brightline_id)
+
+      get wait_list_entries_path(sort: {sort_field: :outreaches, sort_order: :asc})
+      expect(response).to be_successful
+      rows = Nokogiri::HTML(response.body).css("tbody tr")
+      expect(rows[0].text).to include(care_case2.brightline_id)
+      expect(rows[1].text).to include(care_case1.brightline_id)
+    end
+
+    it "is not authorized for coach" do
+      log_in_as_staffer(FactoryBot.create(:staffer, :coach))
+
+      get wait_list_entries_path
+      expect(response).to have_http_status(:not_found)
+    end
+
+    it "shows a summary of activity for each entry" do
+      log_in_as_admin
+
+      care_case_1 = FactoryBot.create(:care_case, :with_patient, region: Region.washington)
+      entry_1 = FactoryBot.create(:wait_list_entry, care_case: care_case_1, added_at: "2025-04-01", root_appointment_type: RootAppointmentType.therapy_initial_session)
+      entry_1_outreach_attempt_1 = FactoryBot.create(:wait_list_outreach_attempt, :phone_call, entry: entry_1)
+      FactoryBot.create(:wait_list_outreach_attempt_event, :phone_call_spoke_to_member, outreach_attempt: entry_1_outreach_attempt_1, event_at: "2025-04-07")
+      entry_1_outreach_attempt_2 = FactoryBot.create(:wait_list_outreach_attempt, :phone_call, entry: entry_1)
+      FactoryBot.create(:wait_list_outreach_attempt_event, :phone_call_left_voicemail, outreach_attempt: entry_1_outreach_attempt_2, event_at: "2025-04-12")
+
+      care_case_2 = FactoryBot.create(:care_case, :with_patient, region: Region.new_york)
+      entry_2 = FactoryBot.create(:wait_list_entry, care_case: care_case_2, added_at: "2025-04-07", root_appointment_type: RootAppointmentType.therapy_diagnostic_evaluation)
+      entry_2_outreach_attempt_1 = FactoryBot.create(:wait_list_outreach_attempt, :phone_call, entry: entry_2)
+      FactoryBot.create(:wait_list_outreach_attempt_event, :phone_call_left_voicemail, outreach_attempt: entry_2_outreach_attempt_1, event_at: "2025-04-14")
+
+      get wait_list_entries_path
+
+      rows = Nokogiri::HTML(response.body).css("tbody tr")
+      expect(rows[0]).to have_content("4/1/2025")
+      expect(rows[0]).to have_content("Left voicemail")
+      expect(rows[0]).to have_content("See history (2)")
+      expect(rows[0]).to have_content("Log call #3")
+      expect(rows[0]).to have_content("Log call")
+
+      expect(rows[1]).to have_content("4/7/2025")
+      expect(rows[1]).to have_content("Left voicemail")
+      expect(rows[1]).to have_content("See history (1)")
+      expect(rows[1]).to have_no_content("Send email")
+      expect(rows[1]).to have_content("Log call #2")
+    end
+
+    it "applies multiple region and payer filters together" do
+      log_in_as_admin
+
+      # Create accounts and care cases in different regions
+      account_ny = FactoryBot.create(:account)
+      account_ma = FactoryBot.create(:account)
+      account_wa = FactoryBot.create(:account)
+
+      care_case_ny_payer1 = FactoryBot.create(:care_case, :with_patient, region: Region.new_york, account: account_ny)
+      care_case_ny_payer2 = FactoryBot.create(:care_case, :with_patient, region: Region.new_york, account: account_ny)
+      care_case_ma_payer1 = FactoryBot.create(:care_case, :with_patient, region: Region.massachusetts, account: account_ma)
+      care_case_ma_payer2 = FactoryBot.create(:care_case, :with_patient, region: Region.massachusetts, account: account_ma)
+      care_case_wa_payer1 = FactoryBot.create(:care_case, :with_patient, region: Region.washington, account: account_wa)
+
+      # Create payers and contracts
+      payer_1 = FactoryBot.create(:payer, name: "Test Payer 1")
+      payer_2 = FactoryBot.create(:payer, name: "Test Payer 2")
+      payer_3 = FactoryBot.create(:payer, name: "Test Payer 3")
+
+      contract_1 = FactoryBot.create(:contract, payer: payer_1)
+      contract_2 = FactoryBot.create(:contract, payer: payer_2)
+      _contract_3 = FactoryBot.create(:contract, payer: payer_3)
+
+      # Create covered entities and link to care cases
+      covered_entity_1_ny = FactoryBot.create(:covered_entity, :with_active_coverage, contract: contract_1, account: account_ny)
+      covered_entity_2_ny = FactoryBot.create(:covered_entity, :with_active_coverage, contract: contract_2, account: account_ny)
+      covered_entity_1_ma = FactoryBot.create(:covered_entity, :with_active_coverage, contract: contract_1, account: account_ma)
+      covered_entity_2_ma = FactoryBot.create(:covered_entity, :with_active_coverage, contract: contract_2, account: account_ma)
+      covered_entity_1_wa = FactoryBot.create(:covered_entity, :with_active_coverage, contract: contract_1, account: account_wa)
+
+      FactoryBot.create(:care_case_covered_entity, care_case: care_case_ny_payer1, covered_entity: covered_entity_1_ny)
+      FactoryBot.create(:care_case_covered_entity, care_case: care_case_ny_payer2, covered_entity: covered_entity_2_ny)
+      FactoryBot.create(:care_case_covered_entity, care_case: care_case_ma_payer1, covered_entity: covered_entity_1_ma)
+      FactoryBot.create(:care_case_covered_entity, care_case: care_case_ma_payer2, covered_entity: covered_entity_2_ma)
+      FactoryBot.create(:care_case_covered_entity, care_case: care_case_wa_payer1, covered_entity: covered_entity_1_wa)
+
+      # Create waitlist entries
+      FactoryBot.create(:wait_list_entry, care_case: care_case_ny_payer1)
+      FactoryBot.create(:wait_list_entry, care_case: care_case_ny_payer2)
+      FactoryBot.create(:wait_list_entry, care_case: care_case_ma_payer1)
+      FactoryBot.create(:wait_list_entry, care_case: care_case_ma_payer2)
+      FactoryBot.create(:wait_list_entry, care_case: care_case_wa_payer1)
+
+      # Test: Multiple regions (NY, MA) + Multiple payers (payer_1, payer_2)
+      # Should return: NY+payer1, NY+payer2, MA+payer1, MA+payer2 (4 entries)
+      # Should exclude: WA+payer1 (wrong region)
+      get wait_list_entries_path(filters: {
+        region_id: [Region.new_york.id, Region.massachusetts.id],
+        payer_id: [payer_1.id, payer_2.id]
+      })
+
+      expect(response).to be_successful
+      expect(response.body).to have_selector("tbody tr", count: 4)
+
+      # Verify the correct entries are shown
+      rows = Nokogiri::HTML(response.body).css("tbody tr")
+      care_case_ids = rows.map { |row| row.text.match(/BC-\w+-\d+/).to_s }
+      expect(care_case_ids).to include(care_case_ny_payer1.brightline_id)
+      expect(care_case_ids).to include(care_case_ny_payer2.brightline_id)
+      expect(care_case_ids).to include(care_case_ma_payer1.brightline_id)
+      expect(care_case_ids).to include(care_case_ma_payer2.brightline_id)
+      expect(care_case_ids).not_to include(care_case_wa_payer1.brightline_id)
+
+      # Test: Single region (NY) + Multiple payers (payer_1, payer_2)
+      # Should return: NY+payer1, NY+payer2 (2 entries)
+      get wait_list_entries_path(filters: {
+        region_id: [Region.new_york.id],
+        payer_id: [payer_1.id, payer_2.id]
+      })
+
+      expect(response).to be_successful
+      expect(response.body).to have_selector("tbody tr", count: 2)
+
+      # Test: Multiple regions (NY, MA) + Single payer (payer_1)
+      # Should return: NY+payer1, MA+payer1 (2 entries)
+      get wait_list_entries_path(filters: {
+        region_id: [Region.new_york.id, Region.massachusetts.id],
+        payer_id: [payer_1.id]
+      })
+
+      expect(response).to be_successful
+      expect(response.body).to have_selector("tbody tr", count: 2)
+    end
+  end
+
+  describe "GET /new" do
+    it "renders modal" do
+      log_in_as_admin
+
+      care_case = FactoryBot.create(:care_case, :with_patient, region: Region.new_york)
+      turbo_stream_get new_wait_list_entry_path(care_case_id: care_case.id)
+
+      expect(response).to have_http_status(:ok)
+      expect(response.body).to include("Add to waitlist")
+    end
+  end
+
+  describe "POST /create" do
+    context "legacy model" do
+      it "adds care case to waitlist with appointment type and redirects to care case page" do
+        log_in_as_admin
+
+        care_case = FactoryBot.create(:care_case, :with_patient, region: Region.new_york)
+
+        expect {
+          post wait_list_entries_path, params: {wait_list_entry: {
+            care_case_id: care_case.id,
+            root_appointment_type_id: RootAppointmentType.therapy_initial_session.id
+          }}, headers: {HTTP_REFERER: care_case_path(care_case)}
+        }.to change(WaitList::Entry, :count).by(1)
+
+        expect(response).to turbo_redirect_to(care_case_path(care_case))
+        expect(WaitList::Entry.last.appointment_type).to eq(AppointmentType.therapy_initial_session)
+      end
+    end
+    context "clinic model" do
+      it "adds care case to waitlist and redirects to referer (current page)" do
+        log_in_as_admin
+
+        care_case = FactoryBot.create(:care_case, :with_patient, region: Region.new_york)
+
+        expect {
+          post wait_list_entries_path, params: {wait_list_entry: {
+            care_case_id: care_case.id,
+            root_appointment_type_id: RootAppointmentType.therapy_diagnostic_evaluation.id,
+            notes: "Test notes",
+            clinic_ids: []
+          }}, headers: {HTTP_REFERER: care_case_path(care_case)}
+        }.to change(WaitList::Entry, :count).by(1)
+
+        entry = WaitList::Entry.last
+        expect(response).to turbo_redirect_to(care_case_path(care_case))
+        expect(entry.appointment_type).to be_nil
+        expect(entry.root_appointment_type).to eq(RootAppointmentType.therapy_diagnostic_evaluation)
+        expect(entry.notes).to eq("Test notes")
+        expect(entry.clinic_ids).to eq([])
+      end
+
+      it "includes clinic_ids if specified" do
+        log_in_as_admin
+
+        care_case = FactoryBot.create(:care_case, :with_patient, region: Region.new_york)
+        clinic = FactoryBot.create(:clinic)
+
+        post wait_list_entries_path, params: {wait_list_entry: {care_case_id: care_case.id, root_appointment_type_id: RootAppointmentType.therapy_diagnostic_evaluation.id, clinic_ids: [clinic.id]}}
+        expect(WaitList::Entry.last.clinic_ids).to eq([clinic.id])
+      end
+    end
+  end
+
+  describe "GET /edit" do
+    it "renders modal" do
+      log_in_as_admin
+
+      freeze_time do
+        care_case = FactoryBot.create(:care_case, :with_patient, region: Region.new_york)
+        clinic = FactoryBot.create(:clinic)
+        entry = FactoryBot.create(
+          :wait_list_entry,
+          care_case:,
+          root_appointment_type_id: RootAppointmentType.therapy_diagnostic_evaluation.id,
+          clinic_ids: [clinic.id],
+          notes: "Test notes",
+          added_at: 3.days.ago
+        )
+        get edit_wait_list_entry_path(entry)
+
+        expect(response).to have_http_status(:ok)
+        expect(response.body).to include("Edit waitlist entry")
+        expect(response.body).to include(RootAppointmentType.therapy_diagnostic_evaluation.name_with_care_model)
+        expect(response.body).to include("Test notes")
+        expect(response.body).to include(clinic.name)
+        expect(response.body).to include(3.days.ago.to_date.iso8601)
+      end
+    end
+  end
+
+  describe "POST /update" do
+    it "updates the waitlist entry" do
+      log_in_as_admin
+
+      freeze_time do
+        care_case = FactoryBot.create(:care_case, :with_patient, region: Region.new_york)
+        clinic = FactoryBot.create(:clinic)
+        entry = FactoryBot.create(
+          :wait_list_entry,
+          care_case:,
+          root_appointment_type_id: RootAppointmentType.therapy_diagnostic_evaluation.id,
+          clinic_ids: [clinic.id],
+          notes: "Test notes",
+          added_at: 3.days.ago
+        )
+        patch wait_list_entry_path(entry), params: {wait_list_entry: {
+          root_appointment_type_id: RootAppointmentType.therapy_diagnostic_evaluation_followup.id,
+          notes: "Other notes",
+          clinic_ids: [],
+          added_at: 5.days.ago
+        }}
+
+        entry.reload
+        expect(entry.notes).to eq("Other notes")
+        expect(entry.root_appointment_type).to eq(RootAppointmentType.therapy_diagnostic_evaluation_followup)
+        expect(entry.added_at).to eq(5.days.ago)
+        expect(entry.clinic_ids).to eq([])
+      end
+    end
+  end
+end

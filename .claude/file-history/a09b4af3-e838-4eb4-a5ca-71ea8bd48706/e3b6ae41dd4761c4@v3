@@ -1,0 +1,15 @@
+<% accessible_channels = Chat::AccessibleStafferChannel.for(account: account, staffer: staffer, member: member) %>
+<% accessible_channels.each do |accessible_channel| %>
+  <li>
+    <%= link_to(accessible_channel.short_name, accessible_channel.path) %>
+    <% if accessible_channel.unread_messages? %>
+      <span class="badge badge-info">New</span>
+    <% end %>
+    <% if accessible_channel.deactivated? %>
+      <span class="badge badge-info">Deactivated</span>
+    <% end %>
+  </li>
+<% end %>
+<% if accessible_channels.blank? %>
+  <%= "-" %>
+<% end %>

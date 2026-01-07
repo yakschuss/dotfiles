@@ -1,0 +1,32 @@
+# frozen_string_literal: true
+
+module Prism
+  class Select < ViewComponent::Base
+    attr_reader :title, :options, :selected_option, :classes, :change_action, :data_params, :form_field, :form, :include_blank
+
+    delegate :styles, to: :helpers
+
+    def initialize(title:, options:, selected_option:, classes: "", change_action: nil, data_params: {}, form_field: nil, form: nil, include_blank: false)
+      @title = title
+      @options = options
+      @selected_option = selected_option
+      @classes = classes
+      @change_action = change_action
+      @data_params = data_params
+      @form_field = form_field
+      @form = form
+      @include_blank = include_blank
+    end
+
+    def option_display_text(option)
+      option.is_a?(Array) ? option.first : option
+    end
+
+    def selected_display_text
+      return selected_option unless options.first.is_a?(Array)
+
+      matching = options.find { |opt| opt.first == selected_option || opt.last == selected_option }
+      matching ? matching.first : selected_option
+    end
+  end
+end

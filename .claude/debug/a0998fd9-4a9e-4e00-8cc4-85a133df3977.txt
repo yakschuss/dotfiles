@@ -1,0 +1,1447 @@
+2025-11-20T15:36:40.699Z [DEBUG] Watching for changes in setting files /Users/jschuss/.claude/settings.json, /Users/jschuss/Brightline/reef/.claude/settings.local.json...
+2025-11-20T15:36:40.806Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2025-11-20T15:36:40.806Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2025-11-20T15:36:40.807Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2025-11-20T15:36:40.807Z [DEBUG] [LSP SERVER MANAGER] initialize() called
+2025-11-20T15:36:40.807Z [DEBUG] [LSP SERVER MANAGER] Calling getAllLspServers()
+2025-11-20T15:36:40.839Z [DEBUG] Applying permission update: Adding 64 allow rule(s) to destination 'localSettings': ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find(:therapy_telehealth).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)","Bash(gh pr list:*)","mcp__playwright__browser_navigate","mcp__playwright__browser_hover","mcp__playwright__browser_take_screenshot","Skill(superpowers:systematic-debugging)","mcp__playwright__browser_snapshot","mcp__playwright__browser_click","mcp__playwright__browser_tabs","mcp__playwright__browser_console_messages","mcp__playwright__browser_evaluate","mcp__playwright__browser_wait_for","Bash(curl:*)","Bash(tr:*)","mcp__playwright__browser_type","mcp__playwright__browser_select_option","mcp__playwright__browser_fill_form","mcp__figma-desktop__get_screenshot","Bash(spec/components/staffers/phone_desk/scheduling/validation_error_banner_spec.rb)","Skill(superpowers:brainstorming)","Bash(git pull:*)","Bash(git add:*)","Bash(.env)"]
+2025-11-20T15:36:40.848Z [DEBUG] Loading plugin superpowers from source: {"source":"url","url":"https://github.com/obra/superpowers.git"}
+2025-11-20T15:36:40.848Z [DEBUG] Using cached plugin superpowers from /Users/jschuss/.claude/plugins/cache/superpowers
+2025-11-20T15:36:40.850Z [DEBUG] Loaded hooks from standard location for plugin superpowers: /Users/jschuss/.claude/plugins/cache/superpowers/hooks/hooks.json
+2025-11-20T15:36:40.850Z [DEBUG] Found 1 plugins (1 enabled, 0 disabled)
+2025-11-20T15:36:40.869Z [DEBUG] Loading skills from directories: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/jschuss/.claude/skills, project=/Users/jschuss/Brightline/reef/.claude/skills
+2025-11-20T15:36:40.869Z [DEBUG] >>>>> getPluginSkills CALLED <<<<<
+2025-11-20T15:36:40.870Z [DEBUG] Passes: No cache, fetching eligibility
+2025-11-20T15:36:41.064Z [DEBUG] Creating shell snapshot for zsh (/bin/zsh)
+2025-11-20T15:36:41.065Z [DEBUG] Looking for shell config file: /Users/jschuss/.zshrc
+2025-11-20T15:36:41.065Z [DEBUG] Snapshots directory: /Users/jschuss/.claude/shell-snapshots
+2025-11-20T15:36:41.066Z [DEBUG] Creating snapshot at: /Users/jschuss/.claude/shell-snapshots/snapshot-zsh-1763653001065-bi6xm9.sh
+2025-11-20T15:36:41.066Z [DEBUG] Shell binary exists: true
+2025-11-20T15:36:41.066Z [DEBUG] Execution timeout: 10000ms
+2025-11-20T15:36:41.067Z [DEBUG] Writing to temp file: /Users/jschuss/.claude/todos/a0998fd9-4a9e-4e00-8cc4-85a133df3977-agent-a0998fd9-4a9e-4e00-8cc4-85a133df3977.json.tmp.64461.1763653001067
+2025-11-20T15:36:41.074Z [DEBUG] Temp file written successfully, size: 2 bytes
+2025-11-20T15:36:41.074Z [DEBUG] Renaming /Users/jschuss/.claude/todos/a0998fd9-4a9e-4e00-8cc4-85a133df3977-agent-a0998fd9-4a9e-4e00-8cc4-85a133df3977.json.tmp.64461.1763653001067 to /Users/jschuss/.claude/todos/a0998fd9-4a9e-4e00-8cc4-85a133df3977-agent-a0998fd9-4a9e-4e00-8cc4-85a133df3977.json
+2025-11-20T15:36:41.075Z [DEBUG] File /Users/jschuss/.claude/todos/a0998fd9-4a9e-4e00-8cc4-85a133df3977-agent-a0998fd9-4a9e-4e00-8cc4-85a133df3977.json written atomically
+2025-11-20T15:36:41.080Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763653001080
+2025-11-20T15:36:41.080Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:36:41.086Z [DEBUG] Temp file written successfully, size: 47906 bytes
+2025-11-20T15:36:41.086Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:36:41.086Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763653001080 to /Users/jschuss/.claude.json
+2025-11-20T15:36:41.090Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:36:41.092Z [DEBUG] getPluginSkills: Processing 1 enabled plugins
+2025-11-20T15:36:41.092Z [DEBUG] Checking plugin superpowers: skillsPath=exists, skillsPaths=0 paths
+2025-11-20T15:36:41.092Z [DEBUG] Attempting to load skills from plugin superpowers default skillsPath: /Users/jschuss/.claude/plugins/cache/superpowers/skills
+2025-11-20T15:36:41.111Z [DEBUG] Loading hooks from plugin: superpowers
+2025-11-20T15:36:41.112Z [DEBUG] Registered 1 hooks from 1 plugins
+2025-11-20T15:36:41.115Z [DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, duplicates removed: 0)
+2025-11-20T15:36:41.115Z [DEBUG] Loaded 20 skills from plugin superpowers default directory
+2025-11-20T15:36:41.115Z [DEBUG] Total plugin skills loaded: 20
+2025-11-20T15:36:41.116Z [DEBUG] Loaded 3 commands from plugin superpowers default directory
+2025-11-20T15:36:41.116Z [DEBUG] Total plugin commands loaded: 3
+2025-11-20T15:36:41.118Z [DEBUG] getSkillsIfEnabled returning: 0 skill dir commands, 20 plugin skills
+2025-11-20T15:36:41.118Z [DEBUG] Loaded 1 agents from plugin superpowers default directory
+2025-11-20T15:36:41.119Z [DEBUG] Total plugin agents loaded: 1
+2025-11-20T15:36:41.183Z [DEBUG] Total LSP servers loaded: 0
+2025-11-20T15:36:41.183Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2025-11-20T15:36:41.183Z [DEBUG] LSP manager initialized with 0 servers
+2025-11-20T15:36:41.183Z [DEBUG] LSP server manager initialized successfully
+2025-11-20T15:36:41.183Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2025-11-20T15:36:41.244Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763653001244
+2025-11-20T15:36:41.244Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:36:41.255Z [DEBUG] Temp file written successfully, size: 48168 bytes
+2025-11-20T15:36:41.255Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:36:41.255Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763653001244 to /Users/jschuss/.claude.json
+2025-11-20T15:36:41.256Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:36:41.284Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763653001284
+2025-11-20T15:36:41.284Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:36:41.290Z [DEBUG] Temp file written successfully, size: 48168 bytes
+2025-11-20T15:36:41.291Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:36:41.291Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763653001284 to /Users/jschuss/.claude.json
+2025-11-20T15:36:41.291Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:36:41.294Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763653001294
+2025-11-20T15:36:41.294Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:36:41.299Z [DEBUG] Temp file written successfully, size: 48168 bytes
+2025-11-20T15:36:41.299Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:36:41.299Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763653001294 to /Users/jschuss/.claude.json
+2025-11-20T15:36:41.303Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:36:41.395Z [ERROR] AxiosError: AxiosError: Request failed with status code 401
+    at Dj (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:62:1137)
+    at IncomingMessage.<anonymous> (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:67:9858)
+    at IncomingMessage.emit (node:events:530:35)
+    at IncomingMessage.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at cFA.request (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:69:2130)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async fY2 (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:1965:43209)
+2025-11-20T15:36:41.485Z [DEBUG] Failed to fetch and cache passes eligibility
+2025-11-20T15:36:41.485Z [ERROR] AxiosError: AxiosError: Request failed with status code 401
+    at Dj (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:62:1137)
+    at IncomingMessage.<anonymous> (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:67:9858)
+    at IncomingMessage.emit (node:events:530:35)
+    at IncomingMessage.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at cFA.request (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:69:2130)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async yU3 (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:3298:1902)
+    at async file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:3298:2452
+    at async qTA (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:3298:2940)
+    at async pw3 (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:3476:9632)
+    at async Promise.all (index 3)
+    at async file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:3476:11674
+    at async Promise.all (index 0)
+    at async jI1.<anonymous> (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:4389:2416)
+2025-11-20T15:36:41.494Z [DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg)
+2025-11-20T15:36:41.791Z [DEBUG] Failed to fetch Grove notice config: AxiosError: Request failed with status code 401
+2025-11-20T15:36:41.826Z [DEBUG] Passes: No cache, fetching eligibility
+2025-11-20T15:36:41.844Z [DEBUG] MCP server "playwright": Starting connection with timeout of 30000ms
+2025-11-20T15:36:41.846Z [DEBUG] MCP server "figma-desktop": Initializing HTTP transport to http://127.0.0.1:3845/mcp
+2025-11-20T15:36:41.847Z [DEBUG] MCP server "figma-desktop": Node version: v22.14.0, Platform: darwin
+2025-11-20T15:36:41.847Z [DEBUG] MCP server "figma-desktop": Environment: {"NODE_OPTIONS":"not set","UV_THREADPOOL_SIZE":"default","HTTP_PROXY":"not set","HTTPS_PROXY":"not set","NO_PROXY":"not set"}
+2025-11-20T15:36:41.852Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763653001852
+2025-11-20T15:36:41.852Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:36:41.859Z [DEBUG] Temp file written successfully, size: 48168 bytes
+2025-11-20T15:36:41.860Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:36:41.860Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763653001852 to /Users/jschuss/.claude.json
+2025-11-20T15:36:41.861Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:36:41.868Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2025-11-20T15:36:41.868Z [DEBUG] Found 1 hook matchers in settings
+2025-11-20T15:36:41.869Z [DEBUG] Matched 1 unique hooks for query "startup" (1 before deduplication)
+2025-11-20T15:36:41.870Z [DEBUG] MCP server "figma-desktop": Proxy options: default
+2025-11-20T15:36:41.871Z [DEBUG] MCP server "figma-desktop": HTTP transport options: {"url":"http://127.0.0.1:3845/mcp","headers":{"User-Agent":"claude-code/2.0.47"},"hasAuthProvider":true,"timeoutMs":60000}
+2025-11-20T15:36:41.871Z [DEBUG] MCP server "figma-desktop": HTTP transport created successfully
+2025-11-20T15:36:41.874Z [DEBUG] MCP server "figma-desktop": Client created, setting up request handler
+2025-11-20T15:36:41.875Z [DEBUG] MCP server "figma-desktop": Starting connection with timeout of 30000ms
+2025-11-20T15:36:41.876Z [DEBUG] MCP server "figma-desktop": Testing basic HTTP connectivity to http://127.0.0.1:3845/mcp
+2025-11-20T15:36:41.876Z [DEBUG] MCP server "figma-desktop": Parsed URL: host=127.0.0.1, port=3845, protocol=http:
+2025-11-20T15:36:41.877Z [DEBUG] MCP server "figma-desktop": Using loopback address: 127.0.0.1
+2025-11-20T15:36:41.912Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-20T15:36:41.925Z [DEBUG] Getting matching hook commands for SubagentStart with query: Explore
+2025-11-20T15:36:41.925Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:36:41.926Z [DEBUG] Matched 0 unique hooks for query "Explore" (0 before deduplication)
+2025-11-20T15:36:41.978Z [DEBUG] Getting matching hook commands for SubagentStart with query: Plan
+2025-11-20T15:36:41.978Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:36:41.978Z [DEBUG] Matched 0 unique hooks for query "Plan" (0 before deduplication)
+2025-11-20T15:36:42.064Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-20T15:36:42.068Z [DEBUG] Shell snapshot created successfully (67724 bytes)
+2025-11-20T15:36:42.132Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763653002132
+2025-11-20T15:36:42.132Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:36:42.142Z [DEBUG] Temp file written successfully, size: 48063 bytes
+2025-11-20T15:36:42.142Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:36:42.142Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763653002132 to /Users/jschuss/.claude.json
+2025-11-20T15:36:42.143Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:36:42.145Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763653002145
+2025-11-20T15:36:42.145Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:36:42.150Z [DEBUG] Temp file written successfully, size: 48063 bytes
+2025-11-20T15:36:42.151Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:36:42.151Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763653002145 to /Users/jschuss/.claude.json
+2025-11-20T15:36:42.153Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:36:42.157Z [DEBUG] performStartupChecks called
+2025-11-20T15:36:42.158Z [DEBUG] Starting background plugin installations
+2025-11-20T15:36:42.158Z [DEBUG] performBackgroundPluginInstallations called
+2025-11-20T15:36:42.168Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763653002168
+2025-11-20T15:36:42.168Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:36:42.173Z [DEBUG] Temp file written successfully, size: 48168 bytes
+2025-11-20T15:36:42.174Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:36:42.174Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763653002168 to /Users/jschuss/.claude.json
+2025-11-20T15:36:42.176Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:36:42.183Z [DEBUG] Found 1 enabled plugins
+2025-11-20T15:36:42.184Z [DEBUG] Schema version mismatch (current: 0, expected: 1), syncing installed_plugins.json
+2025-11-20T15:36:42.184Z [DEBUG] Loaded 1 installed plugins from /Users/jschuss/.claude/plugins/installed_plugins.json (schema version 1)
+2025-11-20T15:36:42.185Z [DEBUG] Plugin superpowers@superpowers-marketplace already in installed_plugins.json, skipping
+2025-11-20T15:36:42.192Z [DEBUG] Saved 1 installed plugins to /Users/jschuss/.claude/plugins/installed_plugins.json (schema version 1)
+2025-11-20T15:36:42.192Z [DEBUG] Updated installed_plugins.json to schema version 1 (0 plugins added, 1 skipped)
+2025-11-20T15:36:42.192Z [DEBUG] Found 1 installed plugins
+2025-11-20T15:36:42.203Z [DEBUG] Loaded plugins - Enabled: 1, Disabled: 0, Commands: 3, Agents: 1, Errors: 0
+2025-11-20T15:36:42.204Z [DEBUG] Found 0 missing plugins (not installed):
+2025-11-20T15:36:42.204Z [DEBUG] Setting installation status: 0 marketplaces, 0 installable plugins, 0 uninstallable plugins
+2025-11-20T15:36:42.216Z [DEBUG] Failed to fetch and cache passes eligibility
+2025-11-20T15:36:42.216Z [ERROR] AxiosError: AxiosError: Request failed with status code 401
+    at Dj (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:62:1137)
+    at IncomingMessage.<anonymous> (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:67:9858)
+    at IncomingMessage.emit (node:events:530:35)
+    at IncomingMessage.emit (node:domain:489:12)
+    at endReadableNT (node:internal/streams/readable:1698:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+    at cFA.request (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:69:2130)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async yU3 (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:3298:1902)
+    at async file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:3298:2452
+    at async qTA (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:3298:2940)
+2025-11-20T15:36:42.257Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-20T15:36:42.259Z [DEBUG] MCP server "figma-desktop": Successfully connected to http server in 413ms
+2025-11-20T15:36:42.259Z [DEBUG] MCP server "figma-desktop": Connection established with capabilities: {"hasTools":true,"hasPrompts":true,"hasResources":true,"serverVersion":{"name":"Figma Dev Mode MCP Server","version":"1.0.0"}}
+2025-11-20T15:36:42.297Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-20T15:36:42.336Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-20T15:36:42.396Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-20T15:36:42.449Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763653002449
+2025-11-20T15:36:42.449Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:36:42.473Z [DEBUG] Temp file written successfully, size: 48168 bytes
+2025-11-20T15:36:42.473Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:36:42.474Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763653002449 to /Users/jschuss/.claude.json
+2025-11-20T15:36:42.475Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:36:42.493Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763653002493
+2025-11-20T15:36:42.493Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:36:42.499Z [DEBUG] Temp file written successfully, size: 48168 bytes
+2025-11-20T15:36:42.500Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:36:42.501Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763653002493 to /Users/jschuss/.claude.json
+2025-11-20T15:36:42.501Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:36:42.564Z [DEBUG] AutoUpdaterWrapper: Installation type: npm-global
+2025-11-20T15:36:43.091Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763653003091
+2025-11-20T15:36:43.091Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:36:43.100Z [DEBUG] Temp file written successfully, size: 48168 bytes
+2025-11-20T15:36:43.102Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:36:43.102Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763653003091 to /Users/jschuss/.claude.json
+2025-11-20T15:36:43.149Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:36:43.349Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763653003349
+2025-11-20T15:36:43.349Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:36:43.356Z [DEBUG] Temp file written successfully, size: 48168 bytes
+2025-11-20T15:36:43.356Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:36:43.356Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763653003349 to /Users/jschuss/.claude.json
+2025-11-20T15:36:43.356Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:36:43.697Z [DEBUG] MCP server "playwright": Successfully connected to stdio server in 1865ms
+2025-11-20T15:36:43.697Z [DEBUG] MCP server "playwright": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"Playwright","version":"0.0.47"}}
+2025-11-20T15:36:44.126Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:36:44.126Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:36:44.127Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:36:44.127Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:36:44.127Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:36:44.127Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:36:44.127Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:36:44.127Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:36:44.127Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:36:44.127Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:36:44.127Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:36:44.128Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:36:44.128Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:36:44.128Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:36:44.128Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:36:44.128Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:36:44.128Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:36:44.128Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:36:44.128Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:36:44.128Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:36:44.128Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-20T15:36:44.129Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:36:44.129Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:36:44.129Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:36:44.129Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:36:44.129Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:36:44.129Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:36:44.129Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:36:44.129Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:36:44.129Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:36:44.129Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:36:44.130Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:36:44.130Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:36:44.130Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:36:44.130Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:36:44.130Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:36:44.130Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:36:44.131Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:36:44.131Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:36:44.131Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:36:44.131Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:36:44.131Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-20T15:36:44.575Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:36:45.466Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-20T15:36:45.467Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-20T15:36:45.474Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-20T15:36:45.475Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-20T15:36:45.506Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-11-20T15:36:45.507Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:36:45.507Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-20T15:36:45.523Z [DEBUG] FileHistory: Added snapshot for 4c9bcbce-3764-46f0-8a01-20020233c4eb, tracking 0 files
+2025-11-20T15:36:45.554Z [DEBUG] Total plugin output styles loaded: 0
+2025-11-20T15:36:45.569Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:36:45.569Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:36:45.569Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:36:45.569Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:36:45.569Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:36:45.569Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:36:45.570Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:36:45.570Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:36:45.570Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:36:45.570Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:36:45.570Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:36:45.570Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:36:45.570Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:36:45.570Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:36:45.570Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:36:45.570Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:36:45.570Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:36:45.571Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:36:45.571Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:36:45.571Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:36:45.571Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-20T15:36:45.571Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:36:45.571Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:36:45.571Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:36:45.571Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:36:45.571Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:36:45.572Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:36:45.572Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:36:45.572Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:36:45.572Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:36:45.572Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:36:45.572Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:36:45.572Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:36:45.572Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:36:45.572Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:36:45.572Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:36:45.572Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:36:45.572Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:36:45.572Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:36:45.573Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:36:45.573Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:36:45.573Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-20T15:36:45.989Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:36:45.991Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:36:47.161Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2025-11-20T15:36:47.161Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:36:47.162Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-20T15:36:47.898Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2025-11-20T15:36:47.898Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:36:47.898Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-20T15:36:48.441Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:37:10.446Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-11-20T15:37:10.450Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-11-20T15:37:10.454Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-11-20T15:37:10.459Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-11-20T15:37:10.459Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:10.459Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-20T15:37:10.459Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-11-20T15:37:10.459Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:10.459Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-20T15:37:10.460Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-11-20T15:37:10.460Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:10.460Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-20T15:37:11.809Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-11-20T15:37:11.809Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:11.810Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-20T15:37:11.836Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-11-20T15:37:11.836Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:11.836Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-20T15:37:11.868Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-11-20T15:37:11.868Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:11.868Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-20T15:37:11.895Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-20T15:37:11.896Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-20T15:37:11.902Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-20T15:37:11.902Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-20T15:37:11.924Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:37:11.924Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:37:11.924Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:37:11.924Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:37:11.924Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:37:11.924Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:37:11.924Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:37:11.924Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:37:11.924Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:37:11.924Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:37:11.924Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:37:11.924Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:37:11.925Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:37:11.925Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:37:11.925Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:37:11.925Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:37:11.925Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:37:11.925Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:37:11.925Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:37:11.925Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:37:11.925Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-20T15:37:11.925Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:37:11.925Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:37:11.925Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:37:11.925Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:37:11.925Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:37:11.925Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:37:11.925Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:37:11.926Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:37:11.926Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:37:11.926Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:37:11.926Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:37:11.926Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:37:11.926Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:37:11.926Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:37:11.926Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:37:11.926Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:37:11.926Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:37:11.926Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:37:11.926Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:37:11.926Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:37:11.926Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-20T15:37:15.266Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:37:18.720Z [DEBUG] executePreToolHooks called for tool: Read
+2025-11-20T15:37:18.725Z [DEBUG] executePreToolHooks called for tool: Read
+2025-11-20T15:37:18.730Z [DEBUG] executePreToolHooks called for tool: Read
+2025-11-20T15:37:18.734Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-11-20T15:37:18.734Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:18.734Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-20T15:37:18.735Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-11-20T15:37:18.735Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:18.735Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-20T15:37:18.735Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-11-20T15:37:18.735Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:18.735Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-20T15:37:18.797Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-11-20T15:37:18.797Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:18.797Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-20T15:37:18.797Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-11-20T15:37:18.797Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:18.797Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-20T15:37:18.797Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-11-20T15:37:18.797Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:18.798Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-20T15:37:18.854Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-20T15:37:18.855Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-20T15:37:18.861Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-20T15:37:18.861Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-20T15:37:18.891Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:37:18.891Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:37:18.891Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:37:18.892Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:37:18.892Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:37:18.892Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:37:18.892Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:37:18.892Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:37:18.892Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:37:18.892Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:37:18.892Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:37:18.892Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:37:18.892Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:37:18.893Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:37:18.893Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:37:18.893Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:37:18.893Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:37:18.893Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:37:18.893Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:37:18.893Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:37:18.893Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-20T15:37:18.893Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:37:18.894Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:37:18.894Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:37:18.894Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:37:18.894Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:37:18.894Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:37:18.894Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:37:18.894Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:37:18.894Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:37:18.894Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:37:18.894Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:37:18.895Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:37:18.895Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:37:18.895Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:37:18.895Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:37:18.895Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:37:18.895Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:37:18.895Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:37:18.895Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:37:18.895Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:37:18.895Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-20T15:37:22.501Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:37:25.211Z [DEBUG] executePreToolHooks called for tool: Read
+2025-11-20T15:37:25.215Z [DEBUG] executePreToolHooks called for tool: Read
+2025-11-20T15:37:25.221Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-11-20T15:37:25.221Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:25.222Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-20T15:37:25.222Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-11-20T15:37:25.222Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:25.222Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-20T15:37:25.256Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-11-20T15:37:25.256Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:25.256Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-20T15:37:25.598Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-11-20T15:37:25.599Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:25.599Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-20T15:37:25.625Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-20T15:37:25.626Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-20T15:37:25.632Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-20T15:37:25.632Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-20T15:37:25.658Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:37:25.659Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:37:25.659Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:37:25.659Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:37:25.659Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:37:25.659Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:37:25.659Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:37:25.659Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:37:25.659Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:37:25.659Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:37:25.660Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:37:25.660Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:37:25.660Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:37:25.660Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:37:25.660Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:37:25.660Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:37:25.660Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:37:25.660Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:37:25.660Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:37:25.660Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:37:25.660Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-20T15:37:25.660Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:37:25.660Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:37:25.661Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:37:25.661Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:37:25.661Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:37:25.661Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:37:25.661Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:37:25.661Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:37:25.661Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:37:25.661Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:37:25.661Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:37:25.661Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:37:25.662Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:37:25.662Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:37:25.662Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:37:25.662Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:37:25.662Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:37:25.662Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:37:25.662Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:37:25.662Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:37:25.662Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-20T15:37:28.238Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:37:45.096Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-11-20T15:37:45.103Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-11-20T15:37:45.104Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:45.104Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-20T15:37:45.104Z [DEBUG] executePreToolHooks called for tool: Read
+2025-11-20T15:37:45.108Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-11-20T15:37:45.108Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:45.108Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-20T15:37:45.146Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-11-20T15:37:45.146Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:45.146Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-20T15:37:45.697Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-11-20T15:37:45.697Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:45.697Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-20T15:37:45.720Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-20T15:37:45.721Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-20T15:37:45.728Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-20T15:37:45.728Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-20T15:37:45.756Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:37:45.756Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:37:45.756Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:37:45.756Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:37:45.756Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:37:45.756Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:37:45.756Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:37:45.756Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:37:45.756Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:37:45.757Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:37:45.757Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:37:45.757Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:37:45.757Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:37:45.757Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:37:45.757Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:37:45.757Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:37:45.757Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:37:45.757Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:37:45.757Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:37:45.757Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:37:45.757Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-20T15:37:45.758Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:37:45.758Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:37:45.758Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:37:45.758Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:37:45.758Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:37:45.758Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:37:45.758Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:37:45.758Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:37:45.758Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:37:45.758Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:37:45.758Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:37:45.758Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:37:45.758Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:37:45.758Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:37:45.758Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:37:45.758Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:37:45.759Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:37:45.759Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:37:45.759Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:37:45.759Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:37:45.759Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-20T15:37:49.081Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:37:52.330Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-11-20T15:37:52.334Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-11-20T15:37:52.335Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:52.335Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-20T15:37:52.799Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-11-20T15:37:52.799Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:52.800Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-20T15:37:52.822Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-20T15:37:52.822Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-20T15:37:52.827Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-20T15:37:52.827Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-20T15:37:52.848Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:37:52.848Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:37:52.848Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:37:52.848Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:37:52.848Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:37:52.849Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:37:52.849Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:37:52.849Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:37:52.849Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:37:52.849Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:37:52.849Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:37:52.849Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:37:52.849Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:37:52.849Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:37:52.849Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:37:52.849Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:37:52.849Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:37:52.849Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:37:52.849Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:37:52.849Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:37:52.849Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-20T15:37:52.850Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:37:52.850Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:37:52.850Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:37:52.850Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:37:52.850Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:37:52.850Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:37:52.850Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:37:52.850Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:37:52.850Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:37:52.850Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:37:52.850Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:37:52.850Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:37:52.850Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:37:52.850Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:37:52.850Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:37:52.850Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:37:52.850Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:37:52.850Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:37:52.850Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:37:52.851Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:37:52.851Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-20T15:37:55.676Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:37:57.512Z [DEBUG] executePreToolHooks called for tool: Read
+2025-11-20T15:37:57.518Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-11-20T15:37:57.518Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:57.518Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-20T15:37:57.540Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-11-20T15:37:57.540Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:37:57.541Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-20T15:37:57.565Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-20T15:37:57.565Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-20T15:37:57.570Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-20T15:37:57.571Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-20T15:37:57.592Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:37:57.592Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:37:57.593Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:37:57.593Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:37:57.593Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:37:57.593Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:37:57.593Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:37:57.593Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:37:57.593Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:37:57.593Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:37:57.594Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:37:57.594Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:37:57.594Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:37:57.594Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:37:57.594Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:37:57.594Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:37:57.594Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:37:57.594Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:37:57.594Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:37:57.594Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:37:57.594Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-20T15:37:57.594Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:37:57.595Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:37:57.595Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:37:57.595Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:37:57.595Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:37:57.595Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:37:57.595Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:37:57.595Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:37:57.595Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:37:57.595Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:37:57.595Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:37:57.595Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:37:57.595Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:37:57.595Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:37:57.596Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:37:57.596Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:37:57.596Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:37:57.596Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:37:57.596Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:37:57.596Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:37:57.596Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-20T15:38:00.467Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:38:13.695Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-11-20T15:38:13.704Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-11-20T15:38:13.704Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:38:13.704Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-20T15:38:13.704Z [DEBUG] executePreToolHooks called for tool: Read
+2025-11-20T15:38:13.709Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2025-11-20T15:38:13.709Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:38:13.709Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-20T15:38:13.745Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2025-11-20T15:38:13.745Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:38:13.745Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2025-11-20T15:38:14.198Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-11-20T15:38:14.198Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:38:14.199Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-20T15:38:14.221Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-20T15:38:14.221Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-20T15:38:14.225Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-20T15:38:14.226Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-20T15:38:14.255Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:38:14.255Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:38:14.255Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:38:14.255Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:38:14.255Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:38:14.255Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:38:14.256Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:38:14.256Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:38:14.256Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:38:14.256Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:38:14.256Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:38:14.256Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:38:14.256Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:38:14.256Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:38:14.256Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:38:14.256Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:38:14.256Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:38:14.256Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:38:14.256Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:38:14.256Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:38:14.256Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-20T15:38:14.256Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:38:14.257Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:38:14.257Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:38:14.257Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:38:14.257Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:38:14.257Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:38:14.257Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:38:14.257Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:38:14.257Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:38:14.257Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:38:14.257Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:38:14.257Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:38:14.257Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:38:14.257Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:38:14.257Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:38:14.257Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:38:14.257Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:38:14.257Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:38:14.257Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:38:14.258Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:38:14.258Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-20T15:38:16.897Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:38:19.063Z [DEBUG] executePreToolHooks called for tool: Grep
+2025-11-20T15:38:19.066Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2025-11-20T15:38:19.067Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:38:19.067Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-20T15:38:19.417Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2025-11-20T15:38:19.417Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:38:19.417Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2025-11-20T15:38:19.438Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-20T15:38:19.438Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-20T15:38:19.444Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-20T15:38:19.444Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-20T15:38:19.466Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:38:19.466Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:38:19.466Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:38:19.466Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:38:19.466Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:38:19.466Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:38:19.466Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:38:19.466Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:38:19.466Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:38:19.466Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:38:19.467Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:38:19.467Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:38:19.467Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:38:19.467Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:38:19.467Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:38:19.467Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:38:19.467Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:38:19.467Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:38:19.467Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:38:19.467Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:38:19.467Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-20T15:38:19.467Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:38:19.467Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:38:19.467Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:38:19.467Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:38:19.467Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:38:19.467Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:38:19.468Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:38:19.468Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:38:19.468Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:38:19.468Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:38:19.468Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:38:19.468Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:38:19.468Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:38:19.468Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:38:19.468Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:38:19.468Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:38:19.468Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:38:19.468Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:38:19.468Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:38:19.468Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:38:19.468Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-20T15:38:21.881Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:38:24.925Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-11-20T15:38:24.930Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-11-20T15:38:24.935Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-11-20T15:38:24.935Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:38:24.935Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:38:24.935Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-11-20T15:38:24.935Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:38:24.935Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:38:24.973Z [DEBUG] No hook environment files found
+2025-11-20T15:38:25.214Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-11-20T15:38:25.214Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:38:25.214Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:38:25.244Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-11-20T15:38:25.245Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:38:25.245Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:38:25.274Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-20T15:38:25.274Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-20T15:38:25.281Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-20T15:38:25.281Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-20T15:38:25.309Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:38:25.310Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:38:25.310Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:38:25.310Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:38:25.310Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:38:25.310Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:38:25.310Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:38:25.310Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:38:25.310Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:38:25.310Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:38:25.310Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:38:25.310Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:38:25.310Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:38:25.311Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:38:25.311Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:38:25.311Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:38:25.311Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:38:25.311Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:38:25.311Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:38:25.311Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:38:25.311Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-20T15:38:25.311Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:38:25.311Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:38:25.311Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:38:25.311Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:38:25.311Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:38:25.311Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:38:25.311Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:38:25.311Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:38:25.311Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:38:25.311Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:38:25.312Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:38:25.312Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:38:25.312Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:38:25.312Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:38:25.312Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:38:25.312Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:38:25.312Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:38:25.312Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:38:25.312Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:38:25.312Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:38:25.312Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-20T15:38:25.820Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:38:26.391Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:38:29.250Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:39:08.462Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-11-20T15:39:08.462Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:39:08.462Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-20T15:39:08.475Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763653148475
+2025-11-20T15:39:08.475Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:39:08.481Z [DEBUG] Temp file written successfully, size: 48168 bytes
+2025-11-20T15:39:08.482Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:39:08.482Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763653148475 to /Users/jschuss/.claude.json
+2025-11-20T15:39:08.485Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:39:08.490Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763653148490
+2025-11-20T15:39:08.490Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:39:08.494Z [DEBUG] Temp file written successfully, size: 48168 bytes
+2025-11-20T15:39:08.494Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:39:08.495Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763653148490 to /Users/jschuss/.claude.json
+2025-11-20T15:39:08.495Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:40:08.477Z [DEBUG] Getting matching hook commands for Notification with query: idle_prompt
+2025-11-20T15:40:08.477Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:40:08.478Z [DEBUG] Matched 0 unique hooks for query "idle_prompt" (0 before deduplication)
+2025-11-20T15:41:44.287Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 302s uptime
+2025-11-20T15:41:44.290Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-20T15:41:45.382Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-20T15:46:46.415Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 604s uptime
+2025-11-20T15:46:46.420Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-20T15:46:47.534Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-20T15:51:48.580Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 906s uptime
+2025-11-20T15:51:48.582Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2025-11-20T15:51:49.665Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-20T15:52:47.100Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-20T15:52:47.101Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-20T15:52:47.105Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-20T15:52:47.106Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-20T15:52:47.128Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-11-20T15:52:47.128Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:52:47.128Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-20T15:52:47.130Z [DEBUG] FileHistory: Making snapshot for message 8f02414b-21e3-4d30-b34a-32e31c00c9b9
+2025-11-20T15:52:47.130Z [DEBUG] FileHistory: Added snapshot for 8f02414b-21e3-4d30-b34a-32e31c00c9b9, tracking 0 files
+2025-11-20T15:52:47.167Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:52:47.167Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:52:47.167Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:52:47.168Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:52:47.168Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:52:47.168Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:52:47.168Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:52:47.168Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:52:47.168Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:52:47.168Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:52:47.168Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:52:47.168Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:52:47.169Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:52:47.169Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:52:47.169Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:52:47.169Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:52:47.169Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:52:47.169Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:52:47.169Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:52:47.169Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:52:47.169Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-20T15:52:47.169Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:52:47.169Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:52:47.169Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:52:47.170Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:52:47.170Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:52:47.170Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:52:47.170Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:52:47.170Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:52:47.170Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:52:47.170Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:52:47.170Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:52:47.170Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:52:47.170Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:52:47.170Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:52:47.170Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:52:47.170Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:52:47.171Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:52:47.171Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:52:47.171Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:52:47.171Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:52:47.171Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-20T15:52:48.818Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:52:50.892Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:52:53.295Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-11-20T15:52:53.300Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-11-20T15:52:53.300Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:52:53.300Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:52:53.977Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-11-20T15:52:53.978Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:52:53.978Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:52:54.002Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-20T15:52:54.003Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-20T15:52:54.008Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-20T15:52:54.008Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-20T15:52:54.026Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:52:54.026Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:52:54.026Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:52:54.026Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:52:54.026Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:52:54.026Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:52:54.026Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:52:54.026Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:52:54.026Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:52:54.027Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:52:54.027Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:52:54.027Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:52:54.027Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:52:54.027Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:52:54.027Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:52:54.027Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:52:54.027Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:52:54.027Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:52:54.027Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:52:54.027Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:52:54.027Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-20T15:52:54.027Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:52:54.027Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:52:54.028Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:52:54.028Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:52:54.028Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:52:54.028Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:52:54.028Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:52:54.028Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:52:54.028Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:52:54.028Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:52:54.028Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:52:54.028Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:52:54.028Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:52:54.028Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:52:54.028Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:52:54.029Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:52:54.029Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:52:54.029Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:52:54.029Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:52:54.029Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:52:54.029Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-20T15:52:54.904Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:52:56.734Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:52:59.643Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-11-20T15:52:59.646Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-11-20T15:52:59.650Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-11-20T15:52:59.650Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:52:59.651Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:52:59.651Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-11-20T15:52:59.651Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:52:59.651Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:52:59.771Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-11-20T15:52:59.771Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:52:59.771Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:53:00.167Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-11-20T15:53:00.167Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:53:00.167Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:53:00.191Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-20T15:53:00.191Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-20T15:53:00.197Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-20T15:53:00.197Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-20T15:53:00.223Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:53:00.223Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:53:00.223Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:53:00.223Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:53:00.223Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:53:00.223Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:53:00.223Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:53:00.223Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:53:00.224Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:53:00.224Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:53:00.224Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:53:00.224Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:53:00.224Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:53:00.224Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:53:00.224Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:53:00.224Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:53:00.224Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:53:00.224Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:53:00.225Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:53:00.225Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:53:00.225Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-20T15:53:00.225Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:53:00.225Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:53:00.225Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:53:00.225Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:53:00.225Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:53:00.225Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:53:00.225Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:53:00.225Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:53:00.225Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:53:00.226Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:53:00.226Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:53:00.226Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:53:00.226Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:53:00.226Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:53:00.226Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:53:00.226Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:53:00.226Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:53:00.226Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:53:00.226Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:53:00.226Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:53:00.226Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-20T15:53:00.784Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:53:01.069Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:53:03.004Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:53:09.072Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-11-20T15:53:09.078Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-11-20T15:53:09.082Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-11-20T15:53:09.083Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:53:09.083Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:53:09.083Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-11-20T15:53:09.083Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:53:09.083Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:53:09.537Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-11-20T15:53:09.537Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:53:09.537Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:53:09.574Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-11-20T15:53:09.574Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:53:09.574Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:53:09.602Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-20T15:53:09.602Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-20T15:53:09.607Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-20T15:53:09.607Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-20T15:53:09.624Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:53:09.624Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:53:09.624Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:53:09.625Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:53:09.625Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:53:09.625Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:53:09.625Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:53:09.625Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:53:09.625Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:53:09.625Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:53:09.625Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:53:09.626Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:53:09.626Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:53:09.626Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:53:09.626Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:53:09.626Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:53:09.626Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:53:09.626Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:53:09.626Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:53:09.626Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:53:09.626Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-20T15:53:09.626Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:53:09.626Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:53:09.627Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:53:09.627Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:53:09.627Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:53:09.627Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:53:09.627Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:53:09.627Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:53:09.627Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:53:09.627Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:53:09.627Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:53:09.627Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:53:09.627Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:53:09.627Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:53:09.628Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:53:09.628Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:53:09.628Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:53:09.628Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:53:09.628Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:53:09.628Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:53:09.628Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-20T15:53:10.300Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:53:10.374Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:53:11.958Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:53:15.032Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-11-20T15:53:15.036Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-11-20T15:53:15.041Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-11-20T15:53:15.041Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:53:15.041Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:53:15.041Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-11-20T15:53:15.041Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:53:15.041Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:53:15.136Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-11-20T15:53:15.137Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:53:15.137Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:53:15.175Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-11-20T15:53:15.175Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:53:15.175Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:53:15.200Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-20T15:53:15.201Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-20T15:53:15.206Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-20T15:53:15.206Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-20T15:53:15.231Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:53:15.231Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:53:15.231Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:53:15.231Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:53:15.232Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:53:15.232Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:53:15.232Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:53:15.232Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:53:15.232Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:53:15.232Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:53:15.232Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:53:15.232Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:53:15.232Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:53:15.232Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:53:15.233Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:53:15.233Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:53:15.233Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:53:15.233Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:53:15.233Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:53:15.233Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:53:15.233Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-20T15:53:15.233Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:53:15.233Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:53:15.233Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:53:15.233Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:53:15.233Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:53:15.234Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:53:15.234Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:53:15.234Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:53:15.234Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:53:15.234Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:53:15.234Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:53:15.234Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:53:15.234Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:53:15.234Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:53:15.234Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:53:15.234Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:53:15.234Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:53:15.235Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:53:15.235Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:53:15.235Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:53:15.235Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-20T15:53:15.811Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:53:16.488Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:53:18.764Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:53:20.380Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-11-20T15:53:20.385Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-11-20T15:53:20.385Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:53:20.385Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:53:20.468Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-11-20T15:53:20.468Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:53:20.468Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:53:20.493Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-20T15:53:20.493Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-20T15:53:20.498Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-20T15:53:20.498Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-20T15:53:20.517Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:53:20.517Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:53:20.517Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:53:20.517Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:53:20.517Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:53:20.517Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:53:20.518Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:53:20.518Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:53:20.518Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:53:20.518Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:53:20.518Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:53:20.518Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:53:20.518Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:53:20.518Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:53:20.518Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:53:20.518Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:53:20.518Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:53:20.518Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:53:20.518Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:53:20.519Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:53:20.519Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-20T15:53:20.519Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:53:20.519Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:53:20.519Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:53:20.519Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:53:20.519Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:53:20.519Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:53:20.519Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:53:20.519Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:53:20.519Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:53:20.519Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:53:20.519Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:53:20.520Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:53:20.520Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:53:20.520Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:53:20.520Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:53:20.520Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:53:20.520Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:53:20.520Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:53:20.520Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:53:20.520Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:53:20.520Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-20T15:53:20.988Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:53:22.885Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:53:24.652Z [DEBUG] executePreToolHooks called for tool: Bash
+2025-11-20T15:53:24.656Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2025-11-20T15:53:24.656Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:53:24.657Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:53:24.726Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2025-11-20T15:53:24.726Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:53:24.726Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2025-11-20T15:53:24.752Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-20T15:53:24.752Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-20T15:53:24.758Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-20T15:53:24.758Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-20T15:53:24.778Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:53:24.778Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:53:24.779Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:53:24.779Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:53:24.779Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:53:24.779Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:53:24.779Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:53:24.779Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:53:24.779Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:53:24.779Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:53:24.779Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:53:24.779Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:53:24.779Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:53:24.779Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:53:24.780Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:53:24.780Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:53:24.780Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:53:24.780Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:53:24.780Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:53:24.780Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:53:24.780Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-20T15:53:24.780Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:53:24.780Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:53:24.780Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:53:24.780Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:53:24.780Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:53:24.780Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:53:24.780Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:53:24.781Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:53:24.781Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:53:24.781Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:53:24.781Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:53:24.781Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:53:24.781Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:53:24.781Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:53:24.781Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:53:24.781Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:53:24.781Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:53:24.781Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:53:24.781Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:53:24.781Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:53:24.781Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-20T15:53:25.456Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:53:27.472Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:53:40.801Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-11-20T15:53:40.801Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:53:40.801Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-20T15:53:40.813Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763654020813
+2025-11-20T15:53:40.814Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:53:40.820Z [DEBUG] Temp file written successfully, size: 48168 bytes
+2025-11-20T15:53:40.820Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:53:40.821Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763654020813 to /Users/jschuss/.claude.json
+2025-11-20T15:53:40.821Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:53:40.826Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763654020826
+2025-11-20T15:53:40.826Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:53:40.831Z [DEBUG] Temp file written successfully, size: 48168 bytes
+2025-11-20T15:53:40.831Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:53:40.831Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763654020826 to /Users/jschuss/.claude.json
+2025-11-20T15:53:40.833Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:54:40.820Z [DEBUG] Getting matching hook commands for Notification with query: idle_prompt
+2025-11-20T15:54:40.822Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:54:40.823Z [DEBUG] Matched 0 unique hooks for query "idle_prompt" (0 before deduplication)
+2025-11-20T15:56:33.257Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2025-11-20T15:56:33.257Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2025-11-20T15:56:33.261Z [DEBUG] Hooks: Found 0 total hooks in registry
+2025-11-20T15:56:33.261Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2025-11-20T15:56:33.284Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2025-11-20T15:56:33.284Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:56:33.284Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-20T15:56:33.286Z [DEBUG] FileHistory: Making snapshot for message d2d30842-0eec-4c1a-9cd7-a3ab637b2cf2
+2025-11-20T15:56:33.286Z [DEBUG] FileHistory: Added snapshot for d2d30842-0eec-4c1a-9cd7-a3ab637b2cf2, tracking 0 files
+2025-11-20T15:56:33.329Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:56:33.329Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:56:33.329Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:56:33.329Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:56:33.329Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:56:33.330Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:56:33.330Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:56:33.330Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:56:33.331Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:56:33.331Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:56:33.331Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:56:33.331Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:56:33.331Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:56:33.332Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:56:33.332Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:56:33.332Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:56:33.332Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:56:33.332Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:56:33.332Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:56:33.332Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:56:33.332Z [DEBUG] Skills and commands included in Skill tool: brainstorming, condition-based-waiting, defense-in-depth, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, root-cause-tracing, sharing-skills, subagent-driven-development, systematic-debugging, test-driven-development, testing-anti-patterns, testing-skills-with-subagents, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2025-11-20T15:56:33.332Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2025-11-20T15:56:33.333Z [DEBUG] Skill prompt: showing "superpowers:condition-based-waiting" (userFacingName="condition-based-waiting")
+2025-11-20T15:56:33.333Z [DEBUG] Skill prompt: showing "superpowers:defense-in-depth" (userFacingName="defense-in-depth")
+2025-11-20T15:56:33.333Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2025-11-20T15:56:33.333Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2025-11-20T15:56:33.333Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2025-11-20T15:56:33.333Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2025-11-20T15:56:33.333Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2025-11-20T15:56:33.333Z [DEBUG] Skill prompt: showing "superpowers:root-cause-tracing" (userFacingName="root-cause-tracing")
+2025-11-20T15:56:33.333Z [DEBUG] Skill prompt: showing "superpowers:sharing-skills" (userFacingName="sharing-skills")
+2025-11-20T15:56:33.333Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2025-11-20T15:56:33.334Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2025-11-20T15:56:33.334Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2025-11-20T15:56:33.334Z [DEBUG] Skill prompt: showing "superpowers:testing-anti-patterns" (userFacingName="testing-anti-patterns")
+2025-11-20T15:56:33.334Z [DEBUG] Skill prompt: showing "superpowers:testing-skills-with-subagents" (userFacingName="testing-skills-with-subagents")
+2025-11-20T15:56:33.334Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2025-11-20T15:56:33.334Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2025-11-20T15:56:33.334Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2025-11-20T15:56:33.334Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2025-11-20T15:56:33.335Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2025-11-20T15:56:33.335Z [DEBUG] Slash commands included in SlashCommand tool: /superpowers:brainstorm, /superpowers:execute-plan, /superpowers:write-plan
+2025-11-20T15:56:34.173Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:56:38.141Z [DEBUG] Stream started - received first chunk
+2025-11-20T15:56:42.098Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763654202098
+2025-11-20T15:56:42.098Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:56:42.104Z [DEBUG] Temp file written successfully, size: 48063 bytes
+2025-11-20T15:56:42.104Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:56:42.104Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763654202098 to /Users/jschuss/.claude.json
+2025-11-20T15:56:42.105Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:56:42.108Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763654202108
+2025-11-20T15:56:42.108Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:56:42.114Z [DEBUG] Temp file written successfully, size: 48168 bytes
+2025-11-20T15:56:42.114Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:56:42.114Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763654202108 to /Users/jschuss/.claude.json
+2025-11-20T15:56:42.114Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:56:42.747Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2025-11-20T15:56:42.747Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:56:42.747Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-11-20T15:56:42.755Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763654202755
+2025-11-20T15:56:42.755Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:56:42.759Z [DEBUG] Temp file written successfully, size: 48168 bytes
+2025-11-20T15:56:42.759Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:56:42.759Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763654202755 to /Users/jschuss/.claude.json
+2025-11-20T15:56:42.760Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:56:42.763Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763654202763
+2025-11-20T15:56:42.763Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:56:42.767Z [DEBUG] Temp file written successfully, size: 48168 bytes
+2025-11-20T15:56:42.768Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:56:42.768Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763654202763 to /Users/jschuss/.claude.json
+2025-11-20T15:56:42.768Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:56:43.890Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763654203890
+2025-11-20T15:56:43.891Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:56:43.896Z [DEBUG] Temp file written successfully, size: 48063 bytes
+2025-11-20T15:56:43.897Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:56:43.897Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763654203890 to /Users/jschuss/.claude.json
+2025-11-20T15:56:43.897Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:56:43.903Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763654203903
+2025-11-20T15:56:43.903Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:56:43.909Z [DEBUG] Temp file written successfully, size: 48168 bytes
+2025-11-20T15:56:43.909Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:56:43.909Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763654203903 to /Users/jschuss/.claude.json
+2025-11-20T15:56:43.909Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:56:44.230Z [DEBUG] AutoUpdaterWrapper: Installation type: npm-global
+2025-11-20T15:56:50.603Z [DEBUG] Getting matching hook commands for SessionEnd with query: prompt_input_exit
+2025-11-20T15:56:50.603Z [DEBUG] Found 0 hook matchers in settings
+2025-11-20T15:56:50.603Z [DEBUG] Matched 0 unique hooks for query "prompt_input_exit" (0 before deduplication)
+2025-11-20T15:56:50.605Z [DEBUG] Cleaned up session snapshot: /Users/jschuss/.claude/shell-snapshots/snapshot-zsh-1763653001065-bi6xm9.sh
+2025-11-20T15:56:50.607Z [DEBUG] MCP server "figma-desktop": HTTP transport closed/disconnected, attempting automatic reconnection
+2025-11-20T15:56:50.610Z [DEBUG] MCP server "playwright": Sending SIGINT to MCP server process
+2025-11-20T15:56:50.611Z [DEBUG] LSP server manager shut down successfully
+2025-11-20T15:56:50.615Z [DEBUG] FileHistory: Making snapshot for message e1d9550f-4104-456a-9b83-43090dbc464d
+2025-11-20T15:56:50.615Z [DEBUG] FileHistory: Added snapshot for e1d9550f-4104-456a-9b83-43090dbc464d, tracking 0 files
+2025-11-20T15:56:50.620Z [DEBUG] Rendering user message with 1 content blocks
+2025-11-20T15:56:50.621Z [DEBUG] Block 0: <command-name>/exit</command-name>
+            <command-message>exit</command-message>
+            <...
+2025-11-20T15:56:50.621Z [DEBUG] UserCommandMessage rendering: "exit" (args: "none")
+2025-11-20T15:56:50.622Z [DEBUG] isSkillFormat: false, prefix: "/"
+2025-11-20T15:56:50.646Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763654210646
+2025-11-20T15:56:50.646Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:56:50.653Z [DEBUG] Temp file written successfully, size: 48168 bytes
+2025-11-20T15:56:50.654Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:56:50.654Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763654210646 to /Users/jschuss/.claude.json
+2025-11-20T15:56:50.654Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2025-11-20T15:56:50.655Z [DEBUG] MCP server "figma-desktop": Initializing HTTP transport to http://127.0.0.1:3845/mcp
+2025-11-20T15:56:50.656Z [DEBUG] MCP server "figma-desktop": Node version: v22.14.0, Platform: darwin
+2025-11-20T15:56:50.657Z [DEBUG] MCP server "figma-desktop": Environment: {"NODE_OPTIONS":"not set","UV_THREADPOOL_SIZE":"default","HTTP_PROXY":"not set","HTTPS_PROXY":"not set","NO_PROXY":"not set"}
+2025-11-20T15:56:50.658Z [DEBUG] MCP server "figma-desktop": Proxy options: default
+2025-11-20T15:56:50.659Z [DEBUG] MCP server "figma-desktop": HTTP transport options: {"url":"http://127.0.0.1:3845/mcp","headers":{"User-Agent":"claude-code/2.0.47"},"hasAuthProvider":true,"timeoutMs":60000}
+2025-11-20T15:56:50.659Z [DEBUG] MCP server "figma-desktop": HTTP transport created successfully
+2025-11-20T15:56:50.661Z [DEBUG] MCP server "figma-desktop": Client created, setting up request handler
+2025-11-20T15:56:50.661Z [DEBUG] MCP server "figma-desktop": Starting connection with timeout of 30000ms
+2025-11-20T15:56:50.662Z [DEBUG] MCP server "figma-desktop": Testing basic HTTP connectivity to http://127.0.0.1:3845/mcp
+2025-11-20T15:56:50.662Z [DEBUG] MCP server "figma-desktop": Parsed URL: host=127.0.0.1, port=3845, protocol=http:
+2025-11-20T15:56:50.663Z [DEBUG] MCP server "figma-desktop": Using loopback address: 127.0.0.1
+2025-11-20T15:56:50.664Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 1208s uptime
+2025-11-20T15:56:50.664Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: AbortError: This operation was aborted
+2025-11-20T15:56:50.704Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-20T15:56:50.710Z [DEBUG] MCP server "playwright": SIGINT failed, sending SIGTERM to MCP server process
+2025-11-20T15:56:50.743Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-20T15:56:50.779Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-20T15:56:50.780Z [DEBUG] MCP server "figma-desktop": Successfully connected to http server in 125ms
+2025-11-20T15:56:50.781Z [DEBUG] MCP server "figma-desktop": Connection established with capabilities: {"hasTools":true,"hasPrompts":true,"hasResources":true,"serverVersion":{"name":"Figma Dev Mode MCP Server","version":"1.0.0"}}
+2025-11-20T15:56:50.818Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-20T15:56:50.855Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-20T15:56:50.892Z [DEBUG] MCP server "figma-desktop": No token data found
+2025-11-20T15:56:50.897Z [DEBUG] MCP server "playwright": MCP server process exited cleanly
+2025-11-20T15:56:50.900Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.64461.1763654210900
+2025-11-20T15:56:50.900Z [DEBUG] Preserving file permissions: 100644
+2025-11-20T15:56:50.906Z [DEBUG] Temp file written successfully, size: 48585 bytes
+2025-11-20T15:56:50.906Z [DEBUG] Applied original permissions to temp file
+2025-11-20T15:56:50.907Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.64461.1763654210900 to /Users/jschuss/.claude.json
+2025-11-20T15:56:50.907Z [DEBUG] File /Users/jschuss/.claude.json written atomically

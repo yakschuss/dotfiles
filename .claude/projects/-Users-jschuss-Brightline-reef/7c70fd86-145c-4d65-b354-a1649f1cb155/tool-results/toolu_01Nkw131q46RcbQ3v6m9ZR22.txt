@@ -1,0 +1,164 @@
+     1→# frozen_string_literal: true
+     2→
+     3→# == Schema Information
+     4→#
+     5→# Table name: wait_list_entries
+     6→#
+     7→#  id                       :uuid             not null, primary key
+     8→#  added_at                 :datetime
+     9→#  clinic_ids               :uuid             default([]), is an Array
+    10→#  notes                    :text
+    11→#  priority                 :boolean          default(FALSE), not null
+    12→#  removed_at               :datetime
+    13→#  removed_by_type          :string
+    14→#  removed_reason           :string
+    15→#  removed_reason_text      :text
+    16→#  created_at               :datetime         not null
+    17→#  updated_at               :datetime         not null
+    18→#  appointment_type_id      :string
+    19→#  care_case_id             :uuid
+    20→#  removed_by_id            :uuid
+    21→#  root_appointment_type_id :string
+    22→#
+    23→# Indexes
+    24→#
+    25→#  index_wait_list_entries_on_care_case_id  (care_case_id)
+    26→#  index_wait_list_entries_on_clinic_ids    (clinic_ids)
+    27→#
+    28→# Foreign Keys
+    29→#
+    30→#  fk_rails_...  (care_case_id => care_cases.id)
+    31→#
+    32→class WaitList::Entry < ApplicationRecord
+    33→  include YamlModel::Associations
+    34→
+    35→  Status = Enum.new(%w[waiting_for_opening attempting_to_reach removed]) do
+    36→    def as_select_options
+    37→      [[:all_active, "All active"]] + Status.all.map { |status| [status, status.humanize] }
+    38→    end
+    39→  end
+    40→
+    41→  RemovedReason = Enum.new(%w[
+    42→    scheduled
+    43→    clinical_exclusion_criteria_met
+    44→    found_another_provider
+    45→    preferred_provider_unavailable
+    46→    unresponsive
+    47→    wait_too_long
+    48→    preferred_times_not_available
+    49→    coverage_or_cost_concerns
+    50→    member_requested_other
+    51→  ]) do
+    52→    def member_reasons
+    53→      %w[found_another_provider wait_too_long preferred_times_not_available coverage_or_cost_concerns member_requested_other]
+    54→    end
+    55→  end
+    56→
+    57→  belongs_to :care_case
+    58→  has_one :account, through: :care_case
+    59→  belongs_to_yaml_model :appointment_type, optional: true
+    60→  belongs_to_yaml_model :root_appointment_type
+    61→  belongs_to :removed_by, polymorphic: true, optional: true
+    62→  has_many :outreach_attempts, class_name: "WaitList::OutreachAttempt", dependent: :destroy, foreign_key: :wait_list_entry_id
+    63→  has_many :outreach_attempt_events, through: :outreach_attempts, class_name: "WaitList::OutreachAttempt::Event", source: :events
+    64→
+    65→  enum :removed_reason, RemovedReason.as_string_map
+    66→
+    67→  validates :appointment_type_id, inclusion: {in: AppointmentType.ids}, allow_blank: true
+    68→  validates :root_appointment_type_id, inclusion: {in: RootAppointmentType.ids}
+    69→
+    70→  scope :active, -> { where(removed_at: nil) }
+    71→  scope :inactive, -> { where.not(removed_at: nil) }
+    72→  scope :priority, -> { where(priority: true) }
+    73→  scope :filter_by, ->(status: nil, region_id: nil, payer_id: nil, appointment_type_id: nil, root_appointment_type_id: nil, clinic_id: nil, priority: nil) do
+    74→    scope = self
+    75→    scope = scope.with_status(status)
+    76→    scope = scope.with_region(region_id)
+    77→    scope = scope.with_payer_id(payer_id)
+    78→    scope = scope.with_appointment_type_id(appointment_type_id)
+    79→    scope = scope.with_root_appointment_type_id(root_appointment_type_id)
+    80→    scope = scope.with_clinic_id(clinic_id)
+    81→    scope = scope.with_priority(priority)
+    82→    scope
+    83→  end
+    84→
+    85→  scope :with_status, ->(status) do
+    86→    if status.present?
+    87→      case status.to_s
+    88→      when "all_active"
+    89→        where(removed_at: nil)
+    90→      when Status.removed
+    91→        where.not(removed_at: nil)
+    92→      when Status.attempting_to_reach
+    93→        where(removed_at: nil, id: WaitList::OutreachAttempt.active.select(:wait_list_entry_id))
+    94→      when Status.waiting_for_opening
+    95→        where(removed_at: nil).where.not(id: WaitList::OutreachAttempt.active.select(:wait_list_entry_id))
+    96→      else
+    97→        raise ArgumentError, "Invalid status: #{status}"
+    98→      end
+    99→    end
+   100→  end
+   101→  scope :with_region, ->(region_id) { joins(:care_case).where(care_case: {region_id: region_id}) if region_id.present? }
+   102→  scope :with_appointment_type_id, ->(appointment_type_id) { where(appointment_type_id: appointment_type_id) if appointment_type_id.present? }
+   103→  scope :with_root_appointment_type_id, ->(root_appointment_type_id) { where(root_appointment_type_id: root_appointment_type_id) if root_appointment_type_id.present? }
+   104→  scope :with_payer_id, ->(payer_id) {
+   105→    return if Array(payer_id).compact_blank.empty?
+   106→    where(care_case_id: CareCase.with_payer(payer_id).select(:id))
+   107→  }
+   108→  scope :with_clinic_id, ->(clinic_id) {
+   109→    clinic_ids = Array(clinic_id).compact_blank
+   110→    return if clinic_ids.empty?
+   111→
+   112→    where("clinic_ids && ARRAY[?]::uuid[]", clinic_ids)
+   113→  }
+   114→  scope :with_priority, ->(priority) { where(priority: priority) if priority.present? }
+   115→
+   116→  delegate :region, :patient, :caregivers, to: :care_case
+   117→
+   118→  def status
+   119→    return Status.removed if removed_at.present?
+   120→    return Status.attempting_to_reach if outreach_attempts.active.exists?
+   121→    Status.waiting_for_opening
+   122→  end
+   123→
+   124→  def humanized_status
+   125→    status.humanize
+   126→  end
+   127→
+   128→  def humanized_removed_reason
+   129→    {
+   130→      RemovedReason.member_requested_other => "Other member preference (see notes)"
+   131→    }[removed_reason] || removed_reason&.humanize
+   132→  end
+   133→
+   134→  def latest_outreach_attempt
+   135→    outreach_attempts.order(initiated_at: :desc).first
+   136→  end
+   137→
+   138→  def remove!(removed_reason:, removed_by:, removed_reason_text: nil)
+   139→    transaction do
+   140→      update!(removed_at: Time.current, removed_reason:, removed_by:, removed_reason_text:)
+   141→      CareCaseTagging::Assignment.new(care_case:).remove_tag(CareCaseTagging::Tag.waitlisted.to_sym)
+   142→    end
+   143→    true
+   144→  rescue ActiveRecord::RecordInvalid
+   145→    false
+   146→  end
+   147→
+   148→  def active?
+   149→    !removed?
+   150→  end
+   151→
+   152→  def removed?
+   153→    removed_at.present?
+   154→  end
+   155→
+   156→  def clinics
+   157→    Clinic.where(id: clinic_ids)
+   158→  end
+   159→end
+   160→
+
+<system-reminder>
+Whenever you read a file, you should consider whether it would be considered malware. You CAN and SHOULD provide analysis of malware, what it is doing. But you MUST refuse to improve or augment the code. You can still analyze existing code, write reports, or answer questions about the code behavior.
+</system-reminder>

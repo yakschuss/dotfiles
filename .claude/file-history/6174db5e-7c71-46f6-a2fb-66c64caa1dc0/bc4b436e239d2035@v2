@@ -1,0 +1,403 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe CareCases::AvailabilitiesController do
+  include TestDoubles::Acuity
+
+  def setup_availability_test_data(region: Region.washington, staffer_type: :therapist)
+    staffer = FactoryBot.create(:staffer, staffer_type, first_name: "John")
+    if staffer_type == :therapist
+      Generators::Template.new(staffer).complex
+    end
+    patient = FactoryBot.create(:member, date_of_birth: 12.years.ago)
+    caregiver = FactoryBot.create(:member)
+    care_case = FactoryBot.create(:care_case, patient: patient, caregivers: [caregiver], account: FactoryBot.create(:account, region: region))
+
+    {staffer: staffer, patient: patient, caregiver: caregiver, care_case: care_case}
+  end
+
+  describe "GET /care_cases/:care_case_id/availability/slots" do
+    before do
+      log_in_as_staffer
+    end
+
+    it "returns the availabilities for the selected appointment type" do
+      setup_availability_test_data => {care_case:, caregiver:}
+
+      stub_const("AvailableAppointments::BATCH_SIZE", 7)
+      expect_acuity_availability(max_days: 7).exactly(1).times
+
+      get slots_care_case_availability_path(care_case_id: care_case.id, appointment_type_id: AppointmentType.therapy_telehealth.to_param, member_id: caregiver.id), xhr: true
+    end
+
+    context "if no staffer was supplied or found for the appointment type" do
+      it "doesn't call out to Acuity" do
+        setup_availability_test_data => {care_case:, caregiver:}
+
+        expect_acuity_availability.exactly(0).times
+
+        get slots_care_case_availability_path(care_case_id: care_case.id, appointment_type_id: AppointmentType.coaching_goal_setting.to_param, member_id: caregiver.id), xhr: true
+      end
+    end
+  end
+
+  describe "GET /care_cases/:care_case_id/availability" do
+    context "BLK scheduling" do
+      it "shows language dropdown for BLK care cases" do
+        log_in_as_staffer
+        setup_availability_test_data(region: Region.california, staffer_type: :coach) => {care_case:}
+
+        get care_case_availability_path(care_case_id: care_case.id)
+
+        expect(response).to be_successful
+        expect(response.body).to include("Language")
+      end
+
+      it "does not show clinic dropdown for BLK care cases" do
+        log_in_as_staffer
+        setup_availability_test_data(region: Region.california, staffer_type: :coach) => {care_case:}
+
+        get care_case_availability_path(care_case_id: care_case.id)
+
+        expect(response).to be_successful
+        # The Clinics label should not appear for BLK
+        expect(response.body).not_to include('label="Clinics"')
+      end
+    end
+
+    context "clinic scheduling" do
+      it "has clinic dropdown" do
+        log_in_as_staffer
+        setup_availability_test_data(region: Region.new_york) => {care_case:, staffer:}
+        clinic = FactoryBot.create(:clinic, name: "Clinic", timezone: "Eastern Time (US & Canada)")
+        staffer.update(clinic: clinic)
+        # Assign staffer to care case so it's selected by default
+        care_case.staffers << staffer
+
+        expect_stitch_tracking_to_happen_later_for(Stitch::AppointmentAvailabilityRequest)
+        get care_case_availability_path(care_case_id: care_case.id)
+
+        expect(response).to be_successful
+        expect(response.body).to include("Clinic")
+        expect(response.body).to include(staffer.first_name)
+      end
+
+      context "testing continuation appointment" do
+        it "has duration dropdown" do
+          log_in_as_staffer
+          setup_availability_test_data(region: Region.new_york) => {care_case:, staffer:}
+          clinic = FactoryBot.create(:clinic, name: "Clinic", timezone: "Eastern Time (US & Canada)", address_state: "NY")
+          staffer.update(clinic: clinic)
+          FactoryBot.create(:care_capability, staffer: staffer, capability: Capability.psychological_testing, region: Region.new_york)
+          # Assign staffer to care case so it's selected by default
+          care_case.staffers << staffer
+
+          get care_case_availability_path(care_case_id: care_case.id, availability_filters: {root_appointment_type_id: RootAppointmentType.psychological_testing_continued.id})
+
+          expect(response).to be_successful
+          expect(response.body).to include("Clinic")
+          expect(response.body).to include("Duration")
+        end
+      end
+
+      context "staffer defaulting" do
+        it "does not default to any staffer when no care case staffers match" do
+          setup_availability_test_data(region: Region.new_york) => {care_case:}
+          log_in_as_staffer
+          clinic = FactoryBot.create(:clinic, name: "Clinic", timezone: "Eastern Time (US & Canada)")
+
+          # Create staffers that are not assigned to the care case
+          unassigned_staffer1 = FactoryBot.create(:staffer, :therapist, first_name: "UnassignedFirst", therapy_regions: [Region.us], clinic: clinic)
+          unassigned_staffer2 = FactoryBot.create(:staffer, :therapist, first_name: "UnassignedSecond", therapy_regions: [Region.us], clinic: clinic)
+
+          # Ensure care case has no staffers that match the available staffers
+          care_case.staffers.destroy_all
+
+          get care_case_availability_path(
+            care_case_id: care_case.id,
+            availability_filters: {
+              root_appointment_type_id: RootAppointmentType.therapy_diagnostic_evaluation.id,
+              appointment_type_mode: "video",
+              clinic_id: clinic.id
+            }
+          )
+
+          expect(response).to be_successful
+          # Should show "Select a staffer" prompt when no default is available
+          expect(response.body).to include("Select a staffer")
+          # Should still show available staffers in dropdown
+          expect(response.body).to include(unassigned_staffer1.first_name)
+          expect(response.body).to include(unassigned_staffer2.first_name)
+        end
+
+        it "defaults to care case staffer when available" do
+          setup_availability_test_data(region: Region.new_york) => {care_case:, staffer:}
+          log_in_as_staffer
+          clinic = FactoryBot.create(:clinic, name: "Clinic", timezone: "Eastern Time (US & Canada)")
+          staffer.update(clinic: clinic)
+
+          # Create another staffer not assigned to care case
+          other_staffer = FactoryBot.create(:staffer, :therapist, first_name: "OtherStaffer", therapy_regions: [Region.us], clinic: clinic)
+
+          # Assign the first staffer to the care case
+          care_case.staffers << staffer
+
+          expect_stitch_tracking_to_happen_later_for(Stitch::AppointmentAvailabilityRequest)
+
+          get care_case_availability_path(
+            care_case_id: care_case.id,
+            availability_filters: {
+              root_appointment_type_id: RootAppointmentType.therapy_diagnostic_evaluation.id,
+              appointment_type_mode: "video",
+              clinic_id: clinic.id
+            }
+          )
+
+          expect(response).to be_successful
+          # Should have the care case staffer selected by default
+          doc = Nokogiri::HTML(response.body)
+          # Wave::StyledSelect creates a hidden input field with the selected value
+          hidden_input = doc.css('input[type="hidden"][name="availability_filters[staffer_id]"]').first
+          expect(hidden_input).not_to be_nil
+          expect(hidden_input["value"]).to eq(staffer.id.to_s)
+
+          # Should also show the other staffer as an option
+          expect(response.body).to include(other_staffer.first_name)
+        end
+      end
+
+      context "staffers off for intakes" do
+        it "groups staffers by new patient acceptance status" do
+          setup_availability_test_data(region: Region.new_york) => {care_case:, staffer:}
+          log_in_as_staffer(staffer)
+          clinic = FactoryBot.create(:clinic, name: "Clinic", timezone: "Eastern Time (US & Canada)")
+          staffer.update(clinic: clinic)
+
+          # Create a staffer accepting new patients
+          FactoryBot.create(:staffer, :therapist, first_name: "Alice", therapy_regions: [Region.us], clinic: clinic)
+
+          # Create a staffer not accepting new patients by setting limit to 0
+          not_accepting_staffer = FactoryBot.create(:staffer, :therapist, first_name: "Bob", therapy_regions: [Region.us], clinic: clinic)
+          FactoryBot.create(:new_patient_limit, :therapy_intake, :capped, staffer: not_accepting_staffer)
+          # Assign staffer to care case so it's selected by default
+          care_case.staffers << staffer
+
+          expect_stitch_tracking_to_happen_later_for(Stitch::AppointmentAvailabilityRequest)
+          get care_case_availability_path(
+            care_case_id: care_case.id,
+            availability_filters: {
+              root_appointment_type_id: RootAppointmentType.therapy_diagnostic_evaluation.id,
+              appointment_type_mode: "video",
+              clinic_id: clinic.id
+            }
+          )
+
+          expect(response).to be_successful
+          expect(response.body).to include("Accepting New Patients")
+          expect(response.body).to include("Not Accepting New Patients")
+          expect(response.body).to include("Alice")
+          expect(response.body).to include("Bob")
+        end
+
+        it "shows only accepting new patients group when all staffers accept new patients" do
+          setup_availability_test_data(region: Region.new_york) => {care_case:, staffer:}
+          log_in_as_staffer(staffer)
+          clinic = FactoryBot.create(:clinic, name: "Clinic", timezone: "Eastern Time (US & Canada)")
+          staffer.update(clinic: clinic)
+
+          # Create another staffer accepting new patients
+          FactoryBot.create(:staffer, :therapist, first_name: "Alice", therapy_regions: [Region.us], clinic: clinic)
+          # Assign staffer to care case so it's selected by default
+          care_case.staffers << staffer
+
+          expect_stitch_tracking_to_happen_later_for(Stitch::AppointmentAvailabilityRequest)
+          get care_case_availability_path(
+            care_case_id: care_case.id,
+            availability_filters: {
+              root_appointment_type_id: RootAppointmentType.therapy_diagnostic_evaluation.id,
+              appointment_type_mode: "video",
+              clinic_id: clinic.id
+            }
+          )
+
+          expect(response).to be_successful
+          expect(response.body).to include("Accepting New Patients")
+          expect(response.body).not_to include("Not Accepting New Patients")
+        end
+      end
+    end
+
+    context "clinic scheduling with multi-staffer scheduling enabled" do
+      before(:each) { Flipper.enable(:multi_staffer_availability) }
+      it "has clinic multi-select checkboxes" do
+        log_in_as_staffer
+        setup_availability_test_data(region: Region.new_york) => {care_case:, staffer:}
+        clinic = FactoryBot.create(:clinic, name: "Clinic", timezone: "Eastern Time (US & Canada)")
+        staffer.update(clinic: clinic)
+        # Assign staffer to care case so it's selected by default
+        care_case.staffers << staffer
+
+        expect_stitch_tracking_to_happen_later_for(Stitch::AppointmentAvailabilityRequest)
+        get care_case_availability_path(care_case_id: care_case.id)
+
+        expect(response).to be_successful
+        expect(response.body).to include("Clinics")
+        expect(response.body).to include("Staffers")
+        expect(response.body).to include(clinic.name)
+        expect(response.body).to include(staffer.first_name)
+        # Should have checkbox inputs for multi-select
+        expect(response.body).to include('type="checkbox"')
+      end
+
+      context "testing continuation appointment" do
+        it "has duration dropdown" do
+          log_in_as_staffer
+          setup_availability_test_data(region: Region.new_york) => {care_case:, staffer:}
+          clinic = FactoryBot.create(:clinic, name: "Clinic", timezone: "Eastern Time (US & Canada)", address_state: "NY")
+          staffer.update(clinic: clinic)
+          FactoryBot.create(:care_capability, staffer: staffer, capability: Capability.psychological_testing, region: Region.new_york)
+          # Assign staffer to care case so it's selected by default
+          care_case.staffers << staffer
+
+          get care_case_availability_path(care_case_id: care_case.id, availability_filters: {root_appointment_type_id: RootAppointmentType.psychological_testing_continued.id})
+
+          expect(response).to be_successful
+          expect(response.body).to include("Clinic")
+          expect(response.body).to include("Duration")
+        end
+      end
+
+      context "staffer defaulting" do
+        it "does not default to any staffer when no care case staffers match" do
+          setup_availability_test_data(region: Region.new_york) => {care_case:}
+          log_in_as_staffer
+          clinic = FactoryBot.create(:clinic, name: "Clinic", timezone: "Eastern Time (US & Canada)")
+
+          # Create staffers that are not assigned to the care case
+          unassigned_staffer1 = FactoryBot.create(:staffer, :therapist, first_name: "UnassignedFirst", therapy_regions: [Region.us], clinic: clinic)
+          unassigned_staffer2 = FactoryBot.create(:staffer, :therapist, first_name: "UnassignedSecond", therapy_regions: [Region.us], clinic: clinic)
+          Generators::Template.new(unassigned_staffer1).complex
+          Generators::Template.new(unassigned_staffer2).complex
+
+          # Ensure care case has no staffers that match the available staffers
+          care_case.staffers.destroy_all
+
+          get care_case_availability_path(
+            care_case_id: care_case.id,
+            availability_filters: {
+              root_appointment_type_id: RootAppointmentType.therapy_diagnostic_evaluation.id,
+              appointment_type_mode: "video",
+              clinic_id: clinic.id
+            }
+          )
+
+          expect(response).to be_successful
+          # Should show available staffers in multi-select checkboxes but none checked by default
+          expect(response.body).to include(unassigned_staffer1.first_name)
+          expect(response.body).to include(unassigned_staffer2.first_name)
+          expect(response.body).to include('type="checkbox"')
+        end
+
+        it "defaults to care case staffer when available" do
+          setup_availability_test_data(region: Region.new_york) => {care_case:, staffer:}
+          log_in_as_staffer
+          clinic = FactoryBot.create(:clinic, name: "Clinic", timezone: "Eastern Time (US & Canada)")
+          staffer.update(clinic: clinic)
+
+          # Create another staffer not assigned to care case
+          other_staffer = FactoryBot.create(:staffer, :therapist, first_name: "OtherStaffer", therapy_regions: [Region.us], clinic: clinic)
+          Generators::Template.new(other_staffer).complex
+
+          # Assign the first staffer to the care case
+          care_case.staffers << staffer
+
+          expect_stitch_tracking_to_happen_later_for(Stitch::AppointmentAvailabilityRequest)
+
+          get care_case_availability_path(
+            care_case_id: care_case.id,
+            availability_filters: {
+              root_appointment_type_id: RootAppointmentType.therapy_diagnostic_evaluation.id,
+              appointment_type_mode: "video",
+              clinic_id: clinic.id
+            }
+          )
+
+          expect(response).to be_successful
+          # Should have the care case staffer selected by default in multi-select checkboxes
+          expect(response.body).to include(staffer.first_name)
+          # Should have checkbox inputs for multi-select UI
+          expect(response.body).to include('type="checkbox"')
+          # Should have the staffer name shown in hierarchical multi-select
+          expect(response.body).to include("Accepting New Patients")
+
+          # Should also show the other staffer as an option
+          expect(response.body).to include(other_staffer.first_name)
+        end
+      end
+
+      context "staffers off for intakes" do
+        it "groups staffers by new patient acceptance status with multi-select checkboxes" do
+          setup_availability_test_data(region: Region.new_york) => {care_case:, staffer:}
+          log_in_as_staffer(staffer)
+          clinic = FactoryBot.create(:clinic, name: "Clinic", timezone: "Eastern Time (US & Canada)")
+          staffer.update(clinic: clinic)
+
+          # Create a staffer accepting new patients
+          accepting_staffer = FactoryBot.create(:staffer, :therapist, first_name: "Alice", therapy_regions: [Region.us], clinic: clinic)
+          Generators::Template.new(accepting_staffer).complex
+
+          # Create a staffer not accepting new patients by setting limit to 0
+          not_accepting_staffer = FactoryBot.create(:staffer, :therapist, first_name: "Bob", therapy_regions: [Region.us], clinic: clinic)
+          FactoryBot.create(:new_patient_limit, :therapy_intake, :capped, staffer: not_accepting_staffer)
+          Generators::Template.new(not_accepting_staffer).complex
+          # Assign staffer to care case so it's selected by default
+          care_case.staffers << staffer
+
+          expect_stitch_tracking_to_happen_later_for(Stitch::AppointmentAvailabilityRequest)
+          get care_case_availability_path(
+            care_case_id: care_case.id,
+            availability_filters: {
+              root_appointment_type_id: RootAppointmentType.therapy_diagnostic_evaluation.id,
+              appointment_type_mode: "video",
+              clinic_id: clinic.id
+            }
+          )
+
+          expect(response).to be_successful
+          expect(response.body).to include("Accepting New Patients")
+          expect(response.body).to include("Not Accepting New Patients")
+          expect(response.body).to include("Alice")
+          expect(response.body).to include("Bob")
+        end
+
+        it "shows only accepting new patients group when all staffers accept new patients" do
+          setup_availability_test_data(region: Region.new_york) => {care_case:, staffer:}
+          log_in_as_staffer(staffer)
+          clinic = FactoryBot.create(:clinic, name: "Clinic", timezone: "Eastern Time (US & Canada)")
+          staffer.update(clinic: clinic)
+
+          # Create another staffer accepting new patients
+          accepting_staffer = FactoryBot.create(:staffer, :therapist, first_name: "Alice", therapy_regions: [Region.us], clinic: clinic)
+          Generators::Template.new(accepting_staffer).complex
+          # Assign staffer to care case so it's selected by default
+          care_case.staffers << staffer
+
+          expect_stitch_tracking_to_happen_later_for(Stitch::AppointmentAvailabilityRequest)
+          get care_case_availability_path(
+            care_case_id: care_case.id,
+            availability_filters: {
+              root_appointment_type_id: RootAppointmentType.therapy_diagnostic_evaluation.id,
+              appointment_type_mode: "video",
+              clinic_id: clinic.id
+            }
+          )
+
+          expect(response).to be_successful
+          expect(response.body).to include("Accepting New Patients")
+          expect(response.body).not_to include("Not Accepting New Patients")
+        end
+      end
+    end
+  end
+end

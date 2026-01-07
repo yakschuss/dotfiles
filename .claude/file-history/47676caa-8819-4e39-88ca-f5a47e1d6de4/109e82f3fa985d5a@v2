@@ -1,0 +1,267 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe SlotRecapture::FilledDetector, type: :model do
+  before do
+    Flipper.enable(:slot_recapture_enabled)
+  end
+
+  after do
+    Flipper.disable(:slot_recapture_enabled)
+  end
+
+  describe "#handle" do
+    it "marks matching opportunity as filled when appointment is scheduled" do
+      staffer = FactoryBot.create(:staffer)
+      start_time = 48.hours.from_now
+      opportunity = FactoryBot.create(:slot_recapture_opportunity,
+        :open,
+        staffer: staffer,
+        start_time: start_time
+      )
+
+      care_case = FactoryBot.create(:care_case)
+      appointment = FactoryBot.create(:appointment,
+        care_case: care_case,
+        region: care_case.region,
+        staffer: staffer,
+        start_time: start_time,
+        end_time: start_time + 1.hour
+      )
+
+      event = AppointmentScheduledEvent.new(
+        appointment: appointment,
+        care_case: care_case,
+        staffer: staffer
+      )
+
+      # Enable auto_detect_filled in configuration
+      FactoryBot.create(:slot_recapture_configuration, data: {
+        auto_detect_filled: true
+      })
+
+      described_class.new.handle(event)
+
+      opportunity.reload
+      expect(opportunity.status).to eq("filled")
+    end
+
+    it "matches opportunity within 1 minute tolerance of start time" do
+      staffer = FactoryBot.create(:staffer)
+      opportunity_start = 48.hours.from_now
+      appointment_start = opportunity_start + 30.seconds
+
+      opportunity = FactoryBot.create(:slot_recapture_opportunity,
+        :open,
+        staffer: staffer,
+        start_time: opportunity_start
+      )
+
+      care_case = FactoryBot.create(:care_case)
+      appointment = FactoryBot.create(:appointment,
+        care_case: care_case,
+        region: care_case.region,
+        staffer: staffer,
+        start_time: appointment_start,
+        end_time: appointment_start + 1.hour
+      )
+
+      event = AppointmentScheduledEvent.new(
+        appointment: appointment,
+        care_case: care_case,
+        staffer: staffer
+      )
+
+      FactoryBot.create(:slot_recapture_configuration, data: {
+        auto_detect_filled: true
+      })
+
+      described_class.new.handle(event)
+
+      opportunity.reload
+      expect(opportunity.status).to eq("filled")
+    end
+
+    it "does not match opportunity outside 1 minute tolerance" do
+      staffer = FactoryBot.create(:staffer)
+      opportunity_start = 48.hours.from_now
+      appointment_start = opportunity_start + 2.minutes
+
+      opportunity = FactoryBot.create(:slot_recapture_opportunity,
+        :open,
+        staffer: staffer,
+        start_time: opportunity_start
+      )
+
+      care_case = FactoryBot.create(:care_case)
+      appointment = FactoryBot.create(:appointment,
+        care_case: care_case,
+        region: care_case.region,
+        staffer: staffer,
+        start_time: appointment_start,
+        end_time: appointment_start + 1.hour
+      )
+
+      event = AppointmentScheduledEvent.new(
+        appointment: appointment,
+        care_case: care_case,
+        staffer: staffer
+      )
+
+      FactoryBot.create(:slot_recapture_configuration, data: {
+        auto_detect_filled: true
+      })
+
+      described_class.new.handle(event)
+
+      opportunity.reload
+      expect(opportunity.status).to eq("open")
+    end
+
+    it "does not match opportunity for different staffer" do
+      staffer1 = FactoryBot.create(:staffer)
+      staffer2 = FactoryBot.create(:staffer)
+      start_time = 48.hours.from_now
+
+      opportunity = FactoryBot.create(:slot_recapture_opportunity,
+        :open,
+        staffer: staffer1,
+        start_time: start_time
+      )
+
+      care_case = FactoryBot.create(:care_case)
+      appointment = FactoryBot.create(:appointment,
+        care_case: care_case,
+        region: care_case.region,
+        staffer: staffer2,
+        start_time: start_time,
+        end_time: start_time + 1.hour
+      )
+
+      event = AppointmentScheduledEvent.new(
+        appointment: appointment,
+        care_case: care_case,
+        staffer: staffer2
+      )
+
+      FactoryBot.create(:slot_recapture_configuration, data: {
+        auto_detect_filled: true
+      })
+
+      described_class.new.handle(event)
+
+      opportunity.reload
+      expect(opportunity.status).to eq("open")
+    end
+
+    it "only matches open or offered opportunities" do
+      staffer = FactoryBot.create(:staffer)
+      start_time = 48.hours.from_now
+
+      expired_opportunity = FactoryBot.create(:slot_recapture_opportunity,
+        :expired,
+        staffer: staffer,
+        start_time: start_time
+      )
+
+      care_case = FactoryBot.create(:care_case)
+      appointment = FactoryBot.create(:appointment,
+        care_case: care_case,
+        region: care_case.region,
+        staffer: staffer,
+        start_time: start_time,
+        end_time: start_time + 1.hour
+      )
+
+      event = AppointmentScheduledEvent.new(
+        appointment: appointment,
+        care_case: care_case,
+        staffer: staffer
+      )
+
+      FactoryBot.create(:slot_recapture_configuration, data: {
+        auto_detect_filled: true
+      })
+
+      described_class.new.handle(event)
+
+      expired_opportunity.reload
+      expect(expired_opportunity.status).to eq("expired")
+    end
+
+    it "does nothing when auto_detect_filled is disabled" do
+      staffer = FactoryBot.create(:staffer)
+      start_time = 48.hours.from_now
+
+      opportunity = FactoryBot.create(:slot_recapture_opportunity,
+        :open,
+        staffer: staffer,
+        start_time: start_time
+      )
+
+      care_case = FactoryBot.create(:care_case)
+      appointment = FactoryBot.create(:appointment,
+        care_case: care_case,
+        region: care_case.region,
+        staffer: staffer,
+        start_time: start_time,
+        end_time: start_time + 1.hour
+      )
+
+      event = AppointmentScheduledEvent.new(
+        appointment: appointment,
+        care_case: care_case,
+        staffer: staffer
+      )
+
+      FactoryBot.create(:slot_recapture_configuration, data: {
+        auto_detect_filled: false
+      })
+
+      described_class.new.handle(event)
+
+      opportunity.reload
+      expect(opportunity.status).to eq("open")
+    end
+  end
+
+  describe "event listener" do
+    it "does not process when feature flag is off" do
+      Flipper.disable(:slot_recapture_enabled)
+
+      staffer = FactoryBot.create(:staffer)
+      start_time = 48.hours.from_now
+
+      opportunity = FactoryBot.create(:slot_recapture_opportunity,
+        :open,
+        staffer: staffer,
+        start_time: start_time
+      )
+
+      care_case = FactoryBot.create(:care_case)
+      appointment = FactoryBot.create(:appointment,
+        care_case: care_case,
+        region: care_case.region,
+        staffer: staffer,
+        start_time: start_time,
+        end_time: start_time + 1.hour
+      )
+
+      event = AppointmentScheduledEvent.new(
+        appointment: appointment,
+        care_case: care_case,
+        staffer: staffer
+      )
+
+      FactoryBot.create(:slot_recapture_configuration, data: {
+        auto_detect_filled: true
+      })
+
+      described_class.on_appointment_scheduled(event)
+
+      opportunity.reload
+      expect(opportunity.status).to eq("open")
+    end
+  end
+end

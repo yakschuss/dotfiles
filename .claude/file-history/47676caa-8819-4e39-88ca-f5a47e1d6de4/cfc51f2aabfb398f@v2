@@ -1,0 +1,30 @@
+# frozen_string_literal: true
+
+# == Schema Information
+#
+# Table name: slot_recapture_configurations
+#
+#  id            :uuid             not null, primary key
+#  data          :jsonb            not null
+#  created_at    :datetime         not null
+#  created_by_id :uuid
+#
+# Indexes
+#
+#  index_slot_recapture_configurations_on_created_by_id  (created_by_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (created_by_id => staffers.id)
+#
+module SlotRecapture
+  class Configuration < ApplicationRecord
+    attribute :data, AttributeTypes::JsonModel.new(SlotRecapture::ConfigurationData)
+
+    belongs_to :created_by, class_name: "Staffer", optional: true
+
+    def self.current
+      order(:created_at).last || new(data: ConfigurationData.new)
+    end
+  end
+end

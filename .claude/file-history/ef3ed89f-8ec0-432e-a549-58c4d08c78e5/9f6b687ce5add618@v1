@@ -1,0 +1,9 @@
+# frozen_string_literal: true
+
+class AddSlotRecaptureOpportunityIndex < ActiveRecord::Migration[8.0]
+  disable_ddl_transaction!
+
+  def change
+    add_index :wait_list_outreach_attempts, :slot_recapture_opportunity_id, algorithm: :concurrently
+  end
+end

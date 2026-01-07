@@ -1,0 +1,62 @@
+<% conversation = Chat::MemberSupportConversation.opened_for_channel(sendbird_chat_channel) %>
+
+<div id="chat_actions_header_contents" data-turbo="true">
+  <div class="row mb-lg-3">
+    <%= render partial: "chat_status", locals: {conversation: conversation} %>
+  </div>
+
+  <div class="row">
+
+    <div class="col">
+      <% if sendbird_chat_channel.chat_type_member_support? %>
+        <% if conversation&.open? && conversation&.claimed_by?(current_staffer) %>
+          <div class="float-left" id="close-conversation-button">
+            <%= button_to "Mark as closed",
+                  member_support_read_conversations_path(sendbird_chat_channel_id: sendbird_chat_channel.id),
+                  class: "prism-button-danger",
+                  data: {turbo_frame: "_top"} %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <div class="flex justify-end">
+        <% if SupplementalChatCoachPolicy.new(current_staffer).create? %>
+          <div data-controller="modals events">
+            <%= turbo_frame_tag :supplemental_coach_form do %>
+              <%= render Staffers::Accounts::Chats::SupplementalCoachFormComponent.new(
+                    account: current_account,
+                    member: current_member,
+                    chat_type: sendbird_chat_channel.chat_type
+                  ) %>
+            <% end %>
+            </div>
+          <% end %>
+
+          <% if ChatMarkerPolicy.new(current_staffer).create? %>
+            <div class="mr-2">
+              <%= render(Staffers::CoachWorkflows::FlagFormComponent.new(
+                    account: current_account,
+                    member: current_member,
+                    sendbird_user: sendbird_user,
+                    sendbird_chat_channel: sendbird_chat_channel,
+                    flag: safety_flag
+                  )) %>
+            </div>
+          <div class="mr-2">
+            <%= render(Staffers::CoachWorkflows::StarFormComponent.new(
+                  starred: sendbird_chat_channel_membership.starred?,
+                  form_path: coach_workflows_sendbird_chat_channel_membership_path(sendbird_chat_channel_membership),
+                  starred_component: Staffers::CoachWorkflows::StarredButtonComponent.new,
+                  unstarred_component: Staffers::CoachWorkflows::UnstarredButtonComponent.new
+                )) %>
+          </div>
+        <% end %>
+
+        <%= button_to "Mark as unread",
+              account_member_chat_unread_messages_path(current_account, current_member, sendbird_chat_channel, sendbird_user_id: sendbird_user),
+              id: "messages-unread-button",
+              class: "prism-button-primary float-right" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe Triage::ExpireServiceLineRecommendationJob do
+  describe "#perform" do
+    it "expires the service line recommendation" do
+      member = FactoryBot.create(:member)
+      care_case = FactoryBot.create(:care_case, caregivers: [member])
+      service_line_recommendation = FactoryBot.create(:service_line_recommendation, :with_intake_assessment, member: member, care_case: care_case, created_at: 31.days.ago)
+
+      expect { described_class.perform_now(service_line_recommendation.id) }
+        .to change { service_line_recommendation.reload.expired_at }.from(nil)
+    end
+
+    it "resets the care navigation journey" do
+      member = FactoryBot.create(:member)
+      care_case = FactoryBot.create(:care_case, caregivers: [member])
+      journey = FactoryBot.create(:care_navigation_journey, member: member, care_case: care_case, account: care_case.account, most_recent_step_completed: "assessment_results")
+      service_line_recommendation = FactoryBot.create(:service_line_recommendation, :with_intake_assessment, member: member, care_case: care_case, created_at: 31.days.ago)
+
+      expect { described_class.perform_now(service_line_recommendation.id) }
+        .to change { journey.reload.most_recent_step_completed }.from("assessment_results").to(nil)
+    end
+
+    context "if the service line recommendation was already expired" do
+      it "does nothing" do
+        member = FactoryBot.create(:member)
+        care_case = FactoryBot.create(:care_case, caregivers: [member])
+        service_line_recommendation = FactoryBot.create(:service_line_recommendation, :with_intake_assessment, member: member, care_case: care_case, expired_at: Time.zone.now)
+
+        expect { described_class.perform_now(service_line_recommendation.id) }
+          .not_to change { service_line_recommendation.reload.expired_at }
+      end
+    end
+  end
+end

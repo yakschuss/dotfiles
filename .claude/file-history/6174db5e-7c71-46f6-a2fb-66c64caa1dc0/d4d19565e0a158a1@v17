@@ -1,0 +1,247 @@
+module Calendaring
+  class AvailabilityForm
+    include ActiveModel::Model
+    include ActiveModel::Attributes
+    include ActionView::Helpers::TagHelper
+    include DurationFormatter
+
+    attribute :clinic_id, :string
+    attribute :clinic_ids, default: []
+    attribute :root_appointment_type_id, :string
+    attribute :payer_id, :string
+    attribute :appointment_type_mode, :string
+    attribute :staffer_ids, default: []
+    attribute :staffer_id, :string
+    attribute :region_id, :string
+    attribute :account_id, :string
+    attribute :care_case_id, :string
+    attribute :appointment_duration, :integer
+
+    def start_date
+      first_available_date&.beginning_of_week || Date.current.beginning_of_week
+    end
+
+    def staffer_select_options
+      @staffer_select_options ||= begin
+        # We will use StyledSelect
+        # We will group by whether accepting new patients
+        accepting_new_patients = Calendaring::Api::Availability.capable_staffers(
+          root_appointment_type: root_appointment_type,
+          filters: availability_filters.merge(limit_to_accepting_new_patients: true)
+        ).sort_by(&:first_name)
+
+        not_accepting_new_patients = (capable_staffers - accepting_new_patients).sort_by(&:first_name)
+
+        groups = []
+        if accepting_new_patients.any?
+          groups << ["Accepting New Patients", accepting_new_patients.map { |s| [s.internal_full_name_with_roles, s.id] }]
+        end
+        if not_accepting_new_patients.any?
+          groups << ["Not Accepting New Patients", not_accepting_new_patients.map { |s| [s.internal_full_name_with_roles, s.id] }]
+        end
+
+        groups
+      end
+    end
+
+    def clinic_multiselect_options
+      @clinic_multiselect_options ||= Clinic.sorted_by_type.map do |clinic|
+        Wave::CheckboxMultiselect::Option.new(
+          value: clinic.id,
+          label: clinic.name,
+          parent_value: nil
+        )
+      end
+    end
+
+    def staffer_multiselect_options
+      @staffer_multiselect_options ||= begin
+        accepting_new_patients = Calendaring::Api::Availability.capable_staffers(
+          root_appointment_type: root_appointment_type,
+          filters: availability_filters.merge(limit_to_accepting_new_patients: true)
+        ).sort_by(&:first_name)
+
+        not_accepting_new_patients = (capable_staffers - accepting_new_patients).sort_by(&:first_name)
+
+        options = []
+
+        if accepting_new_patients.any?
+          options.concat(
+            accepting_new_patients.map do |staffer|
+              Wave::CheckboxMultiselect::Option.new(
+                value: staffer.id,
+                label: staffer.internal_full_name_with_roles,
+                display_label: staffer.full_name,
+                parent_value: "accepting_new_patients"
+              )
+            end
+          )
+          options << Wave::CheckboxMultiselect::Option.new(
+            value: "accepting_new_patients",
+            label: "Accepting New Patients",
+            display_label: "Accepting New Patients",
+            parent_value: nil
+          )
+        end
+
+        if not_accepting_new_patients.any?
+          options.concat(
+            not_accepting_new_patients.map do |staffer|
+              Wave::CheckboxMultiselect::Option.new(
+                value: staffer.id,
+                label: staffer.internal_full_name_with_roles,
+                display_label: staffer.full_name,
+                parent_value: "not_accepting_new_patients"
+              )
+            end
+          )
+          options << Wave::CheckboxMultiselect::Option.new(
+            value: "not_accepting_new_patients",
+            label: "Not Accepting New Patients",
+            display_label: "Not Accepting New Patients",
+            parent_value: nil
+          )
+        end
+
+        options
+      end
+    end
+
+    def appointment_mode_options
+      root_appointment_type.modes.map { [it.humanize, it] }
+    end
+
+    def duration_options
+      root_appointment_type.duration_options.map do
+        [format_duration_long(it), it]
+      end
+    end
+
+    def clinic
+      selected_clinics.first
+    end
+
+    def selected_clinics
+      @selected_clinics ||= if Flipper.enabled?(:multi_staffer_availability)
+        if clinic_ids.present? && clinic_ids.any?(&:present?)
+          Clinic.where(id: clinic_ids).to_a
+        else
+          [care_case.clinic || care_case.account&.preferred_clinic || Clinic.sorted_by_type.first].compact
+        end
+      elsif clinic_id.present?
+        [Clinic.find(clinic_id)]
+      else
+        [care_case.clinic || care_case.account&.preferred_clinic || Clinic.sorted_by_type.first].compact
+      end
+    end
+
+    def staffer
+      @staffer ||= selected_staffers.first
+    end
+
+    def selected_staffers
+      @selected_staffers ||= if Flipper.enabled?(:multi_staffer_availability)
+        if staffer_ids.present? && staffer_ids.any?(&:present?)
+          capable_staffers.select { |s| staffer_ids.include?(s.id) }
+        else
+          [(care_case.staffers_by_primacy & capable_staffers).first].compact
+        end
+      elsif staffer_id.present?
+        [capable_staffers.find { |s| s.id == staffer_id }].compact
+      else
+        [(care_case.staffers_by_primacy & capable_staffers).first].compact
+      end
+    end
+
+    def root_appointment_type
+      @root_appointment_type ||= RootAppointmentType.find(root_appointment_type_id)
+    end
+
+    def timezone
+      care_case.patient_timezone || care_case.region.most_likely_timezone
+    end
+
+    def calendar_params
+      {
+        root_appointment_type_id: root_appointment_type.id,
+        start_date: start_date,
+        clinic_ids: selected_clinics.map(&:id),
+        staffer_ids: selected_staffers.map(&:id),
+        appointment_type_mode: appointment_type_mode,
+        appointment_duration: duration,
+        region_id: region.id,
+        timezone: timezone
+      }.compact_blank
+    end
+
+    def care_case
+      @care_case ||= ::CareCase.find_by(id: care_case_id)
+    end
+
+    def track_request
+      Calendaring::AppointmentAvailabilityRequestReporter.new(
+        request_context: Calendaring::AvailabilityRequestContext.member_support_scheduling,
+        care_case: care_case,
+        member: care_case.patient,
+        root_appointment_type: root_appointment_type,
+        staffers: selected_staffers.any? ? selected_staffers : capable_staffers,
+        filters: availability_filters
+      ).track!
+    end
+
+    def payer
+      (payer_id.presence && Payer.find(payer_id)) || Eligibility::AssumedResponsiblePayer.for(care_case) || Contracts::Special.direct_to_consumer.payer
+    end
+
+    def duration
+      duration_options.find { it.last == appointment_duration }&.last || default_duration
+    end
+
+    private
+
+    def capable_staffers
+      @capable_staffers ||= Calendaring::Api::Availability.capable_staffers(
+        root_appointment_type: root_appointment_type,
+        filters: availability_filters
+      )
+    end
+
+    def first_available_date
+      @first_available_date ||= if Flipper.enabled?(:use_reef_templates)
+        Calendaring::Template::AppointmentTimes.for_staffers(selected_staffers.any? ? selected_staffers : [staffer].compact)
+          .for_root_appointment_type(root_appointment_type, filters: {mode: appointment_type_mode, duration: duration})
+          .first_date
+      else
+        Calendaring::Api::Availability.dates(
+          root_appointment_type:,
+          date_range: Date.current..(Date.current + PhoneDesk::Scheduling::BookingWindow.for_root_appointment_type(root_appointment_type)),
+          timezone: timezone,
+          filters: availability_filters.merge({staffers: selected_staffers.any? ? selected_staffers : [staffer].compact})
+        ).first_available_date_for(staffer: selected_staffers)
+      end
+    end
+
+    def default_duration
+      duration_options.first.last
+    end
+
+    def account
+      @account ||= ::Account.find_by(id: account_id)
+    end
+
+    def region
+      Region.find(care_case&.region_id || account&.region_id || region_id)
+    end
+
+    def availability_filters
+      @availability_filters ||= {
+        clinics: selected_clinics,
+        region: region,
+        payer: payer,
+        mode: appointment_type_mode,
+        duration: duration,
+        limit_to_accepting_new_patients: false
+      }
+    end
+  end
+end

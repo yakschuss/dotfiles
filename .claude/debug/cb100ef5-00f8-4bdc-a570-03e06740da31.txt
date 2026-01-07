@@ -1,0 +1,7 @@
+[DEBUG] Watching for changes in setting files /Users/jschuss/.claude/settings.json, /Users/jschuss/Brightline/reef/.claude/settings.local.json...
+[DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.57239.1762180721719
+[DEBUG] Preserving file permissions: 100644
+[DEBUG] Temp file written successfully, size: 43290 bytes
+[DEBUG] Applied original permissions to temp file
+[DEBUG] Renaming /Users/jschuss/.claude.json.tmp.57239.1762180721719 to /Users/jschuss/.claude.json
+[DEBUG] File /Users/jschuss/.claude.json written atomically

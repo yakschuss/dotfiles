@@ -1,0 +1,17 @@
+[
+  {
+    "content": "Find existing combobox examples in the app",
+    "status": "completed",
+    "activeForm": "Finding existing combobox examples in the app"
+  },
+  {
+    "content": "Remove the unnecessary stimulus controller",
+    "status": "completed",
+    "activeForm": "Removing the unnecessary stimulus controller"
+  },
+  {
+    "content": "Simplify the implementation based on existing patterns",
+    "status": "in_progress",
+    "activeForm": "Simplifying the implementation based on existing patterns"
+  }
+]

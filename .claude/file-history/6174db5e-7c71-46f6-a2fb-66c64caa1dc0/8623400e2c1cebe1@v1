@@ -1,0 +1,73 @@
+<% content_for(:title) do %>
+  <%= current_care_case.patient.first_name %> - Availability
+<% end %>
+<%= render partial: "staffers/shared/care_cases/case_header", locals: {care_case: current_care_case, tab: "appointments"} %>
+<%= render partial: "staffers/care_cases/shared/scheduling_header" %>
+<div class="p-3 mt-10 mb-5 bg-blue-400 border-0 rounded-sm">
+  <h5 class="mb-0">Availability</h5>
+</div>
+<% if Calendaring::Api::AppointmentSlot.show_slots_ui?(current_staffer) %>
+  <p><%= link_to "Open slot scheduling page", care_case_appointment_slots_path(current_care_case) %></p>
+<% end %>
+<div class="mt-5">
+  <%= wave_form_with model: @form, scope: :availability_filters, url: care_case_availability_path(show_clinic_view: true), method: :get, class: "mb-4", data: {turbo: true, controller: "forms", forms_target: "submittable"} do |f| %>
+    <div class="grid grid-cols-4 gap-2">
+      <% if Flipper.enabled?(:multi_staffer_availability) %>
+        <%= f.field :checkbox_multiselect, :clinic_ids,
+              wrapper_data: {action: "checkbox-multiselect:changesClosed->forms#requestSubmit"},
+              label: "Clinics",
+              options: @form.clinic_multiselect_options,
+              selected: @form.selected_clinics.map(&:id) %>
+      <% else %>
+        <%= f.collection :select, :clinic_id, Clinic.sorted_by_type, :id, :name,
+              include_blank: false, selected: @form.clinic.id,
+              html_options: {data: {action: "change->forms#requestSubmit"}} %>
+      <% end %>
+      <%= f.collection :select, :root_appointment_type_id, RootAppointmentType.for_care_model(:clinic), :id, :internal_name,
+            include_blank: false, selected: @form.root_appointment_type_id, label: "Service",
+            html_options: {data: {action: "change->forms#requestSubmit"}} %>
+      <%= f.collection :select, :payer_id, Payer.active.ordered_with_dtc_first, :id, :name,
+            label: "Insurance", include_blank: false, selected: @form.payer.id, html_options: {data: {action: "change->forms#requestSubmit"}} %>
+      <% if @form.appointment_mode_options.size > 1 %>
+        <%= f.field :select, :appointment_type_mode, options: options_for_select(@form.appointment_mode_options, @form.appointment_type_mode),
+              label: "In-person/Virtual", include_blank: "Either",
+              html_options: {data: {action: "change->forms#requestSubmit"}} %>
+      <% end %>
+      <% if @form.duration_options.size > 1 %>
+        <%= f.field :select, :appointment_duration, options: options_for_select(@form.duration_options, @form.duration),
+              label: "Duration", include_blank: false,
+              html_options: {data: {action: "change->forms#requestSubmit"}} %>
+      <% end %>
+      <% if Flipper.enabled?(:multi_staffer_availability) %>
+        <%= f.field :checkbox_multiselect, :staffer_ids,
+              wrapper_data: {action: "checkbox-multiselect:changesClosed->forms#requestSubmit"},
+              label: "Staffers",
+              options: @form.staffer_multiselect_options,
+              selected: @form.selected_staffers.map(&:id) %>
+      <% else %>
+        <%= f.field :styled_select, :staffer_id, options: @form.staffer_select_options,
+              label: "Staffer", prompt: "Select a staffer", selected: @form.staffer&.id,
+              data: {action: "change->forms#requestSubmit"} %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if @form.selected_staffers.any? %>
+    <% if Flipper.enabled?(:multi_staffer_availability) %>
+      <%= form_with url: new_care_case_booking_path(@form.care_case), scope: "selections", method: :get, data: {turbo: true, controller: "disable-input"} do |f| %>
+        <%= turbo_frame_tag @form.root_appointment_type_id, src: care_case_availabilities_calendar_path(@form.care_case, calendar: @form.calendar_params), class: "block" do %>
+          <%= render Staffers::Calendaring::AppointmentCalendarComponent::LoadingSkeleton.new %>
+        <% end %>
+        <%= f.submit "Book", class: "prism-button-primary cursor-pointer mt-8", disabled: true, data: {disable_input_target: "disable"} %>
+      <% end %>
+    <% else %>
+      <%= form_with url: care_case_bookings_path(@form.care_case), scope: "selections", data: {controller: "disable-input"} do |f| %>
+        <%= f.hidden_field :staffer_id, value: @form.staffer&.id %>
+        <%= turbo_frame_tag @form.root_appointment_type_id, src: care_case_availabilities_calendar_path(@form.care_case, calendar: @form.calendar_params), class: "block" do %>
+          <%= render Staffers::Calendaring::AppointmentCalendarComponent::LoadingSkeleton.new %>
+        <% end %>
+        <%= f.submit "Book", class: "prism-button-primary cursor-pointer mt-8", disabled: true, data: {disable_input_target: "disable"} %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

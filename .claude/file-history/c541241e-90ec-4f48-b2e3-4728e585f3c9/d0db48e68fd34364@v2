@@ -1,0 +1,29 @@
+# frozen_string_literal: true
+
+therapist = Staffer.find('6a4f7f3c-b9f4-4ea8-9e8e-47bcc9cb334e')
+carol = Member.find('53054fd5-ab2a-44d1-9040-40d0b9798425')
+
+care_cases = carol.care_cases.to_a
+puts "Adding clinical roles for #{therapist.full_name}..."
+puts ''
+
+care_cases.each do |care_case|
+  clinical_role = ClinicalRole.find_or_initialize_by(
+    care_case: care_case,
+    staffer: therapist
+  )
+
+  if clinical_role.new_record?
+    clinical_role.primary = true
+    clinical_role.save!
+    puts "Added as therapist to care case #{care_case.id}"
+  else
+    puts "Already has role in care case #{care_case.id}"
+  end
+end
+
+puts ''
+puts 'Clinical roles created!'
+puts ''
+puts 'Test URL:'
+puts "http://reef.dev-hellobrightline.com:3000/accounts/#{carol.accounts.first.id}/members/#{carol.id}/chats/7f450bc2-85ab-4438-9c28-c2fd940e601a?sendbird_user_id=d5e8b2ba-1583-4006-a0e8-913b008c9dd0"

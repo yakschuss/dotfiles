@@ -1,0 +1,38 @@
+# frozen_string_literal: true
+
+module SlotRecapture
+  class EligibilityFilter
+    Result = Struct.new(:eligible, :reason, keyword_init: true) do
+      def eligible?
+        eligible
+      end
+    end
+
+    def initialize(config: Configuration.current.data)
+      @config = config
+    end
+
+    def check(appointment:, appointment_cancelation:)
+      unless intake_appointment?(appointment)
+        return Result.new(eligible: false, reason: "Not an intake/DE appointment type")
+      end
+
+      lead_time_hours = hours_until(appointment.start_time)
+      if lead_time_hours < @config.lead_time_hours_minimum
+        return Result.new(eligible: false, reason: "Lead time #{lead_time_hours}h < minimum #{@config.lead_time_hours_minimum}h")
+      end
+
+      Result.new(eligible: true, reason: nil)
+    end
+
+    private
+
+    def intake_appointment?(appointment)
+      appointment.appointment_type&.for_intake? == true
+    end
+
+    def hours_until(time)
+      ((time - Time.current) / 1.hour).to_i
+    end
+  end
+end

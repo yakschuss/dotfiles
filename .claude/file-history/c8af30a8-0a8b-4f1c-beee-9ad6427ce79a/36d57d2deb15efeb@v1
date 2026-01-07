@@ -1,0 +1,320 @@
+---
+# ATTENTION: This file is sorted. When adding or removing appointment types please make sure to check
+# where in our dropdowns the types should appear. The order affects staffers only.
+# When deactivating a type, please move it to the bottom of the file.
+root_appointment_types:
+  therapy_diagnostic_evaluation:
+    active: true
+    internal_name: Therapy Diagnostic Evaluation
+    requires_credentialing: true
+    for_intake: true
+    service_line_id: behavioral_therapy
+    required_capability_id: therapy_intake
+    care_models: ['clinic']
+    self_cancellable: false
+  therapy_diagnostic_evaluation_followup:
+    active: true
+    internal_name: Therapy Diagnostic Evaluation Follow-up Session
+    requires_credentialing: true
+    service_line_id: behavioral_therapy
+    required_capability_id: therapy_intake
+    care_models: ['clinic']
+    post_completion_surveys: ["ongoing", "intake"]
+    self_cancellable: false
+  therapy_session:
+    active: true
+    internal_name: Therapy Session
+    requires_credentialing: true
+    service_line_id: behavioral_therapy
+    required_capability_id: therapy_ongoing
+    care_models: ['clinic']
+    self_cancellable: true
+  therapy_caregiver_session:
+    active: true
+    internal_name: Therapy Caregiver Session
+    requires_credentialing: true
+    service_line_id: behavioral_therapy
+    required_capability_id: therapy_ongoing
+    care_models: ['clinic']
+    self_cancellable: true
+  psychological_testing_diagnostic_evaluation:
+    active: true
+    internal_name: Psychological Testing Diagnostic Evaluation
+    requires_credentialing: true
+    for_intake: true
+    service_line_id: psychological_testing
+    required_capability_id: psychological_testing
+    care_models: ['clinic']
+    post_completion_surveys: []
+    self_cancellable: false
+  psychological_testing:
+    active: true
+    internal_name: Psychological Testing
+    requires_credentialing: true
+    service_line_id: psychological_testing
+    required_capability_id: psychological_testing
+    care_models: ['clinic']
+    post_completion_surveys: []
+    self_cancellable: false
+  psychological_testing_continued:
+    active: true
+    internal_name: Psychological Testing Continued
+    requires_credentialing: true
+    service_line_id: psychological_testing
+    required_capability_id: psychological_testing
+    care_models: ['clinic']
+    post_completion_surveys: []
+    self_cancellable: false
+  psychological_testing_followup:
+    active: true
+    internal_name: Psychological Testing Follow-up Session
+    requires_credentialing: true
+    service_line_id: psychological_testing
+    required_capability_id: psychological_testing
+    care_models: ['clinic']
+    post_completion_surveys: []
+    self_cancellable: false
+  psychological_testing_consultation:
+    active: true
+    internal_name: Psychological Testing Consultation
+    requires_credentialing: true
+    service_line_id: psychological_testing
+    required_capability_id: psychological_testing
+    care_models: ['clinic']
+    post_completion_surveys: []
+    self_cancellable: false
+  psychiatry_consultation:
+    active: true
+    internal_name: Psychiatry Consultation
+    requires_credentialing: true
+    service_line_id: medication_management
+    required_capability_id: medication_management_ongoing
+    care_models: ['clinic']
+    post_completion_surveys: []
+    self_cancellable: false
+  psychiatry_diagnostic_evaluation:
+    active: true
+    internal_name: Psychiatry Diagnostic Evaluation
+    requires_credentialing: true
+    for_intake: true
+    service_line_id: medication_management
+    required_capability_id: medication_management_intake
+    care_models: ['clinic']
+    self_cancellable: false
+  psychiatry_diagnostic_evaluation_followup:
+    active: true
+    internal_name: Psychiatry Diagnostic Evaluation Follow-up Session
+    requires_credentialing: true
+    service_line_id: medication_management
+    required_capability_id: medication_management_intake
+    care_models: ['clinic']
+    post_completion_surveys: ["ongoing", "intake"]
+    self_cancellable: false
+  psychiatry_session:
+    active: true
+    internal_name: Psychiatry Session
+    requires_credentialing: true
+    service_line_id: medication_management
+    required_capability_id: medication_management_ongoing
+    care_models: ['clinic']
+    self_cancellable: false
+  therapy_initial_session:
+    active: true
+    internal_name: Therapy Initial Session
+    requires_credentialing: true
+    for_intake: true
+    service_line_id: behavioral_therapy
+    required_capability_id: therapy_intake
+    care_models: ['legacy']
+    post_completion_surveys: ["ongoing", "intake"]
+  coaching_goal_setting:
+    active: true
+    internal_name: Welcome Session
+    requires_credentialing: false
+    for_intake: true
+    service_line_id: coaching
+    required_capability_id: coaching_intake
+    care_models: ['brightlife_kids']
+    post_completion_surveys: ["ongoing", "intake"]
+  therapy_session_legacy:
+    active: true
+    internal_name: Therapy Session
+    requires_credentialing: true
+    service_line_id: behavioral_therapy
+    required_capability_id: therapy_ongoing
+    care_models: ['legacy']
+  therapy_caregiver_session_legacy:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_THERAPY_CAREGIVER_SESSION_ENABLED", false)) %>
+    internal_name: Therapy Caregiver Session
+    requires_credentialing: true
+    service_line_id: behavioral_therapy
+    required_capability_id: therapy_ongoing
+    care_models: ['legacy']
+  booster_session:
+    active: true
+    internal_name: Therapy Booster Session
+    requires_credentialing: false
+    service_line_id: behavioral_therapy
+    required_capability_id: therapy_ongoing
+    care_models: ['legacy']
+  brief_check_in:
+    active: true
+    internal_name: Therapy Brief Check-in
+    requires_credentialing: false
+    service_line_id: behavioral_therapy
+    required_capability_id: therapy_ongoing
+    enrolls_care: false
+    care_models: ['legacy']
+  coaching_session:
+    active: true
+    internal_name: Coaching - Session
+    requires_credentialing: false
+    service_line_id: coaching
+    required_capability_id: coaching_ongoing
+    care_models: ['brightlife_kids']
+  coaching_caregiver_session:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_COACHING_CAREGIVER_SESSION_ENABLED", false)) %>
+    internal_name: Coaching Caregiver Session
+    requires_credentialing: false
+    service_line_id: coaching
+    required_capability_id: coaching
+    care_models: ['brightlife_kids']
+  coaching_booster_session:
+    active: true
+    internal_name: Coaching - Booster Session
+    requires_credentialing: false
+    service_line_id: coaching
+    required_capability_id: coaching
+    care_models: ['brightlife_kids']
+  coaching_brief_check_in:
+    active: true
+    internal_name: Coaching - Brief Check-in
+    requires_credentialing: false
+    service_line_id: coaching
+    required_capability_id: coaching
+    enrolls_care: false
+    care_models: ['brightlife_kids']
+  autism_spectrum_disorder_coaching_session:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_AUTISM_SPECTRUM_DISORDER_COACHING_SESSION_ENABLED", false)) %>
+    internal_name: Parent/Caregiver Coaching for Autism - Session
+    requires_credentialing: false
+    service_line_id: coaching
+    required_capability_id: autism_spectrum_disorder_coaching
+    care_models: ['brightlife_kids']
+  autism_spectrum_disorder_coaching_brief_check_in:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_AUTISM_SPECTRUM_DISORDER_COACHING_BRIEF_CHECK_IN_ENABLED", false)) %>
+    internal_name: Parent/Caregiver Coaching for Autism - Brief Check-in
+    requires_credentialing: false
+    service_line_id: coaching
+    required_capability_id: autism_spectrum_disorder_coaching
+    enrolls_care: false
+    care_models: ['brightlife_kids']
+  medication_management:
+    active: true
+    internal_name: Medication Management
+    requires_credentialing: true
+    service_line_id: medication_management
+    required_capability_id: medication_management_ongoing
+    care_models: ['legacy']
+  medication_management_brief_check_in:
+    active: false
+    internal_name: Medication Management - Brief Check-in
+    requires_credentialing: false
+    service_line_id: medication_management
+    required_capability_id: medication_management_ongoing
+    enrolls_care: false
+    care_models: ['legacy']
+  autism_spectrum_disorder_coaching_goal_setting:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_AUTISM_SPECTRUM_DISORDER_COACHING_GOAL_SETTING_ENABLED", false)) %>
+    internal_name: Parent/Caregiver Coaching for Autism - Welcome Session
+    requires_credentialing: false
+    service_line_id: coaching
+    required_capability_id: autism_spectrum_disorder_coaching_intake
+    for_intake: true
+    care_models: ['brightlife_kids']
+    post_completion_surveys: ["ongoing", "intake"]
+  diagnostic_evaluation:
+    active: true
+    internal_name: Diagnostic Evaluation
+    requires_credentialing: true
+    for_intake: true
+    service_line_id: medication_management
+    required_capability_id: medication_management_intake
+    care_models: ['legacy']
+    post_completion_surveys: ["ongoing", "intake"]
+  ### TO SORT ###
+  care_guide_session:
+    active: true
+    internal_name: Guided Care Initial Session
+    requires_credentialing: false
+    service_line_id: care_guide
+    required_capability_id: care_guide
+    member_communication_type: "intake"
+    care_models: ['brightlife_kids']
+    post_completion_surveys: ["ongoing", "intake"]
+  care_guide_session_follow_up:
+    active: true
+    internal_name: Guided Care Follow-Up Session
+    requires_credentialing: false
+    service_line_id: care_guide
+    required_capability_id: care_guide
+    care_models: ['brightlife_kids']
+  therapy_parent_management_training_session:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_THERAPY_PARENT_MANAGEMENT_TRAINING_ENABLED", false)) %>
+    internal_name: Therapy Caregiver Session (50 minutes)
+    requires_credentialing: true
+    service_line_id: behavioral_therapy
+    required_capability_id: therapy_ongoing
+    care_models: ['legacy']
+  therapy_blended_care:
+    active: <%= ActiveRecord::Type::Boolean.new.cast(ENV.fetch("APPOINTMENT_TYPE_THERAPY_BLENDED_CARE_ENABLED", false)) %>
+    internal_name: Therapy Session [30min]
+    requires_credentialing: true
+    service_line_id: behavioral_therapy
+    required_capability_id: therapy_ongoing
+    care_models: ['legacy']
+
+ ################
+  # Legacy Types #
+  ################
+  first_phone_call:
+    active: false
+    internal_name: First Phone Call
+    requires_credentialing: false
+    for_intake: true
+    service_line_id: connect
+    required_capability_id: care_navigation
+    enrolls_care: false
+  coaching_first_phone_call:
+    active: false
+    internal_name: Coaching - First Phone Call
+    requires_credentialing: false
+    for_intake: true
+    service_line_id: coaching
+    required_capability_id: coaching_intake
+    enrolls_care: false
+  slp_eval:
+    active: false
+    internal_name: Speech Evaluation
+    requires_credentialing: true
+    service_line_id: speech_therapy
+    required_capability_id: speech_language_pathology
+  slp_treatment:
+    active: false
+    internal_name: Speech Treatment
+    requires_credentialing: true
+    service_line_id: speech_therapy
+    required_capability_id: speech_language_pathology
+  parent_therapist_meeting:
+    active: false
+    internal_name: Parent & Therapist Meeting
+    requires_credentialing: true
+    for_intake: true
+    service_line_id: behavioral_therapy
+    required_capability_id: therapy_ongoing
+  child_therapist_meeting:
+    active: false
+    internal_name: Child & Therapist Meeting
+    requires_credentialing: true
+    service_line_id: behavioral_therapy
+    required_capability_id: therapy_ongoing

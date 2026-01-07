@@ -1,0 +1,182 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.feature "Chatting with members", type: :feature, js: true do
+  before do
+    stub_sendbird
+  end
+
+  let!(:randy) { FactoryBot.create(:member, :with_sendbird_user, first_name: "Randy", last_name: "Marsh") }
+  let!(:stan) { FactoryBot.create(:member, :with_sendbird_user, first_name: "Stan", last_name: "Marsh") }
+  let!(:account) { FactoryBot.create(:account, caregivers: [randy], children: [stan]) }
+  let!(:care_case) { FactoryBot.create(:care_case, account: account, caregivers: [randy], patient: stan) }
+  let!(:member_support) { FactoryBot.create(:staffer, :member_support, can_chat_as_member_support: true) }
+
+  let(:member_support_sendbird_user) { Chat::MemberSupportParticipant.sendbird_user_with_fewest_memberships }
+  let(:sendbird_chat_channel) {
+    FactoryBot.create(
+      :sendbird_chat_channel, :member_support,
+      account: account,
+      sendbird_users: [randy.sendbird_user, member_support_sendbird_user, Chat::SpectatorParticipant.sendbird_user_with_fewest_memberships]
+    )
+  }
+
+  before do
+    travel_to Time.zone.parse("2021-07-19T12:00:00-0400")
+  end
+
+  scenario "shows contextual info" do
+    account = create_and_visit_account_chat
+
+    # Shows members
+    expect(page).to have_content("Randy Marsh\nCaregiver")
+    expect(page).to have_content("Stan Marsh\n8 years old")
+
+    # Shows local time
+    expect(page).to have_content("10:00am\nMountain Time")
+
+    # Shows care cases
+    expect(page).to have_content("Care for Stan Marsh")
+
+    # Shows upcoming appointments
+    expect(page).to have_content("tomorrow")
+    expect(page).to have_css("time[datetime='2021-07-20T16:00:00Z']")
+    expect(page).to have_content("Therapy Initial Session\nStan")
+    expect(page).to have_content("First 5 of 7 shown")
+
+    # Shows upcoming reminders and total number due today
+    expect(page).to have_content("Reminders (2 due today)")
+    expect(page).to have_content("This is due today")
+    expect("Don't forget to do the thing").to appear_after("This is due today")
+    expect("Circle back on the other thing").to appear_after("Don't forget to do the thing")
+
+    # Only shows reminders for the current staffer's group
+    expect(page).not_to have_content("A coach reminder")
+
+    # Only shows the first 4 reminders
+    expect(page).not_to have_content("Remember to create a reminder to complete the other thing")
+    expect(page).to have_link("See all reminders", href: account_path(account, anchor: "reminders-card"))
+  end
+
+  scenario "completes reminders" do
+    create_and_visit_account_chat
+
+    check "Completed", match: :first
+    expect(page).to have_content('The reminder "This is due today" has been marked completed.')
+    within("#reminders-card") do
+      expect(page).not_to have_content("This is due today")
+    end
+  end
+
+  scenario "creates reminders" do
+    create_and_visit_account_chat
+
+    click_on "Add reminder"
+    fill_in "Title", with: "A new reminder"
+
+    wave_select("Member Support", from: "Group")
+    fill_in "Due date", with: "07202021"
+    wave_select("High", from: "Priority")
+
+    click_on "Create"
+    expect(page).to have_content("The reminder \"A new reminder\" was created.")
+    within("#reminders_card") do
+      expect(page).to have_content("A new reminder")
+    end
+  end
+
+  scenario "edits reminders" do
+    create_and_visit_account_chat
+
+    click_on "This is due today"
+    expect(page).to have_field("Title", with: "This is due today")
+    fill_in "Title", with: "An updated reminder"
+    click_on "Update"
+    expect(page).to have_content("The reminder \"An updated reminder\" has been updated.")
+    within("#reminders_card") do
+      expect(page).to have_content("An updated reminder")
+    end
+  end
+
+  scenario "shows chat actions header claimed by user" do
+    create_and_visit_account_chat
+
+    within("#chat_actions_header_contents") do
+      within("#chat_status") do
+        expect(page).to have_content("Claimed by you")
+      end
+      expect(page).to have_button("Mark as closed", id: "close-conversation-button")
+      expect(page).to have_button("Mark as unread")
+    end
+  end
+
+  scenario "can close the chat" do
+    create_and_visit_account_chat
+
+    click_on "Mark as closed"
+
+    within("#chat_actions_header_contents") do
+      within("#chat_status") do
+        expect(page).to have_content("Closed")
+      end
+      expect(page).to_not have_button("Mark as closed")
+      expect(page).to have_button("Mark as unread")
+    end
+  end
+
+  scenario "can mark as unread" do
+    create_and_visit_account_chat
+
+    click_on "Mark as unread"
+
+    within("#chat_actions_header_contents") do
+      within("#chat_status") do
+        expect(page).to have_content("Claimed by you")
+      end
+      expect(page).to have_link("Mark as read")
+    end
+  end
+
+  def create_and_visit_account_chat(with_open_conversation: true)
+    randy = FactoryBot.create(:member, :with_sendbird_user, first_name: "Randy", last_name: "Marsh", timezone: "Mountain Time (US & Canada)")
+    stan = FactoryBot.create(:member, :with_sendbird_user, first_name: "Stan", last_name: "Marsh", date_of_birth: 8.years.ago)
+    account = FactoryBot.create(:account, caregivers: [randy], children: [stan])
+    care_case = FactoryBot.create(:care_case, account: account, caregivers: [randy], patient: stan)
+    staffer = FactoryBot.create(:staffer)
+    FactoryBot.create_list(:appointment, 7, :therapy_initial_session, care_case: care_case, staffer: staffer, start_time: "2021-07-20T12:00:00-0400".to_datetime)
+    member_support = FactoryBot.create(:staffer, :member_support, can_chat_as_member_support: true, timezone: "Central Time (US & Canada)")
+
+    member_support_sendbird_user = Chat::MemberSupportParticipant.sendbird_user_with_fewest_memberships
+    sendbird_chat_channel = FactoryBot.create(
+      :sendbird_chat_channel, :member_support,
+      account: account,
+      sendbird_users: [randy.sendbird_user, member_support_sendbird_user, Chat::SpectatorParticipant.sendbird_user_with_fewest_memberships]
+    )
+    sendbird_chat_channel.memberships.find_by(sendbird_user: member_support_sendbird_user).update!(
+      last_message_content: "Well, we've lost this year's student records. I hope you're happy.",
+      last_message_sent_at: 2.hours.ago
+    )
+    sendbird_chat_channel.memberships.find_by(sendbird_user: randy.sendbird_user).update!(
+      last_message_content: "And I hope you've learned to sanitize your database inputs.",
+      last_message_sent_at: 1.hour.ago
+    )
+
+    if with_open_conversation
+      FactoryBot.create(:member_support_conversation, member_support_staffer: member_support, account: account, member: randy, sendbird_chat_channel: sendbird_chat_channel, started_at: Time.zone.now)
+    end
+
+    FactoryBot.create(:reminder, :incomplete, account: account, title: "A coach reminder", due_date: Time.zone.today, group: "coach")
+    FactoryBot.create(:reminder, :incomplete, account: account, title: "This is due today", due_date: Time.zone.today, group: "member_support")
+    FactoryBot.create(:reminder, :incomplete, account: account, title: "This is also due today", due_date: Time.zone.today, group: "member_support")
+    FactoryBot.create(:reminder, :incomplete, account: account, title: "Don't forget to do the thing", due_date: 1.day.from_now, group: "member_support")
+    FactoryBot.create(:reminder, :incomplete, account: account, title: "Circle back on the other thing", due_date: 2.days.from_now, group: "member_support")
+    FactoryBot.create(:reminder, :incomplete, account: account, title: "Remember to create a reminder to complete the other thing", due_date: 3.days.from_now, group: "member_support")
+
+    log_in_as_staffer(member_support)
+
+    visit account_member_chat_path(account, randy, sendbird_chat_channel, sendbird_user_id: member_support_sendbird_user)
+
+    account
+  end
+end

@@ -1,0 +1,20 @@
+[
+  {
+    "content": "Examine the current controller changes to understand the bug fix",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Look at existing request spec patterns in the codebase",
+    "status": "completed",
+    "priority": "medium",
+    "id": "2"
+  },
+  {
+    "content": "Write request spec covering session validation and the nil current_member bug",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  }
+]

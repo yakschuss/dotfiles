@@ -1,0 +1,864 @@
+2026-01-07T19:09:00.200Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (63.5ms): security find-generic-password -a $USER -w -s "Claude Code"
+2026-01-07T19:09:00.253Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (52.4ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2026-01-07T19:09:00.279Z [DEBUG] Watching for changes in setting files /Users/jschuss/.claude, /Users/jschuss/Brightline/reef/.claude...
+2026-01-07T19:09:00.327Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2026-01-07T19:09:00.327Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2026-01-07T19:09:00.327Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2026-01-07T19:09:00.329Z [DEBUG] Applying permission update: Adding 90 allow rule(s) to destination 'localSettings': ["WebFetch(domain:ampcode.com)","Bash(bundle exec rails runner:*)","Bash(bundle exec rspec:*)","Bash(script/test:*)","Bash($HOME/.asdf/shims/rails:*)","Bash(mkdir:*)","Bash(rmdir:*)","Bash(find:*)","Bash(ls:*)","Bash(grep:*)","Bash(bundle exec rake:*)","Bash(bin/rails:*)","Bash(bundle exec rails:*)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb:95)","Bash(RAILS_ENV=test bundle exec rspec spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","Bash(RAILS_ENV=test bundle exec rspec spec/controllers/members/payment_methods_controller_spec.rb spec/components/members/limited_paperwork/assignment_card_component_spec.rb)","WebFetch(domain:github.com)","Bash(script/fetch_failing_ci_tests:*)","Bash(gh api:*)","Bash(gh pr view:*)","Bash(gh run view:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/formstack_spec.rb -e \"and the signature isn''t associated with a logged in member\")","Bash(script/ci:*)","Bash(DISABLE_SPRING=1 script/test spec/presenters/family/paperwork_presenter_spec.rb:33)","Bash(gh pr checks:*)","Bash(git log:*)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/components/staffers/care_cases/care_case_tabs_component_spec.rb -e \"Healthie Notes tab\")","Bash(DISABLE_SPRING=1 bundle exec rails runner \"puts AppointmentType.find\\(:therapy_telehealth\\).present? rescue puts ''Does not exist''\")","Read(//Users/jschuss/.asdf/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/hotwire_combobox-0.4.0/app/assets/stylesheets/**)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/models/calendaring/appointment_slot/upcoming_calendar_data_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/assignments_spec.rb:37)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/features/staffers/healthie/assignments_spec.rb)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb -e \"creates another reminder if the existing appointment reminder has been completed\")","Bash(DISABLE_SPRING=1 bundle exec rspec spec/requests/members/appointments/reschedulations_spec.rb:87)","Bash(DISABLE_SPRING=1 bundle exec rspec spec/jobs/check_payment_method_for_upcoming_appointments_periodic_job_spec.rb)","WebSearch","Bash(DISABLE_SPRING=1 bundle exec rspec:*)","Bash(cat:*)","Bash(ruby -c:*)","Bash(DISABLE_SPRING=1 bundle exec rails runner:*)","Bash(gh pr diff:*)","Bash(gh pr list:*)","mcp__playwright__browser_navigate","mcp__playwright__browser_hover","mcp__playwright__browser_take_screenshot","Skill(superpowers:systematic-debugging)","mcp__playwright__browser_snapshot","mcp__playwright__browser_click","mcp__playwright__browser_tabs","mcp__playwright__browser_console_messages","mcp__playwright__browser_evaluate","mcp__playwright__browser_wait_for","Bash(curl:*)","Bash(tr:*)","mcp__playwright__browser_type","mcp__playwright__browser_select_option","mcp__playwright__browser_fill_form","mcp__figma-desktop__get_screenshot","Bash(spec/components/staffers/phone_desk/scheduling/validation_error_banner_spec.rb)","Skill(superpowers:brainstorming)","Bash(git pull:*)","Bash(git add:*)","Bash(.env)","mcp__figma-desktop__get_design_context","Bash(ruby -rjson -e:*)","Bash(git reset:*)","Bash(git stash:*)","Bash(git checkout:*)","Bash(git commit:*)","Bash(git branch:*)","Bash(git show:*)","Bash(bundle install:*)","Bash(ruby:*)","Bash(for concern in reminder_subject soft_deletion callable deliverable)","Bash(do echo '=== $concern.rb ===' grep -l include.*$concern /Users/jschuss/Brightline/reef/app/models/*.rb)","Bash(sort:*)","Bash(wc:*)","Bash(script/lint:*)","Bash(bundle exec rubocop:*)","Bash(script/add_feature_flag:*)","Bash(./script/add_feature_flag:*)","Bash(git diff:*)","Bash(git rev-parse:*)","Bash(RAILS_ENV=test bundle exec rails runner:*)","Bash(psql:*)","Bash(DISABLE_SPRING=1 RAILS_ENV=test bundle exec rails runner:*)","Bash(xargs:*)","Bash(rspec:*)","Bash(bundle exec erblint:*)"]
+2026-01-07T19:09:00.333Z [DEBUG] LSP server manager initialized successfully
+2026-01-07T19:09:00.333Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2026-01-07T19:09:00.335Z [DEBUG] Loading plugin superpowers from source: {"source":"url","url":"https://github.com/obra/superpowers.git"}
+2026-01-07T19:09:00.335Z [DEBUG] Using provided version for superpowers@superpowers-marketplace: 3.6.2
+2026-01-07T19:09:00.336Z [DEBUG] Caching plugin from source: {"source":"url","url":"https://github.com/obra/superpowers.git"} to temporary path /Users/jschuss/.claude/plugins/cache/temp_git_1767812940336_vixro6
+2026-01-07T19:09:00.347Z [DEBUG] Git remote URL: https://github.com/hellobrightline/reef.git
+2026-01-07T19:09:00.347Z [DEBUG] Parsed repository: hellobrightline/reef from https://github.com/hellobrightline/reef.git
+2026-01-07T19:09:00.347Z [DEBUG] Parsed repository: hellobrightline/reef from URL: https://github.com/hellobrightline/reef.git
+2026-01-07T19:09:00.347Z [DEBUG] Path /Users/jschuss/Brightline/reef already tracked for repo hellobrightline/reef
+2026-01-07T19:09:00.444Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.89853.1767812940444
+2026-01-07T19:09:00.444Z [DEBUG] Preserving file permissions: 100644
+2026-01-07T19:09:00.458Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (14.4ms)
+2026-01-07T19:09:00.458Z [DEBUG] Temp file written successfully, size: 64211 bytes
+2026-01-07T19:09:00.459Z [DEBUG] Applied original permissions to temp file
+2026-01-07T19:09:00.459Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.89853.1767812940444 to /Users/jschuss/.claude.json
+2026-01-07T19:09:00.459Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2026-01-07T19:09:01.000Z [DEBUG] Cloned repository from https://github.com/obra/superpowers.git to /Users/jschuss/.claude/plugins/cache/temp_git_1767812940336_vixro6
+2026-01-07T19:09:01.000Z [DEBUG] Successfully cached plugin superpowers to /Users/jschuss/.claude/plugins/cache/superpowers
+2026-01-07T19:09:01.000Z [DEBUG] Using manifest version for superpowers@superpowers-marketplace: 4.0.3
+2026-01-07T19:09:01.001Z [DEBUG] Plugin superpowers@superpowers-marketplace version 4.0.3 already cached at /Users/jschuss/.claude/plugins/cache/superpowers-marketplace/superpowers/4.0.3
+2026-01-07T19:09:01.034Z [DEBUG] [SLOW OPERATION DETECTED] fs.rmSync (32.9ms)
+2026-01-07T19:09:01.036Z [DEBUG] Loaded hooks from standard location for plugin superpowers: /Users/jschuss/.claude/plugins/cache/superpowers-marketplace/superpowers/4.0.3/hooks/hooks.json
+2026-01-07T19:09:01.036Z [DEBUG] Found 1 plugins (1 enabled, 0 disabled)
+2026-01-07T19:09:01.040Z [DEBUG] Stats cache stale (2026-01-05), processing 2026-01-06 to 2026-01-06 in background
+2026-01-07T19:09:01.047Z [DEBUG] Loading skills from: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/jschuss/.claude/skills, project=[]
+2026-01-07T19:09:01.047Z [DEBUG] Passes: Cache stale, returning cached data and refreshing in background
+2026-01-07T19:09:01.240Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (190.1ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2026-01-07T19:09:01.242Z [DEBUG] Loaded 1 installed plugins from /Users/jschuss/.claude/plugins/installed_plugins.json
+2026-01-07T19:09:01.464Z [DEBUG] Creating shell snapshot for zsh (/bin/zsh)
+2026-01-07T19:09:01.465Z [DEBUG] Looking for shell config file: /Users/jschuss/.zshrc
+2026-01-07T19:09:01.465Z [DEBUG] Snapshots directory: /Users/jschuss/.claude/shell-snapshots
+2026-01-07T19:09:01.465Z [DEBUG] Creating snapshot at: /Users/jschuss/.claude/shell-snapshots/snapshot-zsh-1767812941465-hje3ie.sh
+2026-01-07T19:09:01.465Z [DEBUG] Shell binary exists: true
+2026-01-07T19:09:01.465Z [DEBUG] Execution timeout: 10000ms
+2026-01-07T19:09:01.468Z [DEBUG] Writing to temp file: /Users/jschuss/.claude/todos/dcdce8c8-b9f9-46c0-b67f-0a30360583e5-agent-dcdce8c8-b9f9-46c0-b67f-0a30360583e5.json.tmp.89853.1767812941468
+2026-01-07T19:09:01.474Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.1ms)
+2026-01-07T19:09:01.474Z [DEBUG] Temp file written successfully, size: 2 bytes
+2026-01-07T19:09:01.474Z [DEBUG] Renaming /Users/jschuss/.claude/todos/dcdce8c8-b9f9-46c0-b67f-0a30360583e5-agent-dcdce8c8-b9f9-46c0-b67f-0a30360583e5.json.tmp.89853.1767812941468 to /Users/jschuss/.claude/todos/dcdce8c8-b9f9-46c0-b67f-0a30360583e5-agent-dcdce8c8-b9f9-46c0-b67f-0a30360583e5.json
+2026-01-07T19:09:01.475Z [DEBUG] File /Users/jschuss/.claude/todos/dcdce8c8-b9f9-46c0-b67f-0a30360583e5-agent-dcdce8c8-b9f9-46c0-b67f-0a30360583e5.json written atomically
+2026-01-07T19:09:01.485Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.89853.1767812941485
+2026-01-07T19:09:01.485Z [DEBUG] Preserving file permissions: 100644
+2026-01-07T19:09:01.491Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.6ms)
+2026-01-07T19:09:01.491Z [DEBUG] Temp file written successfully, size: 64211 bytes
+2026-01-07T19:09:01.491Z [DEBUG] Applied original permissions to temp file
+2026-01-07T19:09:01.491Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.89853.1767812941485 to /Users/jschuss/.claude.json
+2026-01-07T19:09:01.492Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2026-01-07T19:09:01.503Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.89853.1767812941503
+2026-01-07T19:09:01.503Z [DEBUG] Preserving file permissions: 100644
+2026-01-07T19:09:01.509Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.7ms)
+2026-01-07T19:09:01.509Z [DEBUG] Temp file written successfully, size: 64211 bytes
+2026-01-07T19:09:01.509Z [DEBUG] Applied original permissions to temp file
+2026-01-07T19:09:01.509Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.89853.1767812941503 to /Users/jschuss/.claude.json
+2026-01-07T19:09:01.509Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2026-01-07T19:09:01.518Z [DEBUG] getPluginSkills: Processing 1 enabled plugins
+2026-01-07T19:09:01.518Z [DEBUG] Checking plugin superpowers: skillsPath=exists, skillsPaths=0 paths
+2026-01-07T19:09:01.518Z [DEBUG] Attempting to load skills from plugin superpowers default skillsPath: /Users/jschuss/.claude/plugins/cache/superpowers-marketplace/superpowers/4.0.3/skills
+2026-01-07T19:09:01.524Z [DEBUG] [SLOW OPERATION DETECTED] fs.readdirSync (5.7ms)
+2026-01-07T19:09:01.534Z [DEBUG] Loading hooks from plugin: superpowers
+2026-01-07T19:09:01.534Z [DEBUG] Registered 1 hooks from 1 plugins
+2026-01-07T19:09:01.536Z [DEBUG] Loaded 14 skills from plugin superpowers default directory
+2026-01-07T19:09:01.536Z [DEBUG] Total plugin skills loaded: 14
+2026-01-07T19:09:01.536Z [DEBUG] Loaded 3 commands from plugin superpowers default directory
+2026-01-07T19:09:01.536Z [DEBUG] Total plugin commands loaded: 3
+2026-01-07T19:09:01.548Z [DEBUG] Loaded 1 agents from plugin superpowers default directory
+2026-01-07T19:09:01.548Z [DEBUG] Total plugin agents loaded: 1
+2026-01-07T19:09:01.601Z [DEBUG] Cleaned up old image cache: /Users/jschuss/.claude/image-cache/d881b6ea-5c3c-476c-8242-7ba738fec242
+2026-01-07T19:09:01.625Z [DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg)
+2026-01-07T19:09:01.662Z [DEBUG] Loaded 7 unique skills (managed: 0, user: 0, project: 0, legacy commands: 7)
+2026-01-07T19:09:01.663Z [DEBUG] getSkills returning: 7 skill dir commands, 14 plugin skills
+2026-01-07T19:09:01.884Z [DEBUG] [SLOW OPERATION DETECTED] fs.statSync (16.1ms)
+2026-01-07T19:09:01.907Z [DEBUG] [SLOW OPERATION DETECTED] fs.statSync (13.4ms)
+2026-01-07T19:09:01.913Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.89853.1767812941913
+2026-01-07T19:09:01.913Z [DEBUG] Preserving file permissions: 100644
+2026-01-07T19:09:01.920Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (7.3ms)
+2026-01-07T19:09:01.920Z [DEBUG] Temp file written successfully, size: 64211 bytes
+2026-01-07T19:09:01.920Z [DEBUG] Applied original permissions to temp file
+2026-01-07T19:09:01.920Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.89853.1767812941913 to /Users/jschuss/.claude.json
+2026-01-07T19:09:01.921Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2026-01-07T19:09:01.921Z [DEBUG] Passes eligibility cached for org 6dbeab22-feca-4642-bac7-7d87892e7a7e: true
+2026-01-07T19:09:01.949Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.2ms)
+2026-01-07T19:09:01.950Z [DEBUG] Stats cache saved successfully (lastComputedDate: 2026-01-06)
+2026-01-07T19:09:01.950Z [DEBUG] Stats cache updated with 7 new sessions
+2026-01-07T19:09:02.019Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.7ms)
+2026-01-07T19:09:02.019Z [DEBUG] Successfully refreshed marketplace: claude-plugins-official
+2026-01-07T19:09:02.019Z [DEBUG] Plugin autoupdate: checking installed plugins
+2026-01-07T19:09:02.471Z [DEBUG] Passes: Using fresh cached eligibility data
+2026-01-07T19:09:02.488Z [DEBUG] MCP server "playwright": Starting connection with timeout of 30000ms
+2026-01-07T19:09:02.490Z [DEBUG] MCP server "figma-desktop": Initializing HTTP transport to http://127.0.0.1:3845/mcp
+2026-01-07T19:09:02.491Z [DEBUG] MCP server "figma-desktop": Node version: v22.14.0, Platform: darwin
+2026-01-07T19:09:02.491Z [DEBUG] MCP server "figma-desktop": Environment: {"NODE_OPTIONS":"not set","UV_THREADPOOL_SIZE":"default","HTTP_PROXY":"not set","HTTPS_PROXY":"not set","NO_PROXY":"not set"}
+2026-01-07T19:09:02.495Z [DEBUG] All plugins already exist, skipping migration
+2026-01-07T19:09:02.510Z [DEBUG] Initialized versioned plugins system with 1 plugins
+2026-01-07T19:09:02.510Z [DEBUG] MCP server "figma-desktop": Proxy options: default
+2026-01-07T19:09:02.510Z [DEBUG] MCP server "figma-desktop": HTTP transport options: {"url":"http://127.0.0.1:3845/mcp","headers":{"User-Agent":"claude-code/2.0.76"},"hasAuthProvider":true,"timeoutMs":60000}
+2026-01-07T19:09:02.510Z [DEBUG] MCP server "figma-desktop": HTTP transport created successfully
+2026-01-07T19:09:02.511Z [DEBUG] MCP server "figma-desktop": Client created, setting up request handler
+2026-01-07T19:09:02.511Z [DEBUG] MCP server "figma-desktop": Starting connection with timeout of 30000ms
+2026-01-07T19:09:02.511Z [DEBUG] MCP server "figma-desktop": Testing basic HTTP connectivity to http://127.0.0.1:3845/mcp
+2026-01-07T19:09:02.511Z [DEBUG] MCP server "figma-desktop": Parsed URL: host=127.0.0.1, port=3845, protocol=http:
+2026-01-07T19:09:02.511Z [DEBUG] MCP server "figma-desktop": Using loopback address: 127.0.0.1
+2026-01-07T19:09:02.517Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.89853.1767812942517
+2026-01-07T19:09:02.517Z [DEBUG] Preserving file permissions: 100644
+2026-01-07T19:09:02.524Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (7.2ms)
+2026-01-07T19:09:02.524Z [DEBUG] Temp file written successfully, size: 64211 bytes
+2026-01-07T19:09:02.524Z [DEBUG] Applied original permissions to temp file
+2026-01-07T19:09:02.524Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.89853.1767812942517 to /Users/jschuss/.claude.json
+2026-01-07T19:09:02.525Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2026-01-07T19:09:02.540Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2026-01-07T19:09:02.540Z [DEBUG] Found 1 hook matchers in settings
+2026-01-07T19:09:02.540Z [DEBUG] Matched 1 unique hooks for query "startup" (1 before deduplication)
+2026-01-07T19:09:02.606Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (64.1ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2026-01-07T19:09:02.606Z [DEBUG] MCP server "figma-desktop": No token data found
+2026-01-07T19:09:02.633Z [DEBUG] Getting matching hook commands for SubagentStart with query: Explore
+2026-01-07T19:09:02.633Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:09:02.633Z [DEBUG] Matched 0 unique hooks for query "Explore" (0 before deduplication)
+2026-01-07T19:09:02.642Z [DEBUG] Getting matching hook commands for SubagentStart with query: Plan
+2026-01-07T19:09:02.642Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:09:02.642Z [DEBUG] Matched 0 unique hooks for query "Plan" (0 before deduplication)
+2026-01-07T19:09:02.707Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (51.1ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2026-01-07T19:09:02.707Z [DEBUG] MCP server "figma-desktop": No token data found
+2026-01-07T19:09:02.719Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.7ms)
+2026-01-07T19:09:02.761Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (39.1ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2026-01-07T19:09:02.761Z [DEBUG] MCP server "figma-desktop": No token data found
+2026-01-07T19:09:02.761Z [DEBUG] MCP server "figma-desktop": Successfully connected to http server in 271ms
+2026-01-07T19:09:02.761Z [DEBUG] MCP server "figma-desktop": Connection established with capabilities: {"hasTools":true,"hasPrompts":true,"hasResources":true,"serverVersion":{"name":"Figma Dev Mode MCP Server","version":"1.0.0"}}
+2026-01-07T19:09:02.818Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (56.5ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2026-01-07T19:09:02.818Z [DEBUG] MCP server "figma-desktop": No token data found
+2026-01-07T19:09:02.858Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (39.1ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2026-01-07T19:09:02.858Z [DEBUG] MCP server "figma-desktop": No token data found
+2026-01-07T19:09:02.906Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (48.1ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2026-01-07T19:09:02.906Z [DEBUG] MCP server "figma-desktop": No token data found
+2026-01-07T19:09:02.912Z [DEBUG] Shell snapshot created successfully (67782 bytes)
+2026-01-07T19:09:02.918Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.3ms)
+2026-01-07T19:09:02.924Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.3ms)
+2026-01-07T19:09:02.948Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.89853.1767812942948
+2026-01-07T19:09:02.948Z [DEBUG] Preserving file permissions: 100644
+2026-01-07T19:09:02.953Z [DEBUG] Temp file written successfully, size: 64211 bytes
+2026-01-07T19:09:02.953Z [DEBUG] Applied original permissions to temp file
+2026-01-07T19:09:02.953Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.89853.1767812942948 to /Users/jschuss/.claude.json
+2026-01-07T19:09:02.953Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2026-01-07T19:09:02.965Z [DEBUG] Summarizing all 241 messages (~94810 tokens)
+2026-01-07T19:09:03.445Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.89853.1767812943445
+2026-01-07T19:09:03.445Z [DEBUG] Preserving file permissions: 100644
+2026-01-07T19:09:03.452Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.7ms)
+2026-01-07T19:09:03.452Z [DEBUG] Temp file written successfully, size: 64138 bytes
+2026-01-07T19:09:03.452Z [DEBUG] Applied original permissions to temp file
+2026-01-07T19:09:03.452Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.89853.1767812943445 to /Users/jschuss/.claude.json
+2026-01-07T19:09:03.453Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2026-01-07T19:09:03.459Z [DEBUG] Official marketplace auto-install skipped: already_attempted
+2026-01-07T19:09:03.460Z [DEBUG] performStartupChecks called
+2026-01-07T19:09:03.460Z [DEBUG] Starting background plugin installations
+2026-01-07T19:09:03.460Z [DEBUG] performBackgroundPluginInstallations called
+2026-01-07T19:09:03.474Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.89853.1767812943474
+2026-01-07T19:09:03.474Z [DEBUG] Preserving file permissions: 100644
+2026-01-07T19:09:03.480Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.1ms)
+2026-01-07T19:09:03.480Z [DEBUG] Temp file written successfully, size: 64211 bytes
+2026-01-07T19:09:03.481Z [DEBUG] Applied original permissions to temp file
+2026-01-07T19:09:03.481Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.89853.1767812943474 to /Users/jschuss/.claude.json
+2026-01-07T19:09:03.481Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2026-01-07T19:09:03.482Z [DEBUG] Found 1 enabled plugins
+2026-01-07T19:09:03.482Z [DEBUG] All plugins already exist, skipping migration
+2026-01-07T19:09:03.482Z [DEBUG] Found 1 installed plugins (V2 format)
+2026-01-07T19:09:03.484Z [DEBUG] Loaded plugins - Enabled: 1, Disabled: 0, Commands: 3, Agents: 1, Errors: 0
+2026-01-07T19:09:03.484Z [DEBUG] Found 0 missing plugins (not installed):
+2026-01-07T19:09:03.484Z [DEBUG] Setting installation status: 0 marketplaces, 0 installable plugins, 0 uninstallable plugins
+2026-01-07T19:09:03.504Z [DEBUG] Writing to temp file: /Users/jschuss/.claude.json.tmp.89853.1767812943504
+2026-01-07T19:09:03.504Z [DEBUG] Preserving file permissions: 100644
+2026-01-07T19:09:03.509Z [DEBUG] Temp file written successfully, size: 64211 bytes
+2026-01-07T19:09:03.509Z [DEBUG] Applied original permissions to temp file
+2026-01-07T19:09:03.509Z [DEBUG] Renaming /Users/jschuss/.claude.json.tmp.89853.1767812943504 to /Users/jschuss/.claude.json
+2026-01-07T19:09:03.510Z [DEBUG] File /Users/jschuss/.claude.json written atomically
+2026-01-07T19:09:03.837Z [DEBUG] AutoUpdaterWrapper: Installation type: npm-global
+2026-01-07T19:09:04.168Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:09:04.251Z [DEBUG] Summarizing all 388 messages (~125888 tokens)
+2026-01-07T19:09:04.317Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:09:04.407Z [DEBUG] MCP server "playwright": Successfully connected to stdio server in 1922ms
+2026-01-07T19:09:04.407Z [DEBUG] MCP server "playwright": Connection established with capabilities: {"hasTools":true,"hasPrompts":false,"hasResources":false,"serverVersion":{"name":"Playwright","version":"0.0.54"}}
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2026-01-07T19:09:04.886Z [DEBUG] Skills and commands included in Skill tool: standards, prism, create-pull-request, sentence, tailwind, fix-specs, figma:download-icon, brainstorming, dispatching-parallel-agents, executing-plans, finishing-a-development-branch, receiving-code-review, requesting-code-review, subagent-driven-development, systematic-debugging, test-driven-development, using-git-worktrees, using-superpowers, verification-before-completion, writing-plans, writing-skills
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:brainstorming" (userFacingName="brainstorming")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:dispatching-parallel-agents" (userFacingName="dispatching-parallel-agents")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:executing-plans" (userFacingName="executing-plans")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:finishing-a-development-branch" (userFacingName="finishing-a-development-branch")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:receiving-code-review" (userFacingName="receiving-code-review")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:requesting-code-review" (userFacingName="requesting-code-review")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:subagent-driven-development" (userFacingName="subagent-driven-development")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:systematic-debugging" (userFacingName="systematic-debugging")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:test-driven-development" (userFacingName="test-driven-development")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:using-git-worktrees" (userFacingName="using-git-worktrees")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:using-superpowers" (userFacingName="using-superpowers")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:verification-before-completion" (userFacingName="verification-before-completion")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:writing-plans" (userFacingName="writing-plans")
+2026-01-07T19:09:04.886Z [DEBUG] Skill prompt: showing "superpowers:writing-skills" (userFacingName="writing-skills")
+2026-01-07T19:09:05.476Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:09:05.511Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:09:05.757Z [DEBUG] Summarizing all 38 messages (~3914 tokens)
+2026-01-07T19:09:06.275Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2026-01-07T19:09:06.275Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:09:06.275Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-01-07T19:09:06.653Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2026-01-07T19:09:06.653Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:09:06.653Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-01-07T19:09:07.571Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:09:08.004Z [DEBUG] Summarizing all 344 messages (~123458 tokens)
+2026-01-07T19:09:08.745Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:09:08.946Z [DEBUG] Summarizing all 12 messages (~1109 tokens)
+2026-01-07T19:09:10.502Z [DEBUG] [SLOW OPERATION DETECTED] fs.readdirSync (5.3ms)
+2026-01-07T19:09:12.972Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:09:13.253Z [DEBUG] Summarizing all 182 messages (~68588 tokens)
+2026-01-07T19:09:15.063Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:09:15.578Z [DEBUG] Summarizing all 214 messages (~119463 tokens)
+2026-01-07T19:09:16.522Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:09:16.759Z [DEBUG] Summarizing all 158 messages (~44731 tokens)
+2026-01-07T19:09:18.688Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:09:46.739Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-07T19:09:46.740Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-07T19:09:46.740Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-07T19:09:46.740Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-07T19:09:46.768Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2026-01-07T19:09:46.768Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:09:46.768Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-01-07T19:09:46.772Z [DEBUG] FileHistory: Added snapshot for dcb4af92-eba8-43c6-92c4-156d6f74372a, tracking 0 files
+2026-01-07T19:09:46.789Z [DEBUG] Total plugin output styles loaded: 0
+2026-01-07T19:09:47.371Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:09:51.310Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:15.369Z [DEBUG] executePreToolHooks called for tool: Task
+2026-01-07T19:10:15.374Z [DEBUG] Getting matching hook commands for PreToolUse with query: Task
+2026-01-07T19:10:15.374Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:15.374Z [DEBUG] Matched 0 unique hooks for query "Task" (0 before deduplication)
+2026-01-07T19:10:15.407Z [DEBUG] Getting matching hook commands for SubagentStart with query: Explore
+2026-01-07T19:10:15.407Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:15.407Z [DEBUG] Matched 0 unique hooks for query "Explore" (0 before deduplication)
+2026-01-07T19:10:15.430Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (7.6ms)
+2026-01-07T19:10:18.583Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:22.453Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:22.454Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:22.454Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:22.455Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:22.456Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:22.456Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:22.464Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:22.464Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:22.464Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:22.464Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:22.464Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:22.464Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:22.464Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:22.464Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:22.464Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:22.464Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:22.464Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:22.464Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:22.464Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:22.464Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:22.464Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:22.464Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:22.464Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:22.464Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:22.478Z [DEBUG] tree-sitter: WASM files not found
+2026-01-07T19:10:22.520Z [DEBUG] No session environment scripts found
+2026-01-07T19:10:22.683Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:22.683Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:22.683Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:22.713Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:22.713Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:22.713Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:22.727Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:22.727Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:22.727Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:22.777Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:22.777Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:22.777Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:22.805Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:22.805Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:22.805Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:22.894Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:22.894Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:22.894Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:23.148Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:23.323Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:23.782Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:23.848Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:24.219Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:24.787Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:24.920Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:28.439Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:28.446Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:28.446Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:28.446Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:28.555Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:28.555Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:28.555Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:28.572Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:28.578Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:28.578Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:28.578Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:28.578Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:28.586Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:28.586Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:28.586Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:28.688Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:28.688Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:28.688Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:28.707Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:28.707Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:28.707Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:28.735Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:28.740Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:28.740Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:28.740Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:28.845Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:28.845Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:28.845Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:28.866Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:28.867Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:28.867Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:28.868Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:28.868Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:28.868Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:28.875Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:28.875Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:28.875Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:28.875Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:28.875Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:28.875Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:28.875Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:28.875Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:28.875Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:28.875Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:28.875Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:28.875Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:28.875Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:28.875Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:28.875Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:28.875Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:28.875Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:28.875Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:28.993Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:28.993Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:28.993Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:29.033Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:29.033Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:29.033Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:29.046Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:29.046Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:29.046Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:29.046Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:29.046Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:29.046Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:29.046Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:29.046Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:29.046Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:29.046Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:29.046Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:29.046Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:29.631Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:29.717Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:29.720Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:29.972Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:30.038Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:30.088Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:30.346Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:30.353Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:30.616Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:30.910Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:31.740Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:35.966Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:35.972Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:35.972Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:35.972Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.084Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:36.084Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:36.084Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.108Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:36.115Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:36.116Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:36.116Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:36.116Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:36.116Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:36.117Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:36.117Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:36.117Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:36.117Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:36.117Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:36.117Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.126Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:36.126Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:36.126Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.126Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:36.126Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:36.126Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.126Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:36.126Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:36.126Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.126Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:36.126Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:36.126Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.126Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:36.126Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:36.126Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.126Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:36.126Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:36.126Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.126Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:36.126Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:36.126Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.126Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:36.126Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:36.126Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.252Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:36.252Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:36.252Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.297Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:36.297Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:36.297Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.345Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:36.345Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:36.345Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.375Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:36.375Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:36.375Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.375Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:36.375Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:36.375Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.386Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:36.386Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:36.386Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.386Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:36.386Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:36.386Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.386Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:36.386Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:36.386Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.411Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:36.411Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:36.411Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:36.791Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:36.834Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:36.960Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:37.042Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:37.120Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:37.135Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:37.457Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:37.943Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:38.027Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:38.687Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:38.994Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:41.321Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:41.321Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:41.321Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:41.322Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:41.322Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:41.322Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:41.322Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:41.323Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:41.323Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:41.329Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:41.329Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:41.329Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:41.329Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:41.329Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:41.329Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:41.329Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:41.329Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:41.329Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:41.329Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:41.329Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:41.329Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:41.329Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:41.329Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:41.329Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:41.329Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:41.329Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:41.329Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:41.329Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:41.329Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:41.329Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:41.329Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:41.329Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:41.329Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:41.329Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:41.329Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:41.329Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:41.503Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:41.503Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:41.503Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:41.555Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:41.555Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:41.555Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:41.592Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:41.592Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:41.592Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:41.592Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:41.592Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:41.592Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:41.592Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:41.592Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:41.592Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:41.605Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:41.605Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:41.605Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:41.605Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:41.605Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:41.605Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:41.605Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:41.605Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:41.605Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:41.605Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:41.605Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:41.605Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:41.976Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:42.004Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:42.016Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:42.192Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:42.248Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:42.342Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:42.350Z [ERROR] Error: Error: 1P event logging: 155 events failed to export
+    at yp1.queueFailedEvents (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:240:39698)
+    at yp1.doExport (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:240:38794)
+2026-01-07T19:10:42.350Z [ERROR] Error: Error: {"stack":"Error: Failed to export 155 events\n    at yp1.doExport (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:240:38885)","message":"Failed to export 155 events","name":"Error"}
+    at rK0.error (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:1683:34862)
+    at sm1.error (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:239:33126)
+    at file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:239:64151
+    at ty8 (file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:239:64697)
+    at file:///Users/jschuss/.asdf/installs/nodejs/22.14.0/lib/node_modules/@anthropic-ai/claude-code/cli.js:240:20245
+2026-01-07T19:10:42.535Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:42.805Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:43.249Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:44.100Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:47.081Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:47.081Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:47.082Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:47.082Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:47.082Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:47.082Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:47.083Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:47.092Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:47.092Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:47.092Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:47.092Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:47.092Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:47.092Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:47.092Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:47.092Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:47.092Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:47.092Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:47.092Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:47.092Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:47.092Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:47.092Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:47.092Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:47.092Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:47.092Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:47.092Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:47.092Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:47.092Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:47.092Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:47.231Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:47.231Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:47.231Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:47.270Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:47.270Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:47.270Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:47.292Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:47.292Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:47.292Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:47.292Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:47.292Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:47.292Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:47.308Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:47.308Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:47.308Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:47.321Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:47.321Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:47.321Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:47.375Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:47.375Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:47.375Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:47.801Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:48.015Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:48.198Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:48.284Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:48.414Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:48.439Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:48.852Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:50.046Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:54.372Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:54.373Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:54.373Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:54.373Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:54.374Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:54.374Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:54.381Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:54.381Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:54.381Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:54.381Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:54.381Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:54.381Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:54.381Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:54.381Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:54.381Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:54.381Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:54.381Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:54.381Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:54.381Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:54.381Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:54.381Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:54.381Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:54.381Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:54.381Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:54.516Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:54.516Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:54.516Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:54.547Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:54.547Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:54.547Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:54.626Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:54.626Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:54.626Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:54.646Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:54.646Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:54.646Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:54.647Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:54.647Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:54.647Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:54.647Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:54.647Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:54.647Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:54.732Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:54.737Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:54.737Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:54.737Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:54.828Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:54.828Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:54.828Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:55.057Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:55.434Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:55.438Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:55.609Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:55.825Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:55.930Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:56.786Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:56.847Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:10:59.591Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:59.596Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:59.596Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:59.596Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:59.690Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:59.690Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:59.690Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:59.711Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:59.716Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:59.716Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:59.716Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:59.810Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:59.810Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:59.810Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:59.832Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:59.837Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:10:59.838Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:59.838Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:59.838Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:59.846Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:10:59.846Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:59.846Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:59.961Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:59.961Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:59.961Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:59.979Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:10:59.979Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:10:59.979Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:10:59.997Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:11:00.003Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:11:00.003Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:00.003Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:00.087Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:11:00.087Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:00.087Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:00.107Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:11:00.114Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:11:00.114Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:00.114Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:00.165Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:11:00.214Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:11:00.214Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:00.214Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:00.575Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:11:00.679Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:11:00.808Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:11:02.014Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:11:02.796Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:11:02.815Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:11:06.500Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:11:06.501Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:11:06.506Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:11:06.506Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:06.506Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:06.506Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:11:06.506Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:06.506Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:06.617Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:11:06.617Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:06.617Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:06.641Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:11:06.641Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:06.641Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:06.665Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:11:06.672Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:11:06.672Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:06.672Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:06.779Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:11:06.779Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:06.779Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:06.794Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:11:06.800Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:11:06.800Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:11:06.801Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:11:06.801Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-07T19:11:06.801Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:11:06.801Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:06.801Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:06.808Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:11:06.808Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:06.808Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:06.808Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:11:06.808Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:06.808Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:06.808Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:11:06.808Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:06.808Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:06.808Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-07T19:11:06.808Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:06.808Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:06.912Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:11:06.912Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:06.912Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:06.954Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:11:06.954Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:06.954Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:06.954Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:11:06.954Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:06.954Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:06.954Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:11:06.954Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:06.954Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:06.969Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-07T19:11:06.969Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:06.969Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-07T19:11:07.411Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:11:07.528Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:11:07.698Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:11:07.823Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:11:08.429Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:11:08.700Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:11:08.967Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:11:09.516Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:11:09.575Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:11:11.190Z [DEBUG] executePreToolHooks called for tool: Read
+2026-01-07T19:11:11.191Z [DEBUG] executePreToolHooks called for tool: Read
+2026-01-07T19:11:11.191Z [DEBUG] executePreToolHooks called for tool: Read
+2026-01-07T19:11:11.196Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2026-01-07T19:11:11.196Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:11.196Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2026-01-07T19:11:11.196Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2026-01-07T19:11:11.196Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:11.196Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2026-01-07T19:11:11.196Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2026-01-07T19:11:11.196Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:11.196Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2026-01-07T19:11:11.243Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2026-01-07T19:11:11.243Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:11.243Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2026-01-07T19:11:11.243Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2026-01-07T19:11:11.243Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:11.243Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2026-01-07T19:11:11.243Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2026-01-07T19:11:11.243Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:11.243Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2026-01-07T19:11:13.006Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:11:22.078Z [DEBUG] [SLOW OPERATION DETECTED] fs.statSync (6.2ms)
+2026-01-07T19:11:28.752Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.2ms)
+2026-01-07T19:11:29.575Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2026-01-07T19:11:29.575Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:29.575Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-01-07T19:11:29.592Z [DEBUG] Getting matching hook commands for PostToolUse with query: Task
+2026-01-07T19:11:29.592Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:29.592Z [DEBUG] Matched 0 unique hooks for query "Task" (0 before deduplication)
+2026-01-07T19:11:29.607Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-07T19:11:29.607Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-07T19:11:29.607Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-07T19:11:29.607Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-07T19:11:30.908Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (7.1ms)
+2026-01-07T19:11:31.151Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:11:31.544Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.3ms)
+2026-01-07T19:11:37.308Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (5.4ms)
+2026-01-07T19:11:38.939Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (7.9ms)
+2026-01-07T19:11:50.699Z [DEBUG] Language not supported while highlighting code, falling back to markdown:
+2026-01-07T19:11:50.740Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2026-01-07T19:11:50.740Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:50.740Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-01-07T19:11:52.945Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:11:59.309Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2026-01-07T19:11:59.310Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:11:59.310Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-01-07T19:12:50.779Z [DEBUG] Getting matching hook commands for Notification with query: idle_prompt
+2026-01-07T19:12:50.779Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:12:50.779Z [DEBUG] Matched 0 unique hooks for query "idle_prompt" (0 before deduplication)
+2026-01-07T19:14:03.847Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 301s uptime
+2026-01-07T19:14:03.847Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2026-01-07T19:14:04.974Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (123.6ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2026-01-07T19:14:04.974Z [DEBUG] MCP server "figma-desktop": No token data found
+2026-01-07T19:14:28.539Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-07T19:14:28.539Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-07T19:14:28.539Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-07T19:14:28.539Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-07T19:14:28.555Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2026-01-07T19:14:28.555Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:14:28.555Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-01-07T19:14:28.556Z [DEBUG] FileHistory: Making snapshot for message 25e3dbc9-9d69-459e-80cd-0bae5430e903
+2026-01-07T19:14:28.557Z [DEBUG] FileHistory: Added snapshot for 25e3dbc9-9d69-459e-80cd-0bae5430e903, tracking 0 files
+2026-01-07T19:14:29.890Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:14:30.093Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:14:32.434Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2026-01-07T19:14:32.434Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:14:32.434Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-01-07T19:14:34.792Z [DEBUG] Stream started - received first chunk
+2026-01-07T19:14:43.242Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2026-01-07T19:14:43.242Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:14:43.242Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-01-07T19:15:32.456Z [DEBUG] Getting matching hook commands for Notification with query: idle_prompt
+2026-01-07T19:15:32.456Z [DEBUG] Found 0 hook matchers in settings
+2026-01-07T19:15:32.456Z [DEBUG] Matched 0 unique hooks for query "idle_prompt" (0 before deduplication)
+2026-01-07T19:19:06.116Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 603s uptime
+2026-01-07T19:19:06.116Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2026-01-07T19:19:07.217Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (97.4ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2026-01-07T19:19:07.218Z [DEBUG] MCP server "figma-desktop": No token data found
+2026-01-07T19:24:08.631Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 905s uptime
+2026-01-07T19:24:08.631Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2026-01-07T19:24:09.694Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (59.6ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2026-01-07T19:24:09.694Z [DEBUG] MCP server "figma-desktop": No token data found
+2026-01-07T19:29:10.768Z [DEBUG] MCP server "figma-desktop": HTTP connection dropped after 1208s uptime
+2026-01-07T19:29:10.768Z [DEBUG] MCP server "figma-desktop": Connection error: SSE stream disconnected: TypeError: terminated
+2026-01-07T19:29:11.861Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (85.9ms): security find-generic-password -a "jschuss" -w -s "Claude Code-credentials"
+2026-01-07T19:29:11.861Z [DEBUG] MCP server "figma-desktop": No token data found

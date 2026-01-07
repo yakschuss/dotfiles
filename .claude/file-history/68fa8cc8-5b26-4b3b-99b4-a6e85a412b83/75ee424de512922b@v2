@@ -1,0 +1,34 @@
+<div class="<%= class_names("chat-link-item prism-text-small", "chat-link-item-unread": unread_messages?) %>">
+  <%= link_to chat_path, class: "link-unstyled", rel: "noopener noreferrer", target: "_blank" do %>
+    <div class="items-baseline p-4 grid grid-cols-(--chat-channels) gap-2">
+      <%= render(Staffers::CoachWorkflows::StarFormComponent.new(
+            starred: starred?,
+            on_starred_tab: on_starred_tab?,
+            form_path: coach_workflows_sendbird_chat_channel_membership_path(accessible_staffer_channel.membership_id),
+            starred_component: Staffers::CoachWorkflows::StarredIconComponent.new,
+            unstarred_component: Staffers::CoachWorkflows::UnstarredIconComponent.new
+          )) %>
+      <%= render Staffers::CoachWorkflows::ChatChannel::AccountMemberNamesComponent.new(accessible_staffer_channel: accessible_staffer_channel, has_unread_messages: unread_messages?) %>
+      <div class="-mt-0.5">
+        <div class="line-clamp-2"><%= formatted_last_message_content %></div>
+        <% if flagged_as_safety_risk? %>
+          <span class="badge badge-danger">Safety risk</span>
+        <% end %>
+      </div>
+      <% if false %><!-- We are removing this until we get a better handle on Open/Closed -->
+        <div class="col-1">
+          <% if overdue? %>
+            <span class="badge badge-warning">SLA</span>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="text-right">
+        <% if staffer_responded_to_last_message? %>
+          <%= render Staffers::StafferRespondedToLastMessageIcon.new %>
+        <% else %>
+          <%= formatted_last_message_sent_at %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

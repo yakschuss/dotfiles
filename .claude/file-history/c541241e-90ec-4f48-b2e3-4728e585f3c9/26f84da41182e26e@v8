@@ -1,0 +1,29 @@
+<div class="max-w-[800px]">
+  <div class="flex gap-4 mb-5">
+    <div class="w-[400px] flex flex-col gap-2">
+      <label class="text-sm font-medium text-gray-800">Staffer</label>
+      <%= render Prism::Select.new(
+            title: "staffer_select",
+            options: staffer_select_options,
+            selected_option: current_staffer_name || staffer_select_options.first&.first,
+            data_params: {"data-select-navigator-target": "select"},
+            change_action: "change->select-navigator#navigate",
+            classes: ""
+          ) %>
+    </div>
+
+    <% if show_care_case_dropdown? %>
+      <div class="w-[400px] flex flex-col gap-2">
+        <label class="text-sm font-medium text-gray-800">Care case</label>
+        <%= render Prism::Select.new(
+              title: "care_case_select",
+              options: care_case_select_options,
+              selected_option: current_care_case_name || care_case_select_options.first&.first,
+              data_params: {"data-select-navigator-target": "select"},
+              change_action: "change->select-navigator#navigate",
+              classes: ""
+            ) %>
+      </div>
+    <% end %>
+  </div>
+</div>

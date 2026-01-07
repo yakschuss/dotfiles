@@ -1,0 +1,208 @@
+# frozen_string_literal: true
+
+# Find Carol McCormick
+carol = Member.find_by(first_name: 'Carol', last_name: 'McCormick')
+
+unless carol
+  puts 'Carol McCormick not found!'
+  exit
+end
+
+puts "Setting up test data for Carol McCormick (#{carol.id})"
+puts "Existing care cases: #{carol.care_cases.count}"
+puts ''
+
+# Find her existing account
+account = carol.accounts.first
+
+unless account
+  puts 'No account found for Carol!'
+  exit
+end
+
+puts "Account: #{account.id}"
+puts ''
+
+# Get existing care cases
+existing_care_cases = carol.care_cases.to_a
+puts "Found #{existing_care_cases.count} existing care case(s)"
+
+# Create additional care cases if needed to have at least 2
+if existing_care_cases.count < 2
+  puts "Creating additional care case..."
+
+  # Find or create a child for the second care case
+  kenny = Member.find_by(first_name: 'Kenny', last_name: 'McCormick')
+  unless kenny
+    kenny = FactoryBot.create(:member,
+      first_name: 'Kenny',
+      last_name: 'McCormick',
+      date_of_birth: 13.years.ago
+    )
+  end
+
+  new_care_case = FactoryBot.create(:care_case,
+    account: account,
+    caregiver: carol,
+    patient: kenny
+  )
+
+  existing_care_cases << new_care_case
+  puts "  Created care case: #{new_care_case.id}"
+end
+
+puts ''
+puts "Total care cases: #{existing_care_cases.count}"
+puts ''
+
+# Find existing staffers with chat channels
+puts "Finding existing staffers..."
+
+therapists = Staffer.where(role: :therapist).limit(2).to_a
+therapist1 = therapists[0]
+therapist2 = therapists[1] || therapist1
+
+coaches = Staffer.where(role: :coach).limit(2).to_a
+coach1 = coaches[0]
+coach2 = coaches[1] || coach1
+
+puts "  Therapist 1: #{therapist1.full_name}"
+puts "  Therapist 2: #{therapist2.full_name}"
+puts "  Coach 1: #{coach1.full_name}"
+puts "  Coach 2: #{coach2.full_name}"
+puts ''
+
+# Ensure Carol has a sendbird user
+unless carol.sendbird_user
+  carol.create_sendbird_user!(
+    nickname: carol.full_name,
+    sendbird_user_id: "member_#{carol.id}_#{SecureRandom.hex(4)}"
+  )
+  puts "Created sendbird user for Carol"
+end
+
+puts ''
+puts "Creating chat channels..."
+
+# For each care case, create chats with different staffers
+care_case_1 = existing_care_cases[0]
+care_case_2 = existing_care_cases[1]
+
+# Care Case 1: Therapist 1 + Coach 1
+[
+  { care_case: care_case_1, staffer: therapist1, type: Chat::Type.therapist },
+  { care_case: care_case_1, staffer: coach1, type: Chat::Type.coach },
+].each do |config|
+  # Find or create chat channel
+  channel = SendbirdChatChannel.find_or_initialize_by(
+    account: account,
+    care_case: config[:care_case],
+    chat_type: config[:type]
+  )
+
+  if channel.new_record?
+    channel.save!
+    puts "  Created #{config[:type]} channel for care case #{config[:care_case].id}"
+  else
+    puts "  Found existing #{config[:type]} channel for care case #{config[:care_case].id}"
+  end
+
+  # Ensure staffer has sendbird user
+  staffer_sendbird_user = config[:staffer].sendbird_users.first_or_create! do |su|
+    su.nickname = config[:staffer].full_name
+    su.sendbird_user_id = "staffer_#{config[:staffer].id}_#{SecureRandom.hex(4)}"
+  end
+
+  # Create memberships
+  carol_membership = SendbirdChatChannelMembership.find_or_create_by!(
+    sendbird_chat_channel: channel,
+    sendbird_user: carol.sendbird_user
+  )
+
+  staffer_membership = SendbirdChatChannelMembership.find_or_create_by!(
+    sendbird_chat_channel: channel,
+    sendbird_user: staffer_sendbird_user
+  )
+
+  # Update with timestamps
+  carol_membership.update!(last_message_sent_at: 1.hour.ago)
+  staffer_membership.update!(last_message_sent_at: 30.minutes.ago)
+
+  puts "    Added #{config[:staffer].full_name}"
+end
+
+# Care Case 2: Therapist 2 + Coach 2
+[
+  { care_case: care_case_2, staffer: therapist2, type: Chat::Type.therapist },
+  { care_case: care_case_2, staffer: coach2, type: Chat::Type.coach },
+].each do |config|
+  # Find or create chat channel
+  channel = SendbirdChatChannel.find_or_initialize_by(
+    account: account,
+    care_case: config[:care_case],
+    chat_type: config[:type]
+  )
+
+  if channel.new_record?
+    channel.save!
+    puts "  Created #{config[:type]} channel for care case #{config[:care_case].id}"
+  else
+    puts "  Found existing #{config[:type]} channel for care case #{config[:care_case].id}"
+  end
+
+  # Ensure staffer has sendbird user
+  staffer_sendbird_user = config[:staffer].sendbird_users.first_or_create! do |su|
+    su.nickname = config[:staffer].full_name
+    su.sendbird_user_id = "staffer_#{config[:staffer].id}_#{SecureRandom.hex(4)}"
+  end
+
+  # Create memberships
+  carol_membership = SendbirdChatChannelMembership.find_or_create_by!(
+    sendbird_chat_channel: channel,
+    sendbird_user: carol.sendbird_user
+  )
+
+  staffer_membership = SendbirdChatChannelMembership.find_or_create_by!(
+    sendbird_chat_channel: channel,
+    sendbird_user: staffer_sendbird_user
+  )
+
+  # Update with timestamps
+  carol_membership.update!(last_message_sent_at: 2.hours.ago)
+  staffer_membership.update!(last_message_sent_at: 1.hour.ago)
+
+  puts "    Added #{config[:staffer].full_name}"
+end
+
+puts ''
+puts 'Test data created successfully!'
+puts ''
+puts "Care Case 1 (#{care_case_1.id}):"
+puts "  - #{therapist1.full_name} (therapist)"
+puts "  - #{coach1.full_name} (coach)"
+puts "  URL: http://reef.dev-hellobrightline.com:3000/care_cases/#{care_case_1.id}/chats"
+puts ''
+puts "Care Case 2 (#{care_case_2.id}):"
+puts "  - #{therapist2.full_name} (therapist)"
+puts "  - #{coach2.full_name} (coach)"
+puts "  URL: http://reef.dev-hellobrightline.com:3000/care_cases/#{care_case_2.id}/chats"
+puts ''
+
+# Get first therapist channel for account member page
+first_therapist_channel = SendbirdChatChannel.find_by(
+  account: account,
+  chat_type: Chat::Type.therapist
+)
+
+if first_therapist_channel
+  therapist_sendbird_user = first_therapist_channel.memberships.joins(:sendbird_user)
+    .where.not(sendbird_users: { id: carol.sendbird_user.id })
+    .first&.sendbird_user
+
+  if therapist_sendbird_user
+    puts "Account Member Chat Page:"
+    puts "  URL: http://reef.dev-hellobrightline.com:3000/accounts/#{account.id}/members/#{carol.id}/chats/#{first_therapist_channel.id}?sendbird_user_id=#{therapist_sendbird_user.id}"
+    puts ''
+    puts "On this page, the Care case dropdown should show both care cases!"
+  end
+end

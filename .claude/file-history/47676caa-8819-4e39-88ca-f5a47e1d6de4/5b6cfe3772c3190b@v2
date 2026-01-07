@@ -1,0 +1,147 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe SlotRecapture::Matcher, type: :model do
+  describe "#matches_for" do
+    def create_opportunity_with_staffer(staffer:, region_id: Region.california.id, clinic: nil)
+      care_case = FactoryBot.create(:care_case, region: Region.find(region_id))
+      appointment = FactoryBot.create(:appointment,
+        care_case: care_case,
+        staffer: staffer,
+        region: care_case.region,
+        clinic: clinic || FactoryBot.create(:clinic),
+        start_time: 48.hours.from_now,
+        end_time: 49.hours.from_now)
+
+      FactoryBot.create(:slot_recapture_opportunity, :open,
+        cancelled_appointment: appointment,
+        staffer: staffer,
+        clinic: appointment.clinic,
+        region_id: region_id,
+        root_appointment_type_id: RootAppointmentType.therapy_initial_session.id)
+    end
+
+    def create_waitlist_entry(care_case:, root_type: RootAppointmentType.therapy_initial_session.id, clinic_ids: [])
+      FactoryBot.create(:wait_list_entry, :active,
+        care_case: care_case,
+        root_appointment_type_id: root_type,
+        clinic_ids: clinic_ids)
+    end
+
+    it "returns entries matching region and root_appointment_type" do
+      staffer = FactoryBot.create(:staffer)
+      opportunity = create_opportunity_with_staffer(staffer: staffer, region_id: Region.california.id)
+
+      matching_care_case = FactoryBot.create(:care_case, region: Region.california)
+      matching_entry = create_waitlist_entry(care_case: matching_care_case)
+
+      non_matching_care_case = FactoryBot.create(:care_case, region: Region.new_york)
+      create_waitlist_entry(care_case: non_matching_care_case)
+
+      matcher = described_class.new
+      matches = matcher.matches_for(opportunity)
+
+      expect(matches.map(&:entry)).to include(matching_entry)
+    end
+
+    it "scores same provider matches higher" do
+      staffer = FactoryBot.create(:staffer)
+      opportunity = create_opportunity_with_staffer(staffer: staffer)
+
+      care_case_with_provider = FactoryBot.create(:care_case, region: Region.california)
+      FactoryBot.create(:clinical_role, care_case: care_case_with_provider, staffer: staffer, primary: true)
+
+      care_case_without_provider = FactoryBot.create(:care_case, region: Region.california)
+
+      entry_same_provider = create_waitlist_entry(care_case: care_case_with_provider)
+      entry_different_provider = create_waitlist_entry(care_case: care_case_without_provider)
+
+      matcher = described_class.new
+      matches = matcher.matches_for(opportunity)
+
+      same_provider_match = matches.find { |m| m.entry == entry_same_provider }
+      different_provider_match = matches.find { |m| m.entry == entry_different_provider }
+
+      expect(same_provider_match.score).to be > different_provider_match.score
+    end
+
+    it "limits results to configured matches_per_opportunity" do
+      staffer = FactoryBot.create(:staffer)
+      opportunity = create_opportunity_with_staffer(staffer: staffer)
+
+      10.times do
+        care_case = FactoryBot.create(:care_case, region: Region.california)
+        create_waitlist_entry(care_case: care_case)
+      end
+
+      config_data = SlotRecapture::ConfigurationData.new(matches_per_opportunity: 3)
+      matcher = described_class.new(config: config_data)
+      matches = matcher.matches_for(opportunity)
+
+      expect(matches.size).to eq(3)
+    end
+
+    it "returns Match objects with score and breakdown" do
+      staffer = FactoryBot.create(:staffer)
+      opportunity = create_opportunity_with_staffer(staffer: staffer)
+
+      care_case = FactoryBot.create(:care_case, region: Region.california)
+      create_waitlist_entry(care_case: care_case)
+
+      matcher = described_class.new
+      matches = matcher.matches_for(opportunity)
+
+      expect(matches.first).to be_a(SlotRecapture::Match)
+      expect(matches.first.score).to be_a(Float)
+      expect(matches.first.breakdown).to be_a(Hash)
+    end
+
+    it "scores priority entries higher" do
+      staffer = FactoryBot.create(:staffer)
+      opportunity = create_opportunity_with_staffer(staffer: staffer)
+
+      priority_care_case = FactoryBot.create(:care_case, region: Region.california)
+      priority_entry = FactoryBot.create(:wait_list_entry, :active,
+        care_case: priority_care_case,
+        root_appointment_type_id: RootAppointmentType.therapy_initial_session.id,
+        priority: true)
+
+      normal_care_case = FactoryBot.create(:care_case, region: Region.california)
+      normal_entry = create_waitlist_entry(care_case: normal_care_case)
+
+      matcher = described_class.new
+      matches = matcher.matches_for(opportunity)
+
+      priority_match = matches.find { |m| m.entry == priority_entry }
+      normal_match = matches.find { |m| m.entry == normal_entry }
+
+      expect(priority_match.breakdown[:priority]).to be > normal_match.breakdown[:priority]
+    end
+
+    it "scores longer wait times higher" do
+      staffer = FactoryBot.create(:staffer)
+      opportunity = create_opportunity_with_staffer(staffer: staffer)
+
+      older_care_case = FactoryBot.create(:care_case, region: Region.california)
+      older_entry = FactoryBot.create(:wait_list_entry, :active,
+        care_case: older_care_case,
+        root_appointment_type_id: RootAppointmentType.therapy_initial_session.id,
+        added_at: 60.days.ago)
+
+      newer_care_case = FactoryBot.create(:care_case, region: Region.california)
+      newer_entry = FactoryBot.create(:wait_list_entry, :active,
+        care_case: newer_care_case,
+        root_appointment_type_id: RootAppointmentType.therapy_initial_session.id,
+        added_at: 5.days.ago)
+
+      matcher = described_class.new
+      matches = matcher.matches_for(opportunity)
+
+      older_match = matches.find { |m| m.entry == older_entry }
+      newer_match = matches.find { |m| m.entry == newer_entry }
+
+      expect(older_match.breakdown[:wait_time]).to be > newer_match.breakdown[:wait_time]
+    end
+  end
+end

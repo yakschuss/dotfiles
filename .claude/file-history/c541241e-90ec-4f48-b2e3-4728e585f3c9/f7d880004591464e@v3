@@ -1,0 +1,64 @@
+# Feature Flag: new_chat_navigation
+
+## Description
+New dropdown-based navigation for chat pages, replacing tab-based navigation with Prism design system components.
+
+## Affects
+- Account member chat page (`/accounts/:id/members/:id/chats`)
+- Care case chat page (`/care_cases/:id/chats`)
+
+## Rollout
+
+### Enable for testing
+```ruby
+# In Rails console
+Flipper.enable(:new_chat_navigation, Staffer.find('YOUR_STAFFER_ID'))
+```
+
+### Enable for percentage
+```ruby
+Flipper.enable_percentage_of_actors(:new_chat_navigation, 25)
+```
+
+### Enable for everyone
+```ruby
+Flipper.enable(:new_chat_navigation)
+```
+
+## Promotion (Remove Feature Flag)
+
+Once fully rolled out and stable, remove the feature flag by deleting these conditional blocks:
+
+### 1. `app/components/staffers/accounts/chats_component.html.erb`
+**Remove:** Lines with `<% if Flipper.enabled?(:new_chat_navigation, staffer) %>` and `<% else %>` and `<% end %>`
+**Keep:** Only the NEW code block (Prism dropdowns + ChatActionsComponent)
+**Delete:** The OLD code block (chat_actions_header partial)
+
+### 2. `app/components/staffers/accounts/members/member_tabs_component.rb`
+**Remove:** The `chat_tabs` method with conditional
+**Rename:** `chat_tabs_new` → `chat_tabs`
+**Delete:** `chat_tabs_old` method entirely
+
+### 3. `app/components/staffers/care_cases/chats/tabs_component.html.erb`
+**Remove:** Lines with `<% if Flipper.enabled?(:new_chat_navigation, helpers.current_staffer) %>` and `<% else %>` and `<% end %>`
+**Keep:** Only the NEW code block (Prism::Select components)
+**Delete:** The OLD code block (select_tag + Wave::Select)
+
+### 4. Delete old partial
+```bash
+git rm app/views/staffers/accounts/chats/_chat_actions_header.html.erb
+```
+
+### 5. Delete this file
+```bash
+git rm .feature_flags/new_chat_navigation.md
+```
+
+## Rollback
+
+If issues are found, disable the flag:
+```ruby
+Flipper.disable(:new_chat_navigation)
+```
+
+All users will immediately revert to the old tab-based navigation.

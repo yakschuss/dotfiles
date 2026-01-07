@@ -1,0 +1,21 @@
+# frozen_string_literal: true
+
+module SlotRecapture
+  class OpportunityPolicy < ApplicationPolicy
+    def access_policy
+      AccessPolicy.slot_recapture_opportunities
+    end
+
+    def in_scope_for_action?(action)
+      has_scoped_access_for_action?(action)
+    end
+
+    def filled?
+      has_unscoped_access_for_action?("filled")
+    end
+
+    def expired?
+      has_unscoped_access_for_action?("expired")
+    end
+  end
+end

@@ -1,0 +1,44 @@
+[
+  {
+    "content": "Fix git autocomplete hanging issue in zsh setup",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Analyze dotfiles repository to identify outdated/unused files",
+    "status": "completed",
+    "priority": "medium",
+    "id": "2"
+  },
+  {
+    "content": "Create clean installation script for dotfiles setup",
+    "status": "completed",
+    "priority": "medium",
+    "id": "3"
+  },
+  {
+    "content": "Remove 8+ year old files that are no longer needed",
+    "status": "completed",
+    "priority": "low",
+    "id": "4"
+  },
+  {
+    "content": "Clean up .vimrc.bundles file - remove duplicates",
+    "status": "completed",
+    "priority": "medium",
+    "id": "5"
+  },
+  {
+    "content": "Remove old vim bundle directories",
+    "status": "completed",
+    "priority": "low",
+    "id": "6"
+  },
+  {
+    "content": "Remove duplicate bin/ and dotfiles/ directories",
+    "status": "completed",
+    "priority": "low",
+    "id": "7"
+  }
+]

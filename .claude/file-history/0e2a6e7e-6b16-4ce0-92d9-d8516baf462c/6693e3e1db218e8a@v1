@@ -1,0 +1,655 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+require "support/notification_config_test_helper"
+require "support/scheduling_notification_helper"
+
+RSpec.describe "SchedulingNotifications", :freeze_time do
+  include NotificationConfigTestHelper
+  include SchedulingNotificationHelper
+
+  before do
+    Flipper.enable(:configurable_appointment_notifications)
+    Flipper.enable(:consolidated_appointment_notifications)
+
+    Sidekiq::Testing.inline!
+    subscribe_listener Notification::Appointment::SchedulingNotification
+
+    allow(Datadog.configuration.tracing).to receive(:enabled).and_return(false)
+  end
+
+  after do
+    Sidekiq::Testing.fake!
+  end
+
+  context "Single Event Notifications" do
+    describe "AppointmentScheduledEvent" do
+      it "sends immediate notifications and schedules future notifications for preintake appointment" do
+        appointment = create_appointment(start_time: 2.days.from_now, preintake: true)
+        event = AppointmentScheduledEvent.from_appointment(appointment: appointment)
+        FactoryBot.create(:appointment_digest, care_case: appointment.care_case)
+
+        notifications = stub_notification_methods
+
+        broadcast_and_process_now(event)
+
+        expect(notifications[:sent]).not_to be_empty, "Expected immediate notifications to be sent"
+        expect(notifications[:scheduled]).not_to be_empty, "Expected notifications to be scheduled"
+
+        expect_immediate_notifications(notifications, expected_type: :appointment_scheduled_staffer_email, expected_recipient: appointment.staffer)
+        expect_scheduled_notifications(notifications, expected_recipient: appointment.member)
+
+        expect(notifications[:canceled]).to be_empty
+      end
+
+      it "sends immediate notifications and schedules future notifications for non-preintake appointment" do
+        appointment = create_appointment(start_time: 2.days.from_now, preintake: false)
+        event = AppointmentScheduledEvent.from_appointment(appointment: appointment)
+        FactoryBot.create(:appointment_digest, care_case: appointment.care_case)
+
+        notifications = stub_notification_methods
+
+        broadcast_and_process_now(event)
+
+        expect(notifications[:sent]).not_to be_empty, "Expected immediate notifications to be sent"
+        expect(notifications[:scheduled]).not_to be_empty, "Expected notifications to be scheduled"
+
+        expect_immediate_notifications(notifications, expected_type: :appointment_scheduled_staffer_email, expected_recipient: appointment.staffer)
+        expect_scheduled_notifications(notifications, expected_recipient: appointment.member)
+
+        expect(notifications[:canceled]).to be_empty
+      end
+
+      it "excludes child recipients from notifications" do
+        child = FactoryBot.create(:member, :with_date_of_birth, date_of_birth: 8.years.ago)
+        caregiver = FactoryBot.create(:member, :registered)
+        care_case = FactoryBot.create(:care_case, patient: child, caregivers: [caregiver], region: Region.new_york)
+
+        appointment = create_appointment(care_case: care_case, start_time: 2.days.from_now)
+        event = AppointmentScheduledEvent.from_appointment(appointment: appointment)
+
+        notifications = stub_notification_methods
+
+        broadcast_and_process_now(event)
+
+        expect(notifications[:canceled]).to be_empty, "No existing notifications canceled"
+        expect(notifications[:sent]).not_to be_empty, "Expected new notifications to be sent"
+        expect(notifications[:scheduled]).not_to be_empty, "Expected new notifications to be scheduled"
+
+        expect_immediate_notifications(notifications, expected_type: :appointment_scheduled_staffer_email, expected_recipient: appointment.staffer)
+
+        scheduled_recipients = notifications[:scheduled].flat_map { |n| n[:recipients] }.uniq
+        expect(scheduled_recipients).not_to include(child)
+        expect(scheduled_recipients).to include(caregiver)
+      end
+    end
+
+    describe "AppointmentRescheduledEvent" do
+      it "cancels existing notifications and sends new ones" do
+        appointment = create_appointment(start_time: 2.days.from_now)
+        AppointmentScheduledEvent.from_appointment(appointment: appointment)
+
+        old_start_time = appointment.start_time
+        old_end_time = appointment.end_time
+        new_start_time = 4.days.from_now
+        new_end_time = new_start_time + 1.hour
+
+        FactoryBot.create(:appointment_digest, care_case: appointment.care_case)
+
+        FactoryBot.create(:appointment_reschedulation,
+          appointment: appointment,
+          old_start_time: old_start_time,
+          old_end_time: old_end_time,
+          new_start_time: new_start_time,
+          new_end_time: new_end_time)
+
+        notifications = stub_notification_methods
+
+        appointment.update!(start_time: new_start_time, end_time: new_end_time)
+        reschedule_event = AppointmentRescheduledEvent.from_appointment(
+          appointment: appointment,
+          changes: {
+            start_time: [old_start_time, new_start_time],
+            end_time: [old_end_time, new_end_time]
+          }
+        )
+
+        broadcast_and_process_now(reschedule_event)
+
+        expect(notifications[:canceled]).not_to be_empty, "Expected existing notifications to be canceled"
+        expect(notifications[:sent]).not_to be_empty, "Expected rescheduled notifications to be sent"
+        expect(notifications[:scheduled]).not_to be_empty, "Expected rescheduled notifications to be scheduled"
+
+        expect_immediate_notifications(notifications, expected_type: :appointment_rescheduled_staffer_email, expected_recipient: appointment.staffer)
+        expect_scheduled_notifications(notifications, expected_recipient: appointment.member)
+      end
+
+      it "cancels legacy notification types created before configurable_appointment_notifications was enabled" do
+        appointment = create_appointment(start_time: 4.days.from_now)
+        caregiver = appointment.care_case.caregiver
+
+        # Simulate legacy reminders that were scheduled before the feature flag was enabled
+        legacy_15min_reminder = FactoryBot.create(:scheduled_notification,
+          notification_type: :appointment_reminder_15_minutes,
+          subject: appointment,
+          recipient: caregiver,
+          scheduled_for: appointment.start_time - 15.minutes,
+          status: :scheduled)
+
+        legacy_36h_reminder = FactoryBot.create(:scheduled_notification,
+          notification_type: :appointment_reminder_36_hours_sms,
+          subject: appointment,
+          recipient: caregiver,
+          scheduled_for: appointment.start_time - 36.hours,
+          status: :scheduled)
+
+        old_start_time = appointment.start_time
+        old_end_time = appointment.end_time
+        new_start_time = 6.days.from_now
+        new_end_time = new_start_time + 1.hour
+
+        FactoryBot.create(:appointment_digest, care_case: appointment.care_case)
+        FactoryBot.create(:appointment_reschedulation,
+          appointment: appointment,
+          old_start_time: old_start_time,
+          old_end_time: old_end_time,
+          new_start_time: new_start_time,
+          new_end_time: new_end_time)
+
+        appointment.update!(start_time: new_start_time, end_time: new_end_time)
+        reschedule_event = AppointmentRescheduledEvent.from_appointment(
+          appointment: appointment,
+          changes: {
+            start_time: [old_start_time, new_start_time],
+            end_time: [old_end_time, new_end_time]
+          }
+        )
+
+        broadcast_and_process_now(reschedule_event)
+
+        expect(legacy_15min_reminder.reload.status).to eq("canceled"),
+          "Expected legacy 15-minute reminder to be canceled"
+        expect(legacy_36h_reminder.reload.status).to eq("canceled"),
+          "Expected legacy 36-hour reminder to be canceled"
+      end
+    end
+
+    describe "AppointmentCanceledEvent" do
+      it "cancels existing notifications and sends cancellation notification for preintake appointment" do
+        appointment = create_appointment(start_time: 2.days.from_now, preintake: true)
+        FactoryBot.create(:appointment_digest, care_case: appointment.care_case)
+
+        notifications = stub_notification_methods
+
+        event = AppointmentCanceledEvent.from_appointment(appointment: appointment)
+        broadcast_and_process_now(event)
+
+        expect(notifications[:canceled]).not_to be_empty, "Expected existing notifications to be canceled"
+        expect(notifications[:sent]).not_to be_empty, "Expected cancelation notifications to be sent"
+        expect(notifications[:scheduled]).not_to be_empty, "Expected cancelation notifications to be scheduled"
+
+        expect_immediate_notifications(notifications, expected_type: :appointment_canceled_staffer_email, expected_recipient: appointment.staffer)
+        expect_scheduled_notifications(notifications, expected_recipient: appointment.member)
+      end
+
+      it "cancels existing notifications and sends cancellation notification for non-preintake appointment" do
+        appointment = create_appointment(start_time: 2.days.from_now, preintake: false)
+        FactoryBot.create(:appointment_digest, care_case: appointment.care_case)
+
+        notifications = stub_notification_methods
+
+        event = AppointmentCanceledEvent.from_appointment(appointment: appointment)
+        broadcast_and_process_now(event)
+
+        expect(notifications[:canceled]).not_to be_empty, "Expected existing notifications to be canceled"
+        expect(notifications[:sent]).not_to be_empty, "Expected cancelation notifications to be sent"
+        expect(notifications[:scheduled]).not_to be_empty, "Expected cancelation notifications to be scheduled"
+
+        expect_immediate_notifications(notifications, expected_type: :appointment_canceled_staffer_email, expected_recipient: appointment.staffer)
+        expect_scheduled_notifications(notifications, expected_recipient: appointment.member)
+      end
+    end
+
+    # TODO: The problem is mocking this test, not the actual functionality
+    # describe "AppointmentRescheduledAsNewAppointmentEvent" do
+    #   it "cancels existing notifications and sends new ones" do
+    #     care_case = FactoryBot.create(:care_case)
+    #     old_appointment = create_appointment(start_time: 2.days.from_now, care_case:)
+    #     new_appointment = create_appointment(start_time: 4.days.from_now, care_case:)
+    #     digest = FactoryBot.create(:appointment_digest, care_case: care_case)
+
+    #     notifications = stub_notification_methods
+
+    #     event = AppointmentRescheduledAsNewAppointmentEvent.from_appointments(
+    #       old_appointment: old_appointment,
+    #       new_appointment: new_appointment
+    #     )
+
+    #     broadcast_and_process_now(event)
+
+    #     expect(notifications[:canceled]).not_to be_empty, "Expected existing notifications to be canceled"
+    #     expect(notifications[:sent]).not_to be_empty, "Expected rescheduled notifications to be sent"
+    #     expect(notifications[:scheduled]).not_to be_empty, "Expected rescheduled notifications to be scheduled"
+
+    #     expect_immediate_notifications(notifications, expected_type: :appointment_rescheduled_staffer_email, expected_recipient: new_appointment.staffer)
+    #     expect_scheduled_notifications(notifications, expected_recipient: new_appointment.member)
+  end
+
+  describe "Consolidated Notifications" do
+    describe "End-to-End Digest with Mixed Appointment Types" do
+      it "processes scheduled, rescheduled, and canceled appointments and sends consolidated notifications" do
+        staffer = FactoryBot.create(:staffer)
+        caregiver = FactoryBot.create(:member, :with_email, :with_phone, :with_accepted_sms_communications)
+        patient = FactoryBot.create(:member, :with_name, :with_email, :with_phone, :with_accepted_sms_communications)
+        care_case = FactoryBot.create(:care_case, patient: patient, caregivers: [caregiver], region: Region.new_york)
+
+        scheduled_appt = create_appointment(care_case: care_case, start_time: 3.days.from_now, staffer: staffer, patient: patient)
+        rescheduled_appt = create_appointment(care_case: care_case, start_time: 4.days.from_now, staffer: staffer, patient: patient)
+        canceled_appt = create_appointment(care_case: care_case, start_time: 5.days.from_now, status: :canceled, staffer: staffer, patient: patient)
+
+        # Mock SMS template for delivery
+        mock_template = double("template")
+        mock_messageable = double("messageable", id: 123)
+        allow(Texting::Template).to receive(:consolidated_appointment_sms).and_return(mock_template)
+        allow(mock_template).to receive(:deliver_to_member).and_return(mock_messageable)
+
+        notifications = stub_notification_methods
+
+        # Schedule a new appointment
+        scheduled_event = AppointmentScheduledEvent.from_appointment(appointment: scheduled_appt)
+        broadcast_and_process_now(scheduled_event)
+
+        digest = Notification::Appointment::AppointmentDigest.find_by(care_case: care_case)
+        expect(digest).to be_present
+        expect(digest.appointment_digest_entries.count).to eq(1)
+        expect(digest.appointment_digest_entries.first.appointment).to eq(scheduled_appt)
+        expect(digest.appointment_digest_entries.first.category).to eq("scheduled")
+
+        # Reschedule an existing appointment
+        old_start_time = rescheduled_appt.start_time
+        old_end_time = rescheduled_appt.end_time
+        new_start_time = 7.days.from_now
+        new_end_time = new_start_time + 1.hour
+        rescheduled_appt.update!(start_time: new_start_time, end_time: new_end_time)
+        FactoryBot.create(:appointment_reschedulation,
+          appointment: rescheduled_appt,
+          old_start_time: old_start_time,
+          old_end_time: old_end_time,
+          new_start_time: new_start_time,
+          new_end_time: new_end_time)
+        reschedule_event = AppointmentRescheduledEvent.from_appointment(
+          appointment: rescheduled_appt,
+          changes: {
+            start_time: [old_start_time, new_start_time],
+            end_time: [old_end_time, new_end_time]
+          }
+        )
+        broadcast_and_process_now(reschedule_event)
+
+        digest.reload
+        expect(digest.appointment_digest_entries.count).to eq(2)
+        categories = digest.appointment_digest_entries.pluck(:category)
+        expect(categories).to include("scheduled", "rescheduled")
+
+        # Cancel an existing appointment
+        cancel_event = AppointmentCanceledEvent.from_appointment(appointment: canceled_appt)
+        broadcast_and_process_now(cancel_event)
+
+        digest.reload
+        expect(digest.appointment_digest_entries.count).to eq(3)
+        categories = digest.appointment_digest_entries.pluck(:category)
+        expect(categories).to include("scheduled", "rescheduled", "canceled")
+
+        consolidated_notification = Notification::Appointment::ConsolidatedAppointmentNotification.new(
+          subject: digest,
+          recipient: patient
+        )
+
+        pre_delivery_sent_count = notifications[:sent].length
+        consolidated_notification.deliver
+
+        expect(notifications[:sent].length).to be > pre_delivery_sent_count, "Expected consolidated notifications to be sent"
+
+        expect_notification_types(notifications, category: :sent, expected_types: %i[
+          appointment_scheduled_staffer_email
+          appointment_rescheduled_staffer_email
+          appointment_canceled_staffer_email
+        ])
+        expect_notification_recipients(notifications, category: :sent, expected_recipients: [staffer, patient])
+
+        expect_notification_types(notifications, category: :scheduled, expected_types: [:consolidated_appointment_notification])
+      end
+    end
+
+    describe "Digest Creation and Management" do
+      it "creates a digest for the care case when scheduling an appointment" do
+        appointment = create_appointment(start_time: 2.days.from_now)
+        event = AppointmentScheduledEvent.from_appointment(appointment: appointment)
+
+        broadcast_and_process_now(event)
+
+        digest = Notification::Appointment::AppointmentDigest.find_by(care_case: appointment.care_case)
+        expect(digest).to be_present
+
+        expect(digest.appointment_digest_entries.count).to eq(1)
+        expect(digest.appointment_digest_entries.first.appointment).to eq(appointment)
+        expect(digest.appointment_digest_entries.first.category).to eq("scheduled")
+      end
+
+      it "adds multiple appointments to the same digest" do
+        care_case = FactoryBot.create(:care_case)
+        appointment1 = create_appointment(care_case: care_case, start_time: 2.days.from_now)
+        appointment2 = create_appointment(care_case: care_case, start_time: 3.days.from_now)
+
+        event1 = AppointmentScheduledEvent.from_appointment(appointment: appointment1)
+        event2 = AppointmentScheduledEvent.from_appointment(appointment: appointment2)
+
+        broadcast_and_process_now(event1)
+        broadcast_and_process_now(event2)
+
+        digest = Notification::Appointment::AppointmentDigest.find_by(care_case: care_case)
+        expect(digest).to be_present
+        expect(digest.appointment_digest_entries.count).to eq(2)
+
+        appointment_ids = digest.appointment_digest_entries.map(&:appointment_id)
+        expect(appointment_ids).to include(appointment1.id, appointment2.id)
+      end
+    end
+
+    describe "Consolidated Notification Delivery" do
+      it "sends consolidated notifications when multiple appointments are in the digest" do
+        setup_care_case_data => {staffer:, caregiver:, patient:, care_case:}
+
+        appointment1 = create_appointment(care_case:, staffer:, patient:, caregiver:, start_time: 2.days.from_now)
+        appointment2 = create_appointment(care_case:, staffer:, patient:, caregiver:, start_time: 3.days.from_now)
+
+        digest = Notification::Appointment::AppointmentDigest.find_or_create_by(care_case: care_case)
+        digest.add_scheduled_appointment!(appointment1)
+        digest.add_scheduled_appointment!(appointment2)
+
+        notifications = stub_notification_methods
+
+        notification = Notification::Appointment::ConsolidatedAppointmentNotification.new(
+          subject: digest,
+          recipient: caregiver
+        )
+
+        notification.deliver
+
+        expect(notifications[:sent].count).to eq(2), "Expected consolidated email and SMS to be sent"
+
+        sent_notification_types = notifications[:sent].map { |n| n[:notification_type] }
+        expect(sent_notification_types).to include(:consolidated_appointment_email)
+        expect(sent_notification_types).to include(:consolidated_appointment_sms)
+
+        sent_recipients = notifications[:sent].flat_map { |n| n[:recipients] }.uniq
+        expect(sent_recipients).to include(caregiver)
+
+        expect(digest.reload.sent?).to be true
+      end
+    end
+
+    describe "Mixed Event Consolidation" do
+      it "consolidates scheduled and canceled appointments" do
+        setup_care_case_data => {staffer:, caregiver:, patient:, care_case:}
+
+        scheduled_appointment = create_appointment(care_case: care_case, staffer:, patient:, caregiver:, start_time: 2.days.from_now)
+        canceled_appointment = create_appointment(care_case: care_case, staffer:, patient:, caregiver:, start_time: 3.days.from_now)
+        canceled_appointment.update(status: :canceled)
+
+        schedule_event = AppointmentScheduledEvent.from_appointment(appointment: scheduled_appointment)
+        cancel_event = AppointmentCanceledEvent.from_appointment(appointment: canceled_appointment)
+
+        broadcast_and_process_now(schedule_event)
+        broadcast_and_process_now(cancel_event)
+
+        digest = Notification::Appointment::AppointmentDigest.find_by(care_case: care_case)
+
+        expect(digest).to be_present
+        expect(digest.appointment_digest_entries.count).to eq(2)
+
+        categories = digest.appointment_digest_entries.map(&:category)
+        expect(categories).to include("scheduled", "canceled")
+
+        expect(digest.scheduled.count).to eq(1)
+        expect(digest.canceled.count).to eq(1)
+      end
+
+      it "consolidates all three types: scheduled, canceled, and rescheduled" do
+        setup_care_case_data => {staffer:, caregiver:, patient:, care_case:}
+
+        scheduled_appointment = create_appointment(care_case: care_case, staffer:, patient:, caregiver:, start_time: 2.days.from_now)
+
+        rescheduled_appointment = create_appointment(care_case: care_case, staffer:, patient:, caregiver:, start_time: 3.days.from_now)
+        old_start_time = rescheduled_appointment.start_time
+        old_end_time = rescheduled_appointment.end_time
+        new_start_time = 4.days.from_now
+        new_end_time = new_start_time + 1.hour
+
+        FactoryBot.create(:appointment_reschedulation,
+          appointment: rescheduled_appointment,
+          old_start_time: old_start_time,
+          old_end_time: old_end_time,
+          new_start_time: new_start_time,
+          new_end_time: new_end_time)
+        rescheduled_appointment.update!(start_time: new_start_time, end_time: new_end_time)
+
+        canceled_appointment = create_appointment(care_case: care_case, start_time: 5.days.from_now)
+        canceled_appointment.update(status: :canceled)
+
+        schedule_event = AppointmentScheduledEvent.from_appointment(appointment: scheduled_appointment)
+        reschedule_event = AppointmentRescheduledEvent.from_appointment(
+          appointment: rescheduled_appointment,
+          changes: {
+            start_time: [old_start_time, new_start_time],
+            end_time: [old_end_time, new_end_time]
+          }
+        )
+        cancel_event = AppointmentCanceledEvent.from_appointment(appointment: canceled_appointment)
+
+        broadcast_and_process_now(schedule_event)
+        broadcast_and_process_now(reschedule_event)
+        broadcast_and_process_now(cancel_event)
+
+        digest = Notification::Appointment::AppointmentDigest.find_by(care_case: care_case)
+
+        expect(digest).to be_present
+        expect(digest.appointment_digest_entries.count).to eq(3)
+
+        categories = digest.appointment_digest_entries.map(&:category)
+        expect(categories).to include("scheduled", "canceled", "rescheduled")
+
+        expect(digest.scheduled.count).to eq(1)
+        expect(digest.canceled.count).to eq(1)
+        expect(digest.rescheduled.count).to eq(1)
+      end
+    end
+  end
+
+  describe "Fallback to Individual Notifications" do
+    it "sends individual notifications when digest has only one scheduled appointment" do
+      setup_care_case_data => {staffer:, caregiver:, patient:, care_case:}
+
+      appointment = create_appointment(care_case:, staffer:, patient:, caregiver:, start_time: 2.days.from_now)
+
+      digest = Notification::Appointment::AppointmentDigest.find_or_create_by(care_case: care_case)
+      digest.add_scheduled_appointment!(appointment)
+
+      notifications = stub_notification_methods
+
+      notification = Notification::Appointment::ConsolidatedAppointmentNotification.new(
+        subject: digest,
+        recipient: caregiver
+      )
+
+      notification.deliver
+
+      expect(notifications[:sent].count).to eq(2), "Expected individual email and SMS to be sent"
+      expect_notification_types(notifications, category: :sent, expected_types: [:appointment_scheduled_email, :appointment_scheduled_sms])
+      expect(digest.reload.sent?).to be true
+    end
+
+    it "sends individual notifications when digest has only one rescheduled appointment" do
+      setup_care_case_data => {staffer:, caregiver:, patient:, care_case:}
+
+      appointment = create_appointment(care_case:, staffer:, patient:, caregiver:, start_time: 2.days.from_now)
+
+      old_start_time = appointment.start_time
+      old_end_time = appointment.end_time
+      new_start_time = 4.days.from_now
+      new_end_time = new_start_time + 1.hour
+
+      FactoryBot.create(:appointment_reschedulation,
+        appointment: appointment,
+        old_start_time: old_start_time,
+        old_end_time: old_end_time,
+        new_start_time: new_start_time,
+        new_end_time: new_end_time)
+      appointment.update!(start_time: new_start_time, end_time: new_end_time)
+
+      digest = Notification::Appointment::AppointmentDigest.find_or_create_by(care_case: care_case)
+      digest.add_rescheduled_appointment!(appointment)
+
+      notifications = stub_notification_methods
+
+      notification = Notification::Appointment::ConsolidatedAppointmentNotification.new(
+        subject: digest,
+        recipient: caregiver
+      )
+      notification.deliver
+
+      expect(notifications[:sent].count).to eq(2), "Expected individual rescheduled email and SMS to be sent"
+      # Not a typo: SMS uses the same template as scheduled appointments
+      expect_notification_types(notifications, category: :sent, expected_types: [:appointment_rescheduled_email, :appointment_scheduled_sms])
+      expect(digest.reload.sent?).to be true
+    end
+
+    it "sends individual notifications when digest has only one canceled appointment" do
+      setup_care_case_data => {staffer:, caregiver:, patient:, care_case:}
+
+      appointment = create_appointment(care_case:, staffer:, patient:, caregiver:, start_time: 2.days.from_now)
+      appointment.update!(status: :canceled)
+
+      digest = Notification::Appointment::AppointmentDigest.find_or_create_by(care_case: care_case)
+      digest.add_canceled_appointment!(appointment)
+
+      notifications = stub_notification_methods
+
+      notification = Notification::Appointment::ConsolidatedAppointmentNotification.new(
+        subject: digest,
+        recipient: caregiver
+      )
+      notification.deliver
+
+      expect(notifications[:sent].count).to eq(1), "Expected individual canceled email to be sent"
+      expect_notification_types(notifications, category: :sent, expected_types: [:appointment_canceled_email])
+      expect(digest.reload.sent?).to be true
+    end
+
+    context "BrightLife Kids care cases" do
+      it "sends individual emails but consolidated SMS for multiple appointments" do
+        setup_care_case_data(blk: true) => {staffer:, caregiver:, patient:, care_case:}
+
+        appointment1 = create_appointment(care_case:, staffer:, patient:, caregiver:, start_time: 2.days.from_now)
+        appointment2 = create_appointment(care_case:, staffer:, patient:, caregiver:, start_time: 3.days.from_now)
+
+        digest = Notification::Appointment::AppointmentDigest.find_or_create_by(care_case: care_case)
+        digest.add_scheduled_appointment!(appointment1)
+        digest.add_scheduled_appointment!(appointment2)
+
+        notifications = stub_notification_methods
+
+        notification = Notification::Appointment::ConsolidatedAppointmentNotification.new(
+          subject: digest,
+          recipient: caregiver
+        )
+
+        notification.deliver
+
+        expect(notifications[:sent].count).to eq(3), "Expected 2 individual emails + 1 consolidated SMS"
+
+        sent_types = notifications[:sent].map { |n| n[:notification_type] }
+        expect(sent_types).to include(:appointment_scheduled_email).twice
+        expect(sent_types).to include(:consolidated_appointment_sms)
+        expect(sent_types).not_to include(:consolidated_appointment_email)
+
+        expect(digest.reload.sent?).to be true
+      end
+
+      it "sends individual emails but consolidated SMS for mixed appointment types" do
+        setup_care_case_data(blk: true) => {staffer:, caregiver:, patient:, care_case:}
+
+        scheduled_appointment = create_appointment(care_case:, staffer:, patient:, caregiver:, start_time: 2.days.from_now)
+        canceled_appointment = create_appointment(care_case:, staffer:, patient:, caregiver:, start_time: 3.days.from_now)
+        canceled_appointment.update(status: :canceled)
+
+        rescheduled_appointment = create_appointment(care_case:, staffer:, patient:, caregiver:, start_time: 4.days.from_now)
+        old_start_time = rescheduled_appointment.start_time
+        old_end_time = rescheduled_appointment.end_time
+        new_start_time = 5.days.from_now
+        new_end_time = new_start_time + 1.hour
+
+        FactoryBot.create(:appointment_reschedulation,
+          appointment: rescheduled_appointment,
+          old_start_time: old_start_time,
+          old_end_time: old_end_time,
+          new_start_time: new_start_time,
+          new_end_time: new_end_time)
+        rescheduled_appointment.update!(start_time: new_start_time, end_time: new_end_time)
+
+        digest = Notification::Appointment::AppointmentDigest.find_or_create_by(care_case: care_case)
+        digest.add_scheduled_appointment!(scheduled_appointment)
+        digest.add_canceled_appointment!(canceled_appointment)
+        digest.add_rescheduled_appointment!(rescheduled_appointment)
+
+        notifications = stub_notification_methods
+
+        notification = Notification::Appointment::ConsolidatedAppointmentNotification.new(
+          subject: digest,
+          recipient: caregiver
+        )
+
+        notification.deliver
+
+        expect(notifications[:sent].count).to eq(4), "Expected 3 individual emails + 1 consolidated SMS"
+
+        sent_types = notifications[:sent].map { |n| n[:notification_type] }
+        expect(sent_types).to include(:appointment_scheduled_email)
+        expect(sent_types).to include(:appointment_canceled_email)
+        expect(sent_types).to include(:appointment_rescheduled_email)
+        expect(sent_types).to include(:consolidated_appointment_sms)
+        expect(sent_types).not_to include(:consolidated_appointment_email)
+
+        expect(digest.reload.sent?).to be true
+      end
+
+      it "sends individual notifications for single appointment (no consolidation)" do
+        setup_care_case_data(blk: true) => {staffer:, caregiver:, patient:, care_case:}
+
+        appointment = create_appointment(care_case:, staffer:, patient:, caregiver:, start_time: 2.days.from_now)
+
+        digest = Notification::Appointment::AppointmentDigest.find_or_create_by(care_case: care_case)
+        digest.add_scheduled_appointment!(appointment)
+
+        notifications = stub_notification_methods
+
+        notification = Notification::Appointment::ConsolidatedAppointmentNotification.new(
+          subject: digest,
+          recipient: caregiver
+        )
+
+        notification.deliver
+
+        expect(notifications[:sent].count).to eq(2), "Expected individual email and SMS to be sent"
+
+        sent_types = notifications[:sent].map { |n| n[:notification_type] }
+        expect(sent_types).to include(:appointment_scheduled_email)
+        expect(sent_types).to include(:appointment_scheduled_sms)
+        expect(sent_types).not_to include(:consolidated_appointment_email)
+        expect(sent_types).not_to include(:consolidated_appointment_sms)
+
+        expect(digest.reload.sent?).to be true
+      end
+    end
+  end
+end

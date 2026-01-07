@@ -1,0 +1,38 @@
+[
+  {
+    "content": "Explore existing modal and form patterns in the codebase",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Create feedback model and migration for backend storage (include URL field)",
+    "status": "completed",
+    "priority": "high",
+    "id": "2"
+  },
+  {
+    "content": "Create feedback controller for handling submissions",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Build feedback widget component with modal and form (capture current URL)",
+    "status": "completed",
+    "priority": "high",
+    "id": "4"
+  },
+  {
+    "content": "Add widget to staffer layout and style with Tailwind",
+    "status": "completed",
+    "priority": "high",
+    "id": "5"
+  },
+  {
+    "content": "Test the feedback submission flow",
+    "status": "in_progress",
+    "priority": "medium",
+    "id": "6"
+  }
+]

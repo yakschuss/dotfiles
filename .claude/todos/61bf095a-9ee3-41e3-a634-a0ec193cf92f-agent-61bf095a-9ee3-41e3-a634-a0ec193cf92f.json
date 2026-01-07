@@ -1,0 +1,68 @@
+[
+  {
+    "content": "Replace h1/text-3xl etc with proper Prism Headings in all views created in this branch",
+    "status": "completed",
+    "priority": "high",
+    "id": "prism_headings"
+  },
+  {
+    "content": "Ensure all guest paperwork events are separate guest events, not mixed with unified events",
+    "status": "completed",
+    "priority": "high",
+    "id": "analytics_events"
+  },
+  {
+    "content": "Remove default vs display_description duplication in AssignmentCardComponent",
+    "status": "completed",
+    "priority": "medium",
+    "id": "assignment_description"
+  },
+  {
+    "content": "Check if member_mobile_autoclose_path pushes back into guest flow when not logged in",
+    "status": "completed",
+    "priority": "medium",
+    "id": "mobile_autoclose"
+  },
+  {
+    "content": "Verify if last_activity in check_session_timeout actually refreshes timeout",
+    "status": "completed",
+    "priority": "medium",
+    "id": "session_timeout_refresh"
+  },
+  {
+    "content": "DRY up care_case queries in verify_guest_access and redirect_if_logged_in",
+    "status": "completed",
+    "priority": "medium",
+    "id": "dry_care_case"
+  },
+  {
+    "content": "Add care_case_id to token generation and validate against specific care_case",
+    "status": "completed",
+    "priority": "high",
+    "id": "token_care_case"
+  },
+  {
+    "content": "Add bare text in invalid.html.erb to translation file with proper messaging",
+    "status": "completed",
+    "priority": "medium",
+    "id": "invalid_translations"
+  },
+  {
+    "content": "Add bare text in verifications/new.html.erb to translation file",
+    "status": "completed",
+    "priority": "medium",
+    "id": "new_translations"
+  },
+  {
+    "content": "Properly rebase/merge paperwork access token and update to current requirements",
+    "status": "completed",
+    "priority": "high",
+    "id": "rebase_merge"
+  },
+  {
+    "content": "Update and run all specs after completing all tasks",
+    "status": "completed",
+    "priority": "high",
+    "id": "run_specs"
+  }
+]

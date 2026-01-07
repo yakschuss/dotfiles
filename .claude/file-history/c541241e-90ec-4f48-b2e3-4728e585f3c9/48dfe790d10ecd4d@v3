@@ -1,0 +1,22 @@
+import { Controller } from "@hotwired/stimulus";
+
+export default class extends Controller {
+  static targets = ["select", "turboFrame"];
+
+  navigate(event) {
+    const realSelect = event.target.closest('[data-controller*="select-navigator"]').querySelector('select');
+    const url = realSelect?.value;
+
+    if (url) {
+      this.visitUrl(url);
+    }
+  }
+
+  visitUrl(url) {
+    if (this.hasTurboFrameTarget) {
+      this.turboFrameTarget.src = url;
+    } else {
+      Turbo.visit(url);
+    }
+  }
+}

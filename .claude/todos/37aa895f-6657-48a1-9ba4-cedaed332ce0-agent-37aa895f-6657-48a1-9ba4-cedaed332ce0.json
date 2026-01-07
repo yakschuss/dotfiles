@@ -1,0 +1,26 @@
+[
+  {
+    "content": "Fix RegionUpdatesController class name and namespace",
+    "status": "completed",
+    "priority": "high",
+    "id": "1"
+  },
+  {
+    "content": "Check if select navigator is working properly",
+    "status": "completed",
+    "priority": "medium",
+    "id": "2"
+  },
+  {
+    "content": "Debug why modal is not showing up",
+    "status": "completed",
+    "priority": "high",
+    "id": "3"
+  },
+  {
+    "content": "Add dialog controller to layout for modal functionality",
+    "status": "completed",
+    "priority": "high",
+    "id": "4"
+  }
+]

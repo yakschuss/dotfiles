@@ -1,0 +1,170 @@
+# frozen_string_literal: true
+
+module TestDoubles
+  module Acuity
+    def expect_acuity_calendar_to_be_found(email: anything, calendar_attributes: {})
+      expect(::Acuity::Api::Calendar).to receive(:find_by).with(email: email) do |**attributes|
+        FactoryBot.build(:acuity_calendar, **calendar_attributes.merge(attributes))
+      end
+    end
+
+    def expect_acuity_appointment_to_be_found(with_id: anything, appointment_attributes: {})
+      expect(::Acuity::Api::Appointment).to receive(:find).with(with_id) do |appointment_id|
+        FactoryBot.build(:acuity_appointment, **appointment_attributes.merge(id: appointment_id))
+      end
+    end
+
+    def expect_acuity_appointments_to_be_retrieved_for(calendar_id: anything, min_date: anything, max_date: anything, canceled: nil, appointment_attributes: {}, count: 2)
+      args = {min_date: min_date, max_date: max_date, canceled: canceled}.compact
+      expect(::Acuity::Api::Appointment).to receive(:all).with(calendar_id, args) do |calendar_id, min_date:, max_date:, canceled: false|
+        FactoryBot.build_list(:acuity_appointment, count, **appointment_attributes.merge(calendar_id: calendar_id, date: (min_date..max_date).to_a.sample))
+      end
+    end
+
+    def expect_acuity_appointment_not_to_be_created
+      expect(::Acuity::Api::Appointment).not_to receive(:create)
+    end
+
+    def expect_acuity_appointment_to_be_created(with_id: nil, first_name: anything, last_name: anything, email: anything, phone: anything, datetime: anything, timezone: anything, appointment_type_id: anything, care_case_id: anything, calendar_id: anything, authenticity_token: anything, admin: boolean, appointment_attributes: {})
+      attributes = {
+        first_name: first_name, last_name: last_name, email: email, phone: phone,
+        datetime: datetime, timezone: timezone,
+        appointment_type_id: appointment_type_id,
+        calendar_id: calendar_id,
+        care_case_id: care_case_id,
+        authenticity_token: authenticity_token,
+        admin: admin
+      }.compact
+
+      expect(::Acuity::Api::Appointment).to receive(:create).with(**attributes) do |**args|
+        FactoryBot.build(:acuity_appointment, **{id: with_id}.compact.merge(appointment_attributes).merge(args))
+      end
+    end
+
+    def expect_acuity_appointment_creation_to_raise_exception(exception = ::Acuity::Api::Client::Error.new)
+      expect(::Acuity::Api::Appointment).to receive(:create) { |**args| raise exception }
+    end
+
+    def expect_acuity_appointment_emails_to_be_updated(for_id: anything, emails: anything, appointment_attributes: {})
+      expect(::Acuity::Api::Appointment).to receive(:update).with(for_id, emails: emails) do |appointment_id, emails:|
+        FactoryBot.build(:acuity_appointment, **appointment_attributes.merge(id: appointment_id, email: emails.join(",")))
+      end
+    end
+
+    def expect_acuity_appointment_to_be_updated(for_id: anything, notes: nil, first_name: nil, last_name: nil, phone: nil, emails: nil, appointment_attributes: {})
+      args = {notes: notes, first_name: first_name, last_name: last_name, emails: emails, phone: phone}.compact
+      expect(::Acuity::Api::Appointment).to receive(:update).with(for_id, **args) do |appointment_id, **kwargs|
+        FactoryBot.build(:acuity_appointment, **appointment_attributes.merge(id: appointment_id, **kwargs))
+      end
+    end
+
+    def expect_acuity_appointment_to_be_canceled(for_id: anything, appointment_attributes: {})
+      expect(::Acuity::Api::Appointment).to receive(:cancel).with(for_id) do |appointment_id|
+        FactoryBot.build(:acuity_appointment, **appointment_attributes)
+      end
+    end
+
+    def expect_acuity_appointment_to_be_marked_as_no_show(for_id: anything, appointment_attributes: {})
+      expect(::Acuity::Api::Appointment).to receive(:no_show).with(for_id) do |appointment_id|
+        FactoryBot.build(:acuity_appointment, **appointment_attributes)
+      end
+    end
+
+    def expect_acuity_appointment_to_be_rescheduled(for_id: anything, start_time: anything, **appointment_attributes)
+      expect(::Acuity::Api::Appointment).to receive(:reschedule).with(id: for_id, start_time: start_time) do |appointment_id|
+        FactoryBot.build(:acuity_appointment, id: for_id, **appointment_attributes)
+      end
+    end
+
+    def expect_acuity_appointment_reschedulation_to_raise_error(exception = ::Acuity::Api::Client::Error.new)
+      expect(::Acuity::Api::Appointment).to receive(:reschedule) { |**args| raise exception }
+    end
+
+    def expect_acuity_appointment_not_to_be_updated
+      expect(::Acuity::Api::Appointment).not_to receive(:update)
+    end
+
+    def expect_acuity_appointment_update_to_raise_exception(exception = ::Acuity::Api::Client::Error.new)
+      expect(::Acuity::Api::Appointment).to receive(:update) { |**args| raise exception }
+    end
+
+    def expect_acuity_available_dates(dates: nil, month: anything, acuity_appointment_type_id: anything, timezone: anything, calendar_ids: anything)
+      args = {month: month, appointment_type_id: acuity_appointment_type_id, timezone: timezone, calendar_ids: calendar_ids}
+
+      expect(::Acuity::Api::Availability::Date).to receive(:for).with(**args) do |month:, appointment_type_id:, timezone:, calendar_ids:|
+        year, calendar_month = month.split("-")
+        days_in_month = Time.days_in_month(calendar_month.to_i, year.to_i)
+
+        base_date = Date.new(year.to_i, calendar_month.to_i, days_in_month)
+        dates ||= [base_date]
+
+        Array(dates).map do |date|
+          ::Acuity::Api::Availability::Date.new(date: date, calendar_ids: Array(calendar_ids))
+        end
+      end
+    end
+
+    def expect_acuity_availability(times: nil, date: anything, acuity_appointment_type_id: anything, timezone: anything, calendar_ids: anything, max_days: nil)
+      args = {date: date, appointment_type_id: acuity_appointment_type_id, timezone: timezone, calendar_ids: calendar_ids, max_days: max_days}.compact
+
+      expect(::Acuity::Api::Availability::Time).to receive(:for).with(**args) do |date:, appointment_type_id:, timezone:, calendar_ids:, max_days: nil|
+        base_time = date.in_time_zone(timezone)
+        times ||= [
+          base_time.change(hour: 9),
+          base_time.change(hour: 10)
+        ]
+
+        Array(times).map do |time|
+          ::Acuity::Api::Availability::Time.new(datetime: time, calendar_ids: Array(calendar_ids))
+        end
+      end
+    end
+
+    def expect_no_acuity_availability_call(times: nil, date: anything, acuity_appointment_type_id: anything, timezone: anything, calendar_ids: anything, max_days: anything)
+      args = {date: date, appointment_type_id: acuity_appointment_type_id, timezone: timezone, calendar_ids: calendar_ids, max_days: max_days}.compact
+      expect(::Acuity::Api::Availability::Time).to_not receive(:for).with(**args)
+    end
+
+    def expect_acuity_availability_to_raise_exception(exception = ::Acuity::Api::Client::Error.new)
+      expect(::Acuity::Api::Availability::Date).to receive(:for) { |**args| raise exception }
+    end
+
+    def expect_acuity_block_to_be_created(calendar_id: anything, start_time: anything, end_time: anything, block_id: 123)
+      expect(::Acuity::Api::Block).to receive(:create).with(calendar_id: calendar_id, start_time: start_time, end_time: end_time) do |**attributes|
+        FactoryBot.build(:acuity_block, attributes.merge(id: block_id))
+      end
+    end
+
+    def expect_acuity_block_to_be_creation_to_raise_exception(exception = ::Acuity::Api::Client::Error.new)
+      expect(::Acuity::Api::Block).to receive(:create) { raise exception }
+    end
+
+    def expect_acuity_block_to_be_deleted(id: anything)
+      # the Acuity API returns a 204 + empty string on a delete
+      expect(::Acuity::Api::Block).to receive(:delete).with(id) { "" }
+    end
+
+    def expect_acuity_block_deletion_to_raise_exception(exception = ::Acuity::Api::Client::Error.new)
+      expect(::Acuity::Api::Block).to receive(:delete) { raise exception }
+    end
+
+    def expect_acuity_regular_hours(calendar_id: anything, hours: nil)
+      expect(::Acuity::Api::RegularHours).to receive(:find_by).with(calendar_id: calendar_id).and_return(hours)
+    end
+
+    def expect_acuity_check_times(candidate_times:, results: nil)
+      results ||= candidate_times.map { |candidate_time| candidate_time.to_h.merge(valid: true) }
+
+      # Convert hashes to CandidateTime objects for the expectation
+      expected_candidate_times = candidate_times.map do |ct|
+        ::Acuity::Api::Availability::CandidateTime.new(ct)
+      end
+
+      expect(::Acuity::Api::Availability::CheckTimes).to receive(:for).with(candidate_times: expected_candidate_times) do
+        results.map do |result|
+          ::Acuity::Api::Availability::CandidateTime.new(result)
+        end
+      end
+    end
+  end
+end

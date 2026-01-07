@@ -1,0 +1,197 @@
+# frozen_string_literal: true
+
+module Generators
+  class NewAccount
+    class << self
+      class NewAccountGenerator < Struct.new(:account, :care_case, :caregiver, :patient, :account_member, keyword_init: true); end
+
+      class CoveredByEmployerGenerator < Struct.new(:account, :account_covered_entity, :care_case_covered_entity, :caregiver, :coverage_info, :patient, :care_case, keyword_init: true); end
+
+      class TwoChildFamilyGenerator < Struct.new(:caregiver, :child_1, :child_2, :account, :care_case_1, :care_case_2, keyword_init: true); end
+
+      class FamilyWithTeenGenerator < Struct.new(:caregiver, :teen, :child, :account, :teen_case, :child_case, keyword_init: true); end
+
+      class NewAccountChatGenerator < Struct.new(:account, :care_case, :caregiver, :patient, :coach_channel, :member_support_channel, :care_guide_channel, :therapist_channel, :prescriber_channel, keyword_init: true); end
+
+      def in_therapy
+        caregiver = FactoryBot.create(:member, :registered)
+        patient = FactoryBot.create(:member, :registered)
+        account = FactoryBot.create(:account, :with_assigned_coach, :setup_completed, caregivers: [caregiver], children: [patient])
+        care_case = FactoryBot.create(:care_case, :in_treatment, account: account, caregivers: [caregiver], patient: patient, program: Program.therapy, primary_staffer: FactoryBot.create(:staffer, :therapist))
+        account.update!(owner: caregiver)
+
+        NewAccountGenerator.new({
+          account: account,
+          care_case: care_case,
+          caregiver: caregiver,
+          patient: patient,
+          account_member: AccountMember.new(account: account, member: caregiver)
+        })
+      end
+
+      def in_coaching
+        caregiver = FactoryBot.create(:member, :registered)
+        patient = FactoryBot.create(:member, :registered)
+        account = FactoryBot.create(:account, :with_assigned_coach, :setup_completed, caregivers: [caregiver], children: [patient])
+        care_case = FactoryBot.create(:care_case, :in_treatment, account: account, caregivers: [caregiver], patient: patient, program: Program.general_coaching, primary_staffer: FactoryBot.create(:staffer, :coach))
+        account.update!(owner: caregiver)
+
+        NewAccountGenerator.new({
+          account: account,
+          care_case: care_case,
+          caregiver: caregiver,
+          patient: patient,
+          account_member: AccountMember.new(account: account, member: caregiver)
+        })
+      end
+
+      def covered_by_employer
+        account_data = in_therapy
+        coverage_info = FactoryBot.create(:coverage_info, :confirmed, account: account_data[:account], care_case: account_data[:care_case])
+        account_covered_entity = FactoryBot.create(:covered_entity, :account_covered, :with_active_coverage, account: account_data[:account])
+        care_case_covered_entity = FactoryBot.create(:covered_entity, :with_active_coverage, account: account_data[:account], care_cases: [account_data[:care_case]])
+
+        CoveredByEmployerGenerator.new({
+          account: account_data[:account],
+          account_covered_entity: account_covered_entity,
+          care_case_covered_entity: care_case_covered_entity,
+          caregiver: account_data[:caregiver],
+          coverage_info: coverage_info,
+          patient: account_data[:patient],
+          care_case: account_data[:care_case]
+        })
+      end
+
+      def two_children_family
+        caregiver = FactoryBot.create(:member, :with_personal_information, :with_login, :with_sendbird_user)
+
+        child_1 = FactoryBot.create(:member, :with_personal_information)
+        child_2 = FactoryBot.create(:member, :with_personal_information)
+
+        account = FactoryBot.create(:account, caregivers: [caregiver], children: [child_1, child_2])
+
+        care_case_1 = FactoryBot.create(
+          :care_case,
+          :in_treatment,
+          account: account,
+          patient: child_1,
+          caregivers: [caregiver],
+          program: Program.speech_language_pathology
+        )
+        care_case_2 = FactoryBot.create(
+          :care_case,
+          :in_treatment,
+          account: account,
+          patient: child_2,
+          caregivers: [caregiver],
+          program: Program.speech_language_pathology
+        )
+
+        TwoChildFamilyGenerator.new(
+          caregiver: caregiver,
+          child_1: child_1,
+          child_2: child_2,
+          account: account,
+          care_case_1: care_case_1,
+          care_case_2: care_case_2
+        )
+      end
+
+      def family_with_teen
+        caregiver = FactoryBot.create(:member, :with_personal_information, :with_login, :with_sendbird_user)
+
+        child_1 = FactoryBot.create(:member, :with_personal_information, :with_login, date_of_birth: 14.years.ago)
+        child_2 = FactoryBot.create(:member, :with_personal_information)
+
+        account = FactoryBot.create(:account, :in_therapy_supported_region, caregivers: [caregiver], children: [child_1, child_2])
+
+        care_case_1 = FactoryBot.create(
+          :care_case,
+          :in_treatment,
+          account: account,
+          patient: child_1,
+          caregivers: [caregiver],
+          program: Program.therapy
+        )
+        care_case_2 = FactoryBot.create(
+          :care_case,
+          :in_treatment,
+          account: account,
+          patient: child_2,
+          caregivers: [caregiver],
+          program: Program.therapy
+        )
+
+        FamilyWithTeenGenerator.new(
+          caregiver: caregiver,
+          teen: child_1,
+          child: child_2,
+          account: account,
+          teen_case: care_case_1,
+          child_case: care_case_2
+        )
+      end
+
+      def connect_only
+        caregiver = FactoryBot.create(:member, :registered)
+        patient = FactoryBot.create(:member, :registered)
+        account = FactoryBot.create(:account, :setup_completed, caregivers: [caregiver], children: [patient], topic_ids: [Connect::Topic.worries.id])
+        care_case = FactoryBot.create(:care_case, account: account, patient: patient, caregivers: [caregiver])
+        account_member = AccountMember.new(member: caregiver, account: account)
+
+        NewAccountGenerator.new({
+          account: account,
+          care_case: care_case,
+          caregiver: caregiver,
+          patient: patient,
+          account_member: account_member
+        })
+      end
+
+      def hooked_up_for_chat(with_therapist_and_prescriber_channels: false, with_teen: false)
+        caregiver = FactoryBot.create(:member, :with_personal_information, :with_login, :with_sendbird_user)
+        patient = if with_teen
+          FactoryBot.create(:member, :registered, :with_sendbird_user, date_of_birth: 14.years.ago)
+        else
+          FactoryBot.create(:member, :registered)
+        end
+        coach = FactoryBot.create(:staffer, :coach, :with_bio)
+        care_guide = FactoryBot.create(:staffer, :care_guide, :with_bio)
+        coach_sendbird_user = FactoryBot.create(:sendbird_user, :staffer, participant: coach)
+        care_guide_sendbird_user = FactoryBot.create(:sendbird_user, :staffer, participant: care_guide)
+        account = FactoryBot.create(:account, :setup_completed, assigned_care_guide: care_guide, assigned_coach: coach, caregivers: [caregiver], children: [patient])
+        care_case = FactoryBot.create(:care_case, :in_treatment, account: account, caregivers: [caregiver], patient: patient, program: Program.therapy, primary_staffer: FactoryBot.create(:staffer, :therapist))
+        coach_channel = FactoryBot.create(:sendbird_chat_channel, :coach, account: account, sendbird_users: [caregiver.sendbird_user, coach_sendbird_user])
+        member_support_channel = FactoryBot.create(:sendbird_chat_channel, :member_support, account: account, sendbird_users: [caregiver.sendbird_user])
+        care_guide_channel = FactoryBot.create(:sendbird_chat_channel, :care_guide, account: account, sendbird_users: [caregiver.sendbird_user, care_guide_sendbird_user])
+
+        # Create teen channels if with_teen is true
+        if with_teen
+          FactoryBot.create(:sendbird_chat_channel, :coach, account: account, sendbird_users: [patient.sendbird_user, coach_sendbird_user])
+          FactoryBot.create(:sendbird_chat_channel, :care_guide, account: account, sendbird_users: [patient.sendbird_user, care_guide_sendbird_user])
+        end
+
+        therapist_channel, prescriber_channel = if with_therapist_and_prescriber_channels
+          [
+            FactoryBot.create(:sendbird_chat_channel, :therapist, account: account, sendbird_users: [caregiver.sendbird_user]),
+            FactoryBot.create(:sendbird_chat_channel, :prescriber, account: account, sendbird_users: [caregiver.sendbird_user])
+          ]
+        else
+          []
+        end
+
+        NewAccountChatGenerator.new({
+          account: account,
+          care_case: care_case,
+          caregiver: caregiver,
+          patient: patient,
+          care_guide_channel: care_guide_channel,
+          coach_channel: coach_channel,
+          member_support_channel: member_support_channel,
+          therapist_channel: therapist_channel,
+          prescriber_channel: prescriber_channel
+        })
+      end
+    end
+  end
+end
