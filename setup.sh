@@ -211,6 +211,17 @@ else
 fi
 
 echo ""
+echo "==> Configuring iTerm2 to use dotfiles"
+if $DRY_RUN; then
+  echo "[dry-run] defaults write com.googlecode.iterm2 PrefsCustomFolder -string '~/.config/iterm2'"
+  echo "[dry-run] defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true"
+else
+  defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.config/iterm2"
+  defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+  echo "    iTerm2 will load settings from ~/.config/iterm2"
+fi
+
+echo ""
 echo "==> Configuring macOS defaults"
 if $DRY_RUN; then
   echo "[dry-run] Setting keyboard, dock, finder preferences..."
