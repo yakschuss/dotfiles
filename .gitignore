@@ -18,3 +18,4 @@ jack_docs/
 # Claude - only track commands
 .claude/*
 !.claude/commands/
+.worktrees
