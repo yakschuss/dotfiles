@@ -40,11 +40,19 @@ if [ -z "$NVIM_PANE" ]; then
   NVIM_PANE=$(tmux list-panes -F "#{pane_id} #{pane_current_command}" | grep nvim | awk '{print $1}')
 fi
 
-# Open file at line
+# Open file at line and highlight (single line)
 tmux send-keys -t $NVIM_PANE Escape ":e +LINE FILE" Enter
+tmux send-keys -t $NVIM_PANE "V"  # visual line mode
 
-# Visual select pattern
-tmux send-keys -t $NVIM_PANE "LINEgg" && tmux send-keys -t $NVIM_PANE "/PATTERN" Enter && tmux send-keys -t $NVIM_PANE "v" && tmux send-keys -t $NVIM_PANE "f)"
+# Highlight multi-line change (from START_LINE to END_LINE)
+tmux send-keys -t $NVIM_PANE Escape ":e +START_LINE FILE" Enter
+tmux send-keys -t $NVIM_PANE "V"
+tmux send-keys -t $NVIM_PANE "END_LINEgg"
+
+# Highlight by searching for pattern
+tmux send-keys -t $NVIM_PANE Escape ":e +LINE FILE" Enter
+tmux send-keys -t $NVIM_PANE "/PATTERN" Enter
+tmux send-keys -t $NVIM_PANE "v" && tmux send-keys -t $NVIM_PANE "e"  # or f) for parens
 
 # Focus pane
 tmux select-pane -t $NVIM_PANE
