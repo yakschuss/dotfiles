@@ -30,6 +30,11 @@ alias reef="cd ~/Brightline/reef"
 alias rgvim="rg_vim"
 openall() { vim -o $(git status --porcelain | awk '/^ M|^??/ {print $2}'); }
 
+# Git worktree helper - creates worktree in .worktrees/ with new branch
+# Usage: gwt feature-name [base-branch]
+# Example: gwt my-feature main
+gwt() { git worktree add .worktrees/$1 -b $1 ${2:-main}; }
+
 export BROWSER="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
 source ~/zsh-git-prompt/zshrc.sh
