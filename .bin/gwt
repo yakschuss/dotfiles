@@ -4,25 +4,108 @@
 #   gwt branch-name [base]   Create new branch from base (default: main)
 #   gwt -e branch-name       Add existing branch to worktree
 #   gwt -l                   List all worktrees
-#   gwt -r branch-name       Remove worktree
+#   gwt -r branch-name       Remove worktree (and cleanup resources)
 #   gwt -p                   Prune broken worktrees
+#   gwt --no-setup ...       Skip running setup script
 
 set -e
 
 WORKTREE_DIR=".worktrees"
+RUN_SETUP=true
 
 usage() {
     echo "Usage:"
     echo "  gwt branch-name [base]   Create new branch from base (default: main)"
     echo "  gwt -e branch-name       Add existing branch to worktree"
     echo "  gwt -l                   List all worktrees"
-    echo "  gwt -r branch-name       Remove worktree"
+    echo "  gwt -r branch-name       Remove worktree (and cleanup resources)"
     echo "  gwt -p                   Prune broken worktrees"
+    echo "  gwt --no-setup ...       Skip running setup script"
     echo "  gwt -h                   Show this help"
     exit "${1:-0}"
 }
 
+run_setup_if_exists() {
+    local worktree_path="$(cd "$1" && pwd)"  # Get absolute path
+
+    # Try to find worktree-setup: first in current repo, then in worktree
+    local setup_script=""
+    if [ -f "script/worktree-setup" ]; then
+        setup_script="$(pwd)/script/worktree-setup"
+    elif [ -f "$worktree_path/script/worktree-setup" ]; then
+        setup_script="$worktree_path/script/worktree-setup"
+    fi
+
+    if [ "$RUN_SETUP" = true ] && [ -n "$setup_script" ]; then
+        echo "Running worktree setup..."
+        "$setup_script" "$worktree_path"
+    elif [ "$RUN_SETUP" = false ]; then
+        echo "Skipping setup (--no-setup flag)"
+    elif [ -z "$setup_script" ]; then
+        echo "No worktree-setup script found. You may need to set up manually."
+    fi
+
+    # Navigate to worktree and start new shell
+    echo
+    echo "Entering worktree: $worktree_path"
+    cd "$worktree_path"
+    exec $SHELL
+}
+
+run_cleanup_if_exists() {
+    local branch="$1"
+    local worktree_path="$WORKTREE_DIR/$branch"
+
+    # Try to find cleanup script: first in current repo, then in worktree
+    if [ -f "script/worktree-cleanup" ]; then
+        echo "Running worktree cleanup..."
+        script/worktree-cleanup "$branch"
+    elif [ -f "$worktree_path/script/worktree-cleanup" ]; then
+        echo "Running worktree cleanup..."
+        cd "$worktree_path"
+        script/worktree-cleanup "$branch"
+        cd - >/dev/null
+    fi
+}
+
+list_worktrees() {
+    echo "Git worktrees:"
+    git worktree list
+    echo
+
+    # Show allocations if config exists
+    if [ -f ".worktree-config.json" ]; then
+        echo "Resource allocations:"
+        python3 -c "
+import json
+try:
+    with open('.worktree-config.json', 'r') as f:
+        data = json.load(f)
+    worktrees = data.get('worktrees', {})
+    if worktrees:
+        print(f'{'Branch':<30} {'Port':<8} {'Database':<35}')
+        print('-' * 75)
+        for name, info in worktrees.items():
+            offset = info.get('offset', 0)
+            port = 3000 + offset
+            db = f'reef_wt_{name}'
+            branch = info.get('branch', name)[:28]
+            print(f'{branch:<30} {port:<8} {db:<35}')
+    else:
+        print('No worktree allocations found')
+except Exception as e:
+    print(f'Could not read config: {e}')
+"
+    fi
+}
+
 [[ $# -eq 0 ]] && usage 1
+
+# Check for --no-setup flag
+if [[ "$1" == "--no-setup" ]]; then
+    RUN_SETUP=false
+    shift
+fi
 
 case "$1" in
     -h|--help)
@@ -30,16 +113,20 @@ case "$1" in
         ;;
     -e)
         [[ -z "$2" ]] && usage 1
-        git worktree add "$WORKTREE_DIR/$2" "$2"
-        echo "Created worktree at $WORKTREE_DIR/$2"
+        branch="$2"
+        git worktree add "$WORKTREE_DIR/$branch" "$branch"
+        echo "Created worktree at $WORKTREE_DIR/$branch"
+        run_setup_if_exists "$WORKTREE_DIR/$branch"
         ;;
     -l)
-        git worktree list
+        list_worktrees
         ;;
     -r)
         [[ -z "$2" ]] && usage 1
-        git worktree remove "$WORKTREE_DIR/$2"
-        echo "Removed worktree $WORKTREE_DIR/$2"
+        branch="$2"
+        run_cleanup_if_exists "$branch"
+        git worktree remove "$WORKTREE_DIR/$branch"
+        echo "Removed worktree $WORKTREE_DIR/$branch"
         ;;
     -p)
         git worktree prune
@@ -51,7 +138,15 @@ case "$1" in
     *)
         branch="$1"
         base="${2:-main}"
-        git worktree add "$WORKTREE_DIR/$branch" -b "$branch" "$base"
-        echo "Created worktree at $WORKTREE_DIR/$branch (branched from $base)"
+
+        # Check if branch already exists
+        if git show-ref --verify --quiet "refs/heads/$branch"; then
+            echo "Branch '$branch' already exists, using -e mode"
+            git worktree add "$WORKTREE_DIR/$branch" "$branch"
+        else
+            git worktree add "$WORKTREE_DIR/$branch" -b "$branch" "$base"
+            echo "Created worktree at $WORKTREE_DIR/$branch (branched from $base)"
+        fi
+        run_setup_if_exists "$WORKTREE_DIR/$branch"
         ;;
 esac

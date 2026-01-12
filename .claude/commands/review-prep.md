@@ -35,7 +35,7 @@ Map each change to which problem it addresses.
 # Find or create nvim pane
 NVIM_PANE=$(tmux list-panes -F "#{pane_id} #{pane_current_command}" | grep nvim | awk '{print $1}')
 if [ -z "$NVIM_PANE" ]; then
-  tmux split-window -h "nvim"
+  tmux split-window -h -d "nvim"
   sleep 0.5
   NVIM_PANE=$(tmux list-panes -F "#{pane_id} #{pane_current_command}" | grep nvim | awk '{print $1}')
 fi
